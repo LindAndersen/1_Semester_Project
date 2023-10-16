@@ -19,7 +19,7 @@ class Registry {
   }
   
   public void dispatch (String line) {
-    String[] elements = line.split(" ");
+    String[] elements = line.toLowerCase().split(" ");
     String command = elements[0];
     String[] parameters = getParameters(elements);
     Command handler = getCommand(command);

@@ -20,7 +20,7 @@ class Game {
   }
   
   public static void main (String args[]) {
-    System.out.println("Welcome to the World of Zuul!");
+    System.out.println("Velkommen til din by, her er du borgmester! Gør dit bedste for at tage bæredygtige beslutninger!");
     
     initRegistry();
     context.getCurrent().welcome();

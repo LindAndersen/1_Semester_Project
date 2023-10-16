@@ -7,11 +7,17 @@ class Space extends Node {
   Space (String name) {
     super(name);
   }
+
+  private void roomHandler() {
+    switch(name) {
+
+    }
+  }
   
   public void welcome () {
-    System.out.println("You are now at "+name);
+    System.out.println("Du er nu ved "+name);
     Set<String> exits = edges.keySet();
-    System.out.println("Current exits are:");
+    System.out.println("Du kan gå mod:");
     for (String exit: exits) {
       System.out.println(" - "+exit);
     }
