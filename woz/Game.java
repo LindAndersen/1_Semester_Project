@@ -15,6 +15,7 @@ class Game {
     registry.register("exit", cmdExit);
     registry.register("quit", cmdExit);
     registry.register("bye", cmdExit);
+    registry.register("pickup", new CommandPickUp());
     registry.register("go", new CommandGo());
     registry.register("help", new CommandHelp(registry));
   }
@@ -24,11 +25,20 @@ class Game {
     
     initRegistry();
     context.getCurrent().welcome();
+    context.getCurrent().roomActions();
     
     while (context.isDone()==false) {
+      while (context.isRoomHandled() == false) {
+        System.out.print("> ");
+        String line = scanner.nextLine();
+        registry.dispatch(line);
+      }
+
       System.out.print("> ");
       String line = scanner.nextLine();
       registry.dispatch(line);
+
+      
     }
     System.out.println("Game Over 😥");
   }

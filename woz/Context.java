@@ -2,8 +2,10 @@
  */
 
 class Context {
-  Space current;
-  boolean done = false;
+  private Space current;
+  private boolean done = false;
+  private boolean roomHandled = false;
+
   
   Context (Space node) {
     current = node;
@@ -11,6 +13,11 @@ class Context {
   
   public Space getCurrent() {
     return current;
+  }
+
+  public void roomHandler() {
+    System.out.println("item picked up wuhu");
+    makeRoomHandled();
   }
   
   public void transition (String direction) {
@@ -21,6 +28,7 @@ class Context {
       current.goodbye();
       current = next;
       current.welcome();
+      current.roomActions();
     }
   }
   
@@ -30,6 +38,14 @@ class Context {
   
   public boolean isDone () {
     return done;
+  }
+
+  public boolean isRoomHandled() {
+    return roomHandled;
+  }
+
+  public void makeRoomHandled() {
+    roomHandled = true;
   }
 }
 
