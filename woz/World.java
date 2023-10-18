@@ -1,29 +1,51 @@
 /* World class for modeling the entire in-game world
  */
+import java.util.*;
 
 class World {
   Space entry;
+  List<Space> locations = new ArrayList<Space>();
   
   World () {
-    Space entry    = new Space("borgmesterenshus");
-    Space city     = new Space("midtbyen");
-    Space trash    = new Space("losseplads");
-    Space park     = new Space("park");
-    Space pond     = new Space("soe");
+    entry           = new Space("kontor");
+    Space rp        = new Space("raedhusplads");
+    Space trash     = new Space("genbrugsstation");
+    Space park      = new Space("park");
+    Space shop      = new Space("butik");
+    Space homes     = new Space("roekkehuse");
+
+    Space[] spaces = new Space[] {entry, rp, trash, park, shop, homes};
+    locations.addAll(Arrays.asList(spaces));
     
-    entry.addEdge(city.name, city);
-    entry.addEdge(pond.name, pond);
-    pond.addEdge(entry.name, entry);
-    pond.addEdge(park.name, park);
-    park.addEdge(pond.name, pond);
-    park.addEdge(trash.name, trash);
-    trash.addEdge(park.name, park);
-    trash.addEdge(city.name, city);
-    city.addEdge(trash.name, trash);
-    city.addEdge(entry.name, entry);
+    entry.addEdge(rp.name, rp);
+    entry.addEdge(shop.name, shop);
+    shop.addEdge(entry.name, entry);
+    shop.addEdge(rp.name, rp);
+    shop.addEdge(park.name, park);
+    shop.addEdge(trash.name, trash);
+    trash.addEdge(shop.name, shop);
+    rp.addEdge(entry.name, entry);
+    rp.addEdge(shop.name, shop);
+    rp.addEdge(park.name, park);
+    park.addEdge(rp.name, rp);
+    park.addEdge(shop.name, shop);
+    park.addEdge(homes.name, homes);
+    homes.addEdge(park.name, park);
     
     this.entry = entry;
+
+    for (Space location : locations) {
+      if (location.name.equals(entry.name)) {
+        location.addCommand("status");
+      } else if (location.name.equals(shop.name)) {
+        location.addCommand("sell");
+        location.addCommand("buy");
+      } else {
+      location.addCommand("pickup");
+      location.addCommand("hint");
+    }
   }
+}
   
   Space getEntry () {
     return entry;

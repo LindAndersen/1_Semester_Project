@@ -1,9 +1,11 @@
 /* Space class for modeling spaces (rooms, caves, ...)
  */
 
-import java.util.Set;
+import java.util.*;
 
 class Space extends Node {
+  List<String> commands = new ArrayList<String>();
+
   Space (String name) {
     super(name);
   }
@@ -15,13 +17,19 @@ class Space extends Node {
     for (String exit: exits) {
       System.out.println(" - "+exit);
     }
-  }
 
-  public void roomActions() {
-    System.out.println("Rumhandlinger\n - pickup");
+    System.out.println("Rumhandlinger");
+    for (String command : commands) {
+      System.out.printf(" - %s%n", command);
+    }
   }
   
   public void goodbye () {
+    System.out.println("Here will be some information about the room you just left");
+  }
+
+    public void addCommand(String cmdName) {
+    commands.add(cmdName);
   }
 
   @Override

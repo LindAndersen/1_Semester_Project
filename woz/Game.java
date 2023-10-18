@@ -15,7 +15,11 @@ class Game {
     registry.register("exit", cmdExit);
     registry.register("quit", cmdExit);
     registry.register("bye", cmdExit);
-    registry.register("pickup", new CommandPickUp());
+    registry.register("pickup", new CommandRoomAction("Saml skrald op"));
+    registry.register("sell", new CommandRoomAction("Sælg dit skrald"));
+    registry.register("buy", new CommandRoomAction("Køb udvidelser til din by"));
+    registry.register("hint", new CommandRoomAction("Få hjælp til at forstå dine muligheder"));
+    registry.register("status", new CommandRoomAction("Vis en statusoversigt over din by"));
     registry.register("go", new CommandGo());
     registry.register("help", new CommandHelp(registry));
   }
@@ -25,15 +29,8 @@ class Game {
     
     initRegistry();
     context.getCurrent().welcome();
-    context.getCurrent().roomActions();
     
     while (context.isDone()==false) {
-      while (context.isRoomHandled() == false) {
-        System.out.print("> ");
-        String line = scanner.nextLine();
-        registry.dispatch(line);
-      }
-
       System.out.print("> ");
       String line = scanner.nextLine();
       registry.dispatch(line);

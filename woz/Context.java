@@ -4,7 +4,6 @@
 class Context {
   private Space current;
   private boolean done = false;
-  private boolean roomHandled = false;
 
   
   Context (Space node) {
@@ -13,11 +12,6 @@ class Context {
   
   public Space getCurrent() {
     return current;
-  }
-
-  public void roomHandler() {
-    System.out.println("item picked up wuhu");
-    makeRoomHandled();
   }
   
   public void transition (String direction) {
@@ -28,8 +22,11 @@ class Context {
       current.goodbye();
       current = next;
       current.welcome();
-      current.roomActions();
     }
+  }
+
+  public void youStupid () {
+    System.out.println("You are an idiot, and have used this command wrong");
   }
   
   public void makeDone () {
@@ -40,12 +37,5 @@ class Context {
     return done;
   }
 
-  public boolean isRoomHandled() {
-    return roomHandled;
-  }
-
-  public void makeRoomHandled() {
-    roomHandled = true;
-  }
 }
 
