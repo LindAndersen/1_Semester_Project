@@ -28,8 +28,15 @@ class Space extends Node {
     System.out.println("Here will be some information about the room you just left");
   }
 
-    public void addCommand(String cmdName) {
+  public void addCommand(String cmdName) {
     commands.add(cmdName);
+  }
+
+  public boolean isCommandPossible(String cmdName) {
+    for (String command : commands) {
+      if (command.equals(cmdName)) {return true;}
+    }
+    return false;
   }
 
   @Override
