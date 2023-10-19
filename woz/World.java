@@ -40,11 +40,12 @@ class World {
       } else if (location.name.equals(shop.name)) {
         location.addCommand("sell");
         location.addCommand("buy");
-      } else {
+      }
       location.addCommand("pickup");
       location.addCommand("hint");
-    }
   }
+
+  //Build spaces with SpaceBuilder()
 }
   
   Space getEntry () {

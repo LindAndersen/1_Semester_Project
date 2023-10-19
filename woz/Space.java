@@ -8,10 +8,18 @@ class Space extends Node {
 
   Space (String name) {
     super(name);
+    SpaceBuilder sp = new SpaceBuilder(name);
+
   }
 
+
   public void welcome () {
-    System.out.println("Du er nu ved "+name);
+    System.out.println("\nDu er nu ved "+name);
+    update();
+  }
+
+  public void update() {
+    System.out.println("-------------------------------------------");
     Set<String> exits = edges.keySet();
     System.out.println("Du kan gå mod:");
     for (String exit: exits) {
@@ -25,7 +33,7 @@ class Space extends Node {
   }
   
   public void goodbye () {
-    System.out.println("Here will be some information about the room you just left");
+    System.out.printf("%nHere will be some information about %s (the room you just left)", name);
   }
 
   public void addCommand(String cmdName) {

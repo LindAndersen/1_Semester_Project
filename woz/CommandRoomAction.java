@@ -9,8 +9,7 @@ class CommandRoomAction extends BaseCommand implements Command {
   public void pickup(Context context, String[] parameters) {
     if (!guardEq(parameters, 1)) {
       String amount = parameters[0];
-      System.out.printf("%nDu har samlet %s bunker skrald op", amount);
-      return;
+      System.out.printf("%nDu har samlet %s bunker skrald op%n", amount);
     } else if (!guardEq(parameters, 0)) {
       System.out.println("Du har samlet alt skrald op");
     } else {
@@ -39,6 +38,7 @@ class CommandRoomAction extends BaseCommand implements Command {
   public void sell(Context context, String[] parameters) {
     if (guardEq(parameters, 1)) {
       context.youStupid();
+      return;
     }
     System.out.printf("%nDu har solgt %s bunker skrald%n", parameters[0]);
   }
@@ -76,5 +76,7 @@ class CommandRoomAction extends BaseCommand implements Command {
         default_(context, command, parameters);
 
     }    
+
+    context.getCurrent().update();
   }
 }
