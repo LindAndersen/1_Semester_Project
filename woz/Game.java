@@ -5,13 +5,12 @@ import java.util.Scanner;
 
 class Game {
   static World    world    = new World();
-  static Context  context  = new Context(world.getEntry());
+  static Player player = new Player(); 
+  static Context  context  = new Context(world.getEntry(), player);
   static Command  fallback = new CommandUnknown();
   static Registry registry = new Registry(context, fallback);
   static Scanner  scanner  = new Scanner(System.in);
-  //----------------------------------------------------------------------------------------------------------------------
-  static Player player = new Player(); 
-  //----------------------------------------------------------------------------------------------------------------------
+
   
   private static void initRegistry () {
     Command cmdExit = new CommandExit();
@@ -26,7 +25,6 @@ class Game {
     registry.register("go", new CommandGo());
     registry.register("help", new CommandHelp(registry));
     registry.register("reset", new CommandResetDay());
-    registry.register("test", new CommandRoomActions());
 
   }
   

@@ -1,5 +1,7 @@
 public class InteractableSpace {
+	String name;
+
 	InteractableSpace(String name) {
-		String this.name = name;
+		this.name = name;
 	}
 }

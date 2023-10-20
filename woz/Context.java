@@ -1,16 +1,19 @@
 /* Context class to hold all context relevant to a session.
  */
 
+import java.util.*;
+
 class Context {
 
   private Space current;
+  private Player player;
   private boolean done = false;
+  private int day;
 
-  
-  private int day = 1;
-
-  Context (Space node) {
+  Context (Space node, Player player) {
     current = node;
+    this.player = player;
+    day = 1;
   }
 
   //---------------------------------------------------------------------------------------------
@@ -27,9 +30,11 @@ class Context {
     World.genbrugsstation.isHandled = false;
     World.butik.isHandled = false;
     
+    day++;
+
     transition("kontor");//man "vågner op" i kontoret igen
 
-    day++;
+    
   }
 
   public int getDay(){
@@ -45,13 +50,34 @@ class Context {
       return false;
     }
   }
-
-  //------------------------------------------------------------------------------------------
-  
- 
   
   public Space getCurrent() {
     return current;
+  }
+
+  public Player getPlayer() {
+    return player;
+  }
+
+  public void buyExecuter(String[] parameters) {
+    String item = parameters[0];
+    Map<String, int[]> lowerExtensions = current.getExtensions();
+
+    if (containsKey(lowerExtensions.keySet().toArray(new String[0]), item)) {
+      int[] priceXP = lowerExtensions.get(item);
+      if (player.canAfford(priceXP[0])) {
+        //Add to inventory
+        player.subtractMoney(priceXP[0]);
+        player.addPoints(priceXP[1]);
+
+        System.out.printf("%nDu har købt %s. Godt gået!", item);
+
+      } else {
+        System.out.println("Du har ikke råd til denne udvidelse");
+      }
+    } else {
+      System.out.println("Denne udvidelse eksisterer ikke i shoppen");
+    }
   }
   
   public void transition (String direction) {
@@ -77,5 +103,18 @@ class Context {
     return done;
   }
 
-}
+//Helpers
 
+
+  private boolean containsKey(String[] hm, String itemName) {
+    for (String name : hm) {
+      if (itemName.equals(name.toLowerCase().trim())) {
+        return true;
+      }
+    }
+    return false;
+  }
+
+
+
+}

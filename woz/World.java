@@ -26,7 +26,7 @@ class World {
     List<Space> locations = new ArrayList<Space>();
     String[] locationArr = {"kontor", "park", "bymidte", "hospital", "butik", "genbrugsstation"};
     Space[] spaceArr = {kontor, park, bymidte, hospital, butik, genbrugsstation};
-    Space[] spaces = new Space[] {entry, rp, trash, park, shop, homes};
+    Space[] spaces = {kontor, bymidte, genbrugsstation, park, butik, hospital};
     locations.addAll(Arrays.asList(spaces));
 
     //uddelegerer edges til hver lokation/rum. sørger også for, at et rum ikke har adgang til sig selv.
@@ -41,14 +41,16 @@ class World {
     }
     
    for (Space location : locations) {
-    if (location.name.equals(entry.name)) {
+    if (location.name.equals(getEntry().name)) {
       location.addCommand("status");
-    } else if (location.name.equals(shop.name)) {
+    } else if (location.name.equals(getShop().name)) {
       location.addCommand("sell");
       location.addCommand("buy");
+    } else {
+      location.addCommand("pickup");
     }
-    location.addCommand("pickup");
     location.addCommand("hint");
+    location.addCommand("reset");
 
     //kontor skal have sig selv som edge, for at resetDay() virker inde fra kontoret af.
     //hvis ikke kontor har adgang til sig selv, vil transition() ikke du, da den "næste"
@@ -64,6 +66,10 @@ class World {
   
   Space getEntry () {
     return kontor;//redigeret fra "entry" til "kontor", da kontor fungerer som vores entry
+  }
+
+  private Space getShop() {
+    return butik;
   }
 }
 

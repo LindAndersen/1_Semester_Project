@@ -1,7 +1,10 @@
+import java.util.*;
+
 class Player{
 	private int level;
 	private int points;
 	private int money;
+	private int trash;
 
 	private final int LEVEL1 = 10; //level 1 når point er mellem 0 og 9
 	private final int LEVEL2 = 20; //level 2 når point er mellem 10 og 19
@@ -12,8 +15,17 @@ class Player{
 	public Player(){
 		level = 1;
 		points = 0;
-		money = 100;
+		money = 200;
+		trash = 0;
 
+	}
+
+	public void addTrash(int amount) {
+		trash += amount;
+	}
+
+	public int getTrash() {
+		return trash;
 	}
 
 	void addPoints(int amount){//efter køb af udvidelse
@@ -32,6 +44,10 @@ class Player{
 			money -= amount;
 
 		}
+	}
+
+	boolean canAfford(int price) {
+		return (price <= getMoney() ? true : false);
 	}
 
 	public int getPoints(){

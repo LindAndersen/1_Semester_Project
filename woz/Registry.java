@@ -8,7 +8,9 @@ class Registry {
   Context context;
   Command fallback;
   Map<String, Command> commands = new HashMap<String, Command>();
-  String[] baseCommands = {"exit", "bye", "quit", "help", "go"};
+
+  //Get basecommands from commands
+  String[] baseCommands = {"exit", "bye", "quit", "help", "go", "reset"};
   
   Registry (Context context, Command fallback) {
     this.context = context;

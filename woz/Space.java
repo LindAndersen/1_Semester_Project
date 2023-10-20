@@ -6,19 +6,28 @@ import java.lang.Math;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
+import java.util.*;
 //-----
 
 class Space extends Node {
   List<String> commands = new ArrayList<String>();
   boolean isHandled;
+  Map<String, int[]> extensions;
   private int generatedTrash;
 
   Space (String name) {
     super(name);
     isHandled = false;
+    //laver et key-value map, så hhv pris og navn på udvidelse hænger sammen.
+    extensions = new HashMap<>();
     generatedTrash = (int)(Math.random()*(15 - 1) + 1);
-    SpaceBuilder sp = new SpaceBuilder(name);
 
+  }
+
+  public void makeHandled() {
+    isHandled = true;
   }
 
     //getter og setter som vi bl.a. skal bruge i resetDay() i Context
@@ -26,103 +35,110 @@ class Space extends Node {
     return generatedTrash;
   }
 
+  public Map<String, int[]> getExtensions() {
+    Map<String, int[]> lowerExtensions = new TreeMap<>(String.CASE_INSENSITIVE_ORDER);
+    lowerExtensions.putAll(extensions);
+
+    return lowerExtensions;
+  }
+
   public void setGeneratedTrash(int newAmount){
     generatedTrash = newAmount;
   }
 
-  public void welcome () {
+  public void welcome() {
+    System.out.printf("%n%s%n", name);
     System.out.println("\nDu er nu ved "+name);
-    update();
-    hasBeen();
-  }
-  
-  public void hasBeen() {
+
+    updateExits();
+
     switch(name){
     case "Butik": 
-      shopNow();
-      World.butik.isHandled = true;
+      showShop();
+      makeHandled();
       // System.out.println("you handled the butik. ");//placeholder/tjekker bare at det går igennem
 
       break;
 
     case "Genbrugsstation": 
       recycle();
-      World.genbrugsstation.isHandled = true;
+      makeHandled();
       // System.out.println("you handled the genbrugsstation. ");//placeholder/tjekker bare at det går igennem
 
       break;
 
     case "Park": 
       collectTrashPark();
-      World.park.isHandled = true;
+      makeHandled();
       // System.out.println("you handled the park. ");//placeholder/tjekker bare at det går igennem
       break;
 
     case "Hospital": 
       collectTrashHospital();
-      World.hospital.isHandled = true;
+      makeHandled();
       // System.out.println("you handled the hospital. ");//placeholder/tjekker bare at det går igennem
       break;
 
     case "Bymidte":
       collectTrashBymidte();
-      World.bymidte.isHandled = true;
+      makeHandled();
       // System.out.println("you handled the bymidte. ");//placeholder/tjekker bare at det går igennem
       break;
 
     case "Kontor":
-      Game.player.getStatus();
+      //player.getStatus();
 
     default: 
       break;
     }
   }
   
-  private void shopNow(){
-    System.out.println("du er i butikken nu");
+  void updateShop(){
     int lvl = Game.player.getLevel();
-
-    //laver et key-value map, så hhv pris og navn på udvidelse hænger sammen.
-    Map<String, Integer> extensions = new HashMap<>();
 
     //afhængigt af level, har man adgang til forskellige varer.
     switch(lvl){
     case 1: 
-      extensions.put("Billboards på Rådhuspladsen ", 20);
-      extensions.put("Solceller ", 150);
-      extensions.put("Cykelsti ", 10);
+      extensions.put("Billboards på Rådhuspladsen", new int[]{20, 10});
+      extensions.put("Solceller", new int[]{150, 10});
+      extensions.put("Cykelsti", new int[]{10, 10});
       break;
     case 2:
-      extensions.put("Billboards på Rådhuspladsen ", 20);
-      extensions.put("Solceller ", 150);
+      extensions.put("Billboards på Rådhuspladsen", new int[]{20,10});
+      extensions.put("Solceller", new int[]{150, 10});
       break;
     case 3:
-      extensions.put("Billboards på Rådhuspladsen ", 20);
-      extensions.put("Solceller ", 150);
-      extensions.put("Isolerende vinduer ", 30);
+      extensions.put("Billboards på Rådhuspladsen", new int[]{20, 10});
+      extensions.put("Solceller", new int[]{150, 10});
+      extensions.put("Isolerende vinduer", new int[]{30, 10});
       break;
     case 4:
-      extensions.put("Supermotorvej ", 20);
-      extensions.put("Parkeringshus ", 150);
-      extensions.put("Isolerende vinduer ", 70);
+      extensions.put("Supermotorvej", new int[]{20, 10});
+      extensions.put("Parkeringshus", new int[]{150, 10});
+      extensions.put("Isolerende vinduer", new int[]{70, 10});
       break;
     case 5: 
-      extensions.put("Varmeanlæg med oliefyr ", 50);
+      extensions.put("Varmeanlæg med oliefyr", new int[]{50, 10});
     default:
       break;
     }
-    System.out.println("Du er trådt ind i butikken. Du har følgende udvalg: \n" + extensions.toString());
+  }
 
-    //kommando til at købe
-  
+  public void showShop() {
+    updateShop();
+    System.out.println("Du er trådt ind i butikken. Du har følgende udvalg: \n");
+    for (String key : extensions.keySet()){
+      int[] priceXP = extensions.get(key);
+      System.out.printf(" - Navn: %s, pris: %d, XP: %d%n", key, priceXP[0], priceXP[1]);
+    }
   }
   
    private void collectTrashPark(){
     System.out.println("collecting trash at this park; " + generatedTrash); //placeholder
    }
 
-  public void update() {
-    System.out.println("-------------------------------------------");
+  public void updateExits() {
+    System.out.println("\n-------------------------------------------");
     Set<String> exits = edges.keySet();
     System.out.println("Du kan gå mod:");
     for (String exit: exits) {

@@ -7,17 +7,31 @@ class CommandRoomAction extends BaseCommand implements Command {
   }
 
   public void pickup(Context context, String[] parameters) {
+    Player player = context.getPlayer();
+    Space cspace = context.getCurrent();
+    int amountPresent = cspace.getGeneratedTrash();
+
     if (!guardEq(parameters, 1)) {
-      String amount = parameters[0];
-      System.out.printf("%nDu har samlet %s bunker skrald op%n", amount);
-    } else if (!guardEq(parameters, 0)) {
-      System.out.println("Du har samlet alt skrald op");
+      int amount = Integer.parseInt(parameters[0]);
+      if (amount > amountPresent) {
+        System.out.printf("%nSå meget skrald er der ikke! Der er %d", amountPresent);
+      } else {
+        player.addTrash(amount);
+        cspace.setGeneratedTrash(amountPresent - amount);
+
+        System.out.printf("%nDu har samlet %d skrald op - nu har du %d i din taske!", amount, player.getTrash());
+      }
+    }
+    else if (!guardEq(parameters, 0)) {
+      player.addTrash(amountPresent);
+      cspace.setGeneratedTrash(0);
+      System.out.printf("%nDu har samlet alt skrald op - nu har du %d i din taske!", player.getTrash());
     } else {
       context.youStupid();
     }
-
   }
 
+  // Hint can be called from everywhere
   public void hint(Context context, String[] parameters) {
     if (guardEq(parameters, 0)) {
       context.youStupid();
@@ -26,12 +40,13 @@ class CommandRoomAction extends BaseCommand implements Command {
     System.out.println("Congratulations, you have recieved a hint");
   }
 
+  //Buy command can be executed from shop (butik) this is checked in registry w baseCommands and roomCommands
   public void buy(Context context, String[] parameters) {
-    if (guardEq(parameters, 2)) {
+    if (guardEq(parameters, 1)) {
       context.youStupid();
       return;
     }
-    System.out.printf("%nDu har købt %s x %s%n", parameters[1], parameters[0]);
+    context.buyExecuter(parameters);
 
   }
 
@@ -49,7 +64,7 @@ class CommandRoomAction extends BaseCommand implements Command {
       context.youStupid();
       return;
     }
-    System.out.println("Have not implemented that command yet :))");
+    System.out.println("From default: Have not implemented that command yet :))");
   }
   
   @Override
@@ -77,6 +92,6 @@ class CommandRoomAction extends BaseCommand implements Command {
 
     }    
 
-    context.getCurrent().update();
+    context.getCurrent().updateExits();
   }
 }
