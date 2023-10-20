@@ -8,6 +8,9 @@ class Registry {
   Context context;
   Command fallback;
   Map<String, Command> commands = new HashMap<String, Command>();
+
+  //Get basecommands from commands
+  String[] baseCommands = {"exit", "bye", "quit", "help", "go", "reset"};
   
   Registry (Context context, Command fallback) {
     this.context = context;
@@ -19,11 +22,11 @@ class Registry {
   }
   
   public void dispatch (String line) {
-    String[] elements = line.split(" ");
+    String[] elements = line.toLowerCase().split(" ");
     String command = elements[0];
     String[] parameters = getParameters(elements);
     Command handler = getCommand(command);
-    (handler==null ? fallback : handler).execute(context, command, parameters);
+    ((context.getCurrent().isCommandPossible(command) && handler != null) || isInBaseCommands(command) ? handler : fallback).execute(context, command, parameters);
   }
   
   public Command getCommand (String commandName) {
@@ -32,6 +35,12 @@ class Registry {
   
   public String[] getCommandNames () {
     return commands.keySet().toArray(new String[0]);
+  }
+
+  public boolean isInBaseCommands(String cmd) {
+    for (String command : baseCommands) {
+      if (cmd.equals(command)) {return true;}
+    } return false;
   }
   
   // helpers

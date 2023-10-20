@@ -2,7 +2,15 @@
  */
 
 class BaseCommand {
-  String description = "Undocumented";
+  String description;
+
+  BaseCommand(String description) {
+  	this.description = description;
+  }
+
+  BaseCommand() {
+  	description = "Undocumented";
+  }
   
   protected boolean guardEq (String[] parameters, int bound) {
     return parameters.length!=bound;
