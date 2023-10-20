@@ -9,6 +9,9 @@ class Game {
   static Command  fallback = new CommandUnknown();
   static Registry registry = new Registry(context, fallback);
   static Scanner  scanner  = new Scanner(System.in);
+  //----------------------------------------------------------------------------------------------------------------------
+  static Player player = new Player(); 
+  //----------------------------------------------------------------------------------------------------------------------
   
   private static void initRegistry () {
     Command cmdExit = new CommandExit();
@@ -22,21 +25,29 @@ class Game {
     registry.register("status", new CommandRoomAction("Vis en statusoversigt over din by"));
     registry.register("go", new CommandGo());
     registry.register("help", new CommandHelp(registry));
+    registry.register("reset", new CommandResetDay());
+    registry.register("test", new CommandRoomActions());
+
   }
   
   public static void main (String args[]) {
-    System.out.println("Velkommen til din by, her er du borgmester! Gør dit bedste for at tage bæredygtige beslutninger!");
+    System.out.println("Velkommen til din by, her er du borgmester! Gør dit bedste for at tage bæredygtige beslutninger!"); 
     
     initRegistry();
     context.getCurrent().welcome();
-    
-    while (context.isDone()==false) {
+
+    while (context.isDone() == false) {
+     
       System.out.print("> ");
       String line = scanner.nextLine();
       registry.dispatch(line);
-
-      
+     
+     // ------------------------------------------------------------------------------------------------------------
+      if(context.isDayDone(world.park, world.hospital, world.bymidte, world.butik, world.genbrugsstation)){
+        System.out.println("Der er ikke mere, du kan gøre i dag. Du kan gå til næste dag ved at skrive 'reset'.");
+      }
+      //------------------------------------------------------------------------------------------------------------
     }
-    System.out.println("Game Over 😥");
+    System.out.println("Game Over.");
   }
 }

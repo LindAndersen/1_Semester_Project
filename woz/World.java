@@ -2,54 +2,68 @@
  */
 import java.util.*;
 
-class World {
-  Space entry;
-  List<Space> locations = new ArrayList<Space>();
+class World { 
+  static Space kontor;
+  static Space park;
+  static Space bymidte;
+  static Space hospital;
+  static Space butik;
+  static Space genbrugsstation;
+  //statiske instanser så Space kan finde dem
   
   World () {
-    entry           = new Space("kontor");
-    Space rp        = new Space("raedhusplads");
-    Space trash     = new Space("genbrugsstation");
-    Space park      = new Space("park");
-    Space shop      = new Space("butik");
-    Space homes     = new Space("roekkehuse");
 
+    //redigeret til at passe til vores lokationer - mangler ændring ----------------------------------------------------------
+
+    kontor = new Space("Kontor");
+    park = new Space("Park");
+    bymidte = new Space("Bymidte"); //bymidte? rådhusplads?
+    hospital = new Space("Hospital");
+    butik  = new Space("Butik");
+    genbrugsstation = new Space("Genbrugsstation");
+    
+    //arrays af hhv navne og steder, som kan sættes ind i et for-loop, der laver edges til alle steder
+    List<Space> locations = new ArrayList<Space>();
+    String[] locationArr = {"kontor", "park", "bymidte", "hospital", "butik", "genbrugsstation"};
+    Space[] spaceArr = {kontor, park, bymidte, hospital, butik, genbrugsstation};
     Space[] spaces = new Space[] {entry, rp, trash, park, shop, homes};
     locations.addAll(Arrays.asList(spaces));
-    
-    entry.addEdge(rp.name, rp);
-    entry.addEdge(shop.name, shop);
-    shop.addEdge(entry.name, entry);
-    shop.addEdge(rp.name, rp);
-    shop.addEdge(park.name, park);
-    shop.addEdge(trash.name, trash);
-    trash.addEdge(shop.name, shop);
-    rp.addEdge(entry.name, entry);
-    rp.addEdge(shop.name, shop);
-    rp.addEdge(park.name, park);
-    park.addEdge(rp.name, rp);
-    park.addEdge(shop.name, shop);
-    park.addEdge(homes.name, homes);
-    homes.addEdge(park.name, park);
-    
-    this.entry = entry;
 
-    for (Space location : locations) {
-      if (location.name.equals(entry.name)) {
-        location.addCommand("status");
-      } else if (location.name.equals(shop.name)) {
-        location.addCommand("sell");
-        location.addCommand("buy");
+    //uddelegerer edges til hver lokation/rum. sørger også for, at et rum ikke har adgang til sig selv.
+    for(int i = 0; i < spaceArr.length; i++){
+      for(int j = 0; j < locationArr.length; j++){
+        if(locationArr[j].toLowerCase().equals(spaceArr[i].toString().toLowerCase())){
+          continue;
+        }else{
+          spaceArr[i].addEdge(locationArr[j], spaceArr[j]);
+        }
       }
-      location.addCommand("pickup");
-      location.addCommand("hint");
+    }
+    
+   for (Space location : locations) {
+    if (location.name.equals(entry.name)) {
+      location.addCommand("status");
+    } else if (location.name.equals(shop.name)) {
+      location.addCommand("sell");
+      location.addCommand("buy");
+    }
+    location.addCommand("pickup");
+    location.addCommand("hint");
+
+    //kontor skal have sig selv som edge, for at resetDay() virker inde fra kontoret af.
+    //hvis ikke kontor har adgang til sig selv, vil transition() ikke du, da den "næste"
+    //edge er null.
+    kontor.addEdge("kontor", kontor);
+    //-------------------------------------------------------------------------------------------------------------------------
+    
+    this.kontor = kontor;
   }
 
   //Build spaces with SpaceBuilder()
 }
   
   Space getEntry () {
-    return entry;
+    return kontor;//redigeret fra "entry" til "kontor", da kontor fungerer som vores entry
   }
 }
 
