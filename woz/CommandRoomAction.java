@@ -2,30 +2,40 @@
  */
 
 class CommandRoomAction extends BaseCommand implements Command {
+
+  Player player;
+
+
   CommandRoomAction (String description) {
     super(String.format("Rumhandlinger: %s", description));
+    player = Game.context.getPlayer();
+
   }
 
+
   public void pickup(Context context, String[] parameters) {
-    Player player = context.getPlayer();
+    
+    //we get the player, our current location and the amount of trash present
     Space cspace = context.getCurrent();
     int amountPresent = cspace.getGeneratedTrash();
 
+    //if the pickup-command has 1 parameter (amount of trash to collect) we do as follows
     if (!guardEq(parameters, 1)) {
-      int amount = Integer.parseInt(parameters[0]);
-      if (amount > amountPresent) {
+      int amount = Integer.parseInt(parameters[0]); //parameters[] is a string array which we convert to int
+      
+      if (amount > amountPresent) {//if you ask to collect more trah than present:
         System.out.printf("%nSå meget skrald er der ikke! Der er %d", amountPresent);
-      } else {
-        player.addTrash(amount);
+      } 
+      else {//otherwise we add the trash to inventory and set the amount of trash in the location after pickup
+        player.addToInventory("trash", amount);
         cspace.setGeneratedTrash(amountPresent - amount);
-
-        System.out.printf("%nDu har samlet %d skrald op - nu har du %d i din taske!", amount, player.getTrash());
+        System.out.printf("%nDu har samlet %d skrald op - nu har du " + player.getInventory() + " i din taske!", amount);
       }
     }
-    else if (!guardEq(parameters, 0)) {
-      player.addTrash(amountPresent);
+    else if (!guardEq(parameters, 0)) {//if you only type "pickup":
+      player.addToInventory("trash", amountPresent);
       cspace.setGeneratedTrash(0);
-      System.out.printf("%nDu har samlet alt skrald op - nu har du %d i din taske!", player.getTrash());
+      System.out.printf("%nDu har samlet alt skrald op - nu har du " + player.getInventory() + " i din taske!");
     } else {
       context.youStupid();
     }
@@ -40,25 +50,30 @@ class CommandRoomAction extends BaseCommand implements Command {
     System.out.println("Congratulations, you have recieved a hint");
   }
 
-  //Buy command can be executed from shop (butik) this is checked in registry w baseCommands and roomCommands
+  //Buy command can be executed from shop (butik). this is checked in registry w baseCommands and roomCommands
   public void buy(Context context, String[] parameters) {
     if (guardEq(parameters, 1)) {
       context.youStupid();
       return;
     }
-    context.buyExecuter(parameters);
+    context.buyExecuter(parameters);//calls buyExecuter from context who will peform the necessary actions
 
   }
 
+  //command to sell trash valid in shop (shouldn't it be valid at genbrugsstation only?)
   public void sell(Context context, String[] parameters) {
     if (guardEq(parameters, 1)) {
       context.youStupid();
       return;
+    }else{
+      player.removeFromInventory("trash", Integer.parseInt(parameters[0]));
+      System.out.println(player.getInventory());
     }
     System.out.printf("%nDu har solgt %s bunker skrald%n", parameters[0]);
   }
 
 
+  //default action for commands
   public void default_(Context context, String command, String[] parameters) {
     if (guardEq(parameters, 0)) {
       context.youStupid();
