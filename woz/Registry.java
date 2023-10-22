@@ -10,7 +10,7 @@ class Registry {
   Map<String, Command> commands = new HashMap<String, Command>(); //key-value map of String name of command and the belonging command
 
   //Get basecommands from commands
-  String[] baseCommands = {"exit", "bye", "quit", "help", "go", "reset"};
+  String[] baseCommands = {"exit", "bye", "quit", "help", "go", "reset", "save", "load"};
   
   Registry (Context context, Command fallback) {
     this.context = context;
