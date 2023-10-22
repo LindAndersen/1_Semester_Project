@@ -26,6 +26,8 @@ class Game {
     registry.register("go", new CommandGo());
     registry.register("help", new CommandHelp(registry));
     registry.register("reset", new CommandResetDay());
+    registry.register("save", new Commandsaveload("Gem spillet"));
+    registry.register("load", new Commandsaveload("load spillet"));
 
   }
   
