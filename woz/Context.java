@@ -1,7 +1,8 @@
 /* Context class to hold all context relevant to a session.
  */
 
-import java.util.*;
+import java.util.Map;
+import java.util.HashMap;
 
 class Context {
 
@@ -16,19 +17,18 @@ class Context {
     day = 1;
   }
 
-  //---------------------------------------------------------------------------------------------
-  //resetter generated trash, markeringen på om rummet er håndteret og sætter lokation til kontor
+  //resets amount of generated trash, the handleRoom(), increments the day and transitions to "Kontor"
 
   void resetDay(){
     World.park.setGeneratedTrash((int)(Math.random()*(15 - 1) + 1));
     World.bymidte.setGeneratedTrash((int)(Math.random()*(15 - 1) + 1));
     World.hospital.setGeneratedTrash((int)(Math.random()*(15 - 1) + 1));
     
-    World.park.isHandled = false;
-    World.bymidte.isHandled = false;
-    World.hospital.isHandled = false;
-    World.genbrugsstation.isHandled = false;
-    World.butik.isHandled = false;
+    World.park.makeHandled();
+    World.bymidte.makeHandled();
+    World.hospital.makeHandled();
+    World.genbrugsstation.makeHandled();
+    World.butik.makeHandled();
     
     day++;
 
@@ -37,12 +37,12 @@ class Context {
     
   }
 
-  public int getDay(){
+  public int getDay(){//gets the day-number
     return day;
   }
 
 
-
+  //checks if all available actions for the day are done
   public boolean isDayDone(Space s1, Space s2, Space s3, Space s4, Space s5){
     if((s1.isHandled && s2.isHandled && s3.isHandled && s4.isHandled && s5.isHandled)){
       return true;
@@ -60,13 +60,17 @@ class Context {
   }
 
   public void buyExecuter(String[] parameters) {
-    String item = parameters[0];
+    String item = parameters[0]; //gets the parameter from command (what to buy)
     Map<String, int[]> lowerExtensions = current.getExtensions();
 
     if (containsKey(lowerExtensions.keySet().toArray(new String[0]), item)) {
-      int[] priceXP = lowerExtensions.get(item);
+    //checks if the item from the terminal is a valid product in the shop 
+
+      int[] priceXP = lowerExtensions.get(item); //the value belonging to the item name is a 2D array containg price and xp
+
       if (player.canAfford(priceXP[0])) {
         //Add to inventory
+        player.addToInventory(item, 1);
         player.subtractMoney(priceXP[0]);
         player.addPoints(priceXP[1]);
 
@@ -78,6 +82,7 @@ class Context {
     } else {
       System.out.println("Denne udvidelse eksisterer ikke i shoppen");
     }
+    System.out.println("inventory: " + player.getInventory());
   }
   
   public void transition (String direction) {
@@ -107,6 +112,7 @@ class Context {
 
 
   private boolean containsKey(String[] hm, String itemName) {
+    //checks if the itemName is in the array
     for (String name : hm) {
       if (itemName.equals(name.toLowerCase().trim())) {
         return true;

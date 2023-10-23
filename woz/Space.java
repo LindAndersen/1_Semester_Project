@@ -6,42 +6,46 @@ import java.lang.Math;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.ArrayList;
-import java.util.List;
+import java.util.TreeMap;
 import java.util.Set;
-import java.util.*;
 //-----
 
 class Space extends Node {
-  List<String> commands = new ArrayList<String>();
+  ArrayList<String> commands = new ArrayList<String>();
   boolean isHandled;
-  Map<String, int[]> extensions;
+  private Map<String, int[]> extensions;
   private int generatedTrash;
 
   Space (String name) {
     super(name);
     isHandled = false;
-    //laver et key-value map, så hhv pris og navn på udvidelse hænger sammen.
-    extensions = new HashMap<>();
-    generatedTrash = (int)(Math.random()*(15 - 1) + 1);
+    extensions = new HashMap<>(); //laver et key-value map, så hhv pris og navn på udvidelse hænger sammen.
+    generatedTrash = (int)(Math.random()*(15 - 1) + 1); 
 
   }
 
   public void makeHandled() {
-    isHandled = true;
+    isHandled = !isHandled; //toggles isHandled to true or false depending on its current value
   }
 
-    //getter og setter som vi bl.a. skal bruge i resetDay() i Context
+  //getter for generated trash
   public int getGeneratedTrash(){
     return generatedTrash;
   }
 
   public Map<String, int[]> getExtensions() {
+    /*
+    returns the map of key-value of the extensions you can buy.
+    case_insensitive_order so that when we compare the parameter with the elements
+    in the shop, we are not case sensitive. TreeMap can be case insensitive
+    */
     Map<String, int[]> lowerExtensions = new TreeMap<>(String.CASE_INSENSITIVE_ORDER);
     lowerExtensions.putAll(extensions);
 
     return lowerExtensions;
   }
 
+  //sets amount of trash in a location
   public void setGeneratedTrash(int newAmount){
     generatedTrash = newAmount;
   }
@@ -52,41 +56,38 @@ class Space extends Node {
 
     updateExits();
 
+    //acts according to the location
     switch(name){
     case "Butik": 
       showShop();
       makeHandled();
-      // System.out.println("you handled the butik. ");//placeholder/tjekker bare at det går igennem
 
       break;
 
     case "Genbrugsstation": 
       recycle();
       makeHandled();
-      // System.out.println("you handled the genbrugsstation. ");//placeholder/tjekker bare at det går igennem
 
       break;
 
     case "Park": 
       collectTrashPark();
       makeHandled();
-      // System.out.println("you handled the park. ");//placeholder/tjekker bare at det går igennem
       break;
 
     case "Hospital": 
       collectTrashHospital();
       makeHandled();
-      // System.out.println("you handled the hospital. ");//placeholder/tjekker bare at det går igennem
       break;
 
     case "Bymidte":
       collectTrashBymidte();
       makeHandled();
-      // System.out.println("you handled the bymidte. ");//placeholder/tjekker bare at det går igennem
       break;
 
     case "Kontor":
       //player.getStatus();
+      break;
 
     default: 
       break;
@@ -94,9 +95,11 @@ class Space extends Node {
   }
   
   void updateShop(){
+    /*
+    checks the player's level and adjusts the selection in the shop
+    */
     int lvl = Game.player.getLevel();
 
-    //afhængigt af level, har man adgang til forskellige varer.
     switch(lvl){
     case 1: 
       extensions.put("Billboards på Rådhuspladsen", new int[]{20, 10});
@@ -125,6 +128,7 @@ class Space extends Node {
   }
 
   public void showShop() {
+    //prints out the shop - updates it first
     updateShop();
     System.out.println("Du er trådt ind i butikken. Du har følgende udvalg: \n");
     for (String key : extensions.keySet()){
@@ -138,6 +142,7 @@ class Space extends Node {
    }
 
   public void updateExits() {
+    //updates what exits are available and lists the relevant commands for the location
     System.out.println("\n-------------------------------------------");
     Set<String> exits = edges.keySet();
     System.out.println("Du kan gå mod:");
@@ -179,14 +184,21 @@ class Space extends Node {
   }
 
   public boolean isCommandPossible(String cmdName) {
+    //checks wether the command is recognizable from the list of commands
     for (String command : commands) {
-      if (command.equals(cmdName)) {return true;}
+      if (command.equals(cmdName)) {
+        return true;
+      }
     }
     return false;
   }
 
   @Override
   public Space followEdge (String direction) {
-    return (Space) (super.followEdge(direction));
+    return (Space)(super.followEdge(direction));
+  }
+
+  public String spaceToString(){
+    return name;
   }
 }
