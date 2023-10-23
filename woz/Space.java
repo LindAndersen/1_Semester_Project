@@ -46,11 +46,12 @@ class Space extends Node {
     generatedTrash = newAmount;
   }
 
+
   public void welcome() {
-    System.out.printf("%n%s%n", name);
     System.out.println("\nDu er nu ved "+name);
 
     updateExits();
+    showTrashAmount();
 
     switch(name){
     case "Butik": 
@@ -67,26 +68,23 @@ class Space extends Node {
 
       break;
 
-    case "Park": 
-      collectTrashPark();
+    case "Park":
       makeHandled();
       // System.out.println("you handled the park. ");//placeholder/tjekker bare at det går igennem
       break;
 
     case "Hospital": 
-      collectTrashHospital();
       makeHandled();
       // System.out.println("you handled the hospital. ");//placeholder/tjekker bare at det går igennem
       break;
 
     case "Bymidte":
-      collectTrashBymidte();
       makeHandled();
       // System.out.println("you handled the bymidte. ");//placeholder/tjekker bare at det går igennem
       break;
 
     case "Kontor":
-      //player.getStatus();
+      makeHandled();
 
     default: 
       break;
@@ -133,8 +131,8 @@ class Space extends Node {
     }
   }
   
-   private void collectTrashPark(){
-    System.out.println("collecting trash at this park; " + generatedTrash); //placeholder
+   private void showTrashAmount(){
+    System.out.printf("%nDu kigger rundt og ser et total af %s bunker skrald%n", generatedTrash); //placeholder
    }
 
   public void updateExits() {
@@ -149,15 +147,6 @@ class Space extends Node {
     for (String command : commands) {
       System.out.printf(" - %s%n", command);
     }
-  }
-
-
-  private void collectTrashBymidte(){
-    System.out.println("collecting trash at bymidte; " + generatedTrash); //placeholder
-  }
-
-  private void collectTrashHospital(){
-    System.out.println("collecting trash at this hospital; " + generatedTrash); //placeholder
   }
 
 

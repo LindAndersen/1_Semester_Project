@@ -92,6 +92,6 @@ class CommandRoomAction extends BaseCommand implements Command {
 
     }    
 
-    context.getCurrent().updateExits();
+    context.getCurrent().welcome();
   }
 }

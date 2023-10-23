@@ -43,12 +43,13 @@ class Context {
 
 
 
-  public boolean isDayDone(Space s1, Space s2, Space s3, Space s4, Space s5){
-    if((s1.isHandled && s2.isHandled && s3.isHandled && s4.isHandled && s5.isHandled)){
-      return true;
-    }else{
-      return false;
+  public boolean isDayDone(Space... args){
+    for (Space s : args) {
+      if (!s.isHandled) {
+        return false;
+      }
     }
+    return true;
   }
   
   public Space getCurrent() {
@@ -62,15 +63,15 @@ class Context {
   public void buyExecuter(String[] parameters) {
     String item = parameters[0];
     Map<String, int[]> lowerExtensions = current.getExtensions();
-
-    if (containsKey(lowerExtensions.keySet().toArray(new String[0]), item)) {
-      int[] priceXP = lowerExtensions.get(item);
+    ResponseObject response = containsKey(lowerExtensions.keySet().toArray(new String[0]), item);
+    if (response.b) {
+      int[] priceXP = lowerExtensions.get(response.s);
       if (player.canAfford(priceXP[0])) {
         //Add to inventory
         player.subtractMoney(priceXP[0]);
         player.addPoints(priceXP[1]);
 
-        System.out.printf("%nDu har købt %s. Godt gået!", item);
+        System.out.printf("%nDu har købt %s. Godt gået!", response.s);
 
       } else {
         System.out.println("Du har ikke råd til denne udvidelse");
@@ -106,15 +107,23 @@ class Context {
 //Helpers
 
 
-  private boolean containsKey(String[] hm, String itemName) {
+  private ResponseObject containsKey(String[] hm, String itemName) {
     for (String name : hm) {
-      if (itemName.equals(name.toLowerCase().trim())) {
-        return true;
+      if (itemName.equals(name.toLowerCase().trim()) || name.toLowerCase().trim().contains(itemName)) {
+        return new ResponseObject(true, name);
       }
     }
-    return false;
+    return new ResponseObject(false, null);
   }
-
-
-
 }
+
+
+class ResponseObject {
+  boolean b;
+  String s;
+
+  ResponseObject(boolean b, String s) {
+    this.b = b;
+    this.s = s;
+  }
+}   

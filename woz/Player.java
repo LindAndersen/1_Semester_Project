@@ -68,16 +68,18 @@ class Player{
 
 
 	void levelUp(int points){
-		if(points > 0 && points < LEVEL1){
+		if(points >= 0 && points <= LEVEL1){
 			level = 1;
-		}else if (points > LEVEL1 && points < LEVEL2){
+		}else if (points > LEVEL1 && points <= LEVEL2){
 			level = 2;
-		}else if (points > LEVEL2 && points < LEVEL3){
+		}else if (points > LEVEL2 && points <= LEVEL3){
 			level = 3;
-		}else if (points > LEVEL3 && points < LEVEL4){
+		}else if (points > LEVEL3 && points <= LEVEL4){
 			level = 4;
-		}else if (points > LEVEL4 && points < LEVEL5){
+		}else if (points > LEVEL4 && points <= LEVEL5){
 			level = 5;
+		} else {
+			level = 9001;
 		}
 	}
 

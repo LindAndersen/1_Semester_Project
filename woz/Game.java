@@ -40,11 +40,9 @@ class Game {
       String line = scanner.nextLine();
       registry.dispatch(line);
      
-     // ------------------------------------------------------------------------------------------------------------
       if(context.isDayDone(world.park, world.hospital, world.bymidte, world.butik, world.genbrugsstation)){
         System.out.println("Der er ikke mere, du kan gøre i dag. Du kan gå til næste dag ved at skrive 'reset'.");
       }
-      //------------------------------------------------------------------------------------------------------------
     }
     System.out.println("Game Over.");
   }
