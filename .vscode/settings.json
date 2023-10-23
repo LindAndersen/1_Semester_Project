@@ -1,0 +1,9 @@
+{
+    "java.project.sourcePaths": [
+        "woz",
+        "woz\\game_design",
+        "woz\\player",
+        "woz\\commands"
+    ],
+    "java.project.outputPath": "woz\\class_files"
+}

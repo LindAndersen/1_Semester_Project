@@ -1,6 +1,5 @@
 /* Node class for modeling graphs
  */
-
 import java.util.*;
 
 class Node {

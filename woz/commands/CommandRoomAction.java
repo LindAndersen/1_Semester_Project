@@ -1,6 +1,5 @@
 /* Command for handlign actions in a room
  */
-
 class CommandRoomAction extends BaseCommand implements Command {
 
   Player player;
