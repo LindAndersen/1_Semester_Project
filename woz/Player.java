@@ -1,10 +1,14 @@
-import java.util.*;
+
+import java.util.Map;
+import java.util.HashMap;
 
 class Player{
 	private int level;
 	private int points;
 	private int money;
 	private int trash;
+	HashMap<String, Integer> inventory;
+
 
 	private final int LEVEL1 = 10; //level 1 når point er mellem 0 og 9
 	private final int LEVEL2 = 20; //level 2 når point er mellem 10 og 19
@@ -16,33 +20,51 @@ class Player{
 		level = 1;
 		points = 0;
 		money = 200;
-		trash = 0;
-
+		inventory = new HashMap<String, Integer>();
 	}
 
-	public void addTrash(int amount) {
-		trash += amount;
+	public void addToInventory(String itemName, int amount) { //adds trash to player inventory
+		if(inventory.containsKey(itemName)){
+			inventory.put(itemName, inventory.get(itemName) + amount) ;
+		}else{
+			inventory.put(itemName, Integer.valueOf(amount));
+		}
 	}
+
+	public void removeFromInventory(String itemName, int amount){
+		if(inventory.containsKey(itemName) && amount <= inventory.get(itemName)){//hashmap function, not our containsKey
+			//checks if we actually can remove the given amount from inventory 
+			
+			inventory.put(itemName, inventory.get(itemName) - amount);
+		}else{
+			System.out.println("det er ikke muligt");
+		}
+	}
+
+	public HashMap<String, Integer> getInventory(){
+		return inventory;
+	}
+
+
 
 	public int getTrash() {
 		return trash;
 	}
 
-	void addPoints(int amount){//efter køb af udvidelse
+	void addPoints(int amount){//add points /xp after buying from the shop 
 		points += amount;
 	}
 
-	void addMoney(int amount){//skal bruges på genbrugsstationen i Space-class
+	void addMoney(int amount){//earn money by selling trash 
 		money += amount;
 	}
 
 
-	void subtractMoney(int amount){//bruges i butik ved køb
-		if((money-amount) < 0){
-			System.out.println("Beklager, men du har ikke råd til dette.");
-		}else{
+	void subtractMoney(int amount){//subtract money from player
+		if(canAfford(amount)){ //checks if the player has enough money
 			money -= amount;
-
+		}else{
+			System.out.printf("Det har du ikke råd til. Du har %d penge på din konto", money);
 		}
 	}
 
@@ -62,7 +84,7 @@ class Player{
 		return level;
 	}
 
-	public void getStatus(){
+	public void getPlayerStatus(){
 		System.out.println("Level: " + level + ", XP: " + points + ", money: " + money + " on day " + Game.context.getDay());
 	}
 
