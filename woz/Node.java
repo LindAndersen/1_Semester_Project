@@ -1,8 +1,7 @@
 /* Node class for modeling graphs
  */
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 class Node {
   String name;
