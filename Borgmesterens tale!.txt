@@ -1,9 +1,39 @@
-Tillykke! 
-Du er blevet valgt som borgmester for byen! Puha, der er mange opgaver, du skal til at arbejde med...
+*Introduktion*
+
+Stort tillykke! Du er blevet valgt som borgmester for byen!
+Puha, der er mange opgaver, du skal til at arbejde med…
 Lad os hjælpe dig lidt i gang!
 
-Byen ___ *indsæt pædagogisk tekst om byens bæredygtighed*
+I dette spil er dit mål at gøre byen til et bæredygtigt sted at bo. Din opgave som borgmester vil være at bruge byens økonomi til at investere i de rigtige beslutninger, der gør byen mere bæredygtig for borgerne og miljøet!
 
-Du ___ *indsæt spillets metoder og guide til at spille*
+Byen har brug for de bedste bæredygtige  løsninger! Er du klar til at påtage dig rollen, investere i de bedste miljøbevidste valg, og hjælpe byen med at blomstre?  
 
+*Første step - Park*
+
+Byen har også brug for en kærlig hånd, og der kan tænkes, at byens skrald kan genanvendes… Måske skulle du prøve at samle skraldet op ude foran -*insert startplace*-, og se hvad der sker? 
+
+*Efter at have samlet første skrald op*
+
+Det var da ikke helt galt? Når du samler byens skrald op, får du XP, der styrker dit niveau! Skraldet kan du også tage med dig i din inventory, for det kan du få brug for i genbrugsstationen! Lad os tage et kig derhen, når du har samlet skraldet op i rummet
+
+*Genbrugsstation*
+
+Velkommen til genbrugsstationen!
+ Her kan du få genanvendt skraldet, du får samlet op, og vekslet dem til XP og Coins! Win win!
+Coins får du brug for i butikken. 
+
+*Shop*
+
+Velkommen til shoppen!
+ Her kan du få brugt de coins, du fik for at genanvende skrald! 
+Du kan investere dem, og få truffet vigtige beslutninger, der påvirker din bys bæredygtighed. 
+
+*evt kunne der her skrives en mini guide, til facts eller noget om, hvad de forskellige investeringer gør for byen!
+
+*Efter at have løst guiden til spillet*
+
+Nu må du bevæge dig gennem spillet på egen hånd! Der er dog ingen tvivl om, at du nok skal blive en god borgmester! Held og lykke på din rejse herfra!
+
+Kilder jeg har brugt som inspiration: 
+https://www.altinget.dk/verdensmaal/artikel/professor-gaa-og-cykelvenlige-storbyer-fremmer-den-groenne-og-sociale-baeredygtighed
 
