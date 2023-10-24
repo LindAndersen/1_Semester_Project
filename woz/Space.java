@@ -3,7 +3,7 @@
 
 import java.util.Set;
 
-class Space extends Node {
+class Space extends Node implements DefaultSpace {
   Space (String name) {
     super(name);
   }
