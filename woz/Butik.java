@@ -1,6 +1,7 @@
 import java.util.Map;
 
 public class Butik extends Space implements DefaultSpace {
+    
     Butik(String name) {
         super(name);
     }

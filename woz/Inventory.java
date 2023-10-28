@@ -4,6 +4,10 @@ import java.util.HashMap;
 class Inventory {
     Map<String, Integer> items;
 
+    public Inventory(){
+        items = new HashMap<String, Integer>();
+    }
+
     void addItem() {
 
     }
@@ -13,7 +17,7 @@ class Inventory {
     }
 
     int getItemAmount() {
-
+        return 0;
     }
 
     @Override

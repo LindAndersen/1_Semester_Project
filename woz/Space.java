@@ -5,6 +5,7 @@ import java.util.Set;
 
  abstract class Space extends Node implements DefaultSpace {
   private boolean isHandled;
+
   Space (String name) {
     super(name);
     isHandled = false;

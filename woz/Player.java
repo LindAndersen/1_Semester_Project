@@ -1,8 +1,8 @@
 class Player {
     private String name;
-    private Double xp;
+    private int xp;
     private int lvl;
-    private money;
+    private int money;
     private Inventory inventory;
 
     //some final int-attributes to determine intervals of xp for levels
@@ -50,7 +50,7 @@ class Player {
 
     public boolean canAfford(int price){
     //returns true if player can afford buying an item with given price
-
+        return true;
     }
  
 }

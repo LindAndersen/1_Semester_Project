@@ -5,13 +5,14 @@ class World {
   Space kontor;
   
   World () {
-    Space kontor = new Kontor("Kontor");
+    kontor = new Kontor("Kontor");
     Space rækkehuse = new Rækkehuse("Rækkehuse");
     Space genbrugsstation = new Genbrugsstation("Genbrugsstation");
     Space park = new Park("Park");
     Space rådhusplads = new Rådhusplads("Rådhusplads");
+    Space butik = new Butik("Butik");
 
-    Space[] locations = {kontor, rækkehuse, genbrugsstation, park, rådhusplads};
+    Space[] locations = {kontor, rækkehuse, genbrugsstation, park, rådhusplads, butik};
     
     for (Space loc : locations) {
       for (Space edge : locations) {
