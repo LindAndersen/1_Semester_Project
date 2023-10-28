@@ -12,7 +12,7 @@ class Inventory {
 
     }
 
-    void getItemAmount() {
+    int getItemAmount() {
 
     }
 

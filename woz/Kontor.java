@@ -12,7 +12,7 @@ class Kontor extends Space implements DefaultSpace {
     }
 
     private void getStatus() {
-        //Some status out, informing the player of upgrades, day counter, inventory, and some indicator of how well a player is doing
+        //Some status out, informing the player of upgrades, day counter, inventory, xp, money and some indicator of how well a player is doing
     }
 
     @Override
