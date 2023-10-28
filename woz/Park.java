@@ -5,6 +5,11 @@ class Park extends Space implements DefaultSpace {
         super(name);
     }
 
+    @Override public void welcome() {
+        //Make own welcome for Park
+        super.welcome();
+    }
+
     @Override
     public Map<String, Integer> getTrash() {
         // TODO Auto-generated method stub

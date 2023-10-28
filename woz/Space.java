@@ -4,8 +4,10 @@
 import java.util.Set;
 
  abstract class Space extends Node implements DefaultSpace {
+  private boolean isHandled;
   Space (String name) {
     super(name);
+    isHandled = false;
   }
   
   public void welcome () {
@@ -18,5 +20,13 @@ import java.util.Set;
   }
   
   public void goodbye () {
+  }
+
+  public void toggleHandled() {
+    isHandled = !isHandled;
+  }
+
+  public boolean getHandled() {
+    return isHandled;
   }
 }

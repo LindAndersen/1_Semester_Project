@@ -9,7 +9,7 @@ class Player {
     }
 
     void showInventory() {
-        //Should call Inventory toString() method
+        System.out.println(inventory.toString());
     }
 
     //Setters and getters
