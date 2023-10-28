@@ -2,27 +2,30 @@
  */
 
 class World {
-  Space entry;
+  Space kontor;
   
   World () {
-    Space entry    = new Space("Entry");
-    Space corridor = new Space("Corridor");
-    Space cave     = new Space("Cave");
-    Space pit      = new Space("Darkest Pit");
-    Space outside  = new Space("Outside");
+    Space kontor    = new Kontor("Kontor");
+    Space rækkehuse = new Rækkehuse("Rækkehuse");
+    Space genbrugsstation     = new Genbrugsstation("Genbrugsstation");
+    Space park      = new Park("Park");
+    Space rådhusplads  = new Rådhusplads("Rådhusplads");
+
+    Space[] locations = {kontor, rækkehuse, genbrugsstation, park, rådhusplads};
     
-    entry.addEdge("door", corridor);
-    corridor.addEdge("door", cave);
-    cave.addEdge("north", pit);
-    cave.addEdge("south", outside);
-    pit.addEdge("door", cave);
-    outside.addEdge("door", cave);
+    for (Space loc : locations) {
+      for (Space edge : locations) {
+        if (loc != edge) {
+          loc.addEdge(edge.getName(), edge);
+        }
+      }
+    }
     
-    this.entry = entry;
+    this.kontor = kontor;
   }
   
   Space getEntry () {
-    return entry;
+    return kontor;
   }
 }
 

@@ -3,7 +3,7 @@
 
 import java.util.Set;
 
-class Space extends Node implements DefaultSpace {
+ abstract class Space extends Node implements DefaultSpace {
   Space (String name) {
     super(name);
   }
@@ -18,10 +18,5 @@ class Space extends Node implements DefaultSpace {
   }
   
   public void goodbye () {
-  }
-  
-  @Override
-  public Space followEdge (String direction) {
-    return (Space) (super.followEdge(direction));
   }
 }

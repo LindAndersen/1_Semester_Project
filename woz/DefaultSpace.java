@@ -1,11 +1,11 @@
 //Contains room commands and types of interaction
 
-public interface DefaultSpace {
+import java.util.Map;
 
-    void hint();
-    void reset();
-    void help();
-    void exit();
+public interface DefaultSpace {
     void welcome();
     void goodbye();
+    Map<String, Integer> getTrash();
+    void resetTrash();
+    void subtractTrash();
 }

@@ -17,6 +17,10 @@ class Game {
     registry.register("bye", cmdExit);
     registry.register("go", new CommandGo());
     registry.register("help", new CommandHelp(registry));
+    registry.register("pickup", new CommandPickup());
+    registry.register("buy", new CommandBuy());
+    registry.register("recycle", new CommandRecycle());
+
   }
   
   public static void main (String args[]) {
@@ -28,6 +32,7 @@ class Game {
     while (context.isDone()==false) {
       System.out.print("> ");
       String line = scanner.nextLine();
+      System.out.println(line);
       registry.dispatch(line);
     }
     System.out.println("Game Over 😥");

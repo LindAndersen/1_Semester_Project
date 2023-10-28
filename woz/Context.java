@@ -2,8 +2,10 @@
  */
 
 class Context {
-  Space current;
-  boolean done = false;
+  private Space current;
+  private boolean done = false;
+  private Player player = new Player("Borgmester");
+  private int dayCounter = 0;
   
   Context (Space node) {
     current = node;
@@ -14,7 +16,7 @@ class Context {
   }
   
   public void transition (String direction) {
-    Space next = current.followEdge(direction);
+    Space next = (Space) current.followEdge(direction);
     if (next==null) {
       System.out.println("You are confused, and walk in a circle looking for '"+direction+"'. In the end you give up 😩");
     } else {
@@ -24,6 +26,22 @@ class Context {
     }
   }
   
+  int getDay() {
+    return this.dayCounter;
+  }
+
+  Player getPlayer() {
+    return this.player;
+  }
+
+  void incrementDayCounter() {
+    this.dayCounter++;
+  }
+
+  void resetDay() {
+
+  }
+
   public void makeDone () {
     done = true;
   }
