@@ -17,7 +17,7 @@ class Player {
     }
 
     void showInventory() {
-        //Should call Inventory toString() method
+        System.out.println(inventory.toString());
     }
 
     void addToInventory(String name, int amount){

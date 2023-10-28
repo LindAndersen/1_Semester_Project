@@ -1,13 +1,16 @@
 import java.util.Map;
 
-class Rådhusplads extends Space implements DefaultSpace {
-    Rådhusplads(String name) {
+public class Butik extends Space implements DefaultSpace {
+    Butik(String name) {
         super(name);
     }
 
-    @Override public void welcome() {
-        //Make own welcome for Rådshusplads
-        super.welcome();
+    void showUpgrades() {
+
+    }
+
+    void removeUpgrade(String name) {
+
     }
 
     @Override
