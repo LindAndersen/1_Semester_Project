@@ -2,7 +2,9 @@ import java.util.Map;
 import java.util.HashMap;
 
 class Inventory {
-    Map<String, Integer> items;
+    Map<String, Integer> items = new HashMap<String, Integer>();
+    Inventory() {
+    }
 
     void addItem() {
 
@@ -13,7 +15,7 @@ class Inventory {
     }
 
     int getItemAmount() {
-
+        return 0;
     }
 
     @Override
