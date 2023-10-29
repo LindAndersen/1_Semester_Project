@@ -9,7 +9,7 @@ class Player {
 
     public Player(String name) {
         this.name = name;
-        xp = 0.0;
+        xp = 0;
         lvl = 1;
         money = 100;
         inventory = new Inventory();
