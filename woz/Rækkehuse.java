@@ -1,7 +1,7 @@
 import java.util.Map;
 import java.util.HashMap;
 
-class Rækkehuse extends Space implements DefaultSpace {
+class Rækkehuse extends Space {
     Map<String, Trash> trash = new HashMap<String, Trash>();
 
     Rækkehuse(String name) {
@@ -12,23 +12,5 @@ class Rækkehuse extends Space implements DefaultSpace {
     @Override public void welcome() {
         //Make own welcome specific for Rækkehuse
         super.welcome();
-    }
-
-    @Override
-    public Map<String, Integer> getTrash() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getTrash'");
-    }
-
-    @Override
-    public void resetTrash() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'resetTrash'");
-    }
-
-    @Override
-    public void subtractTrash() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'subtractTrash'");
     }
 }
