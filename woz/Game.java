@@ -34,8 +34,7 @@ class Game {
     while (context.isDone()==false) {
       System.out.print("> ");
       String line = scanner.nextLine();
-      System.out.println(line);
-      registry.dispatch(line);
+      registry.dispatch(line.toLowerCase());
     }
     System.out.println("Game Over 😥");
   }

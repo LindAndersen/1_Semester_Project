@@ -2,7 +2,9 @@ import java.util.Map;
 import java.util.HashMap;
 
 class Inventory {
-    Map<String, Integer> items;
+    Map<String, Integer> items = new HashMap<String, Integer>();
+    Inventory() {
+    }
 
     public Inventory(){
         items = new HashMap<String, Integer>();

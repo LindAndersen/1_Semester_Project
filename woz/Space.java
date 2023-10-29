@@ -21,6 +21,7 @@ import java.util.Set;
   }
   
   public void goodbye () {
+    //Make some logic to know when u should make room handled, if should be handled invoke toggleHandled() method
   }
 
   public void toggleHandled() {
