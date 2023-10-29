@@ -6,6 +6,10 @@ class Inventory {
     Inventory() {
     }
 
+    public Inventory(){
+        items = new HashMap<String, Integer>();
+    }
+
     void addItem() {
 
     }

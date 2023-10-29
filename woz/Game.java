@@ -2,6 +2,8 @@
  */
 
 import java.util.Scanner;
+import java.io.InputStreamReader;
+import java.nio.charset.Charset;
 
 class Game {
   static World    world    = new World();
