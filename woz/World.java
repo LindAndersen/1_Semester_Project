@@ -2,7 +2,8 @@
  */
 
 class World {
-  Space kontor;
+  private Space kontor;
+  private Space[] locations;
   
   World () {
     Space kontor = new Kontor("Kontor");
@@ -23,10 +24,16 @@ class World {
     }
     
     this.kontor = kontor;
+    this.locations = locations;
   }
   
-  Space getEntry () {
+  public Space getEntry () {
     return kontor;
   }
+
+  public Space[] getLocations() {
+    return locations;
+  }
+
 }
 

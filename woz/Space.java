@@ -2,10 +2,10 @@
  */
 
 import java.util.Set;
+import java.util.Map;
 
  abstract class Space extends Node implements DefaultSpace {
   private boolean isHandled;
-  Trash[] trash;
 
   Space (String name) {
     super(name);
@@ -46,6 +46,15 @@ import java.util.Set;
         }
     }
   }
+
+public boolean isCommandReachable(String name, String[] commands) {
+    for (String elm : commands) {
+        if (elm.equals(name)) {return true;}
+    }
+    return false;
+  }
+
+
 
   public void toggleHandled() {
     isHandled = !isHandled;

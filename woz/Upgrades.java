@@ -28,6 +28,10 @@ public class Upgrades {
     public double getModifier(){
         return modifier;
     }
+
+    public String toString() {
+        return "";
+    }
     
 
 

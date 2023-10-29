@@ -7,6 +7,7 @@ import java.util.ArrayList;
 public class Butik extends Space implements DefaultSpace {
 
     ArrayList<Upgrades> upgrades;
+    String[] commands = {"exit", "quit", "bye", "go", "help", "buy"};
     
     public Butik(String name) {
 
@@ -58,5 +59,23 @@ public class Butik extends Space implements DefaultSpace {
 
     void removeUpgrade(String name) {
 
+    }
+
+    @Override
+    public void showTrash() {
+    }
+
+    @Override
+    public void subtractTrash(String name, int amount) {
+    }
+
+    @Override
+    public boolean isCommandReachable(String name) {
+        return super.isCommandReachable(name, commands);
+    }
+
+    @Override
+    public String[] getCommands() {
+        return commands;
     }
 }

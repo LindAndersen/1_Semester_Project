@@ -23,7 +23,7 @@ class Registry {
     String command = elements[0];
     String[] parameters = getParameters(elements);
     Command handler = getCommand(command);
-    (handler==null ? fallback : handler).execute(context, command, parameters);
+    (handler==null && !context.getCurrent().isCommandReachable(command) ? fallback : handler).execute(context, command, parameters);
   }
   
   public Command getCommand (String commandName) {
