@@ -11,9 +11,9 @@ import java.util.Set;
   }
   
   public void welcome () {
-    System.out.println("You are now at "+name);
+    System.out.println("Du er nu ved "+name);
     Set<String> exits = edges.keySet();
-    System.out.println("Current exits are:");
+    System.out.println("Nuværende udgange fører til");
     for (String exit: exits) {
       System.out.println(" - "+exit);
     }

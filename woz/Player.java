@@ -1,6 +1,6 @@
 class Player {
     private String name;
-    private Double xp;
+    private double xp;
     private int lvl;
     private int money;
     private Inventory inventory;

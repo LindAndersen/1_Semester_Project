@@ -10,5 +10,4 @@ public class CommandBuy extends BaseCommand implements Command {
             In some way adds the upgrade to the world /updates world and activates changes 
         */
     }
-    
 }
