@@ -1,15 +1,14 @@
-import java.util.ArrayList;
-
 public class Upgrades {
     private String name;
     private int xp;
     private int price;
     private double modifier;
 
-    public Upgrades(String name, int xp, int price, double modifier){
+
+    public Upgrades(String name, int price, int xp, double modifier){
         this.name = name;
-        this.xp = xp;
         this.price = price;
+        this.xp = xp;
         this.modifier = modifier;
     }
 
@@ -29,10 +28,9 @@ public class Upgrades {
         return modifier;
     }
 
-    public String toString() {
-        return "";
+    @Override
+    public String toString(){
+        return name + ", xp: " + xp + ", pris: " + price;
     }
-    
-
 
 }

@@ -18,9 +18,10 @@ class CommandHelp extends BaseCommand implements Command {
       int max = 0;
       for (String commandName: commands) {
         int length = commandName.length();
-        if (length>max) max = length;
+        if (length>max) {
+          max = length;
+        }
       }
-      
       // present list of commands
       System.out.println("Kommandoer:");
       for (String commandName: commands) {
