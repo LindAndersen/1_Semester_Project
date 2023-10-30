@@ -12,6 +12,9 @@ class CommandHelp extends BaseCommand implements Command {
   }
   
   @Override public void execute(Context context, String command, String[] parameters) {
+
+    //Instead of getting commands from registry, get directly from room
+    //This way the help command only displays currently available commands
     String[] commands = context.getCurrent().getCommands();
 
     // find max length of command name

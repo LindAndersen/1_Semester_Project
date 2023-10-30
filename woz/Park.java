@@ -14,8 +14,8 @@ class Park extends Space {
         super.welcome();
     }
 
-    public void subtractTrash(String name, int amount) {
-        super.subtractTrash(name, amount, trash);
+    public boolean subtractTrash(String name, int amount) {
+        return super.subtractTrash(name, amount, trash);
     }
 
     @Override
