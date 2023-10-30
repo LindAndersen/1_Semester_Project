@@ -18,7 +18,7 @@ class Context {
   public void transition (String direction) {
     Space next = (Space) current.followEdge(direction);
     if (next==null) {
-      System.out.println("You are confused, and walk in a circle looking for '"+direction+"'. In the end you give up 😩");
+      System.out.println("Det var forvirrende, du kunne ikke komme til '"+direction+"'. Måske skulle du prøve at tage til et andet sted?");
     } else {
       current.goodbye();
       current = next;

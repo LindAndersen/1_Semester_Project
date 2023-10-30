@@ -103,7 +103,8 @@ public class Butik extends Space implements DefaultSpace {
     }
 
     @Override
-    public void subtractTrash(String name, int amount) {
+    public boolean subtractTrash(String name, int amount) {
+        return false;
     }
 
     @Override

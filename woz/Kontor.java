@@ -12,17 +12,14 @@ class Kontor extends Space {
         super.welcome();
     }
 
-    private void getStatus() {
-        //Some status out, informing the player of upgrades, day counter, inventory, xp, money and some indicator of how well a player is doing
-    }
-
     @Override
     public void showTrash() {
         //No trash here
     }
 
     @Override
-    public void subtractTrash(String name, int amount) {
+    public boolean subtractTrash(String name, int amount) {
+        return false;
     }
 
     @Override

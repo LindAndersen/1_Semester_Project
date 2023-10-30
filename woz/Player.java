@@ -30,13 +30,16 @@ class Player {
 
     void addToInventory(String name, int amount){
         //calls an add-method in Inventory class
+        System.out.printf("Du har tilføjet %d %s til din inventar%n", amount, name);
     }
 
     void removeFromInventory(String name, int amount){
         //calls an remove-method in Inventory class
     }
 
-
+    public Inventory getInventory() {
+        return inventory;
+    }
 
     //Setters and getters
 
@@ -60,5 +63,32 @@ class Player {
     //returns true if player can afford buying an item with given price
         return true;
     }
- 
+
+    public int getXP(){
+        return xp;
+    }
+
+    public int getMoney(){
+        return money;
+    }
+
+    public int getLvl() {
+        //Tjekker hvor meget xps værdi er og sætter lvl value efter det
+        int lvl = 0;
+
+        if (xp < 100) {
+            lvl = 1;
+        } else if (99 < xp && xp < 200) {
+            lvl = 2;
+        } else if (199 < xp && xp < 300) {
+            lvl = 3;
+        } else if (299 < xp && xp < 400) {
+            lvl = 4;
+        } else {
+            lvl = 5; // Alt over 400 xp er level 5
+        }
+
+        return lvl;
+    }
+
 }
