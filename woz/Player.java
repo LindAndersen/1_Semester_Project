@@ -64,7 +64,21 @@ class Player {
         return money;
     }
 
-    public int getLvl(){
+    public int getLvl() {
+        int lvl = 0;
+
+        if (xp < 99) {
+            lvl = 1;
+        } else if (100 < xp && xp < 199) {
+            lvl = 2;
+        } else if (200 < xp && xp < 299) {
+            lvl = 3;
+        } else if (300 < xp && xp < 399) {
+            lvl = 4;
+        } else {
+            lvl = 5; // Alt over 400 xp er level 5
+        }
+
         return lvl;
     }
 
