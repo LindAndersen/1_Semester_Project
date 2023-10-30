@@ -68,13 +68,13 @@ class Player {
         //Tjekker hvor meget xps værdi er og sætter lvl value efter det
         int lvl = 0;
 
-        if (xp < 99) {
+        if (xp < 100) {
             lvl = 1;
-        } else if (100 < xp && xp < 199) {
+        } else if (99 < xp && xp < 200) {
             lvl = 2;
-        } else if (200 < xp && xp < 299) {
+        } else if (199 < xp && xp < 300) {
             lvl = 3;
-        } else if (300 < xp && xp < 399) {
+        } else if (299 < xp && xp < 400) {
             lvl = 4;
         } else {
             lvl = 5; // Alt over 400 xp er level 5

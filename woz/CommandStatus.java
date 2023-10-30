@@ -11,6 +11,7 @@ public class CommandStatus extends BaseCommand implements Command {
         System.out.println("XP: " + context.getPlayer().getXP() + "/100"); //tallet skal være hvor meget XP der er ved hver level
         System.out.println("Bankkonto: " + context.getPlayer().getMoney());
         System.out.println("Inventar: \n" + context.getPlayer().getInventory());
+        System.out.println("Dag: " + context.getDay());
 
         //mangler at få en liste af de upgrades man har købt
     }
