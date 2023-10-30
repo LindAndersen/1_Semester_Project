@@ -65,6 +65,7 @@ class Player {
     }
 
     public int getLvl() {
+        //Tjekker hvor meget xps værdi er og sætter lvl value efter det
         int lvl = 0;
 
         if (xp < 99) {
