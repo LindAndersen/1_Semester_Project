@@ -2,6 +2,7 @@
  */
 
 import java.util.Set;
+import java.util.Map;
 
  abstract class Space extends Node implements DefaultSpace {
   private boolean isHandled;
@@ -12,12 +13,12 @@ import java.util.Set;
   }
   
   public void welcome () {
-    System.out.println("You are now at "+name);
+    System.out.println("Du er nu ved "+name);
   }
 
   public void exits() {
     Set<String> exits = edges.keySet();
-    System.out.println("Current exits are:");
+    System.out.println("Nuværende udgange fører til");
     for (String exit: exits) {
       System.out.println(" - "+exit);
     }
@@ -45,6 +46,15 @@ import java.util.Set;
         }
     }
   }
+
+public boolean isCommandReachable(String name, String[] commands) {
+    for (String elm : commands) {
+        if (elm.equals(name)) {return true;}
+    }
+    return false;
+  }
+
+
 
   public void toggleHandled() {
     isHandled = !isHandled;

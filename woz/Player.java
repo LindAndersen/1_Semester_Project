@@ -22,7 +22,7 @@ class Player {
 
     void addToInventory(String name, int amount){
         //calls an add-method in Inventory class
-        System.out.printf("Du har samlet %d %s op %n", amount, name);
+        System.out.printf("Du har tilføjet %d %s til din inventar%n", amount, name);
     }
 
     void removeFromInventory(String name, int amount){
