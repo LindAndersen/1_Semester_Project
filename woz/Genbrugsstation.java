@@ -1,25 +1,26 @@
-import java.util.Map;
+class Genbrugsstation extends Space {
+    Trash[] trash = {new Trash("metalskrot"), new Trash("batterier"), new Trash("plastik")};
+    String[] commands = {"exit", "quit", "bye", "go", "help", "pickup", "recycle"};
 
-class Genbrugsstation extends Space implements DefaultSpace {
     Genbrugsstation(String name) {
         super(name);
     }
 
-    @Override
-    public Map<String, Integer> getTrash() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getTrash'");
+    @Override public void showTrash() {
+        super.showTrash(trash);
+    }
+
+    @Override public void subtractTrash(String name, int amount) {
+        super.subtractTrash(name, amount, trash);
     }
 
     @Override
-    public void resetTrash() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'resetTrash'");
+    public boolean isCommandReachable(String name) {
+        return super.isCommandReachable(name, commands);
     }
 
     @Override
-    public void subtractTrash() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'subtractTrash'");
+    public String[] getCommands() {
+        return commands;
     }
 }

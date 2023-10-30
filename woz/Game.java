@@ -2,6 +2,8 @@
  */
 
 import java.util.Scanner;
+import java.io.InputStreamReader;
+import java.nio.charset.Charset;
 
 class Game {
   static World    world    = new World();
@@ -20,7 +22,9 @@ class Game {
     registry.register("pickup", new CommandPickup());
     registry.register("buy", new CommandBuy());
     registry.register("recycle", new CommandRecycle());
+    registry.register("status", new CommandStatus());
 
+    //{"exit", "quit", "bye", "go", "help", "pickup", "buy", "recycle"}
   }
   
   public static void main (String args[]) {

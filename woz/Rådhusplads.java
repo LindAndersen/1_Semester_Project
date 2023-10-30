@@ -1,6 +1,9 @@
 import java.util.Map;
 
-class Rådhusplads extends Space implements DefaultSpace {
+class Rådhusplads extends Space {
+    String[] commands = {"exit", "quit", "bye", "go", "help", "pickup"};
+    Trash[] trash = {new Trash("flasker"), new Trash("aviser")};
+
     Rådhusplads(String name) {
         super(name);
     }
@@ -10,21 +13,20 @@ class Rådhusplads extends Space implements DefaultSpace {
         super.welcome();
     }
 
-    @Override
-    public Map<String, Integer> getTrash() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getTrash'");
+    public String[] getCommands() {
+        return commands;
     }
 
-    @Override
-    public void resetTrash() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'resetTrash'");
+    public boolean isCommandReachable(String name) {
+        return (boolean) super.isCommandReachable(name, commands);
     }
 
-    @Override
-    public void subtractTrash() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'subtractTrash'");
+
+    public void subtractTrash(String name, int amount) {
+        super.subtractTrash(name, amount, trash);
+    }
+
+    public void showTrash() {
+        super.showTrash(trash);
     }
 }

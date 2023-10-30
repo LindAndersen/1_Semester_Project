@@ -11,7 +11,7 @@ class CommandGo extends BaseCommand implements Command {
     if (guardEq(parameters, 1)) {
       System.out.println("Uha, hvor vil du hen? 🤔");
       System.out.println("Måske skulle du prøve at tage til et af de her steder?");
-      context.getCurrent().welcome();
+      context.getCurrent().exits();
       return;
     }
     context.transition(parameters[0]);

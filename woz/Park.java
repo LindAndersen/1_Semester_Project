@@ -1,30 +1,30 @@
-import java.util.Map;
+class Park extends Space {
+    Trash[] trash = {new Trash("flasker"), new Trash("aviser")};
+    String[] commands = {"exit", "quit", "bye", "go", "help", "pickup"};
 
-class Park extends Space implements DefaultSpace {
     Park(String name) {
         super(name);
     }
 
-    @Override public void welcome() {
-        //Make own welcome for Park
+    public void showTrash() {
+        super.showTrash(trash);
+    }
+
+    public void welcome() {
         super.welcome();
     }
 
-    @Override
-    public Map<String, Integer> getTrash() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getTrash'");
+    public void subtractTrash(String name, int amount) {
+        super.subtractTrash(name, amount, trash);
     }
 
     @Override
-    public void resetTrash() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'resetTrash'");
+    public boolean isCommandReachable(String name) {
+        return super.isCommandReachable(name, commands);
     }
 
     @Override
-    public void subtractTrash() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'subtractTrash'");
+    public String[] getCommands() {
+        return commands;
     }
 }

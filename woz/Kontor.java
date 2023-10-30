@@ -1,6 +1,7 @@
 import java.util.Map;
 
-class Kontor extends Space implements DefaultSpace {
+class Kontor extends Space {
+    String[] commands = {"exit", "quit", "bye", "go", "help", "status"};
     Kontor(String name) {
         super(name);
     }
@@ -16,21 +17,21 @@ class Kontor extends Space implements DefaultSpace {
     }
 
     @Override
-    public Map<String, Integer> getTrash() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getTrash'");
+    public void showTrash() {
+        //No trash here
     }
 
     @Override
-    public void resetTrash() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'resetTrash'");
+    public void subtractTrash(String name, int amount) {
     }
 
     @Override
-    public void subtractTrash() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'subtractTrash'");
+    public boolean isCommandReachable(String name) {
+        return super.isCommandReachable(name, commands);
     }
 
+    @Override
+    public String[] getCommands() {
+        return commands;
+    }
 }

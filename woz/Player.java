@@ -1,6 +1,6 @@
 class Player {
     private String name;
-    private double xp;
+    private int xp;
     private int lvl;
     private int money;
     private Inventory inventory;
@@ -9,7 +9,7 @@ class Player {
 
     public Player(String name) {
         this.name = name;
-        xp = 0.0;
+        xp = 0;
         lvl = 1;
         money = 100;
         inventory = new Inventory();
@@ -22,6 +22,7 @@ class Player {
 
     void addToInventory(String name, int amount){
         //calls an add-method in Inventory class
+        System.out.printf("Du har tilføjet %d %s til din inventar%n", amount, name);
     }
 
     void removeFromInventory(String name, int amount){

@@ -1,34 +1,34 @@
-import java.util.Map;
-import java.util.HashMap;
-
-class Rækkehuse extends Space implements DefaultSpace {
-    Map<String, Trash> trash = new HashMap<String, Trash>();
+class Rækkehuse extends Space {
+    String[] commands = {"exit", "quit", "bye", "go", "help", "pickup"};
+    Trash[] trash = {new Trash("flasker"), new Trash("aviser")};
 
     Rækkehuse(String name) {
         super(name);
         //Add some trash to trash
     }
 
-    @Override public void welcome() {
+    public void welcome() {
         //Make own welcome specific for Rækkehuse
         super.welcome();
     }
 
     @Override
-    public Map<String, Integer> getTrash() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getTrash'");
+    public void showTrash() {
+        super.showTrash(trash);
     }
 
     @Override
-    public void resetTrash() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'resetTrash'");
+    public void subtractTrash(String name, int amount) {
+        super.subtractTrash(name, amount, trash);
     }
 
     @Override
-    public void subtractTrash() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'subtractTrash'");
+    public boolean isCommandReachable(String name) {
+        return super.isCommandReachable(name, commands);
+    }
+
+    @Override
+    public String[] getCommands() {
+        return commands;
     }
 }
