@@ -9,15 +9,23 @@ class Player {
 
     public Player(String name) {
         this.name = name;
-        xp = 0;
+        xp = 100;
         lvl = 1;
         money = 100;
         inventory = new Inventory();
 
     }
 
+    public int getMoney(){
+        return money;
+    }
+
     void showInventory() {
         System.out.println(inventory.toString());
+    }
+
+    public Inventory getInventory(){
+        return inventory;
     }
 
     void addToInventory(String name, int amount){
