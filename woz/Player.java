@@ -29,7 +29,9 @@ class Player {
         //calls an remove-method in Inventory class
     }
 
-
+    public Inventory getInventory() {
+        return inventory;
+    }
 
     //Setters and getters
 
@@ -53,5 +55,17 @@ class Player {
     //returns true if player can afford buying an item with given price
         return true;
     }
- 
+
+    public int getXP(){
+        return xp;
+    }
+
+    public int getMoney(){
+        return money;
+    }
+
+    public int getLvl(){
+        return lvl;
+    }
+
 }
