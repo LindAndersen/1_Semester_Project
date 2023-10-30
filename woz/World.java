@@ -13,8 +13,10 @@ class World {
     Space rådhusplads = new Rådhusplads("Centrum");
     Space butik = new Butik("Butik");
 
+    //Adding all spaces to Space array, so we can access them in a more efficient way when adding edges
     Space[] locations = {kontor, rækkehuse, genbrugsstation, park, rådhusplads, butik};
     
+    //Adds every location to every location with the exception of an arbitrary location cant reach itself
     for (Space loc : locations) {
       for (Space edge : locations) {
         if (loc != edge) {

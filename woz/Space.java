@@ -35,16 +35,21 @@ import java.util.Map;
     }
   }
 
-  public void subtractTrash(String name, int amount, Trash[] trash) {
+
+  //SubtractTrash subtracts trash from room. Catches InsufficientTrashException 
+  public boolean subtractTrash(String name, int amount, Trash[] trash) {
     for (Trash t : trash) {
         if (t.getName().equals(name)) {
             try {
                 t.subtractTrash(amount);
+                return true;
             } catch (InsufficientTrashException e) {
                 System.out.println(e.getMessage());
+                return false;
             }
         }
     }
+    return false;
   }
 
 public boolean isCommandReachable(String name, String[] commands) {
