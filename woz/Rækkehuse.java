@@ -7,6 +7,15 @@ class Rækkehuse extends Space {
         //Add some trash to trash
     }
 
+    // Method to convert the trash array to a string
+    public String getTrashAsString() {
+        StringBuilder trashString = new StringBuilder();
+        for (Trash t : trash) {
+            trashString.append(t.getName()).append(": ").append(t.getAmount()).append(", ");
+        }
+        return trashString.toString();
+    }
+
     public void welcome() {
         //Make own welcome specific for Rækkehuse
         super.welcome();
