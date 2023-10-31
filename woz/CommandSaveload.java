@@ -57,7 +57,9 @@ class Commandsaveload extends BaseCommand implements Command {
     @Override
     public void execute (Context context, String command, String[] parameters) {
 
-        Commandsaveload Commandsaveload = new Commandsaveload("variables.txt");
+        Commandsaveload Commandsaveload = new Commandsaveload("variables.txt", rækkehuse);
+        // Get the Rækkehuse instance from the World
+        Rækkehuse rækkehuse = world.getRækkehuseInstance();
 
         switch(command) {
 
