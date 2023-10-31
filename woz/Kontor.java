@@ -22,6 +22,10 @@ class Kontor extends Space {
         //No trash here
     }
 
+    public void setRoomTrash(){
+       //No trash here
+    }
+
     @Override
     public boolean subtractTrash(String name, int amount) {
         return false;

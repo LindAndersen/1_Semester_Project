@@ -11,6 +11,12 @@ class Centrum extends Space {
         super.welcome();
     }
 
+     public void setRoomTrash(){
+        for(Trash t : trash){
+            t.setTrash();
+        }
+    }
+
     public String[] getCommands() {
         return commands;
     }

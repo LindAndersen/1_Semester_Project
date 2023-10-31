@@ -16,10 +16,6 @@ class Player {
 
     }
 
-    public int getMoney(){
-        return money;
-    }
-
     void showInventory() {
         System.out.println(inventory.toString());
     }

@@ -1,6 +1,6 @@
 class Park extends Space {
-    Trash[] trash = {new Trash("flasker"), new Trash("aviser")};
     String[] commands = {"exit", "quit", "bye", "go", "help", "pickup"};
+    Trash[] trash = {new Trash("flasker"), new Trash("aviser")};
 
     Park(String name) {
         super(name);
@@ -12,6 +12,12 @@ class Park extends Space {
 
     public void welcome() {
         super.welcome();
+    }
+
+     public void setRoomTrash(){
+        for(Trash t : trash){
+            t.setTrash();
+        }
     }
 
     public boolean subtractTrash(String name, int amount) {

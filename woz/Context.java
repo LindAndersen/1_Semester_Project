@@ -58,7 +58,22 @@ class Context {
         }
       }
     }
-  
+  }
+
+   void resetDay(World world){
+    Space[] locations = world.getLocations();
+
+    for(Space loc : locations){
+      loc.setRoomTrash();
+      loc.toggleHandled();
+    }
+    
+    dayCounter++;
+
+    transition("kontor");//man "vågner op" i kontoret igen
+
+    
+  }
   int getDay() {
     return this.dayCounter;
   }
