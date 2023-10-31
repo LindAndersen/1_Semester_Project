@@ -26,7 +26,8 @@ public class ObjectFileManager {
         return obj;
     }
 
-    public static void main(String[] args) {
+    @Override
+    public void execute (Context context, String command, String[] parameters) {
         // Example of saving and loading an object
         // Replace 'YourObject' with the class of the object you want to save/load.
         YourObject objectToSave = new YourObject("Example Data");
