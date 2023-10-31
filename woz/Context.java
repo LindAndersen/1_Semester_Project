@@ -58,7 +58,6 @@ class Context {
         }
       }
     }
-  }
 
    void resetDay(World world){
     Space[] locations = world.getLocations();

@@ -90,4 +90,8 @@ class Player {
         return lvl;
     }
 
+    public int getMoney() {
+        return money;
+    }
+
 }
