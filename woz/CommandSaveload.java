@@ -4,10 +4,12 @@ import java.util.*;
 class Commandsaveload extends BaseCommand implements Command {
     private final String fileName; // This variable stores the name of the file where we save and read variables.
     private final Map<String, String> variables; // Use a LinkedHashMap to preserve the order
+    private Rækkehuse rækkehuseInstance;
 
     // Constructor to initialize the class with a file name.
-    public Commandsaveload(String fileName) {
+    public Commandsaveload(String fileName, Rækkehuse rækkehuseInstance) {
         this.fileName = fileName;
+        this.rækkehuseInstance = rækkehuseInstance;
         variables = new LinkedHashMap<>();
     }
 
@@ -42,12 +44,6 @@ class Commandsaveload extends BaseCommand implements Command {
         return variables;
     }
 
-    private Rækkehuse rækkehuseInstance;
-
-    Commandsaveload(Rækkehuse rækkehuseInstance) {
-        this.rækkehuseInstance = rækkehuseInstance;
-    }
-
     // Method to set the trash variable in the Rækkehuse instance
     public void setTrashInRækkehuse(Trash[] newTrash) {
         rækkehuseInstance.setTrash(newTrash);
@@ -72,7 +68,8 @@ class Commandsaveload extends BaseCommand implements Command {
                 Commandsaveload.save("player", context.getPlayer());
                 Commandsaveload.save("location", context.getCurrent());
                 Commandsaveload.save("day count", context.getDay());
-                Commandsaveload.save("trash rækkehuse", );
+                String trashString = commandSaveLoad.getTrashInRækkehuseAsString();
+                Commandsaveload.save("trash rækkehuse", trashString);
                 Commandsaveload.save("trash park", );
 
                 break;
