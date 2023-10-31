@@ -32,15 +32,20 @@ public class ObjectFileManager {
         // Replace 'YourObject' with the class of the object you want to save/load.
         YourObject objectToSave = new YourObject("Example Data");
 
-        // Save the object to a file
-        saveObjectToFile(objectToSave, "objectData.ser");
+        switch(command) {
 
-        // Load the object from the file
-        YourObject loadedObject = (YourObject) loadObjectFromFile("objectData.ser");
+            case "save":
+                // Save the object to a file
+                saveObjectToFile(objectToSave, "objectData.ser");
 
-        // Verify the loaded object
-        if (loadedObject != null) {
-            System.out.println("Loaded Data: " + loadedObject.getData());
+            case "load":
+                // Load the object from the file
+                YourObject loadedObject = (YourObject) loadObjectFromFile("objectData.ser");
+
+                // Verify the loaded object
+                if (loadedObject != null) {
+                System.out.println("Loaded Data: " + loadedObject.getData());
+
         }
     }
 }
