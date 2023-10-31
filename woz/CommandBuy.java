@@ -1,5 +1,7 @@
-import java.util.HashMap;
-import java.util.Map;
+// import java.util.HashMap;
+// import java.util.Map;
+import java.util.TreeMap;
+
 public class CommandBuy extends BaseCommand implements Command {
 
     CommandBuy() {
@@ -18,31 +20,30 @@ public class CommandBuy extends BaseCommand implements Command {
 
         if(context.getCurrent() instanceof Butik){//tjek inden downcasting
             Butik butik = (Butik)context.getCurrent();//downcaster Space til Butik, så vi har adgang til metoder i Butik
-            HashMap<String, Upgrades> upgrades = butik.getUpgrades();//henter upgrades og gemmer i en variabel
-            
+            TreeMap<String, Upgrades> upgrades = butik.getUpgrades();//henter upgrades og gemmer i en variabel
+
             int price = 0;//initialiserer price, som skal hentes fra upgrades hvis den angivne uågradde eksisterer
-            
             if(upgrades.containsKey(parameters[0].trim())){//tjekker om den angivne upgrade eksisterer
-                price = upgrades.get(parameters[0].trim()).getPrice();//henter pris
+                price = (upgrades.get(parameters[0].trim())).getPrice();//henter pris
+                
+                if(context.getPlayer().canAfford(price)){//hvis spiller har råd til upgraden...
+                    System.out.println("pris: " + price);
+                    context.getPlayer().subtractMoney(price);//træk penge
+                    butik.removeUpgrade(parameters[0].trim());//fjern upgrade fra shop
+
+                    //opdater world med ny modifier - ikke implementeret 
+
+                    System.out.println("Du har købt upgraden " + parameters[0]);
+                    System.out.println("Butikken udvalg er nu: ");
+                    butik.showUpgrades();
+                    System.out.println("Du har så mange coins nu: " + context.getPlayer().getMoney());
+                }else{
+                    System.out.println("Du har ikke råd til denne vare");
+                }
             }else{
-                System.out.println("Denne vare er ikke på lager");
-            }
-
-            if(context.getPlayer().canAfford(price)){//hvis spiller har råd til upgraden...
-                context.getPlayer().subtractMoney(price);//træk penge
-                butik.removeUpgrade(parameters[0].trim());//fjern upgrade fra shop
-
-                //opdater world med ny modifier - ikke implementeret 
-
-                System.out.println("Du har købt upgraden " + parameters[0]);
-                System.out.println("Butikken udvalg er nu: ");
-                butik.showUpgrades();
-                System.out.println("Du har så mange coins nu: " + context.getPlayer().getMoney());
-            }else{
-                System.out.println("Du har ikke råd til denne upgrade");
+               System.out.println("Denne vare er ikke på lager");
             }
         }
-
     }
 }
 

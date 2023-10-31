@@ -1,29 +1,21 @@
 import java.util.Map;
-// import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.TreeMap;
 import java.util.Set;
 
 public class Butik extends Space implements DefaultSpace {
 
-    // private ArrayList<Upgrades> upgrades;
-
-    private HashMap<String, Upgrades> upgrades;
+    private TreeMap<String, Upgrades> upgrades;
     private String[] commands = {"exit", "quit", "bye", "go", "help", "buy"};
     
     public Butik(String name) {
         super(name);
         // upgrades = new ArrayList<Upgrades>();
-        upgrades = new HashMap<String, Upgrades>();
+        upgrades = new TreeMap<String, Upgrades>(String.CASE_INSENSITIVE_ORDER);
 
         initUpgrades();
     }
 
-    // public ArrayList<Upgrades> getUpgrades(){
-    //     return upgrades;
-    // }
-
-    public HashMap<String, Upgrades> getUpgrades(){
+    public TreeMap<String, Upgrades> getUpgrades(){
         return upgrades;
     }
 
@@ -35,7 +27,6 @@ public class Butik extends Space implements DefaultSpace {
 
     @Override
     public void goodbye(){
-
     }
 
     public void initUpgrades(){
@@ -52,26 +43,6 @@ public class Butik extends Space implements DefaultSpace {
         upgrades.put("Varmeanlæg m. oliefyr", new Upgrades("Varmeanlæg m. oliefyr", 50, 200, 1.5));
         upgrades.put("Fodboldstadion", new Upgrades("Fodboldstadion", 50, 200, 1.5));
     }
-
-
-
-    // public void initUpgrades(){
-    //     upgrades.add(new Upgrades("Motorvej", 50, 200, 1.5));
-    //     upgrades.add(new Upgrades("Cykelsti", 50, 200, 1.5));
-    //     upgrades.add(new Upgrades("Billboard", 50, 200, 1.5));
-    //     upgrades.add(new Upgrades("Skraldespande", 50, 200, 1.5));
-    //     upgrades.add(new Upgrades("Solceller", 50, 200, 1.5));
-    //     upgrades.add(new Upgrades("Filter i parksøen", 50, 200, 1.5));
-    //     upgrades.add(new Upgrades("Offentlig transport", 50, 200, 1.5));
-    //     upgrades.add(new Upgrades("Isolerende vinduer", 50, 200, 1.5));
-    //     upgrades.add(new Upgrades("Legeplads", 50, 200, 1.5));
-    //     upgrades.add(new Upgrades("Farve i parksøen", 50, 200, 1.5));
-    //     upgrades.add(new Upgrades("Parkeringshus", 50, 200, 1.5));
-    //     upgrades.add(new Upgrades("Varmeanlæg m. oliefyr", 50, 200, 1.5));
-    //     upgrades.add(new Upgrades("Fodboldstadion", 50, 200, 1.5));
-    // }
-
-   
 
     public void showUpgrades() {
         //formatting output like in CommandHelp
@@ -95,7 +66,7 @@ public class Butik extends Space implements DefaultSpace {
 
 
     void removeUpgrade(String name) {
-
+        upgrades.remove(name);
     }
 
     @Override

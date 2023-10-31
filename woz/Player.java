@@ -16,17 +16,10 @@ class Player {
 
     }
 
-    public int getMoney(){
-        return money;
-    }
-
     void showInventory() {
         System.out.println(inventory.toString());
     }
 
-    public Inventory getInventory(){
-        return inventory;
-    }
 
     void addToInventory(String name, int amount){
         //calls an add-method in Inventory class
