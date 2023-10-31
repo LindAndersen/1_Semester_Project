@@ -9,7 +9,7 @@ class Player {
 
     public Player(String name) {
         this.name = name;
-        xp = 0;
+        xp = 100;
         lvl = 1;
         money = 100;
         inventory = new Inventory();
@@ -66,15 +66,15 @@ class Player {
 
     public int getLvl() {
         //Tjekker hvor meget xps værdi er og sætter lvl value efter det
-        int lvl = 0;
+        int lvl = 1;
 
-        if (xp < 100) {
+        if (xp < 200) {
             lvl = 1;
-        } else if (99 < xp && xp < 200) {
-            lvl = 2;
         } else if (199 < xp && xp < 300) {
-            lvl = 3;
+            lvl = 2;
         } else if (299 < xp && xp < 400) {
+            lvl = 3;
+        } else if (399 < xp && xp < 500) {
             lvl = 4;
         } else {
             lvl = 5; // Alt over 400 xp er level 5
