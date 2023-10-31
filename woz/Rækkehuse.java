@@ -12,6 +12,12 @@ class Rækkehuse extends Space {
         super.welcome();
     }
 
+    public void setRoomTrash(){
+        for(Trash t : trash){
+            t.setTrash();
+        }
+    }
+
     @Override
     public void showTrash() {
         super.showTrash(trash);

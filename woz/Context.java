@@ -5,7 +5,7 @@ class Context {
   private Space current;
   private boolean done = false;
   private Player player = new Player("Borgmester");
-  private int dayCounter = 0;
+  private int dayCounter = 1;
   
   Context (Space node) {
     current = node;
@@ -24,6 +24,21 @@ class Context {
       current = next;
       current.welcome();
     }
+  }
+
+   void resetDay(World world){
+    Space[] locations = world.getLocations();
+
+    for(Space loc : locations){
+      loc.setRoomTrash();
+      loc.toggleHandled();
+    }
+    
+    dayCounter++;
+
+    transition("kontor");//man "vågner op" i kontoret igen
+
+    
   }
   
   int getDay() {

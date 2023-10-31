@@ -22,13 +22,20 @@ public class CommandBuy extends BaseCommand implements Command {
             Butik butik = (Butik)context.getCurrent();//downcaster Space til Butik, så vi har adgang til metoder i Butik
             TreeMap<String, Upgrades> upgrades = butik.getUpgrades();//henter upgrades og gemmer i en variabel
 
-            int price = 0;//initialiserer price, som skal hentes fra upgrades hvis den angivne uågradde eksisterer
+            Player player = context.getPlayer();
+
+
+            // int price = 0;//initialiserer price, som skal hentes fra upgrades hvis den angivne uågradde eksisterer
             if(upgrades.containsKey(parameters[0].trim())){//tjekker om den angivne upgrade eksisterer
-                price = (upgrades.get(parameters[0].trim())).getPrice();//henter pris
                 
-                if(context.getPlayer().canAfford(price)){//hvis spiller har råd til upgraden...
+                int price = (upgrades.get(parameters[0].trim())).getPrice();//henter pris
+                int xp = (upgrades.get(parameters[0].trim())).getXP();//henter xp
+
+                if(player.canAfford(price)){//hvis spiller har råd til upgraden...
                     System.out.println("pris: " + price);
-                    context.getPlayer().subtractMoney(price);//træk penge
+                    player.subtractMoney(price);//træk penge
+                    player.addXP(xp);//tilføj xp
+
                     butik.removeUpgrade(parameters[0].trim());//fjern upgrade fra shop
 
                     //opdater world med ny modifier - ikke implementeret 
@@ -36,7 +43,9 @@ public class CommandBuy extends BaseCommand implements Command {
                     System.out.println("Du har købt upgraden " + parameters[0]);
                     System.out.println("Butikken udvalg er nu: ");
                     butik.showUpgrades();
-                    System.out.println("Du har så mange coins nu: " + context.getPlayer().getMoney());
+                    System.out.println("Du har så mange mønster nu: " + player.getMoney());
+                    System.out.println("Du har så meget xp nu: " + player.getXP());
+
                 }else{
                     System.out.println("Du har ikke råd til denne vare");
                 }

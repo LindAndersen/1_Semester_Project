@@ -10,6 +10,12 @@ class Genbrugsstation extends Space {
         super.showTrash(trash);
     }
 
+    public void setRoomTrash(){
+        for(Trash t : trash){
+            t.setTrash();
+        }
+    }
+
     @Override public boolean subtractTrash(String name, int amount) {
         return super.subtractTrash(name, amount, trash);
     }

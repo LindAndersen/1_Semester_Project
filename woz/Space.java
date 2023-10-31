@@ -34,6 +34,9 @@ import java.util.Map;
         System.out.printf("- %d %s%n", t.getAmount(), t.getName());
     }
   }
+  public void setRoomTrash(){
+    
+  }
 
 
   //SubtractTrash subtracts trash from room. Catches InsufficientTrashException 

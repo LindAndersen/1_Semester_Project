@@ -19,6 +19,10 @@ public class Butik extends Space implements DefaultSpace {
         return upgrades;
     }
 
+    public void setRoomTrash(){
+        //No trash here
+    }
+
 
     @Override
     public void welcome() {
