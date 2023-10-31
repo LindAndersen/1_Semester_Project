@@ -33,6 +33,10 @@ class World {
     return kontor;
   }
 
+  public Rækkehuse getRækkehuseInstance() {
+        return rækkehuse;
+  }
+
   public Space[] getLocations() {
     return locations;
   }
