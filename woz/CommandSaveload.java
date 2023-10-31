@@ -42,6 +42,22 @@ class Commandsaveload extends BaseCommand implements Command {
         return variables;
     }
 
+    private Rækkehuse rækkehuseInstance;
+
+    Commandsaveload(Rækkehuse rækkehuseInstance) {
+        this.rækkehuseInstance = rækkehuseInstance;
+    }
+
+    // Method to set the trash variable in the Rækkehuse instance
+    public void setTrashInRækkehuse(Trash[] newTrash) {
+        rækkehuseInstance.setTrash(newTrash);
+    }
+
+    // Method to get the trash variable as a string from the Rækkehuse instance
+    public String getTrashInRækkehuseAsString() {
+        return rækkehuseInstance.getTrashAsString();
+    }
+
     @Override
     public void execute (Context context, String command, String[] parameters) {
 
