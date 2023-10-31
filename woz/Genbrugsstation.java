@@ -6,6 +6,17 @@ class Genbrugsstation extends Space {
         super(name);
     }
 
+    void firstDayWelcome() {
+        System.out.println("Velkommen til genbrugsstationen!");
+        System.out.println("Her kan du få genanvendt skraldet, du får samlet op, og vekslet dem til XP og mønter! Win win!");
+        System.out.println("Mønter får du brug for i butikken.");
+    }
+
+    @Override public void welcome() {
+        //Make our own welcome for Genbrugstation
+        super.welcome();
+    }
+
     @Override public void showTrash() {
         super.showTrash(trash);
     }

@@ -1,15 +1,13 @@
-import java.util.Map;
-
-class Rådhusplads extends Space {
+class Centrum extends Space {
     String[] commands = {"exit", "quit", "bye", "go", "help", "pickup"};
     Trash[] trash = {new Trash("flasker"), new Trash("aviser")};
 
-    Rådhusplads(String name) {
+    Centrum(String name) {
         super(name);
     }
 
     @Override public void welcome() {
-        //Make own welcome for Rådshusplads
+        //Make own welcome for Centrum
         super.welcome();
     }
 

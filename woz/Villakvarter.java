@@ -1,8 +1,8 @@
-class Rækkehuse extends Space {
+class Villakvarter extends Space {
     String[] commands = {"exit", "quit", "bye", "go", "help", "pickup"};
     Trash[] trash = {new Trash("flasker"), new Trash("aviser")};
 
-    Rækkehuse(String name) {
+    Villakvarter(String name) {
         super(name);
         //Add some trash to trash
     }

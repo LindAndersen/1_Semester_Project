@@ -24,10 +24,6 @@ class Player {
         System.out.println(inventory.toString());
     }
 
-    public Inventory getInventory(){
-        return inventory;
-    }
-
     void addToInventory(String name, int amount){
         //calls an add-method in Inventory class
         System.out.printf("Du har tilføjet %d %s til din inventar%n", amount, name);
@@ -77,10 +73,6 @@ class Player {
 
     public int getXP(){
         return xp;
-    }
-
-    public int getMoney(){
-        return money;
     }
 
     public int getLvl() {
