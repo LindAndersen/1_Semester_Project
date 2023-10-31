@@ -1,6 +1,6 @@
 import java.io.*;
 
-public class ObjectFileManager {
+public class Commandsaveloadobject {
 
     // Method to save an object to a file
     public static void saveObjectToFile(Object obj, String filePath) {
@@ -36,15 +36,19 @@ public class ObjectFileManager {
 
             case "save":
                 // Save the object to a file
-                saveObjectToFile(objectToSave, "objectData.ser");
+                Commandsaveloadobject.saveObjectToFile(objectToSave, "objectData.ser");
+
+                break;
 
             case "load":
                 // Load the object from the file
-                YourObject loadedObject = (YourObject) loadObjectFromFile("objectData.ser");
+                YourObject loadedObject = (YourObject) Commandsaveloadobject.loadObjectFromFile("objectData.ser");
 
                 // Verify the loaded object
                 if (loadedObject != null) {
                 System.out.println("Loaded Data: " + loadedObject.getData());
+
+                break;
 
         }
     }
