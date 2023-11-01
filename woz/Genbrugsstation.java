@@ -1,9 +1,9 @@
 class Genbrugsstation extends Space {
-    Trash[] trash = {new Trash("metalskrot"), new Trash("batterier"), new Trash("plastik")};
     String[] commands = {"exit", "quit", "bye", "go", "help", "pickup", "recycle"};
 
     Genbrugsstation(String name) {
         super(name);
+        trash = new Trash[] {new Trash("metalskrot"), new Trash("batterier"), new Trash("plastik")};
     }
 
     void firstDayWelcome() {
@@ -25,10 +25,6 @@ class Genbrugsstation extends Space {
         for(Trash t : trash){
             t.setTrash();
         }
-    }
-
-    @Override public boolean subtractTrash(String name, int amount) {
-        return super.subtractTrash(name, amount, trash);
     }
 
     @Override

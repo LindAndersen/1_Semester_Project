@@ -86,11 +86,6 @@ public class Butik extends Space implements DefaultSpace {
     }
 
     @Override
-    public boolean subtractTrash(String name, int amount) {
-        return false;
-    }
-
-    @Override
     public boolean isCommandReachable(String name) {
         return super.isCommandReachable(name, commands);
     }

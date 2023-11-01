@@ -27,11 +27,6 @@ class Kontor extends Space {
     }
 
     @Override
-    public boolean subtractTrash(String name, int amount) {
-        return false;
-    }
-
-    @Override
     public boolean isCommandReachable(String name) {
         return super.isCommandReachable(name, commands);
     }

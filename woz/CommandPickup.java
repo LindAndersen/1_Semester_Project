@@ -26,6 +26,9 @@ public class CommandPickup extends BaseCommand implements Command {
                 } catch (NumberFormatException e) {
                     System.out.println("Du burde skrive \"pickup [type] [mængde]\"");
                     break;
+                } catch (TrashNotFoundException e) {
+                    System.out.println("Denne type affald er ikke i dette rum");
+                    break;
                 }
             default :
             //If command was something not described above

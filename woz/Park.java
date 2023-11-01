@@ -1,9 +1,9 @@
 class Park extends Space {
     String[] commands = {"exit", "quit", "bye", "go", "help", "pickup"};
-    Trash[] trash = {new Trash("flasker"), new Trash("aviser")};
 
     Park(String name) {
         super(name);
+        trash = new Trash[] {new Trash("flasker"), new Trash("aviser")};
     }
 
     public void showTrash() {
@@ -18,10 +18,6 @@ class Park extends Space {
         for(Trash t : trash){
             t.setTrash();
         }
-    }
-
-    public boolean subtractTrash(String name, int amount) {
-        return super.subtractTrash(name, amount, trash);
     }
 
     @Override

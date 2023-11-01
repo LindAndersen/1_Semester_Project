@@ -1,9 +1,9 @@
 class Villakvarter extends Space {
     String[] commands = {"exit", "quit", "bye", "go", "help", "pickup"};
-    Trash[] trash = {new Trash("flasker"), new Trash("aviser")};
 
     Villakvarter(String name) {
         super(name);
+        trash = new Trash[] {new Trash("flasker"), new Trash("aviser")};
         //Add some trash to trash
     }
 
@@ -21,11 +21,6 @@ class Villakvarter extends Space {
     @Override
     public void showTrash() {
         super.showTrash(trash);
-    }
-
-    @Override
-    public boolean subtractTrash(String name, int amount) {
-        return super.subtractTrash(name, amount, trash);
     }
 
     @Override

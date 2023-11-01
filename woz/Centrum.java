@@ -25,11 +25,6 @@ class Centrum extends Space {
         return (boolean) super.isCommandReachable(name, commands);
     }
 
-
-    public boolean subtractTrash(String name, int amount) {
-        return super.subtractTrash(name, amount, trash);
-    }
-
     public void showTrash() {
         super.showTrash(trash);
     }
