@@ -51,7 +51,7 @@ import java.util.Set;
                 return false;
             }
         }
-    } throw new TrashNotFoundException(String.format("%s eksisterer ikke i rummet%n", name));
+    } throw new TrashNotFoundException(String.format("%s eksisterer ikke i rummet", name));
   }
 
 public boolean isCommandReachable(String name, String[] commands) {
