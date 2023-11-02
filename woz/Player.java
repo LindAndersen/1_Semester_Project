@@ -23,6 +23,7 @@ class Player {
     void addToInventory(String name, int amount){
         //calls an add-method in Inventory class
         System.out.printf("Du har tilføjet %d %s til din inventar%n", amount, name);
+        inventory.addItem(name, amount);
     }
 
     void removeFromInventory(String name, int amount){
@@ -92,6 +93,16 @@ class Player {
 
     public int getMoney() {
         return money;
+    }
+
+    public void emptyInventory() {
+        //inventory.setInventory(inventory.getInventory().clear());
+        inventory = new Inventory();
+    }
+
+    public int getTrashAmount() {
+        return inventory.getTotalAmount();
+
     }
 
 }
