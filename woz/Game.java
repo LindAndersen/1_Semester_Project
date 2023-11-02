@@ -45,6 +45,10 @@ class Game {
       System.out.print("> ");
       String line = scanner.nextLine();
       registry.dispatch(line.toLowerCase());
+
+      if(context.isDayDone(world)){
+        System.out.println("Der er ikke mere at lave i dag. Du kan starte næste dag ved at skrive 'reset'");
+      }
     }
     System.out.println("Game Over 😥");
   }

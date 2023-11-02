@@ -37,6 +37,10 @@ import java.util.Map;
   public void setRoomTrash(){
     
   }
+  public Trash[] getTrash(){
+    Trash[] trash = new Trash[1];
+    return trash;
+  }
 
 
   //SubtractTrash subtracts trash from room. Catches InsufficientTrashException 
@@ -64,8 +68,11 @@ public boolean isCommandReachable(String name, String[] commands) {
 
 
 
-  public void toggleHandled() {
-    isHandled = !isHandled;
+  public void makeHandled() {
+    isHandled = true;
+  }
+  public void undoHandled(){
+    isHandled = false;
   }
 
   public boolean getHandled() {

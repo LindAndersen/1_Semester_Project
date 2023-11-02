@@ -1,7 +1,7 @@
 import java.util.Map;
 
 class Rådhusplads extends Space {
-    String[] commands = {"exit", "quit", "bye", "go", "help", "pickup"};
+    String[] commands = {"exit", "quit", "bye", "go", "help", "pickup", "reset"};
     Trash[] trash = {new Trash("flasker"), new Trash("aviser")};
 
     Rådhusplads(String name) {
@@ -17,6 +17,9 @@ class Rådhusplads extends Space {
         for(Trash t : trash){
             t.setTrash();
         }
+    }
+    public Trash[] getTrash(){
+        return trash;
     }
 
     public String[] getCommands() {

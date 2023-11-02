@@ -1,15 +1,19 @@
 import java.util.Map;
 
 class Kontor extends Space {
-    String[] commands = {"exit", "quit", "bye", "go", "help", "status"};
+    private boolean isHandled;
+
+    String[] commands = {"exit", "quit", "bye", "go", "help", "status", "reset"};
     Kontor(String name) {
         super(name);
+        isHandled = false;
     }
 
     @Override
     public void welcome() {
         //Specify welcome for Kontor
         super.welcome();
+        makeHandled();
     }
 
     @Override
@@ -17,8 +21,19 @@ class Kontor extends Space {
         //No trash here
     }
 
-    public void setRoomTrash(){
-       //No trash here
+    @Override
+    public void makeHandled(){
+        isHandled = true;
+    }
+
+    @Override
+    public void undoHandled(){
+        isHandled = false;
+    }
+
+    @Override
+    public boolean getHandled(){
+        return isHandled;
     }
 
     @Override

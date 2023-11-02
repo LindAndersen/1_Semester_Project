@@ -29,10 +29,11 @@ class Trash {
     //Instead of printing not enough trash, we throw custom made exception "InsufficientTrashException"
     //This exception is caught in Space
     public void subtractTrash(int amount) throws InsufficientTrashException {
-    if (this.amount < amount) { 
-        throw new InsufficientTrashException("Du kan ikke samle så meget skrald op af denne type");
-    }
-    this.amount -= amount;
+        if (this.amount < amount) { 
+            throw new InsufficientTrashException("Du kan ikke samle så meget skrald op af denne type");
+        }
+        this.amount -= amount;
+        
     }
 
     public int setTrash() {

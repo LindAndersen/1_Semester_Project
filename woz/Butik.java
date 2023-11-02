@@ -5,28 +5,41 @@ import java.util.Set;
 public class Butik extends Space implements DefaultSpace {
 
     private TreeMap<String, Upgrades> upgrades;
-    private String[] commands = {"exit", "quit", "bye", "go", "help", "buy"};
-    
+    private String[] commands = {"exit", "quit", "bye", "go", "help", "buy", "reset"};
+    private boolean isHandled;
+
+
     public Butik(String name) {
         super(name);
-        // upgrades = new ArrayList<Upgrades>();
         upgrades = new TreeMap<String, Upgrades>(String.CASE_INSENSITIVE_ORDER);
-
         initUpgrades();
+        this.isHandled = super.getHandled();
     }
 
     public TreeMap<String, Upgrades> getUpgrades(){
         return upgrades;
     }
 
-    public void setRoomTrash(){
-        //No trash here
+      @Override
+    public void makeHandled(){
+        isHandled = true;
+    }
+
+    @Override
+    public void undoHandled(){
+        isHandled = false;
     }
 
 
     @Override
+    public boolean getHandled(){
+        return isHandled;
+    }
+
+    @Override
     public void welcome() {
         showUpgrades();
+        makeHandled();
     }
 
     @Override

@@ -1,5 +1,5 @@
 class Rækkehuse extends Space {
-    String[] commands = {"exit", "quit", "bye", "go", "help", "pickup"};
+    String[] commands = {"exit", "quit", "bye", "go", "help", "pickup", "reset"};
     Trash[] trash = {new Trash("flasker"), new Trash("aviser")};
 
     Rækkehuse(String name) {
@@ -16,6 +16,9 @@ class Rækkehuse extends Space {
         for(Trash t : trash){
             t.setTrash();
         }
+    }
+    public Trash[] getTrash(){
+        return trash;
     }
 
     @Override

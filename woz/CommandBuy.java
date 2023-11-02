@@ -11,46 +11,44 @@ public class CommandBuy extends BaseCommand implements Command {
     @Override
     public void execute(Context context, String command, String[] parameters) {
 
-        /*  if player can afford the upgrade - context.getPlayer().canAfford()
-            Call a buy() method that subtracts money from player - context.getPlayer().subtractMoney(amount)
-            Removes upgrade from shop - context.getCurrent().removeFromShop("upgrade name / key")
+        if(!guardEq(parameters, 0)){
+            System.out.println("Du bliver nødt til at sige hvad du vil ha");
+        }else{
 
-            In some way adds the upgrade to the world /updates world and activates changes 
-        */
+            if(context.getCurrent() instanceof Butik){//tjek inden downcasting
+                Butik butik = (Butik)context.getCurrent();//downcaster Space til Butik, så vi har adgang til metoder i Butik
+                TreeMap<String, Upgrades> upgrades = butik.getUpgrades();//henter upgrades og gemmer i en variabel
 
-        if(context.getCurrent() instanceof Butik){//tjek inden downcasting
-            Butik butik = (Butik)context.getCurrent();//downcaster Space til Butik, så vi har adgang til metoder i Butik
-            TreeMap<String, Upgrades> upgrades = butik.getUpgrades();//henter upgrades og gemmer i en variabel
-
-            Player player = context.getPlayer();
+                Player player = context.getPlayer();
 
 
-            // int price = 0;//initialiserer price, som skal hentes fra upgrades hvis den angivne uågradde eksisterer
-            if(upgrades.containsKey(parameters[0].trim())){//tjekker om den angivne upgrade eksisterer
-                
-                int price = (upgrades.get(parameters[0].trim())).getPrice();//henter pris
-                int xp = (upgrades.get(parameters[0].trim())).getXP();//henter xp
+                // int price = 0;//initialiserer price, som skal hentes fra upgrades hvis den angivne uågradde eksisterer
+                if(upgrades.containsKey(parameters[0].trim())){//tjekker om den angivne upgrade eksisterer
+                    
+                    int price = (upgrades.get(parameters[0].trim())).getPrice();//henter pris
+                    int xp = (upgrades.get(parameters[0].trim())).getXP();//henter xp
 
-                if(player.canAfford(price)){//hvis spiller har råd til upgraden...
-                    System.out.println("pris: " + price);
-                    player.subtractMoney(price);//træk penge
-                    player.addXP(xp);//tilføj xp
+                    if(player.canAfford(price)){//hvis spiller har råd til upgraden...
+                        System.out.println("pris: " + price);
+                        player.subtractMoney(price);//træk penge
+                        player.addXP(xp);//tilføj xp
 
-                    butik.removeUpgrade(parameters[0].trim());//fjern upgrade fra shop
+                        butik.removeUpgrade(parameters[0].trim());//fjern upgrade fra shop
 
-                    //opdater world med ny modifier - ikke implementeret 
+                        //opdater world med ny modifier - ikke implementeret 
 
-                    System.out.println("Du har købt upgraden " + parameters[0]);
-                    System.out.println("Butikken udvalg er nu: ");
-                    butik.showUpgrades();
-                    System.out.println("Du har så mange mønster nu: " + player.getMoney());
-                    System.out.println("Du har så meget xp nu: " + player.getXP());
+                        System.out.println("Du har købt upgraden " + parameters[0]);
+                        System.out.println("Butikken udvalg er nu: ");
+                        butik.showUpgrades();
+                        System.out.println("Du har så mange mønster nu: " + player.getMoney());
+                        System.out.println("Du har så meget xp nu: " + player.getXP());
 
+                    }else{
+                        System.out.println("Du har ikke råd til denne vare");
+                    }
                 }else{
-                    System.out.println("Du har ikke råd til denne vare");
+                   System.out.println("Denne vare er ikke på lager");
                 }
-            }else{
-               System.out.println("Denne vare er ikke på lager");
             }
         }
     }
