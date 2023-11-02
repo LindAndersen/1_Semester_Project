@@ -7,7 +7,7 @@ class CommandResetDay extends BaseCommand implements Command {
 	}	
   @Override
   public void execute (Context context, String command, String parameters[]) {
-    System.out.println("Resetting the day");
+    //System.out.println("Resetting the day");
     context.resetDay(world); 
   }
 }
