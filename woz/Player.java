@@ -17,12 +17,13 @@ class Player {
     }
 
     void showInventory() {
-        System.out.println(inventory.toString());
+        System.out.println(inventory);
     }
 
     void addToInventory(String name, int amount){
         //calls an add-method in Inventory class
         System.out.printf("Du har tilføjet %d %s til din inventar%n", amount, name);
+        inventory.addItem(name, amount);
     }
 
     void removeFromInventory(String name, int amount){
@@ -37,9 +38,7 @@ class Player {
 
     //adds XP
     public void addXP(int amount){
-        if (amount > 0) {
-            xp += amount;
-        }
+        xp += amount;
     }
 
     //adds money
@@ -90,8 +89,35 @@ class Player {
         return lvl;
     }
 
+    public int remainingXP() {
+        int remaining = 0;
+        switch (getLvl()) {
+            case 1: remaining = 200-xp;
+            break;
+            case 2: remaining = 300-xp;
+                break;
+            case 3: remaining = 400-xp;
+                break;
+            case 4: remaining = 500-xp;
+                break;
+            case 5: remaining = 100;
+                break;
+        }
+        return remaining;
+    }
+
     public int getMoney() {
         return money;
+    }
+
+    public void emptyInventory() {
+        //inventory.setInventory(inventory.getInventory().clear());
+        inventory = new Inventory();
+    }
+
+    public int getTrashAmount() {
+        return inventory.getTotalAmount();
+
     }
 
 }

@@ -12,12 +12,13 @@ import java.util.Set;
   }
   
   public void welcome () {
-    System.out.println("Du er nu ved "+name);
+      System.out.println("\n_______________________________________________________");
+      System.out.println("Du er nu ved "+name);
   }
 
   public void exits() {
     Set<String> exits = edges.keySet();
-    System.out.println("Nuværende udgange fører til");
+    System.out.println("\nNuværende udgange fører til");
     for (String exit: exits) {
       System.out.println(" - "+exit);
     }
@@ -28,7 +29,7 @@ import java.util.Set;
   }
 
   public void showTrash(Trash[] trash) {
-    System.out.println("Du kigger rundt og ser ");
+    System.out.println("\nDu kigger rundt og ser ");
     for (Trash t : trash) {
         System.out.printf("- %d %s%n", t.getAmount(), t.getName());
     }

@@ -1,4 +1,3 @@
-
 import java.util.HashMap;
 
 public class CommandBuy extends BaseCommand implements Command {
@@ -29,26 +28,6 @@ public class CommandBuy extends BaseCommand implements Command {
 
                 HashMap<Integer, Upgrades> upgrades = butik.getUpgrades();//henter upgrades og gemmer i en variabel
 
-                Player player = context.getPlayer();
-
-
-                try {
-                    int nUpgrade = Integer.parseInt(parameters[0]);
-
-                    if(upgrades.containsKey(nUpgrade)){//tjekker om den angivne upgrade eksisterer
-                    
-                    int price = upgrades.get(nUpgrade).getPrice();//henter pris
-                    int xp = upgrades.get(nUpgrade).getXP();//henter xp
-
-                    if(player.canAfford(price)){//hvis spiller har råd til upgraden...
-                        //System.out.println("pris: " + price);
-                        player.subtractMoney(price);//træk penge
-                        player.addXP(xp);//tilføj xp
-
-                        butik.removeUpgrade(nUpgrade);//fjern upgrade fra shop
-
-                HashMap<Integer, Upgrades> upgrades = butik.getUpgrades();//henter upgrades og gemmer i en variabel
-
                 System.out.println(upgrades);
 
 
@@ -64,10 +43,6 @@ public class CommandBuy extends BaseCommand implements Command {
 
                         int price = upgrades.get(param).getPrice();//henter pris
                         int xp = upgrades.get(param).getXP();//henter xp
-
-                        System.out.println("Du har købt upgraden " + upgrades.get(nUpgrade).getName());
-                       
-                        System.out.println("Du har så mange mønster nu: " + player.getMoney());
 
                         printHint(butik, nUpgrade);
 

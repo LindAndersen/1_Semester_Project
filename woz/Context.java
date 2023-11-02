@@ -23,7 +23,7 @@ class Context {
 
   //En message for det første rum, du kommer ind i, ved spillet :D
   public void firstRoomMessage() {
-      System.out.println("Puha, der kan muligvis være meget skrald rundt omkring...");
+      System.out.println("\nPuha, der kan muligvis være meget skrald rundt omkring...");
       System.out.println("Når du bruger 'pickup' i et rum, kan du få et overblik, hvis der befinder sig skrald i rummet!");
       System.out.println("Lad os tjekke det! Prøv at bruge 'pickup' i rummet.");
     }
@@ -31,7 +31,7 @@ class Context {
   public void transition (String direction) {
     Space next = (Space) current.followEdge(direction);
     if (next==null) {
-      System.out.println("Det var forvirrende, du kunne ikke komme til '"+direction+"'. Måske skulle du prøve at tage til et andet sted?");
+      System.out.println("\nDet var forvirrende, du kunne ikke komme til '"+direction+"'. Måske skulle du prøve at tage til et andet sted?");
     } else {
       current.goodbye();
       current = next;
@@ -58,7 +58,7 @@ class Context {
             firstTime = false;
         }
           else {
-            System.out.println("Du kan bruge 'help' for at se tilgængelige commands i rummet!");
+            System.out.println("\n Du kan bruge 'help' for at se tilgængelige commands i rummet!");
           }
         }
       }
@@ -83,7 +83,7 @@ class Context {
       }
     }
     dayCounter++;
-    System.out.println("Du er nu på " + dayCounter + ". dag");
+    System.out.println("\nDu er nu på " + dayCounter + ". dag");
 
     // setCurrent(kontor);//man "vågner op" i kontoret igen
   }
@@ -111,7 +111,7 @@ class Context {
 
   }
 
-  
+
   public int getDay() {
     return this.dayCounter;
   }
