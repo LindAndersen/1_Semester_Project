@@ -17,7 +17,7 @@ class Player {
     }
 
     void showInventory() {
-        System.out.println(inventory.toString());
+        System.out.println(inventory);
     }
 
     void addToInventory(String name, int amount){
@@ -38,9 +38,7 @@ class Player {
 
     //adds XP
     public void addXP(int amount){
-        if (amount > 0) {
-            xp += amount;
-        }
+        xp += amount;
     }
 
     //adds money
