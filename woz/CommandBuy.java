@@ -10,6 +10,7 @@ public class CommandBuy extends BaseCommand implements Command {
         for (int name : butik.getUpgrades().keySet()) {
             if (name == upgradeName) {
                 System.out.println(butik.getUpgrades().get(name).getHint());
+                return;
             }
         }
         System.out.println("Didnt find upgrade");
@@ -28,9 +29,6 @@ public class CommandBuy extends BaseCommand implements Command {
 
                 HashMap<Integer, Upgrades> upgrades = butik.getUpgrades();//henter upgrades og gemmer i en variabel
 
-                System.out.println(upgrades);
-
-
                 Player player = context.getPlayer();
 
                 try{
@@ -38,23 +36,20 @@ public class CommandBuy extends BaseCommand implements Command {
                     
                         Integer param = Integer.parseInt(parameters[0]);
                         
-                        System.out.println("parameter is " + param);
-
-
                         int price = upgrades.get(param).getPrice();//henter pris
                         int xp = upgrades.get(param).getXP();//henter xp
 
-                        printHint(butik, param);
+                        
 
                         if(player.canAfford(price)){//hvis spiller har råd til upgraden...
-                            System.out.println("pris: " + price);
                             player.subtractMoney(price);//træk penge
                             player.addXP(xp);//tilføj xp
 
                             //opdater world med ny modifier - ikke implementeret 
 
+                            printHint(butik, param);
 
-                            System.out.println("Du har købt upgraden " + u.getName());
+                            System.out.println("Du har købt upgraden " + upgrades.get(param).getName());
                             
                             butik.removeUpgrade(param);//fjern upgrade fra shop
 
@@ -68,7 +63,6 @@ public class CommandBuy extends BaseCommand implements Command {
                         System.out.println("Denne vare er ikke på lager");
                     }
                 }catch(NumberFormatException e){
-                    System.out.println(e.getMessage());
                     System.out.println("Skriv tallet på den opgradering, du ønsker at købe");
                 }
                 

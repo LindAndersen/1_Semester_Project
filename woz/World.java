@@ -24,7 +24,6 @@ class World {
         }
       }
     }
-    kontor.addEdge("kontor", kontor);
     
     this.kontor = kontor;
     this.locations = locations;
