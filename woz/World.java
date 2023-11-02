@@ -1,7 +1,8 @@
 /* World class for modeling the entire in-game world
  */
+import java.io.Serializable;
 
-class World {
+class World implements Serializable {
   private Space kontor;
   private Space[] locations;
   

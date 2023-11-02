@@ -1,7 +1,8 @@
 /* Context class to hold all context relevant to a session.
  */
+import java.io.Serializable;
 
-class Context {
+class Context implements Serializable {
   private boolean firstTime = true;
   private Space current;
   private boolean done = false;
