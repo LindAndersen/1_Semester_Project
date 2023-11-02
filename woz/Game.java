@@ -1,9 +1,8 @@
 /* Main class for launching the game
  */
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
-import java.io.InputStreamReader;
-import java.nio.charset.Charset;
 
 class Game {
   static World    world    = new World();
@@ -27,8 +26,8 @@ class Game {
 
     //{"exit", "quit", "bye", "go", "help", "pickup", "buy", "recycle"}
   }
-  
-  public static void main (String args[]) {
+
+  private static void initialWelcome() {
     System.out.println("");
     System.out.println("Stort tillykke! Du er blevet valgt som borgmester for byen! " + "Puha, der er mange opgaver, du skal til at arbejde med… " + "Lad os hjælpe dig lidt i gang!" );
     System.out.println("I dette spil er dit mål at gøre byen til et bæredygtigt sted at bo. Din opgave som borgmester vil være at bruge byens økonomi til at investere i de rigtige beslutninger, der gør byen mere bæredygtig for borgerne og miljøet!");
@@ -38,6 +37,38 @@ class Game {
     System.out.println("Byen har også brug for en kærlig hånd, og der er meget skrald, der kan genanvendes... Måske skulle du prøve at tage ud og samle skraldet op et sted, og se hvad der sker?");
     System.out.println("Du kommer rundt ved at bruge 'go', og handlinger for rummet kan findes via 'help', i det rum du befinder dig i");
     System.out.println("");
+  }
+
+  private static void load() {
+    printSaveDir();
+    System.out.println("Hvilket spil vil du gerne indlæse?");
+    String temp = scanner.nextLine();
+    
+  }
+
+  private static void printSaveDir() {
+
+  }
+
+  private static void mainMenu() {
+    boolean isValid = false;
+    do {
+      try {
+        System.out.println("Hovedmenu\n1. Start new game\n2. Indlæs spil\nBrug tal for at vælge din handling");
+        String temp = scanner.nextLine();
+        int option = Integer.parseInt(temp);
+        isValid = true;
+    } catch (NumberFormatException e) {
+      System.out.println("Ikke gyldigt, prøv igen");
+    }
+    }
+    while (!isValid); 
+  }
+  
+  public static void main (String args[]) {
+    mainMenu();
+    
+    initialWelcome();
     context.getCurrent().welcome();
 
 
