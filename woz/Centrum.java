@@ -15,6 +15,7 @@ class Centrum extends Space {
         super.welcome();
     }
 
+    @Override
      public void setRoomTrash(){
         for(Trash t : trash){
             t.setTrash();

@@ -1,10 +1,12 @@
 import java.util.Map;
-import java.util.TreeMap;
+import java.util.HashMap;
 import java.util.Set;
+// import java.util.ArrayList;
 
 public class Butik extends Space implements DefaultSpace {
 
-    private TreeMap<String, Upgrades> upgrades;
+<<<<<<< Updated upstream
+    private HashMap<Integer, Upgrades> upgrades;
     private String[] commands = {"exit", "go", "help", "buy", "reset"};
     private boolean isHandled;
 
@@ -21,12 +23,14 @@ public class Butik extends Space implements DefaultSpace {
     }
     public Butik(String name) {
         super(name);
-        upgrades = new TreeMap<String, Upgrades>(String.CASE_INSENSITIVE_ORDER);
+
+        upgrades = new HashMap<Integer, Upgrades>();
         initUpgrades();
         this.isHandled = super.getHandled();
     }
 
-    public TreeMap<String, Upgrades> getUpgrades(){
+
+    public HashMap<Integer, Upgrades> getUpgrades(){
         return upgrades;
     }
 
@@ -59,43 +63,51 @@ public class Butik extends Space implements DefaultSpace {
     }
 
     public void initUpgrades(){
-        upgrades.put("Cykelsti", new Upgrades("Cykelsti", 50, 200, 1.5));
-        upgrades.put("Motorvej", new Upgrades("Motorvej", 50, 200, 1.5));
-        upgrades.put("Billboard", new Upgrades("Billboard", 50, 200, 1.5));
-        upgrades.put("Skraldespande", new Upgrades("Skraldespande", 50, 200, 1.5));
-        upgrades.put("Solceller", new Upgrades("Solceller", 50, 200, 1.5));
-        upgrades.put("Filter i parksøen", new Upgrades("Filter i parksøen", 50, 200, 1.5));
-        upgrades.put("Isolerende vinduer", new Upgrades("Isolerende vinduer", 50, 200, 1.5));
-        upgrades.put("Legeplads", new Upgrades("Legeplads", 50, 200, 1.5));
-        upgrades.put("Farve i parksøen", new Upgrades("Farve i parksøen", 50, 200, 1.5));
-        upgrades.put("Parkeringshus", new Upgrades("Parkeringshus", 50, 200, 1.5));
-        upgrades.put("Varmeanlæg m. oliefyr", new Upgrades("Varmeanlæg m. oliefyr", 50, 200, 1.5));
-        upgrades.put("Fodboldstadion", new Upgrades("Fodboldstadion", 50, 200, 1.5));
+
+        upgrades.put(1, new Upgrades("Cykelsti", 50, 200, 1.5, "1"));
+        upgrades.put(2, new Upgrades("Motorvej", 50, 200, 1.5, "2"));
+        upgrades.put(3, new Upgrades("Billboard", 50, 200, 1.5, "3"));
+        upgrades.put(4, new Upgrades("Skraldespande", 50, 200, 1.5, "4"));
+        upgrades.put(5, new Upgrades("Solceller", 50, 200, 1.5, "5"));
+        upgrades.put(6, new Upgrades("Filter i parksøen", 50, 200, 1.5, "6"));
+        upgrades.put(7, new Upgrades("Isolerende vinduer", 50, 200, 1.5, "7"));
+        upgrades.put(8, new Upgrades("Legeplads", 50, 200, 1.5, "8"));
+        upgrades.put(9, new Upgrades("Farve i parksøen", 50, 200, 1.5, "9"));
+        upgrades.put(10, new Upgrades("Parkeringshus", 50, 200, 1.5, "10"));
+        upgrades.put(11, new Upgrades("Varmeanlæg m. oliefyr", 50, 200, 1.5, "11"));
+        upgrades.put(12, new Upgrades("Fodboldstadion", 50, 200, 1.5, "12"));
+
     }
 
     public void showUpgrades() {
         //formatting output like in CommandHelp
 
-        Set<String> names = upgrades.keySet();
+        Set<Integer> names = upgrades.keySet();
 
-        // find max length of command name
-        int max = 0;
-        for (String name : names) {
-            int length = name.length();
-            if (length > max){
-                max = length;
-            }
-        }
       
         // present list of upgrades
-        for(String e : upgrades.keySet()){
-            System.out.printf(" - %-"+max+"s  pris: %d, XP: %d%n", upgrades.get(e).getName(), upgrades.get(e).getPrice(), upgrades.get(e).getXP());            
+        for(int e : upgrades.keySet()){
+            System.out.printf(" - %s  pris: %d, XP: %d%n", upgrades.get(e).getName(), upgrades.get(e).getPrice(), upgrades.get(e).getXP());            
+
+        // find max length of command name
+        // int max = 0;
+        // for (String name : names) {
+        //     int length = names.size();
+        //     if (length > max){
+        //         max = length;
+        //     }
+        // }
+      
+        // present list of upgrades
+        for(Integer e : upgrades.keySet()){
+            System.out.printf(" - %d %-"+10+"s  pris: %d, XP: %d%n", e, upgrades.get(e).getName(), upgrades.get(e).getPrice(), upgrades.get(e).getXP());            
         }
     }
 
 
-    void removeUpgrade(String name) {
-        upgrades.remove(name);
+
+    void removeUpgrade(int key) {
+        upgrades.remove(key);
     }
 
     @Override

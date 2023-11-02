@@ -23,6 +23,7 @@ class Genbrugsstation extends Space {
         super.showTrash(trash);
     }
 
+    @Override
     public void setRoomTrash(){
         for(Trash t : trash){
             t.setTrash();
