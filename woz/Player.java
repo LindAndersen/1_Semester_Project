@@ -90,6 +90,23 @@ class Player {
         return lvl;
     }
 
+    public int remainingXP() {
+        int remaining = 0;
+        switch (getLvl()) {
+            case 1: remaining = 200-xp;
+            break;
+            case 2: remaining = 300-xp;
+                break;
+            case 3: remaining = 400-xp;
+                break;
+            case 4: remaining = 500-xp;
+                break;
+            case 5: remaining = 100;
+                break;
+        }
+        return remaining;
+    }
+
     public int getMoney() {
         return money;
     }

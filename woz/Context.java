@@ -71,7 +71,7 @@ class Context {
 
 
     for(Space loc : locations){
-      if(loc instanceof Park || loc instanceof Rækkehuse || loc instanceof Rådhusplads || loc instanceof Genbrugsstation){
+      if(loc instanceof Park || loc instanceof Villakvarter || loc instanceof Centrum || loc instanceof Genbrugsstation){
         //kun hvis rummet er en type, der har affald, skal affald resettes
         loc.setRoomTrash();
       }
@@ -92,7 +92,7 @@ class Context {
     Space[] loc = world.getLocations();
 
     for(int i = 0; i < loc.length; i++){
-      if(loc[i] instanceof Park || loc[i] instanceof Rækkehuse || loc[i] instanceof Rådhusplads || loc[i] instanceof Genbrugsstation){
+      if(loc[i] instanceof Park || loc[i] instanceof Villakvarter || loc[i] instanceof Centrum || loc[i] instanceof Genbrugsstation){
         Trash[] trash = loc[i].getTrash();
         
         for(int j = 0; j < trash.length; j++){
@@ -111,7 +111,7 @@ class Context {
 
   }
 
-  
+
   public int getDay() {
     return this.dayCounter;
   }
