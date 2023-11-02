@@ -15,7 +15,8 @@ class Park extends Space {
         super.welcome();
     }
 
-     public void setRoomTrash(){
+    @Override
+    public void setRoomTrash(){
         for(Trash t : trash){
             t.setTrash();
         }

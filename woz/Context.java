@@ -64,10 +64,9 @@ class Context {
       }
     }
 
-   void resetDay(World world){
+   public void resetDay(World world){
     //nulstiller state i hvert rum og inkrementerer dayCounter
     Space[] locations = world.getLocations();//henter lokationerne
-    Space kontor;
 
 
     for(Space loc : locations){
@@ -78,8 +77,9 @@ class Context {
 
       loc.undoHandled();//sætter isHandled i hvert rum til 
 
-      if(loc.getName().equals("kontor")){
+      if(loc.getName().equals("Kontor")){
         setCurrent(loc);
+        current.welcome();
       }
     }
     dayCounter++;
