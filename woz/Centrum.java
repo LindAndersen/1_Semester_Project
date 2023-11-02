@@ -2,11 +2,12 @@ import java.util.Map;
 
 
 class Centrum extends Space {
-    String[] commands = {"exit", "quit", "bye", "go", "help", "pickup"};
-    Trash[] trash = {new Trash("flasker"), new Trash("aviser")};
+    String[] commands = {"exit", "go", "help", "pickup"};
+    Trash[] trash;
 
     Centrum(String name) {
         super(name);
+        trash = new Trash[] {new Trash("flasker"), new Trash("aviser")};
     }
 
     @Override public void welcome() {

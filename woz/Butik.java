@@ -5,15 +5,15 @@ import java.util.Set;
 public class Butik extends Space implements DefaultSpace {
 
     private TreeMap<String, Upgrades> upgrades;
-    private String[] commands = {"exit", "quit", "bye", "go", "help", "buy", "reset"};
+    private String[] commands = {"exit", "go", "help", "buy", "reset"};
     private boolean isHandled;
 
 
     void firstDayWelcome() {
-        System.out.println("");
-        System.out.println("Velkommen til shoppen! Butikkens udvalg er vist foroven");
-        System.out.println("Her kan du få brugt mønter, som du får, når du genanvender skrald fra genbrugsstationen!");
-        System.out.println("Du må træffe de rigtige beslutninger, når du skal investere i opgraderingerne, for de er vigtige for din bys bæredygtighed!");
+        System.out.println("\n" + "Velkommen til shoppen! Butikkens udvalg er vist foroven.\n" +
+                "Her kan du få brugt mønter, som du får, når du genanvender skrald fra genbrugsstationen!\n" +
+                "Du må træffe de rigtige beslutninger, når du skal investere i opgraderingerne, for de er vigtige for din bys bæredygtighed!\n" +
+                "Du kan bruge 'buy' for at købe, og 'help' for at se andre tilgængelige commands i rummet!");
     }
     public Butik(String name) {
         super(name);

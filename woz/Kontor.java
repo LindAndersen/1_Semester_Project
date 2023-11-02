@@ -3,16 +3,17 @@ import java.util.Map;
 class Kontor extends Space {
     private boolean isHandled;
 
-    String[] commands = {"exit", "quit", "bye", "go", "help", "status", "reset"};
+    String[] commands = {"exit", "go", "help", "status", "reset"};
     Kontor(String name) {
         super(name);
         isHandled = false;
     }
 
     void firstDayWelcome() {
-        System.out.println("Velkommen til kontoret!");
-        System.out.println("Her kan du tjekke din status, inventar, spilletid i dage og de opgraderinger, du har købt til byen.");
-        System.out.println("God fornøjelse!");
+        System.out.println("Velkommen til kontoret!\n" +
+                "Her kan du tjekke din status, inventar, spilletid i dage og de opgraderinger, du har købt til byen.\n" +
+                        "Du kan bruge 'status' for at tjekke overstående, og 'help' for at se andre tilgængelige commands i rummet!\n" +
+                "God fornøjelse!");
     }
     @Override
     public void welcome() {

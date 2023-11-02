@@ -1,6 +1,6 @@
 class Park extends Space {
-    String[] commands = {"exit", "quit", "bye", "go", "help", "pickup", "reset"};
-    Trash[] trash = {new Trash("flasker"), new Trash("aviser")};
+    String[] commands = {"exit", "go", "help", "pickup", "reset"};
+    Trash[] trash;
 
     Park(String name) {
         super(name);

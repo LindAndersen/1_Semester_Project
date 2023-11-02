@@ -5,7 +5,6 @@ import java.util.Set;
 
  abstract class Space extends Node implements DefaultSpace {
   private boolean isHandled;
-  Trash[] trash;
 
   Space (String name) {
     super(name);
@@ -35,7 +34,7 @@ import java.util.Set;
     }
   }
   public void setRoomTrash(){
-    
+    System.out.println("This is Space setRoomTrash");
   }
   public Trash[] getTrash(){
     Trash[] trash = new Trash[1];
@@ -44,8 +43,8 @@ import java.util.Set;
 
 
   //SubtractTrash subtracts trash from room. Catches InsufficientTrashException 
-  public boolean subtractTrash(String name, int amount) throws TrashNotFoundException {
-    for (Trash t : this.trash) {
+  public boolean subtractTrash(String name, int amount, Trash[] trash) throws TrashNotFoundException {
+    for (Trash t : trash) {
         if (t.getName().equals(name)) {
             try {
                 t.subtractTrash(amount);

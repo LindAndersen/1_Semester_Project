@@ -8,7 +8,7 @@ class CommandHelp extends BaseCommand implements Command {
   
   CommandHelp (Registry registry) {
     this.registry = registry;
-    this.description = "Display a help message";
+    this.description = "Viser en liste over kommandoer tilgængelige i rummet";
   }
   
   @Override public void execute(Context context, String command, String[] parameters) {

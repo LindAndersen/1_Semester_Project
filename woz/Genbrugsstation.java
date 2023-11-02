@@ -1,8 +1,7 @@
 class Genbrugsstation extends Space {
 
-    Trash[] trash = {new Trash("metalskrot"), new Trash("batterier"), new Trash("plastik")};
-    String[] commands = {"exit", "quit", "bye", "go", "help", "pickup", "recycle", "reset"};
-
+    Trash[] trash;
+    String[] commands = {"exit", "go", "help", "pickup", "recycle", "reset"};
 
     Genbrugsstation(String name) {
         super(name);
@@ -10,9 +9,9 @@ class Genbrugsstation extends Space {
     }
 
     void firstDayWelcome() {
-        System.out.println("Velkommen til genbrugsstationen!");
-        System.out.println("Her kan du få genanvendt skraldet, du får samlet op, og vekslet dem til XP og mønter! Win win!");
-        System.out.println("Mønter får du brug for i butikken.");
+        System.out.println("Velkommen til genbrugsstationen!\n" +
+                "Her kan du få genanvendt skraldet, du får samlet op, og vekslet dem til XP og mønter! Win win!\n" +
+                "Mønter får du brug for i butikken.\n" + "Du kan bruge 'recycle' for at genbruge skraldet, og 'help' for at se andre tilgængelige commands i rummet!");
     }
 
     @Override public void welcome() {
