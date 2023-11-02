@@ -26,10 +26,10 @@ class CommandHelp extends BaseCommand implements Command {
         }
       }
       // present list of commands
-      System.out.println("Kommandoer:");
+      System.out.println("\n Kommandoer:");
       for (String commandName: commands) {
         String description = registry.getCommand(commandName).getDescription();
-        System.out.printf(" - %-"+max+"s %s%n", commandName, description);
+        System.out.printf(" - %-"+max+"s %s%n", commandName, description, "\n");
     }
   }
 

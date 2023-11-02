@@ -15,7 +15,7 @@ public class CommandRecycle extends BaseCommand implements Command {
 
         switch(nParam) {
             case 0:
-                System.out.println("Du kan konvertere dit affald på 2 måder:\n" + 
+                System.out.println("\n Du kan konvertere dit affald på 2 måder:\n" +
                 "- [1] Brænd alt det skrald du har samlet op" + 
                 "\n- [2] Sorter alt det skrald du har samlet op");
                 break;
@@ -24,7 +24,7 @@ public class CommandRecycle extends BaseCommand implements Command {
                 try {
                     inp = Integer.parseInt(parameters[0]);
                 } catch (NumberFormatException e) {
-                    System.out.println("Prøv igen, brug tallene til at indikere din handling");
+                    System.out.println("\nPrøv igen, brug tallene til at indikere din handling");
                 }
                 if (inp == 1) {
                     int amountOfTrash = player.getTrashAmount();
@@ -33,7 +33,7 @@ public class CommandRecycle extends BaseCommand implements Command {
                     int XP = money;
                     player.addMoney(money);
                     player.addXP(-XP);
-                    System.out.printf("Tilføjede %d mønter og %d XP\n", money, -XP);
+                    System.out.printf("\nTilføjede %d mønter og %d XP\n", money, -XP);
                 } else if (inp == 2) {
                     int amountOfTrash = player.getTrashAmount();
                     int money = 3*amountOfTrash;
@@ -41,9 +41,9 @@ public class CommandRecycle extends BaseCommand implements Command {
                     player.emptyInventory();
                     player.addMoney(money);
                     player.addXP(XP);
-                    System.out.printf("Tilføjede %d mønter og %d XP\n", money, XP);
+                    System.out.printf("\nTilføjede %d mønter og %d XP\n", money, XP);
                 } else {
-                    System.out.println("Dette er ikke en mulighed prøv igen...");
+                    System.out.println("\nDette er ikke en mulighed prøv igen...");
                 }
         }
 

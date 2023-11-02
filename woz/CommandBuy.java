@@ -38,16 +38,16 @@ public class CommandBuy extends BaseCommand implements Command {
                         //opdater world med ny modifier - ikke implementeret 
 
                         System.out.println("Du har købt upgraden " + parameters[0]);
-                        System.out.println("Butikken udvalg er nu: ");
+                        System.out.println("\n Butikken udvalg er nu: ");
                         butik.showUpgrades();
-                        System.out.println("Du har så mange mønster nu: " + player.getMoney());
-                        System.out.println("Du har så meget xp nu: " + player.getXP());
+                        System.out.println("\n Du har så mange mønter nu: " + player.getMoney());
+                        System.out.println("Du har så meget xp nu: " + player.getXP() + "\n");
 
                     }else{
-                        System.out.println("Du har ikke råd til denne vare");
+                        System.out.println("Du har ikke råd til denne vare \n");
                     }
                 }else{
-                   System.out.println("Denne vare er ikke på lager");
+                   System.out.println("Denne vare er ikke på lager \n");
                 }
             }
         }

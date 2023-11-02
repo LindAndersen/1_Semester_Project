@@ -9,7 +9,7 @@ class Genbrugsstation extends Space {
     }
 
     void firstDayWelcome() {
-        System.out.println("Velkommen til genbrugsstationen!\n" +
+        System.out.println("\nVelkommen til genbrugsstationen!\n" +
                 "Her kan du få genanvendt skraldet, du får samlet op, og vekslet dem til XP og mønter! Win win!\n" +
                 "Mønter får du brug for i butikken.\n" + "Du kan bruge 'recycle' for at genbruge skraldet, og 'help' for at se andre tilgængelige commands i rummet!");
     }
