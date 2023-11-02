@@ -1,5 +1,4 @@
-// import java.util.HashMap;
-// import java.util.Map;
+
 import java.util.HashMap;
 
 public class CommandBuy extends BaseCommand implements Command {
@@ -27,13 +26,12 @@ public class CommandBuy extends BaseCommand implements Command {
 
             if(context.getCurrent() instanceof Butik){//tjek inden downcasting
                 Butik butik = (Butik)context.getCurrent();//downcaster Space til Butik, så vi har adgang til metoder i Butik
-<<<<<<< Updated upstream
+
                 HashMap<Integer, Upgrades> upgrades = butik.getUpgrades();//henter upgrades og gemmer i en variabel
 
                 Player player = context.getPlayer();
 
 
-                // int price = 0;//initialiserer price, som skal hentes fra upgrades hvis den angivne uågradde eksisterer
                 try {
                     int nUpgrade = Integer.parseInt(parameters[0]);
 
@@ -48,8 +46,8 @@ public class CommandBuy extends BaseCommand implements Command {
                         player.addXP(xp);//tilføj xp
 
                         butik.removeUpgrade(nUpgrade);//fjern upgrade fra shop
-=======
-                TreeMap<Integer, Upgrades> upgrades = butik.getUpgrades();//henter upgrades og gemmer i en variabel
+
+                HashMap<Integer, Upgrades> upgrades = butik.getUpgrades();//henter upgrades og gemmer i en variabel
 
                 System.out.println(upgrades);
 
@@ -66,58 +64,37 @@ public class CommandBuy extends BaseCommand implements Command {
 
                         int price = upgrades.get(param).getPrice();//henter pris
                         int xp = upgrades.get(param).getXP();//henter xp
->>>>>>> Stashed changes
 
-                        System.out.println("price and xp : " + price + xp);
-
-<<<<<<< Updated upstream
                         System.out.println("Du har købt upgraden " + upgrades.get(nUpgrade).getName());
-                        // System.out.println("Butikken udvalg er nu: ");
-                        // butik.showUpgrades();
+                       
                         System.out.println("Du har så mange mønster nu: " + player.getMoney());
-                        // System.out.println("Du har så meget xp nu: " + player.getXP());
+
                         printHint(butik, nUpgrade);
-=======
+
                         if(player.canAfford(price)){//hvis spiller har råd til upgraden...
                             System.out.println("pris: " + price);
                             player.subtractMoney(price);//træk penge
                             player.addXP(xp);//tilføj xp
->>>>>>> Stashed changes
-
 
                             //opdater world med ny modifier - ikke implementeret 
 
-                            Upgrades u = upgrades.get(param);
-                            System.out.println("upgrade is " + u);
 
                             System.out.println("Du har købt upgraden " + u.getName());
                             
                             butik.removeUpgrade(param);//fjern upgrade fra shop
 
-
-
                             System.out.println("\n Du har så mange mønter nu: " + player.getMoney());
                             System.out.println("Du har så meget xp nu: " + player.getXP() + "\n");
 
                         }else{
-                            System.out.println("Du har ikke råd til denne vare \n");
+                            System.out.println("Du har ikke råd til denne vare");
                         }
                     }else{
-<<<<<<< Updated upstream
-                        System.out.println("Du har ikke råd til denne vare");
-                    }
-                }else{
-                   System.out.println("Denne vare er ikke på lager");
-                }
-                } catch (NumberFormatException e) {
-                    System.out.println(e.getMessage());
-=======
-                        System.out.println("Denne vare er ikke på lager \n");
+                        System.out.println("Denne vare er ikke på lager");
                     }
                 }catch(NumberFormatException e){
                     System.out.println(e.getMessage());
                     System.out.println("Skriv tallet på den opgradering, du ønsker at købe");
->>>>>>> Stashed changes
                 }
                 
             }
