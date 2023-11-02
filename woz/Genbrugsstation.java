@@ -1,6 +1,5 @@
 class Genbrugsstation extends Space {
-
-    Trash[] trash = {new Trash("metalskrot"), new Trash("batterier"), new Trash("plastik")};
+    Trash[] trash;
     String[] commands = {"exit", "quit", "bye", "go", "help", "pickup", "recycle", "reset"};
 
 

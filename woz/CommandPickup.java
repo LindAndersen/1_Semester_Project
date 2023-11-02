@@ -16,7 +16,7 @@ public class CommandPickup extends BaseCommand implements Command {
             case 2:
             //If command was "pickup valid_item amount" subtract trash from space and add to player inventory
                 try {
-                if (context.getCurrent().subtractTrash(parameters[0], Integer.valueOf(parameters[1]))) {
+                if (context.getCurrent().subtractTrash(parameters[0], Integer.valueOf(parameters[1]), context.getCurrent().getTrash())) {
                     context.getPlayer().addToInventory(parameters[0], Integer.valueOf(parameters[1]));
                 }
                 context.getCurrent().showTrash();
