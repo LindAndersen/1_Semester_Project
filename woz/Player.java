@@ -35,33 +35,40 @@ class Player {
 
     //Setters and getters
 
-
+    //adds XP
     public void addXP(int amount){
-    //adds xp 
-    
+        if (amount > 0) {
+            xp += amount;
+        }
     }
 
-    public void addMoney(int amount){
     //adds money
-    
+    public void addMoney(int amount){
+        if (amount > 0) {
+            money += amount;
+        }
     }
 
-    public void subtractMoney(int amount){
-    //subtracts money. call canAfford() to check 
-
+    //subtracts money. call canAfford() to check
+    public void subtractMoney(int amount) {
+        if (canAfford(amount)) {
+            money -= amount;
+        }
     }
 
-    public boolean canAfford(int price){
     //returns true if player can afford buying an item with given price
-        return true;
+    public boolean canAfford(int price){
+        if (money >= price) {
+            return true;
+        }
+        else {
+            System.out.println("Du har desværre ikke råd :(");
+            return false;
+        }
     }
 
     public int getXP(){
         return xp;
-    }
-
-    public int getMoney(){
-        return money;
     }
 
     public int getLvl() {
@@ -81,6 +88,10 @@ class Player {
         }
 
         return lvl;
+    }
+
+    public int getMoney() {
+        return money;
     }
 
 }

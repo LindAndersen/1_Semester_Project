@@ -1,20 +1,36 @@
 import java.util.Map;
-
-//tilføjet
-import java.util.ArrayList;
-//.
+import java.util.TreeMap;
+import java.util.Set;
 
 public class Butik extends Space implements DefaultSpace {
 
-    ArrayList<Upgrades> upgrades;
-    String[] commands = {"exit", "quit", "bye", "go", "help", "buy"};
-    
-    public Butik(String name) {
+    private TreeMap<String, Upgrades> upgrades;
+    private String[] commands = {"exit", "quit", "bye", "go", "help", "buy"};
 
-        super(name);
-        upgrades = getUpgrades();
-
+    void firstDayWelcome() {
+        System.out.println("Velkommen til shoppen!");
+        System.out.println("Her kan du få brugt mønter, som du får, når du genanvender skrald fra genbrugsstationen!");
+        System.out.println("Du må træffe de rigtige beslutninger, når du skal investere i opgraderingerne, for de er vigtige for din bys bæredygtighed!");
+        System.out.println("");
+        System.out.println("Butikkens udvalg er nu: ");
+        showUpgrades();
     }
+    public Butik(String name) {
+        super(name);
+        // upgrades = new ArrayList<Upgrades>();
+        upgrades = new TreeMap<String, Upgrades>(String.CASE_INSENSITIVE_ORDER);
+
+        initUpgrades();
+    }
+
+    public TreeMap<String, Upgrades> getUpgrades(){
+        return upgrades;
+    }
+
+    public void setRoomTrash(){
+        //No trash here
+    }
+
 
     @Override
     public void welcome() {
@@ -23,51 +39,50 @@ public class Butik extends Space implements DefaultSpace {
 
     @Override
     public void goodbye(){
-
     }
 
-
-
-    public ArrayList<Upgrades> getUpgrades(){
-        ArrayList<Upgrades> arrL = new ArrayList<Upgrades>();
-
-        arrL.add(new Upgrades("Motorvej", 50, 200, 1.5));
-        arrL.add(new Upgrades("Cykelsti", 50, 200, 1.5));
-        arrL.add(new Upgrades("Billboard", 50, 200, 1.5));
-        arrL.add(new Upgrades("Skraldespande", 50, 200, 1.5));
-        arrL.add(new Upgrades("Solceller", 50, 200, 1.5));
-        arrL.add(new Upgrades("Filter i parksøen", 50, 200, 1.5));
-        arrL.add(new Upgrades("Offentlig transport", 50, 200, 1.5));
-        arrL.add(new Upgrades("Isolerende vinduer", 50, 200, 1.5));
-        arrL.add(new Upgrades("Legeplads", 50, 200, 1.5));
-        arrL.add(new Upgrades("Farve i parksøen", 50, 200, 1.5));
-        arrL.add(new Upgrades("Parkeringshus", 50, 200, 1.5));
-        arrL.add(new Upgrades("Varmeanlæg m. oliefyr", 50, 200, 1.5));
-        arrL.add(new Upgrades("Fodboldstadion", 50, 200, 1.5));
-
-        return arrL;
+    public void initUpgrades(){
+        upgrades.put("Cykelsti", new Upgrades("Cykelsti", 50, 200, 1.5));
+        upgrades.put("Motorvej", new Upgrades("Motorvej", 50, 200, 1.5));
+        upgrades.put("Billboard", new Upgrades("Billboard", 50, 200, 1.5));
+        upgrades.put("Skraldespande", new Upgrades("Skraldespande", 50, 200, 1.5));
+        upgrades.put("Solceller", new Upgrades("Solceller", 50, 200, 1.5));
+        upgrades.put("Filter i parksøen", new Upgrades("Filter i parksøen", 50, 200, 1.5));
+        upgrades.put("Isolerende vinduer", new Upgrades("Isolerende vinduer", 50, 200, 1.5));
+        upgrades.put("Legeplads", new Upgrades("Legeplads", 50, 200, 1.5));
+        upgrades.put("Farve i parksøen", new Upgrades("Farve i parksøen", 50, 200, 1.5));
+        upgrades.put("Parkeringshus", new Upgrades("Parkeringshus", 50, 200, 1.5));
+        upgrades.put("Varmeanlæg m. oliefyr", new Upgrades("Varmeanlæg m. oliefyr", 50, 200, 1.5));
+        upgrades.put("Fodboldstadion", new Upgrades("Fodboldstadion", 50, 200, 1.5));
     }
 
-   
+    public void showUpgrades() {
+        //formatting output like in CommandHelp
 
-    void showUpgrades() {
-        for(Upgrades e : upgrades){
-            System.out.println(e.getName());
+        Set<String> names = upgrades.keySet();
+
+        // find max length of command name
+        int max = 0;
+        for (String name : names) {
+            int length = name.length();
+            if (length > max){
+                max = length;
+            }
         }
-
+      
+        // present list of upgrades
+        for(String e : upgrades.keySet()){
+            System.out.printf(" - %-"+max+"s  pris: %d, XP: %d%n", upgrades.get(e).getName(), upgrades.get(e).getPrice(), upgrades.get(e).getXP());            
+        }
     }
+
 
     void removeUpgrade(String name) {
-
+        upgrades.remove(name);
     }
 
     @Override
     public void showTrash() {
-    }
-
-    @Override
-    public boolean subtractTrash(String name, int amount) {
-        return false;
     }
 
     @Override

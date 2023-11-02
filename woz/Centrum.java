@@ -1,16 +1,20 @@
-import java.util.Map;
-
-class Rådhusplads extends Space {
+class Centrum extends Space {
     String[] commands = {"exit", "quit", "bye", "go", "help", "pickup"};
     Trash[] trash = {new Trash("flasker"), new Trash("aviser")};
 
-    Rådhusplads(String name) {
+    Centrum(String name) {
         super(name);
     }
 
     @Override public void welcome() {
-        //Make own welcome for Rådshusplads
+        //Make own welcome for Centrum
         super.welcome();
+    }
+
+     public void setRoomTrash(){
+        for(Trash t : trash){
+            t.setTrash();
+        }
     }
 
     public String[] getCommands() {
@@ -19,11 +23,6 @@ class Rådhusplads extends Space {
 
     public boolean isCommandReachable(String name) {
         return (boolean) super.isCommandReachable(name, commands);
-    }
-
-
-    public boolean subtractTrash(String name, int amount) {
-        return super.subtractTrash(name, amount, trash);
     }
 
     public void showTrash() {
