@@ -3,7 +3,7 @@
 
 class CommandGo extends BaseCommand implements Command {
   CommandGo () {
-    description = "Follow an exit";
+    description = "Følg nærmeste udgang";
   }
   
   @Override

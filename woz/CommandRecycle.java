@@ -1,6 +1,6 @@
 public class CommandRecycle extends BaseCommand implements Command {
     CommandRecycle() {
-        this.description = "Recycle something";
+        this.description = "Genbrug fra din inventar";
     }
 
     //Handle recycling of trash

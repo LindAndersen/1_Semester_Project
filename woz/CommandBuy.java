@@ -5,7 +5,7 @@ import java.util.TreeMap;
 public class CommandBuy extends BaseCommand implements Command {
 
     CommandBuy() {
-        this.description = "Buy an upgrade";
+        this.description = "Køb en opgradering";
     }
 
     @Override
