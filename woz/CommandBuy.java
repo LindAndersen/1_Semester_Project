@@ -44,7 +44,7 @@ public class CommandBuy extends BaseCommand implements Command {
                         int price = upgrades.get(param).getPrice();//henter pris
                         int xp = upgrades.get(param).getXP();//henter xp
 
-                        printHint(butik, nUpgrade);
+                        printHint(butik, param);
 
                         if(player.canAfford(price)){//hvis spiller har råd til upgraden...
                             System.out.println("pris: " + price);

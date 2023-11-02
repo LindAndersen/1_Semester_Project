@@ -5,7 +5,6 @@ import java.util.Set;
 
 public class Butik extends Space implements DefaultSpace {
 
-<<<<<<< Updated upstream
     private HashMap<Integer, Upgrades> upgrades;
     private String[] commands = {"exit", "go", "help", "buy", "reset"};
     private boolean isHandled;

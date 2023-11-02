@@ -3,12 +3,8 @@ public class Upgrades {
     private int xp;
     private int price;
     private double modifier;
-<<<<<<< Updated upstream
     private String hint;
 
-=======
- 
->>>>>>> Stashed changes
 
     public Upgrades(String name, int price, int xp, double modifier, String hint){
         this.name = name;
