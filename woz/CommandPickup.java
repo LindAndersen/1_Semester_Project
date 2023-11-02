@@ -16,15 +16,16 @@ public class CommandPickup extends BaseCommand implements Command {
             case 2:
             //If command was "pickup valid_item amount" subtract trash from space and add to player inventory
                 try {
-                if (context.getCurrent().subtractTrash(parameters[0], Integer.valueOf(parameters[1]), context.getCurrent().getTrash())) {
-                    context.getPlayer().addToInventory(parameters[0], Integer.valueOf(parameters[1]));
+                if (context.getCurrent().subtractTrash(parameters[1], Integer.valueOf(parameters[0]), context.getCurrent().getTrash())) {
+                    context.getPlayer().addToInventory(parameters[1], Integer.valueOf(parameters[0]));
+                    context.getPlayer().addXP(1*Integer.valueOf(parameters[0]));
                 }
                 context.getCurrent().showTrash();
                 break;
                 //If command was "pickup amount item" catch NumberFormatException and inform user
                 //How to properly use the command
                 } catch (NumberFormatException e) {
-                    System.out.println("Du burde skrive \"pickup [type] [mængde]\"");
+                    System.out.println("Du burde skrive \"pickup [mængde] [type]\"");
                     break;
                 //If requested type of trash doesnt exist in room, catch TrashNotFoundException
                 } catch (TrashNotFoundException e) {

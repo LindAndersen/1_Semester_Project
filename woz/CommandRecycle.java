@@ -30,10 +30,10 @@ public class CommandRecycle extends BaseCommand implements Command {
                     int amountOfTrash = player.getTrashAmount();
                     player.emptyInventory();
                     int money = 7*amountOfTrash;
-                    int XP = 1*amountOfTrash;
+                    int XP = money;
                     player.addMoney(money);
-                    player.addXP(XP);
-                    System.out.printf("Tilføjede %d mønter og %d XP\n", money, XP);
+                    player.addXP(-XP);
+                    System.out.printf("Tilføjede %d mønter og %d XP\n", money, -XP);
                 } else if (inp == 2) {
                     int amountOfTrash = player.getTrashAmount();
                     int money = 3*amountOfTrash;
