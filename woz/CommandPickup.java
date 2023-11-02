@@ -2,7 +2,7 @@ import java.text.NumberFormat;
 
 public class CommandPickup extends BaseCommand implements Command {
     CommandPickup() {
-        this.description = "Saml noget op";
+        this.description = "Saml noget op i rummet";
     }
 
     @Override
