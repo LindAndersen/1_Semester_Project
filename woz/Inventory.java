@@ -2,14 +2,14 @@ import java.util.Map;
 import java.util.HashMap;
 
 class Inventory {
-    private Map<String, Integer> items = new HashMap<String, Integer>();
+    private Map<String, Integer> items;
 
     public Inventory(){
         items = new HashMap<String, Integer>();
     }
 
-    void addItem() {
-
+    public void addItem(String name, int amount) {
+        items.put(name, amount);
     }
 
     void removeItem() {
