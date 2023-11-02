@@ -1,5 +1,5 @@
 class Villakvarter extends Space {
-    String[] commands = {"exit", "quit", "bye", "go", "help", "pickup", "reset"};
+    String[] commands = {"exit", "go", "help", "pickup", "reset"};
 
     Villakvarter(String name) {
         super(name);

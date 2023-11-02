@@ -3,7 +3,7 @@ import java.util.Map;
 class Kontor extends Space {
     private boolean isHandled;
 
-    String[] commands = {"exit", "quit", "bye", "go", "help", "status", "reset"};
+    String[] commands = {"exit", "go", "help", "status", "reset"};
     Kontor(String name) {
         super(name);
         isHandled = false;

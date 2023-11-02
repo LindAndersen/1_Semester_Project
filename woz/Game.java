@@ -15,8 +15,6 @@ class Game {
   private static void initRegistry () {
     Command cmdExit = new CommandExit();
     registry.register("exit", cmdExit);
-    registry.register("quit", cmdExit);
-    registry.register("bye", cmdExit);
     registry.register("go", new CommandGo());
     registry.register("help", new CommandHelp(registry));
     registry.register("pickup", new CommandPickup());

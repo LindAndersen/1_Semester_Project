@@ -5,7 +5,7 @@ import java.util.Set;
 public class Butik extends Space implements DefaultSpace {
 
     private TreeMap<String, Upgrades> upgrades;
-    private String[] commands = {"exit", "quit", "bye", "go", "help", "buy", "reset"};
+    private String[] commands = {"exit", "go", "help", "buy", "reset"};
     private boolean isHandled;
 
     void firstDayWelcome() {
