@@ -13,12 +13,10 @@ public class Butik extends Space implements DefaultSpace {
     private String[] commands = {"exit", "quit", "bye", "go", "help", "buy"};
 
     void firstDayWelcome() {
-        System.out.println("Velkommen til shoppen!");
+        System.out.println("");
+        System.out.println("Velkommen til shoppen! Butikkens udvalg er vist foroven");
         System.out.println("Her kan du få brugt mønter, som du får, når du genanvender skrald fra genbrugsstationen!");
         System.out.println("Du må træffe de rigtige beslutninger, når du skal investere i opgraderingerne, for de er vigtige for din bys bæredygtighed!");
-        System.out.println("");
-        System.out.println("Butikkens udvalg er nu: ");
-        showUpgrades();
     }
     public Butik(String name) {
         super(name);
