@@ -1,10 +1,12 @@
 /* World class for modeling the entire in-game world
  */
 
-class World {
+import java.io.Serializable;
+
+class World implements Serializable {
   private Space kontor;
   private Space[] locations;
-  
+
   World () {
     Space kontor = new Kontor("Kontor");
     Space rækkehuse = new Rækkehuse("Villakvarter");
@@ -15,7 +17,7 @@ class World {
 
     //Adding all spaces to Space array, so we can access them in a more efficient way when adding edges
     Space[] locations = {kontor, rækkehuse, genbrugsstation, park, rådhusplads, butik};
-    
+
     //Adds every location to every location with the exception of an arbitrary location cant reach itself
     for (Space loc : locations) {
       for (Space edge : locations) {
@@ -24,18 +26,15 @@ class World {
         }
       }
     }
-    
+
     this.kontor = kontor;
     this.locations = locations;
   }
-  
+
   public Space getEntry () {
     return kontor;
   }
 
-  public Rækkehuse getRækkehuseInstance() {
-        return rækkehuse;
-  }
 
   public Space[] getLocations() {
     return locations;

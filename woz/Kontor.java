@@ -1,10 +1,13 @@
 import java.util.Map;
+import java.io.Serializable;
 
-class Kontor extends Space {
-    String[] commands = {"exit", "quit", "bye", "go", "help", "status"};
-    Kontor(String name) {
+class Kontor extends Space implements Serializable {
+    String[] commands = {"exit", "quit", "bye", "go", "help", "status", "save", "load"};
+
+    public Kontor(String name) {
         super(name);
     }
+
 
     @Override
     public void welcome() {

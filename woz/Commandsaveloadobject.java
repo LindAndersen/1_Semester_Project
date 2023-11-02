@@ -1,55 +1,56 @@
 import java.io.*;
 
-public class Commandsaveloadobject {
+public class Commandsaveloadobject extends BaseCommand implements Command {
 
-    // Method to save an object to a file
-    public static void saveObjectToFile(Object obj, String filePath) {
+    // Method to save objects to a file
+    public static void saveObjectsToFile(Object[] objects, String filePath) {
         try (FileOutputStream fileOut = new FileOutputStream(filePath);
              ObjectOutputStream objectOut = new ObjectOutputStream(fileOut)) {
-            objectOut.writeObject(obj);
-            System.out.println("Object saved to " + filePath);
+            objectOut.writeObject(objects);
+            System.out.println("Objects saved to " + filePath);
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-    // Method to load an object from a file
-    public static Object loadObjectFromFile(String filePath) {
-        Object obj = null;
+    // Method to load objects from a file
+    public static Object[] loadObjectsFromFile(String filePath) {
         try (FileInputStream fileIn = new FileInputStream(filePath);
              ObjectInputStream objectIn = new ObjectInputStream(fileIn)) {
-            obj = objectIn.readObject();
-            System.out.println("Object loaded from " + filePath);
+            Object[] objects = (Object[]) objectIn.readObject();
+            System.out.println("Objects loaded from " + filePath);
+            return objects;
         } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();
+            return new Object[0]; // Return an empty array or handle the error as appropriate
         }
-        return obj;
     }
 
     @Override
-    public void execute (Context context, String command, String[] parameters) {
-        // Example of saving and loading an object
-        // Replace 'YourObject' with the class of the object you want to save/load.
-        YourObject objectToSave = new YourObject("Example Data");
+    public void execute(Context context, String command, String[] parameters) {
+        // Example of saving and loading objects initialized in the World class
+        World worldToSave = new World();
 
-        switch(command) {
+        switch (command) {
 
             case "save":
-                // Save the object to a file
-                Commandsaveloadobject.saveObjectToFile(objectToSave, "objectData.ser");
+                // Save the objects to a file
+                Object[] objectsToSave = worldToSave.getLocations();
+                Commandsaveloadobject.saveObjectsToFile(objectsToSave, "worldObjects.ser");
 
-                break;
 
             case "load":
-                // Load the object from the file
-                YourObject loadedObject = (YourObject) Commandsaveloadobject.loadObjectFromFile("objectData.ser");
+                // Load the objects from the file
+                Object[] loadedObjects = Commandsaveloadobject.loadObjectsFromFile("worldObjects.ser");
 
-                // Verify the loaded object
-                if (loadedObject != null) {
-                System.out.println("Loaded Data: " + loadedObject.getData());
-
-                break;
-
+                // Verify the loaded objects
+                for (Object obj : loadedObjects) {
+                    if (obj instanceof Space) {
+                        System.out.println("Loaded Space: " + ((Space) obj).getName());
+                    }
+                    // Add checks for other object types as needed
+                }
         }
     }
 }
+

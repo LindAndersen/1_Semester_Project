@@ -3,9 +3,14 @@
 
 import java.util.Set;
 import java.util.Map;
+import java.io.Serializable;
 
- abstract class Space extends Node implements DefaultSpace {
-  private boolean isHandled;
+
+abstract class Space extends Node implements DefaultSpace, Serializable {
+    public Space() {
+        super("DefaultSpaceName");
+    }
+    private transient boolean isHandled;
 
   Space (String name) {
     super(name);

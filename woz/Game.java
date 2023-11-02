@@ -11,6 +11,7 @@ class Game {
   static Command  fallback = new CommandUnknown();
   static Registry registry = new Registry(context, fallback);
   static Scanner  scanner  = new Scanner(System.in);
+
   
   private static void initRegistry () {
     Command cmdExit = new CommandExit();
@@ -23,6 +24,8 @@ class Game {
     registry.register("buy", new CommandBuy());
     registry.register("recycle", new CommandRecycle());
     registry.register("status", new CommandStatus());
+    registry.register("save", new Commandsaveloadobject());
+    registry.register("load", new Commandsaveloadobject());
 
     //{"exit", "quit", "bye", "go", "help", "pickup", "buy", "recycle"}
   }
