@@ -94,4 +94,14 @@ class Player {
         return money;
     }
 
+    public void emptyInventory() {
+        //inventory.setInventory(inventory.getInventory().clear());
+        inventory = new Inventory();
+    }
+
+    public int getTrashAmount() {
+        return inventory.getTotalAmount();
+
+    }
+
 }
