@@ -8,10 +8,6 @@ public class Butik extends Space implements DefaultSpace {
     private String[] commands = {"exit", "quit", "bye", "go", "help", "buy", "reset"};
     private boolean isHandled;
 
-
-
-    private String[] commands = {"exit", "quit", "bye", "go", "help", "buy"};
-
     void firstDayWelcome() {
         System.out.println("");
         System.out.println("Velkommen til shoppen! Butikkens udvalg er vist foroven");
