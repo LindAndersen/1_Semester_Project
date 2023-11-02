@@ -53,7 +53,7 @@ public class CommandBuy extends BaseCommand implements Command {
                             
                             butik.removeUpgrade(param);//fjern upgrade fra shop
 
-                            System.out.println("\n Du har så mange mønter nu: " + player.getMoney());
+                            System.out.println("\nDu har så mange mønter nu: " + player.getMoney());
                             System.out.println("Du har så meget xp nu: " + player.getXP() + "\n");
 
                         }else{

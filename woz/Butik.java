@@ -85,21 +85,8 @@ public class Butik extends Space implements DefaultSpace {
 
       
         // present list of upgrades
-        for(int e : upgrades.keySet()){
-            System.out.printf(" - %s  pris: %d, XP: %d%n", upgrades.get(e).getName(), upgrades.get(e).getPrice(), upgrades.get(e).getXP());            
-
-        // find max length of command name
-        // int max = 0;
-        // for (String name : names) {
-        //     int length = names.size();
-        //     if (length > max){
-        //         max = length;
-        //     }
-        // }
-      
-        // present list of upgrades
         for(Integer e : upgrades.keySet()){
-            System.out.printf(" - %d %-"+10+"s  pris: %d, XP: %d%n", e, upgrades.get(e).getName(), upgrades.get(e).getPrice(), upgrades.get(e).getXP());            
+            System.out.printf(" - [%d] %s  pris: %d, XP: %d%n", e, upgrades.get(e).getName(), upgrades.get(e).getPrice(), upgrades.get(e).getXP());            
         }
     }
 
