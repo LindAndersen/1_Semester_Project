@@ -27,17 +27,15 @@ class Game {
   }
   
   public static void main (String args[]) {
-    System.out.println("");
-    System.out.println("Stort tillykke! Du er blevet valgt som borgmester for byen! " + "Puha, der er mange opgaver, du skal til at arbejde med… " + "Lad os hjælpe dig lidt i gang!" );
-    System.out.println("I dette spil er dit mål at gøre byen til et bæredygtigt sted at bo. Din opgave som borgmester vil være at investere i de bedste bæredygtige løsninger for borgerne og miljøet!");
-    System.out.println("Er du klar til at påtage dig rollen og hjælpe byen med at blomstre?");
+    System.out.println("Stort tillykke! Du er blevet valgt som borgmester for byen!\n" +
+            "Puha, der er mange opgaver, du skal til at arbejde med… Lad os hjælpe dig lidt i gang!\n" +
+            "I dette spil er dit mål at gøre byen til et bæredygtigt sted at bo." + "Din opgave som borgmester vil være at investere i de bedste bæredygtige løsninger for borgerne og miljøet!\n" +
+            "Er du klar til at påtage dig rollen og hjælpe byen med at blomstre?\n" +
+            "\n" +
+            "\"Byen har også brug for en kærlig hånd, og der er meget skrald, der kan genanvendes... Måske skulle du prøve at tage ud og samle skraldet op et sted, og se hvad der sker?\"\n" +
+            "Du kommer rundt ved at bruge 'go', og handlinger for rummet kan findes via 'help', i det rum du befinder dig i\n");
     initRegistry();
-    System.out.println("");
-    System.out.println("Byen har også brug for en kærlig hånd, og der er meget skrald, der kan genanvendes... Måske skulle du prøve at tage ud og samle skraldet op et sted, og se hvad der sker?");
-    System.out.println("Du kommer rundt ved at bruge 'go', og handlinger for rummet kan findes via 'help', i det rum du befinder dig i");
-    System.out.println("");
     context.getCurrent().welcome();
-
 
     while (context.isDone()==false) {
       System.out.print("> ");

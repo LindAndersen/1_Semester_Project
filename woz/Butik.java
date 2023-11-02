@@ -9,10 +9,9 @@ public class Butik extends Space implements DefaultSpace {
     private boolean isHandled;
 
     void firstDayWelcome() {
-        System.out.println("");
-        System.out.println("Velkommen til shoppen! Butikkens udvalg er vist foroven");
-        System.out.println("Her kan du få brugt mønter, som du får, når du genanvender skrald fra genbrugsstationen!");
-        System.out.println("Du må træffe de rigtige beslutninger, når du skal investere i opgraderingerne, for de er vigtige for din bys bæredygtighed!");
+        System.out.println("Velkommen til shoppen! Butikkens udvalg er vist foroven.\n" +
+                "Her kan du få brugt mønter, som du får, når du genanvender skrald fra genbrugsstationen!\n" +
+                "Du må træffe de rigtige beslutninger, når du skal investere i opgraderingerne, for de er vigtige for din bys bæredygtighed!");
     }
     public Butik(String name) {
         super(name);
