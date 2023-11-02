@@ -20,7 +20,6 @@ class Player {
         System.out.println(inventory.toString());
     }
 
-
     void addToInventory(String name, int amount){
         //calls an add-method in Inventory class
         System.out.printf("Du har tilføjet %d %s til din inventar%n", amount, name);
@@ -72,27 +71,27 @@ class Player {
         return xp;
     }
 
-    public int getMoney(){
-        return money;
-    }
-
     public int getLvl() {
         //Tjekker hvor meget xps værdi er og sætter lvl value efter det
-        int lvl = 0;
+        int lvl = 1;
 
-        if (xp < 100) {
+        if (xp < 200) {
             lvl = 1;
-        } else if (99 < xp && xp < 200) {
-            lvl = 2;
         } else if (199 < xp && xp < 300) {
-            lvl = 3;
+            lvl = 2;
         } else if (299 < xp && xp < 400) {
+            lvl = 3;
+        } else if (399 < xp && xp < 500) {
             lvl = 4;
         } else {
             lvl = 5; // Alt over 400 xp er level 5
         }
 
         return lvl;
+    }
+
+    public int getMoney() {
+        return money;
     }
 
 }

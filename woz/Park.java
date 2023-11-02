@@ -4,6 +4,7 @@ class Park extends Space {
 
     Park(String name) {
         super(name);
+        trash = new Trash[] {new Trash("flasker"), new Trash("aviser")};
     }
 
     public void showTrash() {
@@ -24,10 +25,6 @@ class Park extends Space {
     }
 
     
-
-    public boolean subtractTrash(String name, int amount) {
-        return super.subtractTrash(name, amount, trash);
-    }
 
     @Override
     public boolean isCommandReachable(String name) {

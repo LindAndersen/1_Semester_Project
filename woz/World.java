@@ -7,14 +7,14 @@ class World {
   
   World () {
     Space kontor = new Kontor("Kontor");
-    Space rækkehuse = new Rækkehuse("Villakvarter");
+    Space villakvarter = new Villakvarter("Villakvarter");
     Space genbrugsstation = new Genbrugsstation("Genbrugsstation");
     Space park = new Park("Park");
-    Space rådhusplads = new Rådhusplads("Centrum");
+    Space centrum = new Centrum("Centrum");
     Space butik = new Butik("Butik");
 
     //Adding all spaces to Space array, so we can access them in a more efficient way when adding edges
-    Space[] locations = {kontor, rækkehuse, genbrugsstation, park, rådhusplads, butik};
+    Space[] locations = {kontor, villakvarter, genbrugsstation, park, centrum, butik};
     
     //Adds every location to every location with the exception of an arbitrary location cant reach itself
     for (Space loc : locations) {

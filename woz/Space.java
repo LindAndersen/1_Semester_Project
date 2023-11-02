@@ -2,10 +2,10 @@
  */
 
 import java.util.Set;
-import java.util.Map;
 
  abstract class Space extends Node implements DefaultSpace {
   private boolean isHandled;
+  Trash[] trash;
 
   Space (String name) {
     super(name);
@@ -44,8 +44,8 @@ import java.util.Map;
 
 
   //SubtractTrash subtracts trash from room. Catches InsufficientTrashException 
-  public boolean subtractTrash(String name, int amount, Trash[] trash) {
-    for (Trash t : trash) {
+  public boolean subtractTrash(String name, int amount) throws TrashNotFoundException {
+    for (Trash t : this.trash) {
         if (t.getName().equals(name)) {
             try {
                 t.subtractTrash(amount);
@@ -55,8 +55,7 @@ import java.util.Map;
                 return false;
             }
         }
-    }
-    return false;
+    } throw new TrashNotFoundException(String.format("%s eksisterer ikke i rummet", name));
   }
 
 public boolean isCommandReachable(String name, String[] commands) {
