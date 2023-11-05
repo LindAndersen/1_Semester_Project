@@ -9,6 +9,9 @@ public class CommandStatus extends BaseCommand implements Command {
 
         int lvl = context.getPlayer().getLvl();
 
+        //kunne det være en idé at gemme player, så vi ikke skal kalde context.getPayer() alle steder
+        
+
         System.out.println("STATUS");
         System.out.println("By Level: " + context.getPlayer().getLvl());
         System.out.println("XP: " + context.getPlayer().remainingXP() + "/100"); //tallet skal være hvor meget XP der er ved hver level

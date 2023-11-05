@@ -1,31 +1,13 @@
 class Villakvarter extends Space {
     String[] commands = {"exit", "go", "help", "pickup", "reset"};
-    Trash[] trash;
 
     Villakvarter(String name) {
         super(name);
-        trash = new Trash[] {new Trash("flasker"), new Trash("aviser")};
-        //Add some trash to trash
     }
 
     public void welcome() {
         //Make own welcome specific for Rækkehuse
         super.welcome();
-    }
-
-    @Override
-    public void setRoomTrash(){
-        for(Trash t : trash){
-            t.setTrash();
-        }
-    }
-    public Trash[] getTrash(){
-        return trash;
-    }
-
-    @Override
-    public void showTrash() {
-        super.showTrash(trash);
     }
 
     @Override
@@ -36,5 +18,10 @@ class Villakvarter extends Space {
     @Override
     public String[] getCommands() {
         return commands;
+    }
+
+    @Override
+    public void showTrash() {
+        super.showTrash(super.getTrash());
     }
 }

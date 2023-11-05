@@ -7,7 +7,7 @@ class Context {
   private boolean done = false;
   private Player player = new Player("Borgmester");
   private int dayCounter = 1;
-  
+   
   Context (Space node) {
     current = node;
   }
@@ -68,11 +68,10 @@ class Context {
     //nulstiller state i hvert rum og inkrementerer dayCounter
     Space[] locations = world.getLocations();//henter lokationerne
 
-
     for(Space loc : locations){
       if(loc instanceof Park || loc instanceof Villakvarter || loc instanceof Centrum || loc instanceof Genbrugsstation){
         //kun hvis rummet er en type, der har affald, skal affald resettes
-        loc.setRoomTrash();
+        loc.setTrashSpace(loc.getTrash());
       }
 
       loc.undoHandled();//sætter isHandled i hvert rum til 
@@ -84,24 +83,21 @@ class Context {
     }
     dayCounter++;
     System.out.println("\nDu er nu på " + dayCounter + ". dag");
-
-    // setCurrent(kontor);//man "vågner op" i kontoret igen
   }
 
   boolean isDayDone(World world){
     Space[] loc = world.getLocations();
-
+   
     for(int i = 0; i < loc.length; i++){
-      if(loc[i] instanceof Park || loc[i] instanceof Villakvarter || loc[i] instanceof Centrum || loc[i] instanceof Genbrugsstation){
+      if(!(loc[i] instanceof Kontor) && !(loc[i] instanceof Butik)){
         Trash[] trash = loc[i].getTrash();
         
         for(int j = 0; j < trash.length; j++){
-          if(loc[i].getTrash()[j].getAmount() != 0){
+          if(trash[j].getAmount() != 0){
             return false;
           }
         }
-
-      }else if(loc[i] instanceof Kontor || loc[i] instanceof Butik){
+      }else{        
         if(!(loc[i].getHandled())){
           return false;
         }

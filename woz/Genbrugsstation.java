@@ -2,7 +2,7 @@ class Genbrugsstation extends Space {
 
     Trash[] trash;
     String[] commands = {"exit", "go", "help", "pickup", "recycle", "reset"};
-
+ 
     Genbrugsstation(String name) {
         super(name);
         trash = new Trash[] {new Trash("metalskrot"), new Trash("batterier"), new Trash("plastik")};
@@ -23,12 +23,6 @@ class Genbrugsstation extends Space {
         super.showTrash(trash);
     }
 
-    @Override
-    public void setRoomTrash(){
-        for(Trash t : trash){
-            t.setTrash();
-        }
-    }
     public Trash[] getTrash(){
         return trash;
     }

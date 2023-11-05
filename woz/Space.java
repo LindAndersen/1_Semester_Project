@@ -1,14 +1,16 @@
 /* Space class for modeling spaces (rooms, caves, ...)
- */
+ */ 
 
 import java.util.Set;
 
  abstract class Space extends Node implements DefaultSpace {
   private boolean isHandled;
+  private Trash[] trash;
 
   Space (String name) {
     super(name);
     isHandled = false;
+    trash = new Trash[] {new Trash("flasker"), new Trash("aviser")};
   }
   
   public void welcome () {
@@ -34,12 +36,16 @@ import java.util.Set;
         System.out.printf("- %d %s%n", t.getAmount(), t.getName());
     }
   }
-  public void setRoomTrash(){
-    System.out.println("This is Space setRoomTrash");
-  }
+
+
   public Trash[] getTrash(){
-    Trash[] trash = new Trash[1];
     return trash;
+  }
+
+  public void setTrashSpace(Trash[] trash){
+    for(Trash t : trash){
+      t.setTrash();
+    }
   }
 
 

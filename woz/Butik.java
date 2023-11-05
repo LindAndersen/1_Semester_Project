@@ -1,7 +1,6 @@
 import java.util.Map;
 import java.util.HashMap;
 import java.util.Set;
-// import java.util.ArrayList;
 
 public class Butik extends Space implements DefaultSpace {
 
@@ -9,25 +8,29 @@ public class Butik extends Space implements DefaultSpace {
     private String[] commands = {"exit", "go", "help", "buy", "reset"};
     private boolean isHandled;
 
+    public Butik(String name) {
+        super(name);
+        upgrades = new HashMap<Integer, Upgrades>();
+        initUpgrades();
+        this.isHandled = super.getHandled();
+    }
 
-    void firstDayWelcome() {
+    @Override
+    public void welcome() {
+        System.out.println("\n_______________________________________________________");
+        System.out.println("\nButikkens udvalg af opgraderinger:");
+        showUpgrades();
+        makeHandled();
+    }
+
+    public void firstDayWelcome() {
         System.out.println("\n_______________________________________________________");
         System.out.println("\n" + "Velkommen til shoppen! Butikkens udvalg er vist foroven.\n" +
                 "Her kan du få brugt mønter, som du får, når du genanvender skrald fra genbrugsstationen!\n" +
                 "Du må træffe de rigtige beslutninger, når du skal investere i opgraderingerne, for de er vigtige for din bys bæredygtighed!\n" +
                 "Du kan altid tjekke byens status og din udvikling som borgmester i kontoret." +
                 "Du kan bruge 'buy' for at købe, og 'help' for at se andre tilgængelige commands i rummet!");
-
-
     }
-    public Butik(String name) {
-        super(name);
-
-        upgrades = new HashMap<Integer, Upgrades>();
-        initUpgrades();
-        this.isHandled = super.getHandled();
-    }
-
 
     public HashMap<Integer, Upgrades> getUpgrades(){
         return upgrades;
@@ -49,13 +52,6 @@ public class Butik extends Space implements DefaultSpace {
         return isHandled;
     }
 
-    @Override
-    public void welcome() {
-        System.out.println("\n_______________________________________________________");
-        System.out.println("\nButikkens udvalg af opgraderinger:");
-        showUpgrades();
-        makeHandled();
-    }
 
     @Override
     public void goodbye(){
