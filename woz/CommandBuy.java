@@ -6,6 +6,7 @@ public class CommandBuy extends BaseCommand implements Command {
         this.description = "Køb en opgradering";
     } 
 
+
     private void printHint(Butik butik, int upgradeName) {
         for (int name : butik.getUpgrades().keySet()) {
             if (name == upgradeName) {
@@ -32,26 +33,42 @@ public class CommandBuy extends BaseCommand implements Command {
                 Player player = context.getPlayer();
 
                 try{
-                    if(upgrades.containsKey(Integer.parseInt(parameters[0]))){//tjekker om den angivne upgrade eksisterer
-                    
-                        Integer param = Integer.parseInt(parameters[0]);
-                        
-                        int price = upgrades.get(param).getPrice();//henter pris
-                        int xp = upgrades.get(param).getXP();//henter xp
+                    int upgradeIndex = Integer.parseInt(parameters[0]);
 
-                        
+                    if(upgrades.containsKey(upgradeIndex)){//tjekker om den angivne upgrade eksisterer
+
+                        Upgrades selectedUpgrade = upgrades.get(upgradeIndex);
+                        int price = selectedUpgrade.getPrice();
+                        int xp = selectedUpgrade.getXP();
+
+
 
                         if(player.canAfford(price)){//hvis spiller har råd til upgraden...
                             player.subtractMoney(price);//træk penge
                             player.addXP(xp);//tilføj xp
 
-                            //opdater world med ny modifier - ikke implementeret 
+                            //opdater world med ny modifier - ikke implementeret
 
-                            printHint(butik, param);
+                            // Determine the second upgrade to remove based on the selected upgrade.
+                            int secondUpgradeToRemove = selectedUpgrade.getRelatedUpgradeIndex();
 
-                            System.out.println("Du har købt upgraden " + upgrades.get(param).getName());
-                            
-                            butik.removeUpgrade(param);//fjern upgrade fra shop
+
+                            printHint(butik, upgradeIndex);
+
+                            System.out.println("Du har købt upgraderingen " + selectedUpgrade.getName());
+
+                            butik.removeUpgrade(upgradeIndex);//fjern upgrade fra shop
+
+                            if (upgrades.containsKey(secondUpgradeToRemove)) {
+                                Upgrades relatedUpgrade = upgrades.get(secondUpgradeToRemove);
+                                butik.removeUpgrade(secondUpgradeToRemove); // Remove the related second upgrade.
+                                System.out.println("Du har også fjernet " + relatedUpgrade.getName() + " fra butikken.");
+
+                                // Additional logic here...
+
+                            } else {
+                                System.out.println("Error: Related upgrade not found.");
+                            }
 
                             System.out.println("\nDu har så mange mønter nu: " + player.getMoney());
                             System.out.println("Du har så meget xp nu: " + player.getXP() + "\n");
@@ -65,7 +82,7 @@ public class CommandBuy extends BaseCommand implements Command {
                 }catch(NumberFormatException e){
                     System.out.println("Skriv tallet på den opgradering, du ønsker at købe");
                 }
-                
+
             }
         }
     }
