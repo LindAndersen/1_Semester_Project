@@ -4,14 +4,16 @@ public class Upgrades {
     private int price;
     private double modifier;
     private String hint;
+    private int relatedUpgradeIndex;
 
 
-    public Upgrades(String name, int price, int xp, double modifier, String hint){
+    public Upgrades(String name, int price, int xp, double modifier, String hint, int relatedUpgradeIndex){
         this.name = name;
         this.price = price;
         this.xp = xp;
         this.modifier = modifier;
         this.hint = hint;
+        this.relatedUpgradeIndex = relatedUpgradeIndex;
     }
 
     public String getHint() {
@@ -32,6 +34,10 @@ public class Upgrades {
 
     public double getModifier(){
         return modifier;
+    }
+
+    public int getRelatedUpgradeIndex() {
+        return relatedUpgradeIndex;
     }
 
     @Override
