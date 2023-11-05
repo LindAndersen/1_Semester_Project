@@ -22,6 +22,7 @@ class Game {
     registry.register("recycle", new CommandRecycle());
     registry.register("status", new CommandStatus());
     registry.register("reset", new CommandResetDay(world));
+    registry.register("cheat", new Commandcheat());
 
     //{"exit", "quit", "bye", "go", "help", "pickup", "buy", "recycle"}
   }
