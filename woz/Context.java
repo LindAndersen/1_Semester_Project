@@ -26,6 +26,7 @@ class Context {
       System.out.println("\nPuha, der kan muligvis være meget skrald rundt omkring...");
       System.out.println("Når du bruger 'pickup' i et rum, kan du få et overblik, hvis der befinder sig skrald i rummet!");
       System.out.println("Lad os tjekke det! Prøv at bruge 'pickup' i rummet.");
+      System.out.println("Herefter kan du bruge 'pickup [mængde] [type]' til at samle det specifikke skrald op");
     }
 
   public void transition (String direction) {
