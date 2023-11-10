@@ -3,6 +3,7 @@
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
+import java.io.File;
 
 class Game {
   static World    world    = new World();
@@ -39,15 +40,35 @@ class Game {
     System.out.println("");
   }
 
-  private static void load() {
+  private static void load(int option) {
     printSaveDir();
     System.out.println("Hvilket spil vil du gerne indlæse?");
-    String temp = scanner.nextLine();
-    
+    boolean isValid = false;
+    do {
+      try {
+        String temp = scanner.nextLine();
+        int nSave = Integer.parseInt(temp);
+        isValid = true;
+    } catch (NumberFormatException e) {
+      System.out.println("Ikke gyldigt, prøv igen");
+    }
+    }
+    while (!isValid); 
   }
 
   private static void printSaveDir() {
-
+    try {
+      File saveDir = new File("saves");
+      File[] saves = saveDir.listFiles();
+      int count = 0;
+      for (File save : saves) {
+        System.out.printf("[%d] %s", count, save.getName());
+        count++;
+      } 
+    } catch (NullPointerException e) {
+      System.out.println("Creating save folder");
+      new File("saves").mkdirs();
+    }
   }
 
   private static void mainMenu() {
@@ -57,12 +78,32 @@ class Game {
         System.out.println("Hovedmenu\n1. Start new game\n2. Indlæs spil\nBrug tal for at vælge din handling");
         String temp = scanner.nextLine();
         int option = Integer.parseInt(temp);
+        load(option);
         isValid = true;
     } catch (NumberFormatException e) {
       System.out.println("Ikke gyldigt, prøv igen");
     }
     }
     while (!isValid); 
+  }
+
+  private static void exitGame() {
+    boolean isValid = false;
+     System.out.println("Vil du gerne gemme dit spil?\n[1] Ja\n[2] Nej");
+    do {
+      try {
+        String temp = scanner.nextLine();
+        int option = Integer.parseInt(temp);
+        if (1 > option || 2 < option) {
+          throw new NumberFormatException();
+      }
+        isValid = true;
+    } catch (NumberFormatException e) {
+      System.out.println("Ikke gyldigt, prøv igen");
+    }
+    }
+    while (!isValid); 
+    System.out.println("Game Over 😥");
   }
   
   public static void main (String args[]) {
@@ -77,6 +118,7 @@ class Game {
       String line = scanner.nextLine();
       registry.dispatch(line.toLowerCase());
     }
-    System.out.println("Game Over 😥");
+
+    exitGame();
   }
 }
