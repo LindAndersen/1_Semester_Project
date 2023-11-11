@@ -2,7 +2,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
-import java.util.ArrayList;
+import java.util.NoSuchElementException;
 import java.util.Scanner;
 
 class CommandLoad extends BaseCommand implements Command {
@@ -58,11 +58,11 @@ class CommandLoad extends BaseCommand implements Command {
             file.close();
 
 
-        } catch (NumberFormatException e) {
+        } catch (NumberFormatException | NoSuchElementException e) {
           System.out.println("Ikke gyldigt, prøv igen");
-          scanner.close();
         } catch (IOException e) {
           e.printStackTrace();
+          break;
         }
 
         }

@@ -2,6 +2,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
+import java.io.File;
 
 public class CommandSave extends BaseCommand implements Command {
     World world;
@@ -25,6 +26,8 @@ public class CommandSave extends BaseCommand implements Command {
 
         if (isFileNameAvailable(filename)) {
             try {
+                boolean didCreate = new File("saves").mkdirs();
+                System.out.println((didCreate ? "Creating save folder" : ""));
                 String pathToSaves = System.getProperty("user.dir") + "\\saves";
                 System.out.printf("Will be stored at: %n%s%n", pathToSaves);
                 FileOutputStream file = new FileOutputStream(pathToSaves + "\\" + filename + ".ser");
