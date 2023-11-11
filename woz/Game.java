@@ -1,9 +1,7 @@
 /* Main class for launching the game
  */
 
-import java.util.InputMismatchException;
 import java.util.Scanner;
-import java.io.File;
 
 class Game {
   static World    world    = new World();
@@ -24,6 +22,8 @@ class Game {
     registry.register("recycle", new CommandRecycle());
     registry.register("status", new CommandStatus());
     registry.register("reset", new CommandResetDay(world));
+    registry.register("save", new CommandSave(world, context));
+    registry.register("load", new CommandLoad());
 
     //{"exit", "quit", "bye", "go", "help", "pickup", "buy", "recycle"}
   }
@@ -40,37 +40,6 @@ class Game {
     System.out.println("");
   }
 
-  private static void load(int option) {
-    printSaveDir();
-    System.out.println("Hvilket spil vil du gerne indlæse?");
-    boolean isValid = false;
-    do {
-      try {
-        String temp = scanner.nextLine();
-        int nSave = Integer.parseInt(temp);
-        isValid = true;
-    } catch (NumberFormatException e) {
-      System.out.println("Ikke gyldigt, prøv igen");
-    }
-    }
-    while (!isValid); 
-  }
-
-  private static void printSaveDir() {
-    try {
-      File saveDir = new File("saves");
-      File[] saves = saveDir.listFiles();
-      int count = 0;
-      for (File save : saves) {
-        System.out.printf("[%d] %s", count, save.getName());
-        count++;
-      } 
-    } catch (NullPointerException e) {
-      System.out.println("Creating save folder");
-      new File("saves").mkdirs();
-    }
-  }
-
   private static void mainMenu() {
     boolean isValid = false;
     do {
@@ -78,7 +47,10 @@ class Game {
         System.out.println("Hovedmenu\n1. Start new game\n2. Indlæs spil\nBrug tal for at vælge din handling");
         String temp = scanner.nextLine();
         int option = Integer.parseInt(temp);
-        load(option);
+        if (1 > option || 2 < option) {
+          throw new NumberFormatException();
+        }
+        registry.dispatch("load");
         isValid = true;
     } catch (NumberFormatException e) {
       System.out.println("Ikke gyldigt, prøv igen");
@@ -94,9 +66,6 @@ class Game {
       try {
         String temp = scanner.nextLine();
         int option = Integer.parseInt(temp);
-        if (1 > option || 2 < option) {
-          throw new NumberFormatException();
-      }
         isValid = true;
     } catch (NumberFormatException e) {
       System.out.println("Ikke gyldigt, prøv igen");

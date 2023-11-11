@@ -1,7 +1,8 @@
 import java.util.Map;
 import java.util.HashMap;
+import java.io.Serializable;
 
-class Inventory {
+class Inventory implements Serializable {
     Map<String, Integer> items = new HashMap<String, Integer>();
 
     public Inventory(){

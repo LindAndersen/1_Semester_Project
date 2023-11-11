@@ -1,7 +1,7 @@
 import java.util.Map;
 
 class Kontor extends Space {
-    String[] commands = {"exit", "quit", "bye", "go", "help", "status"};
+    String[] commands = {"exit", "quit", "bye", "go", "help", "status", "save", "load"};
     Kontor(String name) {
         super(name);
     }

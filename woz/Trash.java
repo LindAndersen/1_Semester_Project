@@ -1,6 +1,7 @@
 import java.util.Random;
+import java.io.Serializable;
 
-class Trash {
+class Trash implements Serializable {
     private String name;
     private double modifier = 1;
     private int amount;

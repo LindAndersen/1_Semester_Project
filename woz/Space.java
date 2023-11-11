@@ -2,8 +2,9 @@
  */
 
 import java.util.Set;
+import java.io.Serializable;
 
- abstract class Space extends Node implements DefaultSpace {
+ abstract class Space extends Node implements DefaultSpace, Serializable {
   private boolean isHandled;
   Trash[] trash;
 

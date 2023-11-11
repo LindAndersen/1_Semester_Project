@@ -1,4 +1,6 @@
-public class Upgrades {
+import java.io.Serializable;
+
+public class Upgrades implements Serializable {
     private String name;
     private int xp;
     private int price;

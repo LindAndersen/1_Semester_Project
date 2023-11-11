@@ -1,4 +1,6 @@
-class Player {
+import java.io.Serializable;
+
+class Player implements Serializable {
     private String name;
     private int xp;
     private int lvl;
