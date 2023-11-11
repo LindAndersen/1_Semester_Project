@@ -41,39 +41,42 @@ class Game {
   }
 
   private static void mainMenu() {
-    boolean isValid = false;
     do {
       try {
         System.out.println("Hovedmenu\n1. Start new game\n2. Indlæs spil\nBrug tal for at vælge din handling");
         String temp = scanner.nextLine();
         int option = Integer.parseInt(temp);
-        if (1 > option || 2 < option) {
+        if (option == 1) {
+          return;
+        } else if (option == 2) {
+          registry.dispatch("load");
+          return;
+        } else {
           throw new NumberFormatException();
         }
-        registry.dispatch("load");
-        isValid = true;
+
     } catch (NumberFormatException e) {
       System.out.println("Ikke gyldigt, prøv igen");
     }
     }
-    while (!isValid); 
+    while (true); 
   }
 
-  private static void exitGame() {
-    boolean isValid = false;
-     System.out.println("Vil du gerne gemme dit spil?\n[1] Ja\n[2] Nej");
-    do {
-      try {
-        String temp = scanner.nextLine();
-        int option = Integer.parseInt(temp);
-        isValid = true;
-    } catch (NumberFormatException e) {
-      System.out.println("Ikke gyldigt, prøv igen");
-    }
-    }
-    while (!isValid); 
-    System.out.println("Game Over 😥");
-  }
+  // private static void exitGame() {
+  //   boolean isValid = false;
+  //    System.out.println("Vil du gerne gemme dit spil?\n[1] Ja\n[2] Nej");
+  //   do {
+  //     try {
+  //       String temp = scanner.nextLine();
+  //       int option = Integer.parseInt(temp);
+  //       isValid = true;
+  //   } catch (NumberFormatException e) {
+  //     System.out.println("Ikke gyldigt, prøv igen");
+  //   }
+  //   }
+  //   while (!isValid); 
+  //   System.out.println("Game Over 😥");
+  // }
   
   public static void main (String args[]) {
     mainMenu();
@@ -88,6 +91,14 @@ class Game {
       registry.dispatch(line.toLowerCase());
     }
 
-    exitGame();
+    //exitGame();
+  }
+ 
+  public static void setWorld(World loadedWorld) {
+    world = loadedWorld;
+  }
+
+  public static void setContext(Context loadedContext) {
+    context = loadedContext;
   }
 }

@@ -6,6 +6,7 @@ class Player implements Serializable {
     private int lvl;
     private int money;
     private Inventory inventory;
+    private static final long serialVersionUID = 6529685098267757694L;
 
     //some final int-attributes to determine intervals of xp for levels
 

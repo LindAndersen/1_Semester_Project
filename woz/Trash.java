@@ -5,6 +5,7 @@ class Trash implements Serializable {
     private String name;
     private double modifier = 1;
     private int amount;
+    private static final long serialVersionUID = 6529685098267757693L;
 
     Trash(String name) {
         this.name = name;

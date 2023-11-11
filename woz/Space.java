@@ -6,11 +6,16 @@ import java.io.Serializable;
 
  abstract class Space extends Node implements DefaultSpace, Serializable {
   private boolean isHandled;
+  private static final long serialVersionUID = 6529685098267757690L;
   Trash[] trash;
 
   Space (String name) {
     super(name);
     isHandled = false;
+  }
+
+  Space() {
+    super(null);
   }
   
   public void welcome () {
