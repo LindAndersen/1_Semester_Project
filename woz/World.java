@@ -3,7 +3,7 @@
 import java.io.Serializable;
 
 class World implements Serializable {
-  private static final long serialVersionUID = 6529685098267757691L;
+  //private static final long serialVersionUID = 6529685098267757691L;
   private Space kontor;
   private Space[] locations;
   

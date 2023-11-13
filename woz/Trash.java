@@ -1,11 +1,11 @@
-import java.util.Random;
 import java.io.Serializable;
+import java.util.Random;
 
 class Trash implements Serializable {
     private String name;
     private double modifier = 1;
     private int amount;
-    private static final long serialVersionUID = 6529685098267757693L;
+    //private static final long serialVersionUID = 6529685098267757693L;
 
     Trash(String name) {
         this.name = name;

@@ -23,8 +23,6 @@ class CommandLoad extends BaseCommand implements Command {
     }
 
 
-
-
     private static void load() throws ClassNotFoundException {
         File[] saves = printSaveDir();
         if (saves == null) {
@@ -54,9 +52,11 @@ class CommandLoad extends BaseCommand implements Command {
             Game.setWorld(world);
             Game.setContext(context);
 
-            in.close();
-            file.close();
+            if (in != null) {
+              System.out.println("Did not load fully");
+            }
 
+            return;
 
         } catch (NumberFormatException | NoSuchElementException e) {
           System.out.println("Ikke gyldigt, prøv igen");

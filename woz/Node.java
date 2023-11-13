@@ -2,9 +2,10 @@
  */
 
 import java.util.TreeMap;
+import java.io.Serializable;
 import java.util.Map;
 
-class Node {
+class Node implements Serializable {
   String name;
   //We want to be able to use whatever case to call on the key, therefore we use TreeMap which has a neat function CASE_INSENSITIVE_ORDER to fix this problem
   Map<String, Node> edges = new TreeMap<String, Node>(String.CASE_INSENSITIVE_ORDER);
