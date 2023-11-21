@@ -11,7 +11,7 @@ class Inventory implements Serializable {
     }
 
     public void addItem(String name, int amount) {
-        items.put(name, amount);
+        items.put(name, getItemAmount(name) + amount);
     }
 
     void removeItem() {
@@ -19,7 +19,7 @@ class Inventory implements Serializable {
     }
 
     public int getItemAmount(String name) {
-        return items.get(name);
+        return (items.get(name) == null ? 0 : items.get(name));
     }
 
     public int getTotalAmount() {
