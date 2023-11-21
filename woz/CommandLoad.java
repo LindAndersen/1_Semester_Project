@@ -43,19 +43,20 @@ class CommandLoad extends BaseCommand implements Command {
             //Decrement by 1 so it represents an index
             nSave--;
             String pathToSaves = System.getProperty("user.dir") + "\\saves";
-            FileInputStream file = new FileInputStream(pathToSaves + "\\" + saves[nSave].getName());
-            ObjectInputStream in = new ObjectInputStream(file);
+            FileInputStream worldFile = new FileInputStream(pathToSaves + "\\" + saves[nSave].getName() + "\\world.ser");
+            FileInputStream contextFile = new FileInputStream(pathToSaves + "\\" + saves[nSave].getName() + "\\context.ser");
+            try (ObjectInputStream worldIn = new ObjectInputStream(worldFile)) {
+              try (ObjectInputStream contextIn = new ObjectInputStream(contextFile)) {
+                World world = (World) worldIn.readObject();
+                Context context = (Context) contextIn.readObject();
 
-            World world = (World) in.readObject();
-            Context context = (Context) in.readObject();
+                Game.setWorld(world);
+                Game.setContext(context);
 
-            Game.setWorld(world);
-            Game.setContext(context);
-
-            if (in != null) {
-              System.out.println("Did not load fully");
+                System.out.println(worldIn != null ? "Did not fully load world..." : "");
+                System.out.println(contextIn != null ? "Did not fully load context..." : "");
+              }
             }
-
             return;
 
         } catch (NumberFormatException | NoSuchElementException e) {

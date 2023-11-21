@@ -26,17 +26,22 @@ public class CommandSave extends BaseCommand implements Command {
 
         if (isFileNameAvailable(filename)) {
             try {
-                boolean didCreate = new File("saves").mkdirs();
-                System.out.println((didCreate ? "Creating save folder" : ""));
+                boolean didCreateSaves = new File("saves").mkdirs();
+                new File("saves\\" + filename).mkdirs();
+                System.out.println((didCreateSaves ? "Creating save folder" : ""));
                 String pathToSaves = System.getProperty("user.dir") + "\\saves";
                 System.out.printf("Will be stored at: %n%s%n", pathToSaves);
-                FileOutputStream file = new FileOutputStream(pathToSaves + "\\" + filename + ".ser");
-                ObjectOutputStream out = new ObjectOutputStream(file);
+                FileOutputStream worldFile = new FileOutputStream(pathToSaves + "\\" + filename + "\\world.ser");
+                FileOutputStream contextFile = new FileOutputStream(pathToSaves + "\\" + filename + "\\context.ser");
+                ObjectOutputStream worldOut = new ObjectOutputStream(worldFile);
+                ObjectOutputStream contextOut = new ObjectOutputStream(contextFile);
 
-                out.writeObject(world);
-                out.writeObject(context);
-                out.close();
-                file.close();
+                worldOut.writeObject(world);
+                contextOut.writeObject(context);
+                worldOut.close();
+                contextOut.close();
+                worldFile.close();
+                contextFile.close();
 
                 System.out.printf("Completed save with name: %s%n", filename);
 

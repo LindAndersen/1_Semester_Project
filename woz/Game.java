@@ -100,5 +100,7 @@ class Game {
 
   public static void setContext(Context loadedContext) {
     context = loadedContext;
+    registry = new Registry(context, fallback);
+    initRegistry();
   }
 }
