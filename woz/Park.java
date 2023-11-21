@@ -1,11 +1,6 @@
 class Park extends Space {
-<<<<<<< HEAD
-    static String[] commands = {"exit", "quit", "bye", "go", "help", "pickup"};
-
-=======
     String[] commands = {"exit", "go", "help", "pickup", "reset"};
- 
->>>>>>> main
+    
     Park(String name) {
         super(name);
     }

@@ -5,12 +5,8 @@ import java.util.Set;
 
  abstract class Space extends Node implements DefaultSpace {
   private boolean isHandled;
-<<<<<<< HEAD
   //private static final long serialVersionUID = 6529685098267757690L;
-  Trash[] trash;
-=======
   private Trash[] trash;
->>>>>>> main
 
   Space (String name) {
     super(name);

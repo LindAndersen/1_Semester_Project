@@ -5,12 +5,9 @@ public class Upgrades implements Serializable {
     private int xp;
     private int price;
     private double modifier;
-<<<<<<< HEAD
     //private static final long serialVersionUID = 6529685098267757692L;
-=======
     private String hint;
     private int relatedUpgradeIndex;
->>>>>>> main
 
 
     public Upgrades(String name, int price, int xp, double modifier, String hint, int relatedUpgradeIndex){

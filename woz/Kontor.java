@@ -1,13 +1,8 @@
 import java.util.Map;
 
 class Kontor extends Space {
-<<<<<<< HEAD
     String[] commands = {"exit", "quit", "bye", "go", "help", "status", "save", "load"};
-=======
     private boolean isHandled;
-
-    String[] commands = {"exit", "go", "help", "status", "reset"};
->>>>>>> main
     Kontor(String name) {
         super(name);
         isHandled = false;
