@@ -1,6 +1,8 @@
+import java.util.Map;
+ 
+
 class Centrum extends Space {
-    String[] commands = {"exit", "quit", "bye", "go", "help", "pickup"};
-    Trash[] trash = {new Trash("flasker"), new Trash("aviser")};
+    String[] commands = {"exit", "go", "help", "pickup", "reset"};
 
     Centrum(String name) {
         super(name);
@@ -11,11 +13,6 @@ class Centrum extends Space {
         super.welcome();
     }
 
-     public void setRoomTrash(){
-        for(Trash t : trash){
-            t.setTrash();
-        }
-    }
 
     public String[] getCommands() {
         return commands;
@@ -25,7 +22,8 @@ class Centrum extends Space {
         return (boolean) super.isCommandReachable(name, commands);
     }
 
+    @Override
     public void showTrash() {
-        super.showTrash(trash);
+        super.showTrash(super.getTrash());
     }
 }

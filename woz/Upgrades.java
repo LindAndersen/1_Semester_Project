@@ -5,14 +5,25 @@ public class Upgrades implements Serializable {
     private int xp;
     private int price;
     private double modifier;
+<<<<<<< HEAD
     //private static final long serialVersionUID = 6529685098267757692L;
+=======
+    private String hint;
+    private int relatedUpgradeIndex;
+>>>>>>> main
 
 
-    public Upgrades(String name, int price, int xp, double modifier){
+    public Upgrades(String name, int price, int xp, double modifier, String hint, int relatedUpgradeIndex){
         this.name = name;
         this.price = price;
         this.xp = xp;
         this.modifier = modifier;
+        this.hint = hint;
+        this.relatedUpgradeIndex = relatedUpgradeIndex;
+    }
+
+    public String getHint() {
+        return hint;
     }
 
     public String getName(){
@@ -29,6 +40,10 @@ public class Upgrades implements Serializable {
 
     public double getModifier(){
         return modifier;
+    }
+
+    public int getRelatedUpgradeIndex() {
+        return relatedUpgradeIndex;
     }
 
     @Override

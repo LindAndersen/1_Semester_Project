@@ -18,17 +18,23 @@ class Context implements Serializable {
     return current;
   }
 
+  public void setCurrent(Space newCurrent){
+    current = newCurrent;
+  }
+  
+
   //En message for det første rum, du kommer ind i, ved spillet :D
   public void firstRoomMessage() {
-      System.out.println("Puha, der kan muligvis være meget skrald rundt omkring...");
+      System.out.println("\nPuha, der kan muligvis være meget skrald rundt omkring...");
       System.out.println("Når du bruger 'pickup' i et rum, kan du få et overblik, hvis der befinder sig skrald i rummet!");
       System.out.println("Lad os tjekke det! Prøv at bruge 'pickup' i rummet.");
+      System.out.println("Herefter kan du bruge 'pickup [mængde] [type]' til at samle det specifikke skrald op");
     }
 
   public void transition (String direction) {
     Space next = (Space) current.followEdge(direction);
     if (next==null) {
-      System.out.println("Det var forvirrende, du kunne ikke komme til '"+direction+"'. Måske skulle du prøve at tage til et andet sted?");
+      System.out.println("\nDet var forvirrende, du kunne ikke komme til '"+direction+"'. Måske skulle du prøve at tage til et andet sted?");
     } else {
       current.goodbye();
       current = next;
@@ -55,40 +61,62 @@ class Context implements Serializable {
             firstTime = false;
         }
           else {
-            System.out.println("Du kan bruge 'help' for at se tilgængelige commands i rummet!");
+            System.out.println("\n Du kan bruge 'help' for at se tilgængelige commands i rummet!");
           }
         }
       }
     }
 
-   void resetDay(World world){
-    Space[] locations = world.getLocations();
+   public void resetDay(World world){
+    //nulstiller state i hvert rum og inkrementerer dayCounter
+    Space[] locations = world.getLocations();//henter lokationerne
 
     for(Space loc : locations){
-      loc.setRoomTrash();
-      loc.toggleHandled();
+      if(loc instanceof Park || loc instanceof Villakvarter || loc instanceof Centrum || loc instanceof Genbrugsstation){
+        //kun hvis rummet er en type, der har affald, skal affald resettes
+        loc.setTrashSpace(loc.getTrash());
+      }
+
+      loc.undoHandled();//sætter isHandled i hvert rum til 
+
+      if(loc.getName().equals("Kontor")){
+        setCurrent(loc);
+        current.welcome();
+      }
     }
-    
     dayCounter++;
-
-    transition("kontor");//man "vågner op" i kontoret igen
-
-    
+    System.out.println("\nDu er nu på " + dayCounter + ". dag");
   }
-  int getDay() {
+
+  boolean isDayDone(World world){
+    Space[] loc = world.getLocations();
+   
+    for(int i = 0; i < loc.length; i++){
+      if(!(loc[i] instanceof Kontor) && !(loc[i] instanceof Butik)){
+        Trash[] trash = loc[i].getTrash();
+        
+        for(int j = 0; j < trash.length; j++){
+          if(trash[j].getAmount() != 0){
+            return false;
+          }
+        }
+      }else{        
+        if(!(loc[i].getHandled())){
+          return false;
+        }
+      }
+    }
+    return true;
+
+  }
+
+
+  public int getDay() {
     return this.dayCounter;
   }
 
-  Player getPlayer() {
+  public Player getPlayer() {
     return this.player;
-  }
-
-  void incrementDayCounter() {
-    this.dayCounter++;
-  }
-
-  void resetDay() {
-
   }
 
   public void makeDone () {

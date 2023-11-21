@@ -1,84 +1,95 @@
 import java.util.Map;
-import java.util.TreeMap;
+import java.util.HashMap;
 import java.util.Set;
 
 public class Butik extends Space implements DefaultSpace {
 
-    private TreeMap<String, Upgrades> upgrades;
-    private String[] commands = {"exit", "quit", "bye", "go", "help", "buy"};
+    private HashMap<Integer, Upgrades> upgrades;
+    private String[] commands = {"exit", "go", "help", "buy", "reset"};
+    private boolean isHandled;
 
-    void firstDayWelcome() {
-        System.out.println("Velkommen til shoppen!");
-        System.out.println("Her kan du få brugt mønter, som du får, når du genanvender skrald fra genbrugsstationen!");
-        System.out.println("Du må træffe de rigtige beslutninger, når du skal investere i opgraderingerne, for de er vigtige for din bys bæredygtighed!");
-        System.out.println("");
-        System.out.println("Butikkens udvalg er nu: ");
-        showUpgrades();
-    }
     public Butik(String name) {
         super(name);
-        // upgrades = new ArrayList<Upgrades>();
-        upgrades = new TreeMap<String, Upgrades>(String.CASE_INSENSITIVE_ORDER);
-
+        upgrades = new HashMap<Integer, Upgrades>();
         initUpgrades();
+        this.isHandled = super.getHandled();
     }
 
-    public TreeMap<String, Upgrades> getUpgrades(){
+    @Override
+    public void welcome() {
+        System.out.println("\n_______________________________________________________");
+        System.out.println("\nButikkens udvalg af opgraderinger:");
+        showUpgrades();
+        makeHandled();
+    }
+
+    public void firstDayWelcome() {
+        System.out.println("\n_______________________________________________________");
+        System.out.println("\n" + "Velkommen til shoppen! Butikkens udvalg er vist foroven.\n" +
+                "Her kan du få brugt mønter, som du får, når du genanvender skrald fra genbrugsstationen!\n" +
+                "Du må træffe de rigtige beslutninger, når du skal investere i opgraderingerne, for de er vigtige for din bys bæredygtighed!\n" +
+                "Du kan altid tjekke byens status og din udvikling som borgmester i kontoret." +
+                "Du kan bruge 'buy' for at købe, og 'help' for at se andre tilgængelige commands i rummet!");
+    }
+
+    public HashMap<Integer, Upgrades> getUpgrades(){
         return upgrades;
     }
 
-    public void setRoomTrash(){
-        //No trash here
+      @Override
+    public void makeHandled(){
+        isHandled = true;
+    }
+
+    @Override
+    public void undoHandled(){
+        isHandled = false;
     }
 
 
     @Override
-    public void welcome() {
-        showUpgrades();
+    public boolean getHandled(){
+        return isHandled;
     }
+
 
     @Override
     public void goodbye(){
     }
 
     public void initUpgrades(){
-        upgrades.put("Cykelsti", new Upgrades("Cykelsti", 50, 200, 1.5));
-        upgrades.put("Motorvej", new Upgrades("Motorvej", 50, 200, 1.5));
-        upgrades.put("Billboard", new Upgrades("Billboard", 50, 200, 1.5));
-        upgrades.put("Skraldespande", new Upgrades("Skraldespande", 50, 200, 1.5));
-        upgrades.put("Solceller", new Upgrades("Solceller", 50, 200, 1.5));
-        upgrades.put("Filter i parksøen", new Upgrades("Filter i parksøen", 50, 200, 1.5));
-        upgrades.put("Isolerende vinduer", new Upgrades("Isolerende vinduer", 50, 200, 1.5));
-        upgrades.put("Legeplads", new Upgrades("Legeplads", 50, 200, 1.5));
-        upgrades.put("Farve i parksøen", new Upgrades("Farve i parksøen", 50, 200, 1.5));
-        upgrades.put("Parkeringshus", new Upgrades("Parkeringshus", 50, 200, 1.5));
-        upgrades.put("Varmeanlæg m. oliefyr", new Upgrades("Varmeanlæg m. oliefyr", 50, 200, 1.5));
-        upgrades.put("Fodboldstadion", new Upgrades("Fodboldstadion", 50, 200, 1.5));
+
+        upgrades.put(1, new Upgrades("Cykelsti", 50, 200, 1.5, "1", 2));
+        upgrades.put(2, new Upgrades("Motorvej", 50, 200, 1.5, "2", 1));
+        upgrades.put(3, new Upgrades("Billboard", 50, 200, 1.5, "3", 5));
+        upgrades.put(4, new Upgrades("Skraldespande", 50, 200, 1.5, "4", 10));
+        upgrades.put(5, new Upgrades("Solceller", 50, 200, 1.5, "5", 3));
+        upgrades.put(6, new Upgrades("Filter i parksøen", 50, 200, 1.5, "6", 9));
+        upgrades.put(7, new Upgrades("Isolerende vinduer", 50, 200, 1.5, "7", 11));
+        upgrades.put(8, new Upgrades("Legeplads", 50, 200, 1.5, "8", 12));
+        upgrades.put(9, new Upgrades("Farve i parksøen", 50, 200, 1.5, "9", 6));
+        upgrades.put(10, new Upgrades("Parkeringshus", 50, 200, 1.5, "10", 4));
+        upgrades.put(11, new Upgrades("Varmeanlæg m. oliefyr", 50, 200, 1.5, "11", 7));
+        upgrades.put(12, new Upgrades("Fodboldstadion", 50, 200, 1.5, "12", 8));
+
     }
 
     public void showUpgrades() {
         //formatting output like in CommandHelp
 
-        Set<String> names = upgrades.keySet();
+        Set<Integer> names = upgrades.keySet();
 
-        // find max length of command name
-        int max = 0;
-        for (String name : names) {
-            int length = name.length();
-            if (length > max){
-                max = length;
-            }
-        }
       
         // present list of upgrades
-        for(String e : upgrades.keySet()){
-            System.out.printf(" - %-"+max+"s  pris: %d, XP: %d%n", upgrades.get(e).getName(), upgrades.get(e).getPrice(), upgrades.get(e).getXP());            
+        for(Integer e : upgrades.keySet()){
+            System.out.printf(" - [%d] %s  pris: %d, XP: %d%n", e, upgrades.get(e).getName(), upgrades.get(e).getPrice(), upgrades.get(e).getXP());            
         }
     }
 
 
-    void removeUpgrade(String name) {
-        upgrades.remove(name);
+
+    void removeUpgrade(int key) {
+        upgrades.remove(key);
     }
 
     @Override

@@ -1,25 +1,31 @@
 /* Space class for modeling spaces (rooms, caves, ...)
- */
+ */ 
 
 import java.util.Set;
 
  abstract class Space extends Node implements DefaultSpace {
   private boolean isHandled;
+<<<<<<< HEAD
   //private static final long serialVersionUID = 6529685098267757690L;
   Trash[] trash;
+=======
+  private Trash[] trash;
+>>>>>>> main
 
   Space (String name) {
     super(name);
     isHandled = false;
+    trash = new Trash[] {new Trash("flasker"), new Trash("aviser")};
   }
   
   public void welcome () {
-    System.out.println("Du er nu ved "+name);
+      System.out.println("\n_______________________________________________________");
+      System.out.println("Du er nu ved "+name);
   }
 
   public void exits() {
     Set<String> exits = edges.keySet();
-    System.out.println("Nuværende udgange fører til");
+    System.out.println("\nNuværende udgange fører til");
     for (String exit: exits) {
       System.out.println(" - "+exit);
     }
@@ -30,19 +36,27 @@ import java.util.Set;
   }
 
   public void showTrash(Trash[] trash) {
-    System.out.println("Du kigger rundt og ser ");
+    System.out.println("\nDu kigger rundt og ser ");
     for (Trash t : trash) {
         System.out.printf("- %d %s%n", t.getAmount(), t.getName());
     }
   }
-  public void setRoomTrash(){
-    
+
+
+  public Trash[] getTrash(){
+    return trash;
+  }
+
+  public void setTrashSpace(Trash[] trash){
+    for(Trash t : trash){
+      t.setTrash();
+    }
   }
 
 
   //SubtractTrash subtracts trash from room. Catches InsufficientTrashException 
-  public boolean subtractTrash(String name, int amount) throws TrashNotFoundException {
-    for (Trash t : this.trash) {
+  public boolean subtractTrash(String name, int amount, Trash[] trash) throws TrashNotFoundException {
+    for (Trash t : trash) {
         if (t.getName().equals(name)) {
             try {
                 t.subtractTrash(amount);
@@ -64,8 +78,11 @@ public boolean isCommandReachable(String name, String[] commands) {
 
 
 
-  public void toggleHandled() {
-    isHandled = !isHandled;
+  public void makeHandled() {
+    isHandled = true;
+  }
+  public void undoHandled(){
+    isHandled = false;
   }
 
   public boolean getHandled() {
