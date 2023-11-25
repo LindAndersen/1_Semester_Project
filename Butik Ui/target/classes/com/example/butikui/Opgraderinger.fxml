@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.butikui.HelloController">
+   <children>
+      <Button fx:id="ButiktilbageButton" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#onButiktilbageClick" text="Gå tilbage til butik" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="407.0" layoutX="146.0" layoutY="-3.0" stroke="BLACK" strokeType="INSIDE" width="308.0" />
+      <Button fx:id="Cykelsti" layoutX="205.0" layoutY="26.0" mnemonicParsing="false" onAction="#onCykelstiButtonClick" text="Cykelsti" />
+      <Button fx:id="Solceller" layoutX="203.0" layoutY="77.0" mnemonicParsing="false" onAction="#onSolcellerButtonClick" text="Solceller" />
+      <Button fx:id="Filter" layoutX="183.0" layoutY="134.0" mnemonicParsing="false" onAction="#onFilterButtonClick" text="Filter i parksøen" />
+      <Button fx:id="Bus" layoutX="186.0" layoutY="188.0" mnemonicParsing="false" onAction="#onBusButtonClick" text="Busstoppested" />
+      <Button fx:id="Vinduer" layoutX="176.0" layoutY="241.0" mnemonicParsing="false" onAction="#onVinduerButtonClick" text="Isolerende vinduer" />
+      <Button fx:id="Leg" layoutX="198.0" layoutY="296.0" mnemonicParsing="false" onAction="#onLegButtonClick" text="Legeplads" />
+      <Button fx:id="Motor" layoutX="329.0" layoutY="26.0" mnemonicParsing="false" onAction="#onMotorButtonClick" text="Motorvej" />
+      <Button fx:id="Bill" layoutX="327.0" layoutY="77.0" mnemonicParsing="false" onAction="#onBillButtonClick" text="Billboards" />
+      <Button fx:id="Farve" layoutX="310.0" layoutY="134.0" mnemonicParsing="false" onAction="#onFarveButtonClick" text="Farve i parksøen" />
+      <Button fx:id="Parkering" layoutX="316.0" layoutY="188.0" mnemonicParsing="false" onAction="#onParkeringButtonClick" text="Parkeringshus" />
+      <Button fx:id="Olie" layoutX="335.0" layoutY="241.0" mnemonicParsing="false" onAction="#onOlieButtonClick" text="Oliefyr" />
+      <Button fx:id="Bold" layoutX="311.0" layoutY="296.0" mnemonicParsing="false" onAction="#onBoldButtonClick" text="Fodboldstadion" />
+      <Label fx:id="pengetext" layoutX="40.0" layoutY="81.0" text="Du har 0 kr." />
+      <Label layoutX="17.0" layoutY="138.0" text="Opgraderinger købt:" />
+      <Label layoutX="39.0" layoutY="109.0" text="Du har 0 xp." fx:id="xptext" />
+      <Label fx:id="upgrade1" layoutX="28.0" layoutY="170.0" prefHeight="17.0" prefWidth="79.0" text="null" />
+      <Label fx:id="upgrade2" layoutX="28.0" layoutY="192.0" prefHeight="17.0" prefWidth="79.0" text="null" />
+      <Label fx:id="upgrade3" layoutX="28.0" layoutY="213.0" prefHeight="17.0" prefWidth="79.0" text="null" />
+      <Label fx:id="upgrade4" layoutX="28.0" layoutY="232.0" prefHeight="17.0" prefWidth="79.0" text="null" />
+      <Label fx:id="upgrade5" layoutX="28.0" layoutY="257.0" prefHeight="17.0" prefWidth="79.0" text="null" />
+      <Label fx:id="upgrade6" layoutX="28.0" layoutY="274.0" prefHeight="17.0" prefWidth="79.0" text="null" />
+   </children>
+</AnchorPane>
