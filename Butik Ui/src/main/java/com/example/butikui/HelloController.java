@@ -21,6 +21,8 @@ import static com.example.butikui.Game.context;
 import static com.example.butikui.Game.registry;
 
 public class HelloController implements Initializable {
+
+    CommandPickup pickuptrash = new CommandPickup();
     private Stage stage;
     private Scene scene;
     private Parent root;
@@ -346,4 +348,13 @@ public class HelloController implements Initializable {
         upgradebuttonclick("12",Bold,Leg);
 
     }
+
+    @FXML
+    protected void onTrashOneButtonClick(ActionEvent event) throws IOException  {
+
+        pickuptrash.;
+
+    }
+
+
 }

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.butikui.HelloController">
+    <children>
+        <Button fx:id="OpgraderingerButton" layoutX="252.0" layoutY="200.0" mnemonicParsing="false" onAction="#onOpgraderingerButtonClick" text="Opgraderinger" />
+        <Label fx:id="welcomeText" layoutX="202.0" layoutY="156.0" text="Velkommen til butikken Borgmester!" />
+        <Button fx:id="InfoButton" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" text="Info" />
+        <Button fx:id="NavigationButton" layoutX="14.0" layoutY="361.0" mnemonicParsing="false" text="Navigation" />
+    </children>
+</AnchorPane>

@@ -39,7 +39,7 @@ public class Game extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(Game.class.getResource("Butik.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(Game.class.getResource("Villakvarter.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         fxmlLoader.setController(this);
         stage.setTitle("Hello!");
