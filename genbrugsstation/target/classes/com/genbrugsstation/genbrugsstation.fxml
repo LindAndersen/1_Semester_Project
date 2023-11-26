@@ -10,18 +10,16 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
-fx:controller="com.genbrugsstation.GenbrugsstationController">
+<VBox fx:id="scene_genbrugsstation" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.genbrugsstation.GenbrugsstationController">
    <children>
       <HBox prefHeight="36.0" prefWidth="600.0">
          <children>
-            <Button fx:id="btn_menu" mnemonicParsing="false" prefHeight="39.0" prefWidth="88.0" text="Menu" />
+            <Button fx:id="btn_menu" mnemonicParsing="false" onMouseClicked="#showMainMenu" prefHeight="39.0" prefWidth="88.0" text="Menu" />
          </children>
       </HBox>
       <HBox prefHeight="100.0" prefWidth="200.0">
          <children>
-            <Pane prefHeight="200.0" prefWidth="200.0">
+            <Pane fx:id="pane_recycle_1" onMouseClicked="#recycle" prefHeight="200.0" prefWidth="200.0">
                <children>
                   <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="99.0" prefWidth="200.0" text="Recycle1">
                      <font>
@@ -31,9 +29,9 @@ fx:controller="com.genbrugsstation.GenbrugsstationController">
                </children>
             </Pane>
             <Pane prefHeight="200.0" prefWidth="200.0" />
-            <Pane prefHeight="200.0" prefWidth="200.0">
+            <Pane fx:id="pane_recycle_2" prefHeight="200.0" prefWidth="200.0">
                <children>
-                  <Label alignment="CENTER" contentDisplay="CENTER" layoutX="-2.0" layoutY="-4.0" prefHeight="100.0" prefWidth="200.0" text="Recycle2">
+                  <Label alignment="CENTER" contentDisplay="CENTER" layoutX="-2.0" layoutY="-4.0" onMouseClicked="#recycle" prefHeight="100.0" prefWidth="200.0" text="Recycle2">
                      <font>
                         <Font size="36.0" />
                      </font>
@@ -44,18 +42,18 @@ fx:controller="com.genbrugsstation.GenbrugsstationController">
       </HBox>
       <HBox prefHeight="100.0" prefWidth="200.0">
          <children>
-            <Pane prefHeight="200.0" prefWidth="200.0">
+            <Pane fx:id="pane_trash_1" prefHeight="200.0" prefWidth="200.0">
                <children>
-                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="100.0" prefWidth="200.0" text="Trash1">
+                  <Label alignment="CENTER" contentDisplay="CENTER" onMouseClicked="#pickup" prefHeight="100.0" prefWidth="200.0" text="Trash1">
                      <font>
                         <Font size="36.0" />
                      </font>
                   </Label>
                </children>
             </Pane>
-            <Pane prefHeight="200.0" prefWidth="200.0">
+            <Pane fx:id="pane_trash_2" prefHeight="200.0" prefWidth="200.0">
                <children>
-                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="100.0" prefWidth="200.0" text="Trash2">
+                  <Label alignment="CENTER" contentDisplay="CENTER" onMouseClicked="#pickup" prefHeight="100.0" prefWidth="200.0" text="Trash2">
                      <font>
                         <Font size="36.0" />
                      </font>
@@ -66,9 +64,9 @@ fx:controller="com.genbrugsstation.GenbrugsstationController">
       </HBox>
       <HBox prefHeight="166.0" prefWidth="600.0">
          <children>
-            <Pane centerShape="false" prefHeight="186.0" prefWidth="200.0">
+            <Pane fx:id="pane_trash_3" centerShape="false" prefHeight="186.0" prefWidth="200.0">
                <children>
-                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="166.0" prefWidth="200.0" text="Trash3">
+                  <Label alignment="CENTER" contentDisplay="CENTER" onMouseClicked="#pickup" prefHeight="166.0" prefWidth="200.0" text="Trash3">
                      <font>
                         <Font size="36.0" />
                      </font>
@@ -89,11 +87,11 @@ fx:controller="com.genbrugsstation.GenbrugsstationController">
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                        <Button fx:id="btn_go_1" mnemonicParsing="false" text="Location1" />
-                        <Button fx:id="btn_go_2" mnemonicParsing="false" text="Location2" GridPane.columnIndex="1" />
-                        <Button fx:id="btn_go_3" mnemonicParsing="false" text="Location3" GridPane.rowIndex="1" />
-                        <Button fx:id="btn_go_4" mnemonicParsing="false" text="Location4" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                        <Button fx:id="btn_go_5" mnemonicParsing="false" text="Location5" GridPane.rowIndex="2" />
+                        <Button fx:id="btn_go_1" mnemonicParsing="false" onMouseClicked="#go" text="Location1" />
+                        <Button fx:id="btn_go_2" mnemonicParsing="false" onMouseClicked="#go" text="Location2" GridPane.columnIndex="1" />
+                        <Button fx:id="btn_go_3" mnemonicParsing="false" onMouseClicked="#go" text="Location3" GridPane.rowIndex="1" />
+                        <Button fx:id="btn_go_4" mnemonicParsing="false" onMouseClicked="#go" text="Location4" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <Button fx:id="btn_go_5" mnemonicParsing="false" onMouseClicked="#go" text="Location5" GridPane.rowIndex="2" />
                      </children>
                   </GridPane>
                </children>
