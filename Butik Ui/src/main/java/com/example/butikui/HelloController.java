@@ -21,8 +21,9 @@ import static com.example.butikui.Game.context;
 import static com.example.butikui.Game.registry;
 
 public class HelloController implements Initializable {
+    Villakvarter Villa = new Villakvarter("VillaKvarter");
+    Context context = new Context(Villa);
 
-    CommandPickup pickuptrash = new CommandPickup();
     private Stage stage;
     private Scene scene;
     private Parent root;
@@ -350,11 +351,16 @@ public class HelloController implements Initializable {
     }
 
     @FXML
-    protected void onTrashOneButtonClick(ActionEvent event) throws IOException  {
+    protected void onTrashAvisButtonClick(ActionEvent event) throws IOException, TrashNotFoundException {
 
-        pickuptrash.;
+        Villa.subtractTrash("aviser",1,Villa.getTrash());
 
     }
+    @FXML
+    protected void onTrashFlaskerButtonClick(ActionEvent event) throws IOException, TrashNotFoundException {
 
+        Villa.subtractTrash("flasker",1,Villa.getTrash());
+
+    }
 
 }

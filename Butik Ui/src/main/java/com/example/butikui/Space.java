@@ -26,9 +26,11 @@ import java.util.Set;
     }
   }
   
-  public void goodbye () {
+  public void goodbye (){
+
+     }
     //Make some logic to know when u should make room handled, if should be handled invoke toggleHandled() method
-  }
+
 
   public void showTrash(Trash[] trash) {
     System.out.println("\nDu kigger rundt og ser ");

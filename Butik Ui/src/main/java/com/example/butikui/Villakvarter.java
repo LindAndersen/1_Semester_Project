@@ -12,6 +12,7 @@ class Villakvarter extends Space {
         super.welcome();
     }
 
+
     @Override
     public boolean isCommandReachable(String name) {
         return super.isCommandReachable(name, commands);
