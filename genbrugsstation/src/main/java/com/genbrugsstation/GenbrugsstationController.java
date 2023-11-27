@@ -1,58 +1,45 @@
 package com.genbrugsstation;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-import javafx.scene.layout.Pane;
+import javafx.scene.input.MouseEvent;
 
 public class GenbrugsstationController {
-    @FXML
-    private Button btn_menu;
-    @FXML
-    private Pane pane_recycle_1;
-    @FXML
-    private Pane pane_recycle_2;
-    @FXML
-    private Pane pane_trash_1;
-    @FXML
-    private Pane pane_trash_2;
-    @FXML
-    private Pane pane_trash_3;
-    @FXML
-    private Button btn_go_1;
-    @FXML
-    private Button btn_go_2;
-    @FXML
-    private Button btn_go_3;
-    @FXML
-    private Button btn_go4;
-    @FXML
-    private Button btn_go_5;
-
     Registry registry = Game.getRegistry();
 
     @FXML
-    private void recycle() {
-        registry.dispatch("recycle 1");
+    private void recycle(MouseEvent event) {
+        Button b = (Button) event.getSource();
+        String id = b.getId();
+        System.out.println(id);
+        if (id.equals("btn_recycle_1")) {
+            System.out.println("We did recycling 1");
+            registry.dispatch("recycle 1");
+        } else {
+            System.out.println("We did recycling 2");
+            registry.dispatch("recycle 2");
+        }
         System.out.println("You just recycled!");
         //System.out.println(event.toString());
         //do smt
     }
 
     @FXML
-    private void go() {
-        registry.dispatch("go genbrugsstation");
-
-        System.out.println("You just goed to genbrugsstation");
+    private void go(MouseEvent event) {
+        String cmd = ((Button)event.getSource()).getId().replace("_", " ");
+        System.out.println("You are going to: " + cmd);
+        registry.dispatch(cmd);
         //System.out.println(event.toString());
         //do smt
+
+        registry.dispatch("go genbrugsstation");
     }
 
     @FXML
-    private void pickup() {
-        registry.dispatch("go genbrugsstation");
-        registry.dispatch("pickup 1 metalskrot");
-        System.out.println("You just picked up");
+    private void pickup(MouseEvent event) {
+        String cmd = ((Button)event.getSource()).getId().replace("_", " ");
+        System.out.println(cmd);
+        registry.dispatch(cmd);
         //System.out.println(event.toString());
         //do smt
     }

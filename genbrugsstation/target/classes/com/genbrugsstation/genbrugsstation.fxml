@@ -19,23 +19,25 @@
       </HBox>
       <HBox prefHeight="100.0" prefWidth="200.0">
          <children>
-            <Pane fx:id="pane_recycle_1" onMouseClicked="#recycle" prefHeight="200.0" prefWidth="200.0">
+            <Pane fx:id="pane_recycle_1" prefHeight="200.0" prefWidth="200.0">
                <children>
                   <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="99.0" prefWidth="200.0" text="Recycle1">
                      <font>
                         <Font size="36.0" />
                      </font>
                   </Label>
+                  <Button fx:id="btn_recycle_1" mnemonicParsing="false" onMouseClicked="#recycle" opacity="0.0" prefHeight="100.0" prefWidth="200.0" text="Button" />
                </children>
             </Pane>
             <Pane prefHeight="200.0" prefWidth="200.0" />
             <Pane fx:id="pane_recycle_2" prefHeight="200.0" prefWidth="200.0">
                <children>
-                  <Label alignment="CENTER" contentDisplay="CENTER" layoutX="-2.0" layoutY="-4.0" onMouseClicked="#recycle" prefHeight="100.0" prefWidth="200.0" text="Recycle2">
+                  <Label alignment="CENTER" contentDisplay="CENTER" layoutX="-2.0" layoutY="-4.0" prefHeight="100.0" prefWidth="200.0" text="Recycle2">
                      <font>
                         <Font size="36.0" />
                      </font>
                   </Label>
+                  <Button fx:id="btn_recycle_2" mnemonicParsing="false" onMouseClicked="#recycle" opacity="0.0" prefHeight="99.0" prefWidth="200.0" text="Button" />
                </children>
             </Pane>
          </children>
@@ -44,20 +46,22 @@
          <children>
             <Pane fx:id="pane_trash_1" prefHeight="200.0" prefWidth="200.0">
                <children>
-                  <Label alignment="CENTER" contentDisplay="CENTER" onMouseClicked="#pickup" prefHeight="100.0" prefWidth="200.0" text="Trash1">
+                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="100.0" prefWidth="200.0" text="Metalskrot">
                      <font>
                         <Font size="36.0" />
                      </font>
                   </Label>
+                  <Button fx:id="pickup_1_metalskrot" mnemonicParsing="false" onMouseClicked="#pickup" opacity="0.0" prefHeight="99.0" prefWidth="200.0" text="Button" />
                </children>
             </Pane>
             <Pane fx:id="pane_trash_2" prefHeight="200.0" prefWidth="200.0">
                <children>
-                  <Label alignment="CENTER" contentDisplay="CENTER" onMouseClicked="#pickup" prefHeight="100.0" prefWidth="200.0" text="Trash2">
+                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="100.0" prefWidth="200.0" text="Batterier">
                      <font>
                         <Font size="36.0" />
                      </font>
                   </Label>
+                  <Button fx:id="pickup_1_batterier" mnemonicParsing="false" onMouseClicked="#pickup" opacity="0.0" prefHeight="100.0" prefWidth="200.0" text="Button" />
                </children>
             </Pane>
          </children>
@@ -66,11 +70,12 @@
          <children>
             <Pane fx:id="pane_trash_3" centerShape="false" prefHeight="186.0" prefWidth="200.0">
                <children>
-                  <Label alignment="CENTER" contentDisplay="CENTER" onMouseClicked="#pickup" prefHeight="166.0" prefWidth="200.0" text="Trash3">
+                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="166.0" prefWidth="200.0" text="Plastik">
                      <font>
                         <Font size="36.0" />
                      </font>
                   </Label>
+                  <Button fx:id="pickup_1_plastik" mnemonicParsing="false" onMouseClicked="#pickup" opacity="0.0" prefHeight="166.0" prefWidth="200.0" text="Button" />
                </children>
             </Pane>
             <Pane prefHeight="200.0" prefWidth="200.0" />
@@ -87,11 +92,11 @@
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                        <Button fx:id="btn_go_1" mnemonicParsing="false" onMouseClicked="#go" text="Location1" />
-                        <Button fx:id="btn_go_2" mnemonicParsing="false" onMouseClicked="#go" text="Location2" GridPane.columnIndex="1" />
-                        <Button fx:id="btn_go_3" mnemonicParsing="false" onMouseClicked="#go" text="Location3" GridPane.rowIndex="1" />
-                        <Button fx:id="btn_go_4" mnemonicParsing="false" onMouseClicked="#go" text="Location4" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                        <Button fx:id="btn_go_5" mnemonicParsing="false" onMouseClicked="#go" text="Location5" GridPane.rowIndex="2" />
+                        <Button fx:id="go_villakvarter" mnemonicParsing="false" onMouseClicked="#go" text="Villakvarter" />
+                        <Button fx:id="go_kontor" mnemonicParsing="false" onMouseClicked="#go" prefHeight="25.0" prefWidth="69.0" text="Kontor" GridPane.columnIndex="1" />
+                        <Button fx:id="go_centrum" mnemonicParsing="false" onMouseClicked="#go" prefHeight="25.0" prefWidth="78.0" text="Centrum" GridPane.rowIndex="1" />
+                        <Button fx:id="go_butik" mnemonicParsing="false" onMouseClicked="#go" prefHeight="25.0" prefWidth="69.0" text="Butik" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <Button fx:id="go_park" mnemonicParsing="false" onMouseClicked="#go" prefHeight="25.0" prefWidth="77.0" text="Park" GridPane.rowIndex="2" />
                      </children>
                   </GridPane>
                </children>
