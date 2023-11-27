@@ -1,4 +1,4 @@
-module com.genebrugsstation {
+module com.genbrugsstation {
     requires javafx.controls;
     requires javafx.fxml;
 
