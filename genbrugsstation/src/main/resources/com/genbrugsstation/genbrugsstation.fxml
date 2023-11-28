@@ -9,6 +9,8 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.layout.StackPane?>
 
 <VBox fx:id="scene_genbrugsstation" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.genbrugsstation.GenbrugsstationController">
    <children>
@@ -46,9 +48,9 @@
          <children>
             <Pane fx:id="pane_trash_1" prefHeight="200.0" prefWidth="200.0">
                <children>
-                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="100.0" prefWidth="200.0" text="Metalskrot">
+                  <Label fx:id="metalskrot_label" alignment="CENTER" contentDisplay="CENTER" prefHeight="100.0" prefWidth="200.0" text="Metalskrot">
                      <font>
-                        <Font size="36.0" />
+                        <Font size="20.0" />
                      </font>
                   </Label>
                   <Button fx:id="pickup_1_metalskrot" mnemonicParsing="false" onMouseClicked="#pickup" opacity="0.0" prefHeight="99.0" prefWidth="200.0" text="Button" />
@@ -56,9 +58,9 @@
             </Pane>
             <Pane fx:id="pane_trash_2" prefHeight="200.0" prefWidth="200.0">
                <children>
-                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="100.0" prefWidth="200.0" text="Batterier">
+                  <Label fx:id="batterier_label" alignment="CENTER" contentDisplay="CENTER" prefHeight="100.0" prefWidth="200.0" text="Batterier">
                      <font>
-                        <Font size="36.0" />
+                        <Font size="20.0" />
                      </font>
                   </Label>
                   <Button fx:id="pickup_1_batterier" mnemonicParsing="false" onMouseClicked="#pickup" opacity="0.0" prefHeight="100.0" prefWidth="200.0" text="Button" />
@@ -70,9 +72,9 @@
          <children>
             <Pane fx:id="pane_trash_3" centerShape="false" prefHeight="186.0" prefWidth="200.0">
                <children>
-                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="166.0" prefWidth="200.0" text="Plastik">
+                  <Label fx:id="plastik_label" alignment="CENTER" contentDisplay="CENTER" prefHeight="166.0" prefWidth="200.0" text="Plastik">
                      <font>
-                        <Font size="36.0" />
+                        <Font size="20.0" />
                      </font>
                   </Label>
                   <Button fx:id="pickup_1_plastik" mnemonicParsing="false" onMouseClicked="#pickup" opacity="0.0" prefHeight="166.0" prefWidth="200.0" text="Button" />
@@ -103,5 +105,12 @@
             </Pane>
          </children>
       </HBox>
+      <StackPane fx:id="stackPane" prefWidth="600.13671875" prefHeight="30.0" style="-fx-background-color: black;">
+      <Text fx:id="feedback_txtField" style="-fx-fill: white;" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="600.13671875">
+        <font>
+            <Font size="24.0" />
+        </font>
+      </Text>
+      </StackPane>
    </children>
 </VBox>

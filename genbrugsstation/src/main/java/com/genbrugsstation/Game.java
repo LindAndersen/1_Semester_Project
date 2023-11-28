@@ -66,4 +66,8 @@ public class Game extends Application {
   public static Registry getRegistry() {
     return registry;
   }
+
+  public static Context getContext() {
+    return context;
+  }
 }

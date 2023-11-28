@@ -10,7 +10,6 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
-<?import javafx.scene.layout.StackPane?>
 
 <VBox fx:id="scene_genbrugsstation" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.genbrugsstation.GenbrugsstationController">
    <children>
@@ -105,12 +104,10 @@
             </Pane>
          </children>
       </HBox>
-      <StackPane fx:id="stackPane" prefWidth="600.13671875" prefHeight="30.0" style="-fx-background-color: black;">
-      <Text fx:id="feedback_txtField" style="-fx-fill: white;" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="600.13671875">
-        <font>
+      <Text fx:id="feedback_txtField" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="600.13671875">
+         <font>
             <Font size="24.0" />
-        </font>
+         </font>
       </Text>
-      </StackPane>
    </children>
 </VBox>
