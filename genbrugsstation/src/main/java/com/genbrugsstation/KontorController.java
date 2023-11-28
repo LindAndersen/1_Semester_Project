@@ -1,5 +1,8 @@
 package com.genbrugsstation;
 
+import java.io.IOException;
+
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -31,7 +34,7 @@ public class KontorController {
     private Button pcBtn;
 
     @FXML
-    private Button goBtn;
+    private Button goBtn_genbrugsstation, goBtn_butik, goBtn_villakvarter, goBtn_park, goBtn_centrum;
 
     private CommandStatus cmdStatus;
     private CommandGo cmdGo;
@@ -74,9 +77,28 @@ public class KontorController {
     }
 
     @FXML
-    protected void goBtnPressed(){
-        cmdGo = new CommandGo();
-        cmdGo.execute(context, goBtn.getText(), new String[0]);
+    protected void goBtnPressed(ActionEvent e){
+        String id = ((javafx.scene.Node)e.getSource()).getId();
+        String location = id.split("_")[1];
+        
+        try {
+            switch (location) {
+            case "genbrugsstation":
+                Game.closeStage();
+                Game.setRoot("genbrugsstation");
+                break;
+            case "butik":
+                break;
+            case "villakvarter":
+                break;
+            case "park":
+                break;
+            case "centrum":
+                break;
+            }
+        } catch (IOException exception) {
+            exception.printStackTrace();
+        }
     }
 
     @FXML

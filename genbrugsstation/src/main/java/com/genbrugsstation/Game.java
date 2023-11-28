@@ -14,6 +14,7 @@ import java.io.IOException;
 
 public class Game extends Application {
   private static Scene scene;
+  private static Stage stage;
   static World    world    = new World();
   static Context  context  = new Context(world.getEntry());
   static Command  fallback = new CommandUnknown();
@@ -39,6 +40,7 @@ public class Game extends Application {
 
   @Override
     public void start(Stage stage) throws IOException {
+        //this.stage = stage;
         scene = new Scene(loadFXML("menu-view"));
         stage.setScene(scene);
         stage.show();
@@ -47,6 +49,17 @@ public class Game extends Application {
     private static Parent loadFXML(String fxml) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(Game.class.getResource(fxml + ".fxml"));
         return fxmlLoader.load();
+    }
+
+    public static void setRoot(String rootNode) throws IOException {
+      scene = new Scene(loadFXML(rootNode));
+      stage = new Stage();
+      stage.setScene(scene);
+      stage.show();
+    }
+
+    public static void closeStage() {
+      stage.hide();
     }
   
   public static void main (String args[]) {

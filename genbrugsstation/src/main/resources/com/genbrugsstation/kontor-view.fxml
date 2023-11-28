@@ -9,17 +9,21 @@
    <children>
       <ImageView fx:id="kontorImageView" fitHeight="351.0" fitWidth="600.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../kontorpic.png" />
+            <Image url="@../../kontorpic.png" />
          </image>
       </ImageView>
-      <Button fx:id="sleepBtn" layoutX="480.0" layoutY="178.0" mnemonicParsing="false" onAction="#sleepBtnPressed" prefHeight="139.0" prefWidth="82.0" text="Sov" />
+      <Button fx:id="sleepBtn" layoutX="35.0" layoutY="210.0" mnemonicParsing="false" onAction="#sleepBtnPressed" prefHeight="113.0" prefWidth="82.0" text="Sov" />
       <ImageView fx:id="gearMenuImageView" fitHeight="37.0" fitWidth="37.0" layoutX="34.0" layoutY="29.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../tandhjul.png" />
+            <Image url="@../../tandhjul.png" />
          </image>
       </ImageView>
       <Button fx:id="gearMenuBtn" layoutX="29.0" layoutY="34.0" mnemonicParsing="false" onAction="#menuBtnPressed" opacity="0.0" text="Menu" />
-      <Button fx:id="goBtn" layoutX="398.0" layoutY="270.0" mnemonicParsing="false" onAction="#goBtnPressed" text="gå" />
       <Button id="pc" fx:id="pcBtn" layoutX="235.0" layoutY="165.0" mnemonicParsing="false" onAction="#pcBtnPressed" opacity="0.0" prefHeight="37.0" prefWidth="37.0" text="pc" />
+      <Button fx:id="goBtn_centrum" layoutX="495.0" layoutY="310.0" mnemonicParsing="false" onAction="#goBtnPressed" text="Centrum" />
+      <Button fx:id="goBtn_villakvarter" layoutX="441.0" layoutY="277.0" mnemonicParsing="false" onAction="#goBtnPressed" text="Villakvarter" />
+      <Button fx:id="goBtn_genbrugsstation" layoutX="427.0" layoutY="244.0" mnemonicParsing="false" onAction="#goBtnPressed" text="Genbrugsstation" />
+      <Button fx:id="goBtn_park" layoutX="539.0" layoutY="277.0" mnemonicParsing="false" onAction="#goBtnPressed" text="Park" />
+      <Button fx:id="goBtn_butik" layoutX="539.0" layoutY="244.0" mnemonicParsing="false" onAction="#goBtnPressed" text="Butik" />
    </children>
 </AnchorPane>
