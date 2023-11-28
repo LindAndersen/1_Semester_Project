@@ -97,7 +97,7 @@ public class GenbrugsstationController {
         //System.out.println(event.toString());
         //do smt
         updateTrash();
-        updateFeedback("Du har samlet 1 " + elm[2] + " op");
+        updateFeedback("Du har samlet 1 " + elm[2] + " op | " + player.getInventory().getItems().get(elm[2]) + " totalt");
     }
 
     @FXML
