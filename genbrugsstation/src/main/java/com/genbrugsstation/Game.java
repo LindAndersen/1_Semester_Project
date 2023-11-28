@@ -19,6 +19,7 @@ public class Game extends Application {
   static Command  fallback = new CommandUnknown();
   static Registry registry = new Registry(context, fallback);
   static Scanner  scanner  = new Scanner(System.in);
+  static Butikdata butikdata = new Butikdata();
   
   private static void initRegistry () {
     Command cmdExit = new CommandExit();
@@ -69,5 +70,9 @@ public class Game extends Application {
 
   public static Context getContext() {
     return context;
+  }
+
+  public static Butikdata getButikdata() {
+    return butikdata;
   }
 }
