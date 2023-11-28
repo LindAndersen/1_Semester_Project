@@ -1,5 +1,6 @@
 package com.genbrugsstation;
 
+import java.util.Objects;
 import java.util.Scanner;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -14,7 +15,6 @@ import java.io.IOException;
 
 public class Game extends Application {
   private static Scene scene;
-  private static Stage stage;
   static World    world    = new World();
   static Context  context  = new Context(world.getEntry());
   static Command  fallback = new CommandUnknown();
@@ -40,28 +40,26 @@ public class Game extends Application {
 
   @Override
     public void start(Stage stage) throws IOException {
-        //this.stage = stage;
         scene = new Scene(loadFXML("menu-view"));
+        Stagestore.stage = stage;
+        stage.setTitle("Main menu");
         stage.setScene(scene);
         stage.show();
     }
 
     private static Parent loadFXML(String fxml) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(Game.class.getResource(fxml + ".fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(Objects.requireNonNull(Game.class.getResource(fxml + ".fxml")));
         return fxmlLoader.load();
     }
 
     public static void setRoot(String rootNode) throws IOException {
       scene = new Scene(loadFXML(rootNode));
-      stage = new Stage();
-      stage.setScene(scene);
-      stage.show();
+      Stagestore.stage.setScene(scene);
+      String title = rootNode.split("-")[0];
+      Stagestore.stage.setTitle(title);
+      Stagestore.stage.show();
     }
 
-    public static void closeStage() {
-      stage.hide();
-    }
-  
   public static void main (String args[]) {
     initRegistry();
     launch();

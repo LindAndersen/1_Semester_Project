@@ -3,6 +3,8 @@ package com.genbrugsstation;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
+import javafx.scene.input.MouseEvent;
+
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Objects;
@@ -242,7 +244,14 @@ public class HelloController implements Initializable {
 
     }
 
-
+    @FXML
+    private void go(MouseEvent event) throws IOException {
+        String id = ((javafx.scene.Node)event.getSource()).getId();
+        String location = id.split("_")[1] + "-view";
+        System.out.println(location);
+        
+        Game.setRoot(location);
+    }
 
     @FXML
     protected void onOpgraderingerButtonClick(ActionEvent event) throws IOException  {
@@ -250,7 +259,7 @@ public class HelloController implements Initializable {
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
-        stage.show();;
+        stage.show();
         registry.dispatch("go butik");
     }
 

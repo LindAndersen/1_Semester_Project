@@ -1,5 +1,7 @@
 package com.genbrugsstation;
 
+import java.io.IOException;
+
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -78,14 +80,11 @@ public class GenbrugsstationController {
     }
 
     @FXML
-    private void go(MouseEvent event) {
-        String cmd = ((Button)event.getSource()).getId().replace("_", " ");
-        System.out.println("You are going to: " + cmd);
-        registry.dispatch(cmd);
-        //System.out.println(event.toString());
-        //do smt
-
-        registry.dispatch("go genbrugsstation");
+    private void go(MouseEvent event) throws IOException {
+        String id = ((javafx.scene.Node)event.getSource()).getId();
+        String location = id.split("_")[1] + "-view";
+        
+        Game.setRoot(location);
     }
 
     @FXML

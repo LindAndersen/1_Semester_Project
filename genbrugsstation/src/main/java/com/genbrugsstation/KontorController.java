@@ -77,28 +77,11 @@ public class KontorController {
     }
 
     @FXML
-    protected void goBtnPressed(ActionEvent e){
+    protected void goBtnPressed(ActionEvent e) throws IOException{
         String id = ((javafx.scene.Node)e.getSource()).getId();
-        String location = id.split("_")[1];
+        String location = id.split("_")[1] + "-view";
         
-        try {
-            switch (location) {
-            case "genbrugsstation":
-                Game.closeStage();
-                Game.setRoot("genbrugsstation");
-                break;
-            case "butik":
-                break;
-            case "villakvarter":
-                break;
-            case "park":
-                break;
-            case "centrum":
-                break;
-            }
-        } catch (IOException exception) {
-            exception.printStackTrace();
-        }
+        Game.setRoot(location);
     }
 
     @FXML

@@ -9,6 +9,10 @@
       <Button fx:id="OpgraderingerButton" layoutX="252.0" layoutY="200.0" mnemonicParsing="false" onAction="#onOpgraderingerButtonClick" text="Opgraderinger" />
       <Label fx:id="welcomeText" layoutX="202.0" layoutY="156.0" text="Velkommen til butikken Borgmester!" />
       <Button fx:id="InfoButton" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" text="Info" />
-      <Button fx:id="NavigationButton" layoutX="14.0" layoutY="361.0" mnemonicParsing="false" text="Navigation" />
+      <Button fx:id="go_villakvarter" layoutX="442.0" layoutY="349.0" mnemonicParsing="false" onMouseClicked="#go" text="Villakvarter" />
+      <Button fx:id="go_park" layoutX="514.0" layoutY="316.0" mnemonicParsing="false" onMouseClicked="#go" text="Park" />
+      <Button fx:id="go_kontor" layoutX="442.0" layoutY="316.0" mnemonicParsing="false" onMouseClicked="#go" text="Kontor" />
+      <Button fx:id="go_genbrugsstation" layoutX="488.0" layoutY="270.0" mnemonicParsing="false" onMouseClicked="#go" text="Genbrugsstation" />
+      <Button fx:id="go_centrum" layoutX="411.0" layoutY="276.0" mnemonicParsing="false" onMouseClicked="#go" text="Centrum" />
    </children>
 </AnchorPane>
