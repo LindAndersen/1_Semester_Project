@@ -39,7 +39,7 @@ public class Game extends Application {
 
   @Override
     public void start(Stage stage) throws IOException {
-        scene = new Scene(loadFXML("genbrugsstation"));
+        scene = new Scene(loadFXML("menu-view"));
         stage.setScene(scene);
         stage.show();
     }
