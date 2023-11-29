@@ -8,6 +8,8 @@ import javafx.scene.image.ImageView;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.scene.Node;
+
+import java.io.IOException;
 import java.util.Map;
 
 
@@ -54,9 +56,11 @@ public class StatusMenuController {
 
     @FXML
     protected void backBtnPressed(ActionEvent event){
-        Node n = (Node)event.getSource();
-        Scene s = n.getScene();
-        stage = (Stage)s.getWindow();
-        stage.close();
+        try {
+            Game.setRoot("kontor-view");
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
     }
 }

@@ -65,15 +65,21 @@ public class KontorController {
     protected void menuBtnPressed(){
         System.out.println("menu åbner");
         try {
-            FXMLLoader anotherLoader = new FXMLLoader(getClass().getResource("menu-view.fxml")) ;
-            Parent anotherRoot = anotherLoader.load();
-            Scene anotherScene = new Scene(anotherRoot);
-            Stage anotherStage = new Stage();
-            anotherStage.setScene(anotherScene);
-            anotherStage.show();
-        }catch (Exception e){
-            System.out.println(e.getMessage());
+            Game.setRoot("menu-view");
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
         }
+        // try {
+        //     FXMLLoader anotherLoader = new FXMLLoader(getClass().getResource("menu-view.fxml")) ;
+        //     Parent anotherRoot = anotherLoader.load();
+        //     Scene anotherScene = new Scene(anotherRoot);
+        //     Stage anotherStage = new Stage();
+        //     anotherStage.setScene(anotherScene);
+        //     anotherStage.show();
+        // }catch (Exception e){
+        //     System.out.println(e.getMessage());
+        // }
     }
 
     @FXML
@@ -90,15 +96,10 @@ public class KontorController {
         cmdStatus.execute(context, "status", new String[0]);
 
         try {
-            FXMLLoader statusMenuLoader = new FXMLLoader(getClass().getResource("status-menu-view.fxml")) ;
-            Parent statusMenuRoot = statusMenuLoader.load();
-            Scene statusMenuScene = new Scene(statusMenuRoot);
-            Stage statusMenuStage = new Stage();
-
-            statusMenuStage.setScene(statusMenuScene);
-            statusMenuStage.show();
-        }catch (Exception e){
-            System.out.println(e.getMessage());
+            Game.setRoot("status-menu-view");
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
         }
     }
 }

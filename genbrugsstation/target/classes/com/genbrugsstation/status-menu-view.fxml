@@ -10,7 +10,7 @@
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.genbrugsstation.StatusMenuController">
    <children>
       <ImageView fx:id="statusMenuIv" fitHeight="300.0" fitWidth="600.0" layoutX="1.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
-         <Image url="@../../status_menu.jpg" />
+         <Image url="@../../status_menu.png" />
       </ImageView>
       <Label layoutX="118.0" layoutY="84.0" prefHeight="20.0" prefWidth="200.0" text="xp" textFill="#11ff00" fx:id="xpLabel">
          <font>
