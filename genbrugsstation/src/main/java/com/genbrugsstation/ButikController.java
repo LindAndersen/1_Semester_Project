@@ -12,7 +12,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.scene.control.Button;
 
-public class ButikController{
+public class ButikController extends SharedGUIFunc {
 //    private Stage stage;
 //    private Scene scene;
 //    private Parent root;
@@ -243,16 +243,8 @@ public class ButikController{
     }
 
     @FXML
-    private void go(MouseEvent event) {
-        String id = ((javafx.scene.Node)event.getSource()).getId();
-        String location = id.split("_")[1] + "-view";
-        System.out.println(location);
-        try{
-            Game.setRoot(location);
-        }catch(IOException e){
-            System.out.println(e.getMessage());
-            e.printStackTrace();
-        }
+    private void go(MouseEvent event) throws IOException {
+        setRootFromEvent(event);
     }
 
     @FXML

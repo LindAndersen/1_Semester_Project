@@ -13,7 +13,7 @@ import java.io.IOException;
 import java.util.Map;
 
 
-public class StatusMenuController {
+public class StatusMenuController extends SharedGUIFunc {
 
     @FXML
     private Label xpLabel;
@@ -71,12 +71,7 @@ public class StatusMenuController {
     }
 
     @FXML
-    protected void backBtnPressed(ActionEvent event){
-        try {
-            Game.setRoot("kontor-view");
-        } catch (IOException e) {
-            System.out.println(e.getMessage());
-            e.printStackTrace();
-        }
+    protected void backBtnPressed(ActionEvent event) throws IOException{
+        setRootFromString("kontor-view");
     }
 }

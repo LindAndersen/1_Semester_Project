@@ -14,7 +14,7 @@ import javafx.scene.Parent;
 
 
 
-public class KontorController {
+public class KontorController extends SharedGUIFunc {
 
     @FXML
     private ImageView kontorImageView;
@@ -62,15 +62,8 @@ public class KontorController {
     }
 
     @FXML
-    protected void goBtnPressed(ActionEvent e){
-        String id = ((javafx.scene.Node)e.getSource()).getId();
-        String location = id.split("_")[1] + "-view";
-        try{
-            Game.setRoot(location);
-        }catch(Exception ex){
-            System.out.println(ex.getMessage());
-            ex.printStackTrace();
-        }
+    protected void goBtnPressed(ActionEvent e) throws IOException{
+        setRootFromEvent(e);
     }
 
     @FXML

@@ -8,10 +8,8 @@ import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
 
-public class ParkController {
+public class ParkController extends SharedGUIFunc {
     private Context context = Game.getContext();
-;
-    private Player player;
 
     @FXML
     private Label aviser_label;
@@ -48,38 +46,19 @@ public class ParkController {
 
 
     @FXML
-    private void go(MouseEvent event) {
-        String id = ((javafx.scene.Node)event.getSource()).getId();
-        String location = id.split("_")[1] + "-view";
-        try{
-            Game.setRoot(location);
-        }catch (IOException e){
-            System.out.println(e.getMessage());
-        }
+    private void go(MouseEvent event) throws IOException {
+        setRootFromEvent(event);
     }
 
     @FXML
-    private void pickup(MouseEvent event) {
-        String cmd = ((Button)event.getSource()).getId().replace("_", " ");
-        String[] elm = cmd.split(" ");
-        System.out.println(cmd);
-        if(context == null){
-            System.out.println("context er null");
-        }else{
-            System.out.println("context er ikke null");
-        }
-        player.pickup(elm[2], 1, context.getCurrent().getTrash(), context);
+    private void pickup(MouseEvent event) throws TrashNotFoundException {
+        String feedback = SharedGUIFunc.pickup(event);
         updateTrash();
-        updateFeedback("Du har samlet 1 " + elm[2] + " op | " + player.getInventory().getItems().get(elm[2]) + " totalt");
+        updateFeedback(feedback);
     }
 
     @FXML
-    private void showDefaultMenu() {
-        System.out.println("You just showed main menu");
-        try{
-            Game.setRoot("default-menu-view");
-        }catch(IOException e){
-            System.out.println(e.getMessage());
-        }
+    private void showDefaultMenu() throws IOException {
+        setRootFromString("default-menu-view");
     }
 }

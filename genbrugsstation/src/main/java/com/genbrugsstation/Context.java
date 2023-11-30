@@ -33,42 +33,6 @@ class Context implements Serializable {
       System.out.println("Herefter kan du bruge 'pickup [mængde] [type]' til at samle det specifikke skrald op");
     }
 
-  public void transition (String direction) {
-    Space next = (Space) current.followEdge(direction);
-    if (next==null) {
-      System.out.println("\nDet var forvirrende, du kunne ikke komme til '"+direction+"'. Måske skulle du prøve at tage til et andet sted?");
-    } else {
-      current.goodbye();
-      current = next;
-      current.welcome();
-      }
-
-      //displayer igennem hele første dag, for følgende; Butik, Genbrugsstation & Kontor.
-      if (dayCounter == 1) {
-        if (current instanceof Butik) { //tjekker instance af butikken
-          Butik butik = (Butik)current; //downcaster
-          butik.firstDayWelcome(); //printer firstTimeWelcome, når det er første dag.
-        }
-        else if (current instanceof Genbrugsstation) { //tjekker instance af genbrugsstationen
-          Genbrugsstation genbrugsstation = (Genbrugsstation)current; //downcaster
-          genbrugsstation.firstDayWelcome(); //printer firstTimeWelcome, når det er første dag.
-        }
-        else if (current instanceof Kontor) { //tjekker instance af kontor.
-          Kontor kontor = (Kontor)current; //downcaster
-          kontor.firstDayWelcome(); //printer firstTimeWelcome, når det er første dag.
-        }
-        else {
-          if (firstTime) {
-            firstRoomMessage();
-            firstTime = false;
-        }
-          else {
-            System.out.println("\n Du kan bruge 'help' for at se tilgængelige commands i rummet!");
-          }
-        }
-      }
-    }
-
    public void resetDay(World world){
     //nulstiller state i hvert rum og inkrementerer dayCounter
     Space[] locations = world.getLocations();//henter lokationerne

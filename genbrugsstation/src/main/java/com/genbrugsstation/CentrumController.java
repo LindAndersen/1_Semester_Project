@@ -8,7 +8,7 @@ import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
 
-public class CentrumController {
+public class CentrumController extends SharedGUIFunc {
     private Context context = Game.getContext();
 ;
     private Player player;
@@ -48,29 +48,16 @@ public class CentrumController {
 
 
     @FXML
-    private void go(MouseEvent event) {
-        String id = ((javafx.scene.Node)event.getSource()).getId();
-        String location = id.split("_")[1] + "-view";
-        try{
-            Game.setRoot(location);
-        }catch (IOException e){
-            System.out.println(e.getMessage());
-        }
+    private void go(MouseEvent event) throws IOException {
+        String location = getLocationFromEvent(event);
+        Game.setRoot(location);
     }
 
     @FXML
-    private void pickup(MouseEvent event) {
-        String cmd = ((Button)event.getSource()).getId().replace("_", " ");
-        String[] elm = cmd.split(" ");
-        System.out.println(cmd);
-        if(context == null){
-            System.out.println("context er null");
-        }else{
-            System.out.println("context er ikke null");
-        }
-        player.pickup(elm[2], 1, context.getCurrent().getTrash(), context);
+    private void pickup(MouseEvent event) throws TrashNotFoundException {
+        String feedback = SharedGUIFunc.pickup(event);
         updateTrash();
-        updateFeedback("Du har samlet 1 " + elm[2] + " op | " + player.getInventory().getItems().get(elm[2]) + " totalt");
+        updateFeedback(feedback);
     }
 
     @FXML

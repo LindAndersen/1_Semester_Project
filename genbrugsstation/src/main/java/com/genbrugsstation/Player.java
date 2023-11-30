@@ -20,6 +20,7 @@ class Player implements Serializable {
         resetInventory();
 
     }
+    
     void addToInventory(String name, int amount) {
         //calls an add-method in Inventory class
         System.out.printf("Du har tilføjet %d %s til din inventar%n", amount, name);
@@ -131,11 +132,10 @@ class Player implements Serializable {
     public int[] recycleGreen() {
         int amountOfTrash = getTrashAmount();
         int money = 3 * amountOfTrash;
-        int XP = money;
+        int xp = money;
         emptyInventory();
         addMoney(money);
-        addXP(XP);
-        System.out.printf("\nTilføjede %d mønter og %d XP\n", money, XP);
+        addXP(xp);
         int[] moneyXP = {money, xp};
         return moneyXP;
     }
@@ -144,46 +144,22 @@ class Player implements Serializable {
         int amountOfTrash = getTrashAmount();
         emptyInventory();
         int money = 7 * amountOfTrash;
-        int XP = money;
+        int xp = money;
         addMoney(money);
-        addXP(-XP);
+        addXP(-xp);
         int[] moneyXP = {money, -xp};
-        System.out.printf("\nTilføjede %d mønter og %d XP\n", money, -XP);
         return moneyXP;
     }
 
-    public void pickup(String name, int amount, Trash[] trash, Context context) {
+    public boolean pickup(String name, int amount, Trash[] trash, Context context) throws TrashNotFoundException {
+        boolean canPickup = context.getCurrent().subtractTrash(name, amount, trash);
 
-        if(context == null){
-            System.out.println("context er null i player");
-        }else{
-            System.out.println("context er ikke null i player");
+        if (canPickup) {
+            context.getPlayer().addToInventory(name, amount);
+            context.getPlayer().addXP(2 * amount);
         }
-        Space currentSpace = context.getCurrent();
 
-        try {
-            if (context.getCurrent().subtractTrash(name, amount, trash)) {
-                context.getPlayer().addToInventory(name, amount);
-                context.getPlayer().addXP(2 * amount);
-            }
-            if (currentSpace.getName().equals("genbrugsstation")) {
-                Genbrugsstation genbrugsstation = (Genbrugsstation) currentSpace;
-                genbrugsstation.showTrash();
-            } else if (currentSpace.getName().equals("park")) {
-                Park park = (Park) currentSpace;
-                park.showTrash();
-            } else if (currentSpace.getName().equals("villakvarter")) {
-                Villakvarter villakvarter = (Villakvarter) currentSpace;
-                villakvarter.showTrash();
-            } else if (currentSpace.getName().equals("centrum")) {
-                Centrum centrum = (Centrum) currentSpace;
-                centrum.showTrash();
-            }
-
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-            e.printStackTrace();
-        }
+        return canPickup;
     }
 
 

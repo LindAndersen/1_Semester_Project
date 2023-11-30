@@ -34,24 +34,24 @@ public class Game extends Application {
 
     public static void setRoot(String rootNode) throws IOException {
       Space[] loc = world.getLocations();
-
-      scene = new Scene(loadFXML(rootNode));
-      Stagestore.stage.setScene(scene);
       String title = rootNode.split("-")[0];
-      System.out.println(title);
-      Stagestore.stage.setTitle(title);
-      Stagestore.stage.centerOnScreen();
-      Stagestore.stage.show();
-
       for(Space s : loc) {
         if ((s.getName().toLowerCase()).equals(title.trim().toLowerCase())) {
           context.setCurrent(s);
           if((s.getName().trim().toLowerCase()).equals("butik") && (title.trim().toLowerCase().equals("opgraderinger"))){
             context.setCurrent(s);
           }
-          System.out.println("sætter current til "+ context.getCurrent().getName());
+          //System.out.println("sætter current til "+ context.getCurrent().getName());
         }
       }
+      
+      scene = new Scene(loadFXML(rootNode));
+      Stagestore.stage.setScene(scene);
+      System.out.println(title);
+      Stagestore.stage.setTitle(title);
+      Stagestore.stage.centerOnScreen();
+      Stagestore.stage.show();
+
     }
 
   public static void main (String[] args) {
