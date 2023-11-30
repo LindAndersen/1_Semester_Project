@@ -12,7 +12,7 @@
             <Image url="@../../kontorpic.png" />
          </image>
       </ImageView>
-      <Button fx:id="sleepBtn" layoutX="689.0" layoutY="178.0" mnemonicParsing="false" onAction="#sleepBtnPressed" prefHeight="131.0" prefWidth="102.0" text="Sov" />
+      <Button fx:id="sleepBtn" layoutX="689.0" layoutY="178.0" mnemonicParsing="false" onAction="#sleepBtnPressed" opacity="0.0" prefHeight="131.0" prefWidth="102.0" text="Sov" />
       <ImageView fx:id="gearMenuImageView" fitHeight="44.0" fitWidth="47.0" layoutX="29.0" layoutY="27.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../tandhjul.png" />
