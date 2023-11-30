@@ -3,7 +3,7 @@ package com.genbrugsstation;
 class Genbrugsstation extends Space {
 
     Trash[] trash;
-    String[] commands = {"exit", "go", "help", "pickup", "recycle", "reset"};
+//    String[] commands = {"exit", "go", "help", "pickup", "recycle", "reset"};
  
     Genbrugsstation(String name) {
         super(name);
@@ -21,21 +21,22 @@ class Genbrugsstation extends Space {
         super.welcome();
     }
 
-    @Override public void showTrash() {
-        super.showTrash(trash);
+
+    public void showTrash() {
+        super.showTrash(super.getTrash());
     }
 
     public Trash[] getTrash(){
         return trash;
     }
 
-    @Override
-    public boolean isCommandReachable(String name) {
-        return super.isCommandReachable(name, commands);
-    }
-
-    @Override
-    public String[] getCommands() {
-        return commands;
-    }
+//    @Override
+//    public boolean isCommandReachable(String name) {
+//        return super.isCommandReachable(name, commands);
+//    }
+//
+//    @Override
+//    public String[] getCommands() {
+//        return commands;
+//    }
 }

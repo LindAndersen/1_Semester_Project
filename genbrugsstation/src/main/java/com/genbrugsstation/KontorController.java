@@ -35,28 +35,18 @@ public class KontorController {
 
     @FXML
     private Button goBtn_genbrugsstation, goBtn_butik, goBtn_villakvarter, goBtn_park, goBtn_centrum;
-
-    private CommandStatus cmdStatus;
-    private CommandGo cmdGo;
-//    private CommandHelp cmdHelp;
-    private CommandResetDay cmdReset;
     private Context context;
     private World world;
 
 
     public void initialize(){
-        kontorImageView.setImage(kontorPic);
-
-        gearMenuImageView.setImage(gearMenuPic);
-
         context = Game.context;
         world = Game.world;
     }
 
     @FXML
     protected void sleepBtnPressed(){
-        cmdReset = new CommandResetDay(world);
-        cmdReset.execute(context, "reset", new String[0]);
+        context.resetDay(world);
         System.out.println("du sover nu");
 
     }
@@ -65,40 +55,30 @@ public class KontorController {
     protected void menuBtnPressed(){
         System.out.println("menu åbner");
         try {
-            Game.setRoot("menu-view");
+            Game.setRoot("default-menu-view");
         } catch (IOException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
+            System.out.println(e.getMessage());
         }
-        // try {
-        //     FXMLLoader anotherLoader = new FXMLLoader(getClass().getResource("menu-view.fxml")) ;
-        //     Parent anotherRoot = anotherLoader.load();
-        //     Scene anotherScene = new Scene(anotherRoot);
-        //     Stage anotherStage = new Stage();
-        //     anotherStage.setScene(anotherScene);
-        //     anotherStage.show();
-        // }catch (Exception e){
-        //     System.out.println(e.getMessage());
-        // }
     }
 
     @FXML
-    protected void goBtnPressed(ActionEvent e) throws IOException{
+    protected void goBtnPressed(ActionEvent e){
         String id = ((javafx.scene.Node)e.getSource()).getId();
         String location = id.split("_")[1] + "-view";
-        
-        Game.setRoot(location);
+        try{
+            Game.setRoot(location);
+        }catch(Exception ex){
+            System.out.println(ex.getMessage());
+            ex.printStackTrace();
+        }
     }
 
     @FXML
     protected void pcBtnPressed(){
-        cmdStatus = new CommandStatus();
-        cmdStatus.execute(context, "status", new String[0]);
-
         try {
             Game.setRoot("status-menu-view");
         } catch (IOException e) {
-            // TODO Auto-generated catch block
+            System.out.println(e.getMessage());
             e.printStackTrace();
         }
     }

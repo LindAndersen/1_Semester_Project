@@ -22,34 +22,25 @@ public class MainMenuController {
     private Parent root;
     private Context context;
 
+//    @FXML
+//    private ImageView menuImageView;
+//    private Image menuPic = new Image("/menu.png");
     @FXML
-    private ImageView menuImageView;
-    private Image menuPic = new Image("/menu.png");
-    @FXML
-    private Button newGameBtn;
-    @FXML
-    private Button leaveBtn;
+    private Button newGameBtn, leaveBtn, loadBtn;
+
 
     public void initialize(){
-        menuImageView.setImage(menuPic);
         context = Game.context;
     }
 
     @FXML
-    protected void newGameBtnPressed(ActionEvent event){
+    protected void newGameBtnPressed(){
         System.out.println("nyt spil");
         try{
-            root = FXMLLoader.load(getClass().getResource("kontor-view.fxml"));
-            Node n = (Node)event.getSource();//fetches source of event and saves as Node-object
-            Scene s = n.getScene();//fetches the scene from at the source
-            stage = (Stage)s.getWindow();//fetches the window that contains the scene and saves as Stage-object
-            scene = new Scene(root);//updates the scene
-            stage.setScene(scene);//sets the stage with updated scene
-            stage.show();
+            Game.setRoot("kontor-view");
         }catch(Exception e){
             System.out.println(e.getMessage());
         }
-
     }
 
     @FXML
@@ -65,9 +56,7 @@ public class MainMenuController {
             Node n = (Node)event.getSource();
             Scene s = n.getScene();//fetches the scene from at the source
             stage = (Stage)s.getWindow();
-            if(!context.isDone()){
-                context.makeDone();
-            }
+
             Window w = s.getWindow();
             w.setOnHidden(closeAll);
             stage.close();

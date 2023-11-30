@@ -9,7 +9,7 @@
    <children>
       <ImageView fx:id="menuImageView" fitHeight="273.0" fitWidth="313.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../menu.png" />
+            <Image url="@../../default-menu.png" />
          </image>
       </ImageView>
       <Button fx:id="newGameBtn" layoutX="124.0" layoutY="108.0" mnemonicParsing="false" onAction="#newGameBtnPressed" text="Nyt spil" />

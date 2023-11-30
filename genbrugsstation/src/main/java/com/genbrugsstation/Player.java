@@ -1,6 +1,7 @@
 package com.genbrugsstation;
 
 import java.io.Serializable;
+import java.util.HashMap;
 
 class Player implements Serializable {
     private String name;
@@ -8,9 +9,7 @@ class Player implements Serializable {
     private int lvl;
     private int money;
     private Inventory inventory;
-    //private static final long serialVersionUID = 6529685098267757694L;
-
-    //some final int-attributes to determine intervals of xp for levels
+    private Context context = Game.getContext();
 
     public Player(String name) {
         this.name = name;
@@ -18,21 +17,13 @@ class Player implements Serializable {
         lvl = 1;
         money = 100;
         inventory = new Inventory();
+        resetInventory();
 
     }
-
-    void showInventory() {
-        System.out.println(inventory);
-    }
-
-    void addToInventory(String name, int amount){
+    void addToInventory(String name, int amount) {
         //calls an add-method in Inventory class
         System.out.printf("Du har tilføjet %d %s til din inventar%n", amount, name);
         inventory.addItem(name, amount);
-    }
-
-    void removeFromInventory(String name, int amount){
-        //calls an remove-method in Inventory class
     }
 
     public Inventory getInventory() {
@@ -42,12 +33,12 @@ class Player implements Serializable {
     //Setters and getters
 
     //adds XP
-    public void addXP(int amount){
+    public void addXP(int amount) {
         xp += amount;
     }
 
     //adds money
-    public void addMoney(int amount){
+    public void addMoney(int amount) {
         if (amount > 0) {
             money += amount;
         }
@@ -61,17 +52,16 @@ class Player implements Serializable {
     }
 
     //returns true if player can afford buying an item with given price
-    public boolean canAfford(int price){
+    public boolean canAfford(int price) {
         if (money >= price) {
             return true;
-        }
-        else {
+        } else {
             System.out.println("Du har desværre ikke råd :(");
             return false;
         }
     }
 
-    public int getXP(){
+    public int getXP() {
         return xp;
     }
 
@@ -97,15 +87,20 @@ class Player implements Serializable {
     public int remainingXP() {
         int remaining = 0;
         switch (getLvl()) {
-            case 1: remaining = 200-xp;
-            break;
-            case 2: remaining = 300-xp;
+            case 1:
+                remaining = 200 - xp;
                 break;
-            case 3: remaining = 400-xp;
+            case 2:
+                remaining = 300 - xp;
                 break;
-            case 4: remaining = 500-xp;
+            case 3:
+                remaining = 400 - xp;
                 break;
-            case 5: remaining = 100;
+            case 4:
+                remaining = 500 - xp;
+                break;
+            case 5:
+                remaining = 100;
                 break;
         }
         return remaining;
@@ -116,8 +111,16 @@ class Player implements Serializable {
     }
 
     public void emptyInventory() {
-        //inventory.setInventory(inventory.getInventory().clear());
         inventory = new Inventory();
+        resetInventory();
+    }
+
+    private void resetInventory(){
+        inventory.addItem("flasker", 0);
+        inventory.addItem("plastik", 0);
+        inventory.addItem("aviser", 0);
+        inventory.addItem("batterier", 0);
+        inventory.addItem("metalskrot", 0);
     }
 
     public int getTrashAmount() {
@@ -125,4 +128,90 @@ class Player implements Serializable {
 
     }
 
+    public int[] recycleGreen() {
+        int amountOfTrash = getTrashAmount();
+        int money = 3 * amountOfTrash;
+        int XP = money;
+        emptyInventory();
+        addMoney(money);
+        addXP(XP);
+        System.out.printf("\nTilføjede %d mønter og %d XP\n", money, XP);
+        int[] moneyXP = {money, xp};
+        return moneyXP;
+    }
+
+    public int[] recycleBad() {
+        int amountOfTrash = getTrashAmount();
+        emptyInventory();
+        int money = 7 * amountOfTrash;
+        int XP = money;
+        addMoney(money);
+        addXP(-XP);
+        int[] moneyXP = {money, -xp};
+        System.out.printf("\nTilføjede %d mønter og %d XP\n", money, -XP);
+        return moneyXP;
+    }
+
+    public void pickup(String name, int amount, Trash[] trash, Context context) {
+
+        if(context == null){
+            System.out.println("context er null i player");
+        }else{
+            System.out.println("context er ikke null i player");
+        }
+        Space currentSpace = context.getCurrent();
+
+        try {
+            if (context.getCurrent().subtractTrash(name, amount, trash)) {
+                context.getPlayer().addToInventory(name, amount);
+                context.getPlayer().addXP(2 * amount);
+            }
+            if (currentSpace.getName().equals("genbrugsstation")) {
+                Genbrugsstation genbrugsstation = (Genbrugsstation) currentSpace;
+                genbrugsstation.showTrash();
+            } else if (currentSpace.getName().equals("park")) {
+                Park park = (Park) currentSpace;
+                park.showTrash();
+            } else if (currentSpace.getName().equals("villakvarter")) {
+                Villakvarter villakvarter = (Villakvarter) currentSpace;
+                villakvarter.showTrash();
+            } else if (currentSpace.getName().equals("centrum")) {
+                Centrum centrum = (Centrum) currentSpace;
+                centrum.showTrash();
+            }
+
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            e.printStackTrace();
+        }
+    }
+
+
+    public void buy(String s, Context context) {
+        if (context.getCurrent() instanceof Butik) {//tjek inden downcasting
+            Butik butik = (Butik) context.getCurrent();//downcaster Space til Butik, så vi har adgang til metoder i Butik
+            HashMap<Integer, Upgrades> upgrades = butik.getUpgrades();//henter upgrades og gemmer i en variabel
+
+            try {
+              int upgradeIndex = Integer.parseInt(s);
+
+                if (upgrades.containsKey(upgradeIndex)) {//tjekker om den angivne upgrade eksisterer
+
+                    Upgrades selectedUpgrade = upgrades.get(upgradeIndex);
+                    int price = selectedUpgrade.getPrice();
+                    int xp = selectedUpgrade.getXP();
+
+                    if (canAfford(price)) {//hvis spiller har råd til upgraden...
+                        subtractMoney(price);//træk penge
+                        addXP(xp);//tilføj xp
+                        butik.removeFromShop(butik, selectedUpgrade, upgradeIndex);
+                    }
+                }
+            }catch (Exception e){
+                System.out.println(e.getMessage());
+                e.printStackTrace();
+            }
+        }
+    }
 }
+

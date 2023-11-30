@@ -9,34 +9,34 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.genbrugsstation.StatusMenuController">
    <children>
-      <ImageView fx:id="statusMenuIv" fitHeight="300.0" fitWidth="600.0" layoutX="1.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="statusMenuIv" fitHeight="300.0" fitWidth="900.0" layoutX="1.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
          <Image url="@../../status_menu.png" />
       </ImageView>
-      <Label layoutX="118.0" layoutY="84.0" prefHeight="20.0" prefWidth="200.0" text="xp" textFill="#11ff00" fx:id="xpLabel">
+      <Label layoutX="100.0" layoutY="61.0" prefHeight="20.0" prefWidth="200.0" text="xp" textFill="#11ff00" fx:id="xpLabel">
          <font>
             <Font size="26.0" />
          </font>
       </Label>
-      <Label fx:id="dayLabel" layoutX="141.0" layoutY="126.0" prefHeight="38.0" prefWidth="176.0" text="dag" textFill="#11ff00">
+      <Label fx:id="dayLabel" layoutX="112.0" layoutY="91.0" prefHeight="38.0" prefWidth="176.0" text="dag" textFill="#11ff00">
          <font>
             <Font size="26.0" />
          </font>
       </Label>
-      <Label fx:id="lvlLabel" layoutX="189.0" layoutY="164.0" prefHeight="38.0" prefWidth="146.0" text="level" textFill="#11ff00">
+      <Label fx:id="lvlLabel" layoutX="154.0" layoutY="121.0" prefHeight="38.0" prefWidth="146.0" text="level" textFill="#11ff00">
          <font>
             <Font size="26.0" />
          </font>
       </Label>
-      <Label fx:id="coinLabel" layoutX="238.0" layoutY="198.0" prefHeight="52.0" prefWidth="139.0" text="mønter" textFill="#11ff00">
+      <Label fx:id="coinLabel" layoutX="190.0" layoutY="140.0" prefHeight="52.0" prefWidth="139.0" text="mønter" textFill="#11ff00">
          <font>
             <Font size="26.0" />
-         </font>
-      </Label>
-      <Label fx:id="invLabel" layoutX="260.0" layoutY="240.0" prefHeight="52.0" prefWidth="136.0" text="inventar" textFill="#11ff00" wrapText="true">
-         <font>
-            <Font size="13.0" />
          </font>
       </Label>
       <Button fx:id="backBtn" layoutX="6.0" layoutY="10.0" mnemonicParsing="false" onAction="#backBtnPressed" text="Tilbage" />
+      <Label fx:id="plastikNumber" alignment="CENTER" contentDisplay="CENTER" layoutX="61.0" layoutY="270.0" prefHeight="17.0" prefWidth="21.0" text="0" />
+      <Label fx:id="flaskeNumber" alignment="CENTER" contentDisplay="CENTER" layoutX="127.0" layoutY="270.0" prefHeight="17.0" prefWidth="21.0" text="0" />
+      <Label fx:id="batteriNumber" alignment="CENTER" contentDisplay="CENTER" layoutX="193.0" layoutY="270.0" prefHeight="17.0" prefWidth="22.0" text="0" />
+      <Label fx:id="avisNumber" alignment="CENTER" contentDisplay="CENTER" layoutX="259.0" layoutY="270.0" prefHeight="17.0" prefWidth="22.0" text="0" />
+      <Label fx:id="metalNumber" alignment="CENTER" contentDisplay="CENTER" layoutX="324.0" layoutY="271.0" prefHeight="13.0" prefWidth="23.0" text="0" />
    </children>
 </AnchorPane>

@@ -26,7 +26,7 @@ class Registry {
     String[] parameters = getParameters(elements);
     Command handler = getCommand(command);
     //So besides checking if command is valid in general, also check if command is available in current Space
-    (handler==null || !context.getCurrent().isCommandReachable(command) ? fallback : handler).execute(context, command, parameters);
+//    (handler==null || !context.getCurrent().isCommandReachable(command) ? fallback : handler).execute(context, command, parameters);
   }
   
   public Command getCommand (String commandName) {

@@ -17,6 +17,16 @@ public class StatusMenuController {
 
     @FXML
     private Label xpLabel;
+    @FXML
+    private Label plastikNumber;
+    @FXML
+    private Label flaskeNumber;
+    @FXML
+    private Label batteriNumber;
+    @FXML
+    private Label avisNumber;
+    @FXML
+    private Label metalNumber;
 
     @FXML
     private Label coinLabel;
@@ -27,8 +37,6 @@ public class StatusMenuController {
     @FXML
     private Label dayLabel;
 
-    @FXML
-    private Label invLabel;
     private Stage stage;
     @FXML
     private ImageView statusMenuImageView;
@@ -47,11 +55,19 @@ public class StatusMenuController {
 
     private void updateLabels(){
         Map<String, Integer> items = player.getInventory().getItems();
+        System.out.println(items);
         xpLabel.setText(Integer.toString(player.getXP()));
         coinLabel.setText(Integer.toString(player.getMoney()));
         lvlLabel.setText(Integer.toString(player.getLvl())+ player.remainingXP() + "/100");
         dayLabel.setText(Integer.toString(context.getDay()));
-        invLabel.setText(items.toString());
+
+//        if(!(items.isEmpty())) {
+            flaskeNumber.setText(items.get("flasker").toString());
+            batteriNumber.setText(items.get("batterier").toString());
+            metalNumber.setText(items.get("metalskrot").toString());
+            plastikNumber.setText(items.get("plastik").toString());
+            avisNumber.setText(items.get("aviser").toString());
+//        }
     }
 
     @FXML
@@ -59,7 +75,7 @@ public class StatusMenuController {
         try {
             Game.setRoot("kontor-view");
         } catch (IOException e) {
-            // TODO Auto-generated catch block
+            System.out.println(e.getMessage());
             e.printStackTrace();
         }
     }

@@ -91,8 +91,35 @@ public class Butik extends Space implements DefaultSpace {
 
 
     void removeUpgrade(int key) {
+
         upgrades.remove(key);
     }
+
+
+    public void removeFromShop(Butik butik, Upgrades selectedUpgrade, int upgradeIndex){
+        //Determine the second upgrade to remove based on the selected upgrade.
+        Player player = Game.getContext().getPlayer();
+        int secondUpgradeToRemove = selectedUpgrade.getRelatedUpgradeIndex();
+//      printHint(butik, upgradeIndex);
+
+        System.out.println("Du har købt upgraderingen " + selectedUpgrade.getName());
+
+        butik.removeUpgrade(upgradeIndex);//fjern upgrade fra shop
+
+        if (upgrades.containsKey(secondUpgradeToRemove)) {
+            Upgrades relatedUpgrade = upgrades.get(secondUpgradeToRemove);
+            butik.removeUpgrade(secondUpgradeToRemove); // Remove the related second upgrade.
+            System.out.println("Du har også fjernet " + relatedUpgrade.getName() + " fra butikken.");
+
+        } else {
+            System.out.println("Error: Related upgrade not found.");
+        }
+
+        System.out.println("\nDu har så mange mønter nu: " + player.getMoney());
+        System.out.println("Du har så meget xp nu: " + player.getXP() + "\n");
+
+    }
+
 
     @Override
     public void showTrash() {

@@ -9,8 +9,8 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
 
 public class GenbrugsstationController {
-    Registry registry = Game.getRegistry();
-    Player player = Game.getContext().getPlayer();
+    private Context context;
+    private Player player;
 
     @FXML
     private Label metalskrot_label;
@@ -23,12 +23,10 @@ public class GenbrugsstationController {
 
     @FXML
     public void initialize() {
-        registry.dispatch("go genbrugsstation");
-
-        //feedback_txtField.setStyle("-fx-text-fill: black; -fx-font-size: 24px;");
-        feedback_txtField.setText("Here you will get feedback");
-
+        context = Game.getContext();
         updateTrash();
+        player = context.getPlayer();
+        updateFeedback("Here you will get feedback");
     }
 
     private void updateFeedback(String feedback) {
@@ -36,55 +34,56 @@ public class GenbrugsstationController {
     }
 
     private void updateTrash() {
-        Trash[] trash = Game.getContext().getCurrent().getTrash();
+        Trash[] trash = context.getCurrent().getTrash();
         for (Trash t : trash) {
-            switch (t.getName()) {
-                case "metalskrot" : 
-                    metalskrot_label.setText("Metalskrot: " + t.getAmount());
-                    break;
-                case "batterier" : 
-                    batterier_label.setText("Batterier: " + t.getAmount());
-                    break;
-                case "plastik" :
-                    plastik_label.setText("Plastik: " + t.getAmount());
-                    break;
+            if(context.getCurrent() instanceof Genbrugsstation){
+                switch (t.getName()) {
+                    case "metalskrot":
+                        metalskrot_label.setText("Metalskrot: " + t.getAmount());
+                        break;
+                    case "batterier":
+                        batterier_label.setText("Batterier: " + t.getAmount());
+                        break;
+                    case "plastik":
+                        plastik_label.setText("Plastik: " + t.getAmount());
+                        break;
+                }
             }
         }
     }
 
     @FXML
     private void recycle(MouseEvent event) {
-        int prexp, premoney, postxp, postmoney;
-        prexp = player.getXP();
-        premoney = player.getMoney();
 
         Button b = (Button) event.getSource();
         String id = b.getId();
         System.out.println(id);
+
+        int[] moneyXP = null;
+
         if (id.equals("btn_recycle_1")) {
             System.out.println("We did recycling 1");
-            registry.dispatch("recycle 1");
+             moneyXP = player.recycleBad();
         } else {
             System.out.println("We did recycling 2");
-            registry.dispatch("recycle 2");
+            moneyXP = player.recycleGreen();
         }
 
-        postxp = player.getXP();
-        postmoney = player.getMoney();
-
-        updateFeedback("Du fik: " + Integer.toString(postmoney-premoney) + " penge og " + Integer.toString(postxp-prexp) + " XP");
+        updateFeedback("Du fik: " + moneyXP[0] + " penge og " + moneyXP[1] + " XP");
 
         System.out.println("You just recycled!");
-        //System.out.println(event.toString());
-        //do smt
+
     }
 
     @FXML
-    private void go(MouseEvent event) throws IOException {
+    private void go(MouseEvent event) {
         String id = ((javafx.scene.Node)event.getSource()).getId();
         String location = id.split("_")[1] + "-view";
-        
-        Game.setRoot(location);
+        try{
+            Game.setRoot(location);
+        }catch (IOException e){
+            System.out.println(e.getMessage());
+        }
     }
 
     @FXML
@@ -92,15 +91,19 @@ public class GenbrugsstationController {
         String cmd = ((Button)event.getSource()).getId().replace("_", " ");
         String[] elm = cmd.split(" ");
         System.out.println(cmd);
-        registry.dispatch(cmd);
-        //System.out.println(event.toString());
-        //do smt
+
+        player.pickup(elm[2], 1, context.getCurrent().getTrash(), context);
         updateTrash();
         updateFeedback("Du har samlet 1 " + elm[2] + " op | " + player.getInventory().getItems().get(elm[2]) + " totalt");
     }
 
     @FXML
-    private void showMainMenu() {
+    private void showDefaultMenu() {
         System.out.println("You just showed main menu");
+        try{
+            Game.setRoot("default-menu-view");
+        }catch(IOException e){
+            System.out.println(e.getMessage());
+        }
     }
 }

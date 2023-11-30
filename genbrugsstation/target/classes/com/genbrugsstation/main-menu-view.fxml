@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="215.0" prefWidth="313.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.genbrugsstation.MainMenuController">
+   <children>
+      <ImageView fx:id="menuImageView" fitHeight="216.0" fitWidth="314.0" layoutX="-1.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../main-menu.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="newGameBtn" layoutX="97.0" layoutY="108.0" mnemonicParsing="false" onAction="#newGameBtnPressed" opacity="0.0" prefHeight="25.0" prefWidth="132.0" text="Nyt spil" />
+      <Button fx:id="leaveBtn" layoutX="96.0" layoutY="172.0" mnemonicParsing="false" onAction="#leaveBtnPressed" opacity="0.0" prefHeight="25.0" prefWidth="132.0" text="Forlad spil" />
+      <Button fx:id="loadBtn" layoutX="96.0" layoutY="140.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="131.0" text="Indlæs spil" />
+   </children>
+</AnchorPane>

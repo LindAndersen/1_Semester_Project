@@ -23,7 +23,6 @@ class Kontor extends Space {
         makeHandled();
     }
 
-    @Override
     public void showTrash() {
         //No trash here
     }
@@ -43,13 +42,13 @@ class Kontor extends Space {
         return isHandled;
     }
 
-    @Override
-    public boolean isCommandReachable(String name) {
-        return super.isCommandReachable(name, commands);
-    }
+//    @Override
+//    public boolean isCommandReachable(String name) {
+//        return super.isCommandReachable(name, commands);
+//    }
 
-    @Override
-    public String[] getCommands() {
-        return commands;
-    }
+//    @Override
+//    public String[] getCommands() {
+//        return commands;
+//    }
 }

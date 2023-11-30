@@ -24,7 +24,6 @@ class Centrum extends Space {
         return (boolean) super.isCommandReachable(name, commands);
     }
 
-    @Override
     public void showTrash() {
         super.showTrash(super.getTrash());
     }

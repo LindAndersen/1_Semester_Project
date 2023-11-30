@@ -1,7 +1,6 @@
 package com.genbrugsstation;
 
 import java.util.Objects;
-import java.util.Scanner;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -15,32 +14,13 @@ import java.io.IOException;
 
 public class Game extends Application {
   private static Scene scene;
-  static World    world    = new World();
-  static Context  context  = new Context(world.getEntry());
-  static Command  fallback = new CommandUnknown();
-  static Registry registry = new Registry(context, fallback);
-  static Scanner  scanner  = new Scanner(System.in);
+  static World    world;
+  static Context  context;
   static Butikdata butikdata = new Butikdata();
   
-  private static void initRegistry () {
-    Command cmdExit = new CommandExit();
-    registry.register("exit", cmdExit);
-    registry.register("go", new CommandGo());
-    registry.register("help", new CommandHelp(registry));
-    registry.register("pickup", new CommandPickup());
-    registry.register("buy", new CommandBuy());
-    registry.register("recycle", new CommandRecycle());
-    registry.register("status", new CommandStatus());
-    registry.register("reset", new CommandResetDay(world));
-    registry.register("save", new CommandSave(world, context));
-    registry.register("load", new CommandLoad());
-
-    //{"exit", "quit", "bye", "go", "help", "pickup", "buy", "recycle"}
-  }
-
-  @Override
+    @Override
     public void start(Stage stage) throws IOException {
-        scene = new Scene(loadFXML("menu-view"));
+        scene = new Scene(loadFXML("main-menu-view"));
         Stagestore.stage = stage;
         stage.setTitle("Main menu");
         stage.setScene(scene);
@@ -53,15 +33,30 @@ public class Game extends Application {
     }
 
     public static void setRoot(String rootNode) throws IOException {
+      Space[] loc = world.getLocations();
+
       scene = new Scene(loadFXML(rootNode));
       Stagestore.stage.setScene(scene);
       String title = rootNode.split("-")[0];
+      System.out.println(title);
       Stagestore.stage.setTitle(title);
+      Stagestore.stage.centerOnScreen();
       Stagestore.stage.show();
+
+      for(Space s : loc) {
+        if ((s.getName().toLowerCase()).equals(title.trim().toLowerCase())) {
+          context.setCurrent(s);
+          if((s.getName().trim().toLowerCase()).equals("butik") && (title.trim().toLowerCase().equals("opgraderinger"))){
+            context.setCurrent(s);
+          }
+          System.out.println("sætter current til "+ context.getCurrent().getName());
+        }
+      }
     }
 
-  public static void main (String args[]) {
-    initRegistry();
+  public static void main (String[] args) {
+    world = new World();
+    context = new Context(world.getEntry());
     launch();
   }
  
@@ -71,15 +66,10 @@ public class Game extends Application {
 
   public static void setContext(Context loadedContext) {
     context = loadedContext;
-    registry = new Registry(context, fallback);
-    initRegistry();
-  }
-
-  public static Registry getRegistry() {
-    return registry;
   }
 
   public static Context getContext() {
+
     return context;
   }
 

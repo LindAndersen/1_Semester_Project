@@ -5,9 +5,8 @@ package com.genbrugsstation;
 
 import java.util.Set;
 
- abstract class Space extends Node implements DefaultSpace {
+ abstract class Space extends Node /*implements DefaultSpace*/ {
   private boolean isHandled;
-  //private static final long serialVersionUID = 6529685098267757690L;
   private Trash[] trash;
 
   Space (String name) {
@@ -18,11 +17,11 @@ import java.util.Set;
   
   public void welcome () {
       System.out.println("\n_______________________________________________________");
-      System.out.println("Du er nu ved "+name);
+      System.out.println("Du er nu ved "+super.getName());
   }
 
   public void exits() {
-    Set<String> exits = edges.keySet();
+    Set<String> exits = super.getEdges().keySet();
     System.out.println("\nNuværende udgange fører til");
     for (String exit: exits) {
       System.out.println(" - "+exit);
