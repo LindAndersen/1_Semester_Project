@@ -55,9 +55,13 @@ public class Game extends Application {
     }
 
   public static void main (String[] args) {
+    newGame();
+    launch();
+  }
+
+  public static void newGame() {
     world = new World();
     context = new Context(world.getEntry());
-    launch();
   }
  
   public static void setWorld(World loadedWorld) {
@@ -69,7 +73,6 @@ public class Game extends Application {
   }
 
   public static Context getContext() {
-
     return context;
   }
 

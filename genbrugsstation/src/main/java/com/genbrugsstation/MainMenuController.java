@@ -1,5 +1,7 @@
 package com.genbrugsstation;
 
+import java.io.IOException;
+
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -16,7 +18,7 @@ import javafx.stage.Window;
 import javafx.stage.WindowEvent;
 
 
-public class MainMenuController {
+public class MainMenuController extends SharedGUIFunc {
     private Stage stage;
     private Scene scene;
     private Parent root;
@@ -34,18 +36,13 @@ public class MainMenuController {
     }
 
     @FXML
-    protected void newGameBtnPressed(){
-        System.out.println("nyt spil");
-        try{
-            Game.setRoot("kontor-view");
-        }catch(Exception e){
-            System.out.println(e.getMessage());
-        }
+    protected void newGameBtnPressed() throws IOException{
+        Game.newGame();
+        setRootFromString("kontor-view");
     }
 
     @FXML
     protected void leaveBtnPressed(ActionEvent event){
-        System.out.println("forlad spil");
         try{
             EventHandler<WindowEvent> closeAll = new EventHandler<WindowEvent>() {
                 @Override

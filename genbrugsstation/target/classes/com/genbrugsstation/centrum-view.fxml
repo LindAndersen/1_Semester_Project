@@ -40,7 +40,7 @@
          <children>
             <Button fx:id="go_villakvarter" mnemonicParsing="false" onMouseClicked="#go" text="Villakvarter" />
             <Button fx:id="go_kontor" mnemonicParsing="false" onMouseClicked="#go" prefHeight="25.0" prefWidth="69.0" text="Kontor" GridPane.columnIndex="1" />
-            <Button fx:id="go_centrum" mnemonicParsing="false" onMouseClicked="#go" prefHeight="25.0" prefWidth="78.0" text="Centrum" GridPane.rowIndex="1" />
+            <Button fx:id="go_park" mnemonicParsing="false" onMouseClicked="#go" prefHeight="25.0" prefWidth="78.0" text="Park" GridPane.rowIndex="1" />
             <Button fx:id="go_butik" mnemonicParsing="false" onMouseClicked="#go" prefHeight="25.0" prefWidth="69.0" text="Butik" GridPane.columnIndex="1" GridPane.rowIndex="1" />
             <Button fx:id="go_genbrugsstation" mnemonicParsing="false" onMouseClicked="#go" prefHeight="25.0" prefWidth="116.0" text="Genbrugsstation" GridPane.rowIndex="2" />
          </children>

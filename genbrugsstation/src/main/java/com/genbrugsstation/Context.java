@@ -6,9 +6,9 @@ import java.io.Serializable;
 
 class Context implements Serializable {
   private boolean firstTime = true;
-  private Space current;
+  private static Space current;
   private boolean done = false;
-  private Player player = new Player("Borgmester");
+  private static Player player = new Player("Borgmester");
   private int dayCounter = 1;
   //private static final long serialVersionUID = 6529685098267757696L;
   
