@@ -10,9 +10,7 @@ import javafx.scene.text.Text;
 
 public class VillakvarterController extends SharedGUIFunc {
     private Context context = Game.getContext();
-;
-    private Player player;
-
+    
     @FXML
     private Label aviser_label;
     @FXML

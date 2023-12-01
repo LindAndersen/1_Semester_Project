@@ -14,6 +14,6 @@
       </ImageView>
       <Button fx:id="newGameBtn" layoutX="97.0" layoutY="108.0" mnemonicParsing="false" onAction="#newGameBtnPressed" opacity="0.0" prefHeight="25.0" prefWidth="132.0" text="Nyt spil" />
       <Button fx:id="leaveBtn" layoutX="96.0" layoutY="172.0" mnemonicParsing="false" onAction="#leaveBtnPressed" opacity="0.0" prefHeight="25.0" prefWidth="132.0" text="Forlad spil" />
-      <Button fx:id="loadBtn" layoutX="96.0" layoutY="140.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="131.0" text="Indlæs spil" />
+      <Button fx:id="loadBtn" layoutX="96.0" layoutY="140.0" mnemonicParsing="false" onAction="#loadGame" prefHeight="24.0" prefWidth="131.0" text="Indlæs spil" />
    </children>
 </AnchorPane>

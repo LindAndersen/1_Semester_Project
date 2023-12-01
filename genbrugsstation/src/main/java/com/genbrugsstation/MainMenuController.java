@@ -28,7 +28,7 @@ public class MainMenuController extends SharedGUIFunc {
 //    private ImageView menuImageView;
 //    private Image menuPic = new Image("/menu.png");
     @FXML
-    private Button newGameBtn, leaveBtn, loadBtn;
+    private Button newGameBtn, leaveBtn, loadBtn, btn_savegame;
 
 
     public void initialize(){
@@ -61,6 +61,16 @@ public class MainMenuController extends SharedGUIFunc {
         }catch(Exception e){
             System.out.println(e.getMessage());
         }
+    }
+
+    @FXML
+    private void saveGame() {
+        Game.save_game();
+    }
+
+    @FXML
+    private void loadGame() throws ClassNotFoundException, IOException {
+        Game.load_game();
     }
 
 }
