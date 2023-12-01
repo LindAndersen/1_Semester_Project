@@ -30,6 +30,7 @@ public class Game extends Application {
   
     @Override
     public void start(Stage stage) throws IOException {
+        System.out.println("Hapshaps");
         scene = new Scene(loadFXML("main-menu-view"));
         Stagestore.stage = stage;
         stage.setTitle("Main menu");
