@@ -23,7 +23,6 @@ public class Game extends Application {
   private static Scene scene;
   static World    world;
   static Context  context;
-  static Butikdata butikdata = new Butikdata();
   static String prevView = null;
   static String currentView;
   
@@ -156,9 +155,5 @@ public class Game extends Application {
 
   public static Context getContext() {
     return context;
-  }
-
-  public static Butikdata getButikdata() {
-    return butikdata;
   }
 }

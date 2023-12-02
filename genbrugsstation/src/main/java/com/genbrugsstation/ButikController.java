@@ -28,10 +28,9 @@ public class ButikController extends SharedGUIFunc {
             xptext.setText("Du har " + context.getPlayer().getXP() + " xp.");
 
             if (upgrade1 != null & upgrade2 != null & upgrade3 != null & upgrade4 != null & upgrade5 != null & upgrade6 != null){
-                Butikdata butikdata = Game.getButikdata();
 
-                upgrade1.setText(butikdata.getStringupgrade1());
-                switch (butikdata.getStringupgrade1()) {
+                upgrade1.setText(Butikdata.getStringupgrade1());
+                switch (Butikdata.getStringupgrade1()) {
                     case "":
                         break;
 
@@ -40,8 +39,8 @@ public class ButikController extends SharedGUIFunc {
                         break;
 
                 }
-                upgrade2.setText(butikdata.getStringupgrade2());
-                switch (butikdata.getStringupgrade2()) {
+                upgrade2.setText(Butikdata.getStringupgrade2());
+                switch (Butikdata.getStringupgrade2()) {
                     case "":
                         break;
 
@@ -50,8 +49,8 @@ public class ButikController extends SharedGUIFunc {
                         break;
 
                 }
-                upgrade3.setText(butikdata.getStringupgrade3());
-                switch (butikdata.getStringupgrade3()) {
+                upgrade3.setText(Butikdata.getStringupgrade3());
+                switch (Butikdata.getStringupgrade3()) {
                     case "":
                         break;
 
@@ -60,8 +59,8 @@ public class ButikController extends SharedGUIFunc {
                         break;
 
                 }
-                upgrade4.setText(butikdata.getStringupgrade4());
-                switch (butikdata.getStringupgrade4()) {
+                upgrade4.setText(Butikdata.getStringupgrade4());
+                switch (Butikdata.getStringupgrade4()) {
                     case "":
                         break;
 
@@ -70,8 +69,8 @@ public class ButikController extends SharedGUIFunc {
                         break;
 
                 }
-                upgrade5.setText(butikdata.getStringupgrade5());
-                switch (butikdata.getStringupgrade5()) {
+                upgrade5.setText(Butikdata.getStringupgrade5());
+                switch (Butikdata.getStringupgrade5()) {
                     case "":
                         break;
 
@@ -80,8 +79,8 @@ public class ButikController extends SharedGUIFunc {
                         break;
 
                 }
-                upgrade6.setText(butikdata.getStringupgrade6());
-                switch (butikdata.getStringupgrade6()) {
+                upgrade6.setText(Butikdata.getStringupgrade6());
+                switch (Butikdata.getStringupgrade6()) {
                     case "":
                         break;
 
@@ -102,7 +101,6 @@ public class ButikController extends SharedGUIFunc {
 
     public void upgradeButtonClick(String a, Button c, Button d){
         int oldMoney = player.getMoney();
-        Butikdata butikdata = Game.getButikdata();
 
         player.buy(a, context);
 
@@ -113,63 +111,64 @@ public class ButikController extends SharedGUIFunc {
             xptext.setText("Du har " + context.getPlayer().getXP() + " xp.");
             switch (a) {
                 case "1":
-                    butikdata.setStringupgrade1("Cykelsti");
-                    upgrade1.setText(butikdata.getStringupgrade1());
+                    Butikdata.setStringupgrade1("Cykelsti");
+                    upgrade1.setText(Butikdata.getStringupgrade1());
                     break;
 
                 case "2":
-                    butikdata.setStringupgrade1("Motorvej");
-                    upgrade1.setText(butikdata.getStringupgrade1());
+                    Butikdata.setStringupgrade1("Motorvej");
+                    upgrade1.setText(Butikdata.getStringupgrade1());
                     break;
 
                 case "3":
-                    butikdata.setStringupgrade2("Billboards");
-                    upgrade2.setText(butikdata.getStringupgrade2());
+                    Butikdata.setStringupgrade2("Billboards");
+                    System.out.println("Sætter string upgrade til billboard");
+                    upgrade2.setText(Butikdata.getStringupgrade2());
                     break;
 
                 case "4":
-                    butikdata.setStringupgrade4("Busstoppested");
-                    upgrade4.setText(butikdata.getStringupgrade4());
+                    Butikdata.setStringupgrade4("Busstoppested");
+                    upgrade4.setText(Butikdata.getStringupgrade4());
                     break;
 
                 case "5":
-                    butikdata.setStringupgrade2("Solceller");
-                    upgrade2.setText(butikdata.getStringupgrade2());
+                    Butikdata.setStringupgrade2("Solceller");
+                    upgrade2.setText(Butikdata.getStringupgrade2());
                     break;
 
                 case "6":
-                    butikdata.setStringupgrade3("Filter i parksøen");
-                    upgrade3.setText(butikdata.getStringupgrade3());
+                    Butikdata.setStringupgrade3("Filter i parksøen");
+                    upgrade3.setText(Butikdata.getStringupgrade3());
                     break;
 
                 case "7":
-                    butikdata.setStringupgrade5("Isolerende vinduer");
-                    upgrade5.setText(butikdata.getStringupgrade5());
+                    Butikdata.setStringupgrade5("Isolerende vinduer");
+                    upgrade5.setText(Butikdata.getStringupgrade5());
                     break;
 
                 case "8":
-                    butikdata.setStringupgrade6("Legeplads");
-                    upgrade6.setText(butikdata.getStringupgrade6());
+                    Butikdata.setStringupgrade6("Legeplads");
+                    upgrade6.setText(Butikdata.getStringupgrade6());
                     break;
 
                 case "9":
-                    butikdata.setStringupgrade3("Farve i parksøen");
-                    upgrade3.setText(butikdata.getStringupgrade3());
+                    Butikdata.setStringupgrade3("Farve i parksøen");
+                    upgrade3.setText(Butikdata.getStringupgrade3());
                     break;
 
                 case "10":
-                    butikdata.setStringupgrade4("Parkeringshus");
-                    upgrade4.setText(butikdata.getStringupgrade4());
+                    Butikdata.setStringupgrade4("Parkeringshus");
+                    upgrade4.setText(Butikdata.getStringupgrade4());
                     break;
 
                 case "11":
-                    butikdata.setStringupgrade5("Oliefyr");
-                    upgrade5.setText(butikdata.getStringupgrade5());
+                    Butikdata.setStringupgrade5("Oliefyr");
+                    upgrade5.setText(Butikdata.getStringupgrade5());
                     break;
 
                 case "12":
-                    butikdata.setStringupgrade6("Fodboldstadion");
-                    upgrade6.setText(butikdata.getStringupgrade6());
+                    Butikdata.setStringupgrade6("Fodboldstadion");
+                    upgrade6.setText(Butikdata.getStringupgrade6());
                     break;
 
             }

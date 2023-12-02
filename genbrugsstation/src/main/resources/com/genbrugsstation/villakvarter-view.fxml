@@ -15,6 +15,26 @@
          <image>
             <Image url="@../../villakvarter.png" />
          </image></ImageView>
+      <ImageView fx:id="imageview_cykelsti" fitHeight="400.0" fitWidth="540.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../villakvarter_upgrades/Cykelsti.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="imageview_isolerendevinduer" fitHeight="400.0" fitWidth="578.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../villakvarter_upgrades/Isolerendevinduer.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="imageview_motorvej" fitHeight="400.0" fitWidth="554.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../villakvarter_upgrades/Motorvej.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="imageview_oliefyr" fitHeight="400.0" fitWidth="598.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../villakvarter_upgrades/Oliefyr.png" />
+         </image>
+      </ImageView>
       <ImageView fitHeight="39.0" fitWidth="36.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../tandhjul.png" />

@@ -15,6 +15,16 @@
          <image>
             <Image url="@../../park.png" />
          </image></ImageView>
+      <ImageView fx:id="imageview_filter" fitHeight="402.0" fitWidth="550.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../park_upgrades/Untitled_Artwork%20(1).png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="imageview_farve" fitHeight="402.0" fitWidth="544.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../park_upgrades/Untitled_Artwork.png" />
+         </image>
+      </ImageView>
       <ImageView fitHeight="742.0" fitWidth="975.0" layoutX="-428.0" layoutY="-368.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../sign.png" />

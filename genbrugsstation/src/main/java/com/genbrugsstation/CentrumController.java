@@ -4,6 +4,7 @@ import java.io.IOException;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
 
@@ -14,11 +15,28 @@ public class CentrumController extends SharedGUIFunc {
     private Label flasker_label;
     @FXML
     private Text feedback_txtField;
+    @FXML
+    private ImageView imageview_billboard, imageview_busstoppested, imageview_parkeringshus, imageview_solceller;
 
     @FXML
     public void initialize() {
         feedback_txtField.setText("Here you will get feedback");
+        updateSceneFromUpgrades();
         updateTrash();
+    }
+
+    private void updateSceneFromUpgrades() {
+        if (isUpgradeBought("Billboards")) {
+            imageview_billboard.setOpacity(1);
+        } else if (isUpgradeBought("Solceller")) {
+            imageview_solceller.setOpacity(1);
+        }
+
+        if (isUpgradeBought("Busstoppested")) {
+            imageview_busstoppested.setOpacity(1);
+        } else if (isUpgradeBought("Parkeringshus")) {
+            imageview_parkeringshus.setOpacity(1);
+        }
     }
 
     private void updateFeedback(String feedback) {
@@ -39,7 +57,6 @@ public class CentrumController extends SharedGUIFunc {
             }
         }
     }
-
 
     @FXML
     private void go(MouseEvent event) throws IOException {

@@ -5,21 +5,39 @@ import java.io.IOException;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
 
 public class ParkController extends SharedGUIFunc {
     @FXML
-    private Label aviser_label;
-    @FXML
-    private Label flasker_label;
+    private Label aviser_label, flasker_label;
+    
     @FXML
     private Text feedback_txtField;
+
+    @FXML
+    private ImageView imageview_filter, imageview_farve; 
 
     @FXML
     public void initialize() {
         feedback_txtField.setText("Here you will get feedback");
         updateTrash();
+        updateSceneFromUpgrades();
+    }
+
+    private void updateSceneFromUpgrades() {
+        if (isUpgradeBought("Filter i parksøen")) {
+            imageview_filter.setOpacity(1);
+        } else if (isUpgradeBought("Farve i parksøen")) {
+            imageview_farve.setOpacity(1);
+        }
+
+        // if (isUpgradeBought("Legeplads")) {
+        //     imageview_busstoppested.setOpacity(1);
+        // } else if (isUpgradeBought("Fodboldstadion")) {
+        //     imageview_parkeringshus.setOpacity(1);
+        // }
     }
 
     private void updateFeedback(String feedback) {

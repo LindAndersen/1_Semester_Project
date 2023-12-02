@@ -15,6 +15,26 @@
          <image>
             <Image url="@../../centrum.png" />
          </image></ImageView>
+      <ImageView fx:id="imageview_billboard" fitHeight="400.0" fitWidth="552.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../centrum_upgrades/Billboards.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="imageview_busstoppested" fitHeight="411.0" fitWidth="534.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../centrum_upgrades/Busstop.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="imageview_parkeringshus" fitHeight="401.0" fitWidth="558.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../centrum_upgrades/Parkeringshus.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="imageview_solceller" fitHeight="400.0" fitWidth="566.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../centrum_upgrades/Solceller.png" />
+         </image>
+      </ImageView>
       <StackPane fx:id="stackPane" layoutY="366.0" prefHeight="36.0" prefWidth="533.0" style="-fx-background-color: black;">
          <children>
             <Text fx:id="feedback_txtField" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-fill: white;" textAlignment="CENTER" wrappingWidth="529.4700627326965">

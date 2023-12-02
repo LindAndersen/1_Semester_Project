@@ -17,11 +17,27 @@ public class GenbrugsstationController extends SharedGUIFunc {
     private Text feedback_txtField;
     @FXML
     private ImageView go_back;
+    @FXML
+    private ImageView imageview_græslvl1, imageview_græslvl2, imageview_græslvl3, imageview_græslvl4, imageview_græslvl5;
 
     @FXML
     public void initialize() {
+        updateSceneFromLevel();
         updateTrash();
         updateFeedback("Here you will get feedback");
+    }
+
+    private void updateSceneFromLevel() {
+        int lvl = player.getLvl();
+        ImageView[] grass = new ImageView[] {imageview_græslvl1, imageview_græslvl2, imageview_græslvl3, imageview_græslvl4, imageview_græslvl5};
+
+        for (int i = 0;i<grass.length;i++) {
+            if (lvl == i+1) {
+                grass[i].setOpacity(1);
+            } else {
+                grass[i].setOpacity(0);
+            }
+        }
     }
 
     private void updateFeedback(String feedback) {

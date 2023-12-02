@@ -45,4 +45,12 @@ public class SharedGUIFunc {
     public void showInventory() throws IOException {
         setRootFromString("inventory-view");
     }
+
+    public boolean isUpgradeBought(String name) {
+        for(String u : Butikdata.getUpgrades()) {
+            if (u.equals(name)) {return true;}
+        }
+
+        return false;
+    }
 }

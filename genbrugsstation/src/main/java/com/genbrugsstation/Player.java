@@ -35,6 +35,7 @@ class Player implements Serializable {
     //adds XP
     public void addXP(int amount) {
         xp += amount;
+        lvl = getLvl();
     }
 
     //adds money

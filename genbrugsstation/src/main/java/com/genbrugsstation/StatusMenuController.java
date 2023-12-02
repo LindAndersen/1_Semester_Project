@@ -53,7 +53,8 @@ public class StatusMenuController extends SharedGUIFunc {
         Map<String, Integer> items = player.getInventory().getItems();
         xpLabel.setText(Integer.toString(player.getXP()));
         coinLabel.setText(Integer.toString(player.getMoney()));
-        lvlLabel.setText(Integer.toString(player.getLvl())+ player.remainingXP() + "/100");
+        //lvlLabel.setText(Integer.toString(player.getLvl())+ player.remainingXP() + "/100");
+        lvlLabel.setText(Integer.toString(player.getLvl()));
         dayLabel.setText(Integer.toString(context.getDay()));
 
 //        if(!(items.isEmpty())) {
