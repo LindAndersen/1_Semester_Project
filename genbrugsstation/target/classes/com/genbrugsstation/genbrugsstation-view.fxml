@@ -5,9 +5,6 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
@@ -19,25 +16,22 @@
             <Image url="@../../genbrugsstation.png" />
          </image>
       </ImageView>
-      <Button fx:id="btn_menu" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#showDefaultMenu" prefHeight="39.0" prefWidth="88.0" text="Menu" />
-      <GridPane layoutX="263.0" layoutY="394.0">
-         <columnConstraints>
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-         </columnConstraints>
-         <rowConstraints>
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-         </rowConstraints>
-         <children>
-            <Button fx:id="go_villakvarter" mnemonicParsing="false" onMouseClicked="#go" text="Villakvarter" />
-            <Button fx:id="go_kontor" mnemonicParsing="false" onMouseClicked="#go" prefHeight="25.0" prefWidth="69.0" text="Kontor" GridPane.columnIndex="1" />
-            <Button fx:id="go_centrum" mnemonicParsing="false" onMouseClicked="#go" prefHeight="25.0" prefWidth="78.0" text="Centrum" GridPane.rowIndex="1" />
-            <Button fx:id="go_butik" mnemonicParsing="false" onMouseClicked="#go" prefHeight="25.0" prefWidth="69.0" text="Butik" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <Button fx:id="go_park" mnemonicParsing="false" onMouseClicked="#go" prefHeight="25.0" prefWidth="77.0" text="Park" GridPane.rowIndex="2" />
-         </children>
-      </GridPane>
+      <ImageView fitHeight="69.0" fitWidth="75.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../tandhjul.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="859.0" fitWidth="1163.0" layoutX="-691.0" layoutY="-333.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../sign.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="btn_menu" layoutY="2.0" mnemonicParsing="false" onAction="#showDefaultMenu" opacity="0.0" prefHeight="69.0" prefWidth="75.0" text="Menu" />
+      <Button fx:id="go_villakvarter" layoutX="332.0" layoutY="416.0" mnemonicParsing="false" onMouseClicked="#go" opacity="0.0" prefHeight="25.0" prefWidth="115.0" text="Villakvarter" />
+      <Button fx:id="go_kontor" layoutX="288.0" layoutY="391.0" mnemonicParsing="false" onMouseClicked="#go" opacity="0.0" prefHeight="25.0" prefWidth="69.0" text="Kontor" />
+      <Button fx:id="go_centrum" layoutX="283.0" layoutY="357.0" mnemonicParsing="false" onMouseClicked="#go" opacity="0.0" prefHeight="25.0" prefWidth="78.0" text="Centrum" />
+      <Button fx:id="go_butik" layoutX="361.0" layoutY="370.0" mnemonicParsing="false" onMouseClicked="#go" opacity="0.0" prefHeight="25.0" prefWidth="77.0" text="Butik" />
+      <Button fx:id="go_park" layoutX="351.0" layoutY="441.0" mnemonicParsing="false" onMouseClicked="#go" opacity="0.0" prefHeight="25.0" prefWidth="88.0" text="Park" />
       <StackPane fx:id="stackPane" layoutY="526.0" prefHeight="42.0" prefWidth="698.0" style="-fx-background-color: black;">
          <children>
             <Text fx:id="feedback_txtField" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-fill: white;" textAlignment="CENTER" wrappingWidth="660.5811767578125">
@@ -50,7 +44,7 @@
       <Button fx:id="btn_recycle_1" layoutX="218.0" layoutY="119.0" mnemonicParsing="false" onMouseClicked="#goRecycleWindow" opacity="0.0" prefHeight="90.0" prefWidth="132.0" text="Recycle 1" />
       <Label fx:id="metalskrot_label" alignment="CENTER" contentDisplay="CENTER" layoutX="366.0" layoutY="91.0" prefHeight="42.0" prefWidth="88.0" text="Metalskrot" wrapText="true">
          <font>
-            <Font size="20.0" />
+            <Font name="System Bold" size="20.0" />
          </font>
       </Label>
       <ImageView fitHeight="54.0" fitWidth="78.0" layoutX="364.0" layoutY="36.0" pickOnBounds="true" preserveRatio="true">
@@ -60,7 +54,7 @@
       </ImageView>
       <Label fx:id="batterier_label" alignment="CENTER" contentDisplay="CENTER" layoutX="417.0" layoutY="254.0" prefHeight="30.0" prefWidth="69.0" text="Batterier">
          <font>
-            <Font size="20.0" />
+            <Font name="System Bold" size="20.0" />
          </font>
       </Label>
       <ImageView fitHeight="51.0" fitWidth="88.0" layoutX="412.0" layoutY="209.0" pickOnBounds="true" preserveRatio="true">
@@ -75,11 +69,16 @@
       </ImageView>
       <Label fx:id="plastik_label" alignment="CENTER" contentDisplay="CENTER" layoutX="240.0" layoutY="306.0" prefHeight="30.0" prefWidth="88.0" text="Plastik">
          <font>
-            <Font size="20.0" />
+            <Font name="System Bold" size="20.0" />
          </font>
       </Label>
       <Button fx:id="pickup_1_metalskrot" layoutX="369.0" layoutY="32.0" mnemonicParsing="false" onMouseClicked="#pickup" opacity="0.0" prefHeight="59.0" prefWidth="75.0" wrapText="true" />
       <Button fx:id="pickup_1_plastik" layoutX="229.0" layoutY="265.0" mnemonicParsing="false" onMouseClicked="#pickup" opacity="0.0" prefHeight="39.0" prefWidth="98.0" wrapText="true" />
       <Button fx:id="pickup_1_batterier" layoutX="410.0" layoutY="203.0" mnemonicParsing="false" onMouseClicked="#pickup" opacity="0.0" prefHeight="51.0" prefWidth="108.0" wrapText="true" />
+      <ImageView fitHeight="77.0" fitWidth="69.0" layoutX="629.0" layoutY="2.0" onMouseClicked="#showInventory" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../inventory.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

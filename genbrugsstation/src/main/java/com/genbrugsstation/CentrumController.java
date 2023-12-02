@@ -55,12 +55,7 @@ public class CentrumController extends SharedGUIFunc {
     }
 
     @FXML
-    private void showDefaultMenu() {
-        System.out.println("You just showed main menu");
-        try{
-            Game.setRoot("default-menu-view");
-        }catch(IOException e){
-            System.out.println(e.getMessage());
-        }
+    private void showDefaultMenu() throws IOException {
+        setRootFromString("default-menu-view");
     }
 }

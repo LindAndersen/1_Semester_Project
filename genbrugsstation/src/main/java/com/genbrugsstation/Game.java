@@ -24,10 +24,13 @@ public class Game extends Application {
   static World    world;
   static Context  context;
   static Butikdata butikdata = new Butikdata();
+  static String prevView = null;
+  static String currentView;
   
     @Override
     public void start(Stage stage) throws IOException {
-        scene = new Scene(loadFXML("main-menu-view"));
+        currentView = "main-menu-view";
+        scene = new Scene(loadFXML(currentView));
         Stagestore.stage = stage;
         stage.setTitle("Main menu");
         stage.setScene(scene);
@@ -40,6 +43,7 @@ public class Game extends Application {
     }
 
     public static void setRoot(String rootNode) throws IOException {
+      prevView = currentView;
       Space[] loc = world.getLocations();
       String title = rootNode.split("-")[0];
       for(Space s : loc) {
@@ -48,6 +52,7 @@ public class Game extends Application {
           if((s.getName().trim().toLowerCase()).equals("butik") && (title.trim().toLowerCase().equals("opgraderinger"))){
             context.setCurrent(s);
           }
+          currentView = rootNode;
           //System.out.println("sætter current til "+ context.getCurrent().getName());
         }
       }

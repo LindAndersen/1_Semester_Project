@@ -25,6 +25,11 @@
             <Image url="@../../sign.png" />
          </image>
       </ImageView>
+      <ImageView fitHeight="51.0" fitWidth="55.0" layoutX="482.0" layoutY="6.0" onMouseClicked="#showInventory" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../inventory.png" />
+         </image>
+      </ImageView>
       <StackPane fx:id="stackPane" layoutY="366.0" prefHeight="36.0" prefWidth="526.0" style="-fx-background-color: black;">
          <children>
             <Text fx:id="feedback_txtField" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-fill: white;" textAlignment="CENTER" wrappingWidth="531.4700317382812">
@@ -39,7 +44,7 @@
       <Button fx:id="go_centrum" layoutX="365.0" layoutY="220.0" mnemonicParsing="false" onMouseClicked="#go" opacity="0.0" prefHeight="25.0" prefWidth="78.0" text="Centrum" />
       <Button fx:id="go_butik" layoutX="438.0" layoutY="232.0" mnemonicParsing="false" onMouseClicked="#go" opacity="0.0" prefHeight="25.0" prefWidth="69.0" text="Butik" />
       <Button fx:id="go_genbrugsstation" layoutX="365.0" layoutY="313.0" mnemonicParsing="false" onMouseClicked="#go" opacity="0.0" prefHeight="25.0" prefWidth="116.0" text="Genbrugsstation" />
-      <Button fx:id="btn_menu" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onMouseClicked="#showDefaultMenu" opacity="0.0" prefHeight="36.0" prefWidth="45.0" text="Menu" />
+      <Button fx:id="btn_menu" layoutX="10.0" layoutY="14.0" mnemonicParsing="false" onMouseClicked="#showDefaultMenu" opacity="0.0" prefHeight="36.0" prefWidth="45.0" text="Menu" />
       <ImageView fitHeight="43.0" fitWidth="45.0" layoutX="427.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../aviser.png" />

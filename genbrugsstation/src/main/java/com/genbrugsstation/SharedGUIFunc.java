@@ -41,4 +41,8 @@ public class SharedGUIFunc {
 
         return update;
     }
+
+    public void showInventory() throws IOException {
+        setRootFromString("inventory-view");
+    }
 }
