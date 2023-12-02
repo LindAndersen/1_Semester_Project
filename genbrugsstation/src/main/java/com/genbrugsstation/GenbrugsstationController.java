@@ -22,7 +22,7 @@ public class GenbrugsstationController extends SharedGUIFunc {
 
     @FXML
     public void initialize() {
-        updateSceneFromLevel();
+        if (!(imageview_græslvl1 == null)) {updateSceneFromLevel();}
         updateTrash();
         updateFeedback("Here you will get feedback");
     }
