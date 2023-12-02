@@ -22,7 +22,6 @@ public class MainMenuController extends SharedGUIFunc {
     private Stage stage;
     private Scene scene;
     private Parent root;
-    private Context context;
 
 //    @FXML
 //    private ImageView menuImageView;
@@ -32,7 +31,6 @@ public class MainMenuController extends SharedGUIFunc {
 
 
     public void initialize(){
-        context = Game.context;
     }
 
     @FXML

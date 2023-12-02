@@ -7,9 +7,6 @@ import javafx.scene.input.MouseEvent;
 import java.io.IOException;
 
 import javafx.event.ActionEvent;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.stage.Stage;
 import javafx.scene.control.Button;
 
 public class ButikController extends SharedGUIFunc {
@@ -17,74 +14,14 @@ public class ButikController extends SharedGUIFunc {
 //    private Scene scene;
 //    private Parent root;
 
-    Context context;
+    @FXML
+    private Button cykelsti, solceller, filter, bus, vinduer, leg, motor, bill, farve, parkering, olie, bold;
 
     @FXML
-    private Button cykelsti;
-
-    @FXML
-    private Button solceller;
-
-    @FXML
-    private Button filter;
-
-    @FXML
-    private Button bus;
-
-    @FXML
-    private Button vinduer;
-
-    @FXML
-    private Button leg;
-
-    @FXML
-    private Button motor;
-
-    @FXML
-    private Button bill;
-
-    @FXML
-    private Button farve;
-
-    @FXML
-    private Button parkering;
-
-    @FXML
-    private Button olie;
-
-    @FXML
-    private Button bold;
-
-    @FXML
-    private Label pengetext;
-
-    @FXML
-    private Label xptext;
-
-    @FXML
-    private Label upgrade1;
-
-    @FXML
-    private Label upgrade2;
-
-    @FXML
-    private Label upgrade3;
-
-    @FXML
-    private Label upgrade4;
-
-    @FXML
-    private Label upgrade5;
-
-    @FXML
-    private Label upgrade6;
-
-
+    private Label pengetext, xptext, upgrade1, upgrade2, upgrade3, upgrade4, upgrade5, upgrade6;
 
     @FXML
     public void initialize(){
-        context = Game.getContext();
-
 
         if (pengetext != null & xptext != null) {
             pengetext.setText("Du har " + context.getPlayer().getMoney() + " kr.");
@@ -164,9 +101,7 @@ public class ButikController extends SharedGUIFunc {
     }
 
     public void upgradeButtonClick(String a, Button c, Button d){
-        Player player = context.getPlayer();
         int oldMoney = player.getMoney();
-        String b = ("buy "+a);
         Butikdata butikdata = Game.getButikdata();
 
         player.buy(a, context);
@@ -248,22 +183,13 @@ public class ButikController extends SharedGUIFunc {
     }
 
     @FXML
-    protected void onOpgraderingerButtonClick(){
-        try{
-            Game.setRoot("opgraderinger-view");
-        }catch(Exception e){
-            System.out.println(e.getMessage());
-            e.printStackTrace();
-        }
+    protected void onOpgraderingerButtonClick() throws IOException{
+        setRootFromString("opgraderinger-view");
     }
 
     @FXML
-    protected void onButikTilbageClick()  {
-        try{
-            Game.setRoot("butik-view");
-        }catch(Exception e){
-            System.out.println(e.getMessage());
-        }
+    protected void onButikTilbageClick() throws IOException  {
+        setRootFromString("butik-view");
     }
 
     @FXML

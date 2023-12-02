@@ -37,6 +37,6 @@ class Inventory implements Serializable {
     @Override
     public String toString() {
 
-        return "";
+        return "Not implemented";
     }
 }

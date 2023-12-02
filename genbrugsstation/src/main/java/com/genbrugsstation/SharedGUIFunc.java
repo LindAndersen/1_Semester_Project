@@ -28,7 +28,17 @@ public class SharedGUIFunc {
         String cmd = ((Button)event.getSource()).getId().replace("_", " ");
         String[] elm = cmd.split(" ");
 
-        boolean didPickup = player.pickup(elm[2], 1, context.getCurrent().getTrash(), context);
+        boolean didPickup = player.pickup(elm[2], 1, context.getCurrent().getTrash());
         return (didPickup ? "Du har samlet 1 " + elm[2] + " op | " + player.getInventory().getItems().get(elm[2]) + " totalt" : "Ikke mere at samle op");
+    }
+
+    public String[] getTrashUpdate() {
+        Trash[] trash = context.getCurrent().getTrash();
+        String[] update = new String[trash.length];
+        for (int i = 0; i<trash.length;i++) {
+            update[i] = Integer.toString(trash[i].getAmount());
+        }
+
+        return update;
     }
 }

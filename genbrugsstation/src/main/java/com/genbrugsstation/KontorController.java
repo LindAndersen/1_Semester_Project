@@ -35,12 +35,10 @@ public class KontorController extends SharedGUIFunc {
 
     @FXML
     private Button goBtn_genbrugsstation, goBtn_butik, goBtn_villakvarter, goBtn_park, goBtn_centrum;
-    private Context context;
-    private World world;
 
+    World world;
 
     public void initialize(){
-        context = Game.context;
         world = Game.world;
     }
 

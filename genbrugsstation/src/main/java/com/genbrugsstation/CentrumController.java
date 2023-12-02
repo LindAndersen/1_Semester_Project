@@ -3,16 +3,11 @@ package com.genbrugsstation;
 import java.io.IOException;
 
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
 
 public class CentrumController extends SharedGUIFunc {
-    private Context context = Game.getContext();
-;
-    private Player player;
-
     @FXML
     private Label aviser_label;
     @FXML
@@ -22,7 +17,6 @@ public class CentrumController extends SharedGUIFunc {
 
     @FXML
     public void initialize() {
-        player = context.getPlayer();
         feedback_txtField.setText("Here you will get feedback");
         updateTrash();
     }
@@ -32,15 +26,15 @@ public class CentrumController extends SharedGUIFunc {
     }
 
     private void updateTrash() {
-
         Trash[] trash = context.getCurrent().getTrash();
         for (Trash t : trash) {
+            String amountString = Integer.toString(t.getAmount());
             switch (t.getName()) {
                 case "aviser":
-                    aviser_label.setText("aviser: " + t.getAmount());
+                    aviser_label.setText(amountString);
                     break;
                 case "flasker":
-                    flasker_label.setText("flasker: " + t.getAmount());
+                    flasker_label.setText(amountString);
                     break;
             }
         }

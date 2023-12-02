@@ -5,11 +5,10 @@ import java.util.HashMap;
 
 class Player implements Serializable {
     private String name;
-    private int xp;
-    private int lvl;
-    private int money;
-    private Inventory inventory;
-    private Context context = Game.getContext();
+    private static int xp;
+    private static int lvl;
+    private static int money;
+    private static Inventory inventory;
 
     public Player(String name) {
         this.name = name;
@@ -151,7 +150,8 @@ class Player implements Serializable {
         return moneyXP;
     }
 
-    public boolean pickup(String name, int amount, Trash[] trash, Context context) throws TrashNotFoundException {
+    public boolean pickup(String name, int amount, Trash[] trash) throws TrashNotFoundException {
+        Context context = Game.getContext();
         boolean canPickup = context.getCurrent().subtractTrash(name, amount, trash);
 
         if (canPickup) {
@@ -164,29 +164,27 @@ class Player implements Serializable {
 
 
     public void buy(String s, Context context) {
-        if (context.getCurrent() instanceof Butik) {//tjek inden downcasting
-            Butik butik = (Butik) context.getCurrent();//downcaster Space til Butik, så vi har adgang til metoder i Butik
-            HashMap<Integer, Upgrades> upgrades = butik.getUpgrades();//henter upgrades og gemmer i en variabel
+        Butik butik = (Butik) context.getCurrent();//downcaster Space til Butik, så vi har adgang til metoder i Butik
+        HashMap<Integer, Upgrades> upgrades = butik.getUpgrades();//henter upgrades og gemmer i en variabel
 
-            try {
-              int upgradeIndex = Integer.parseInt(s);
+        try {
+            int upgradeIndex = Integer.parseInt(s);
 
-                if (upgrades.containsKey(upgradeIndex)) {//tjekker om den angivne upgrade eksisterer
+            if (upgrades.containsKey(upgradeIndex)) {//tjekker om den angivne upgrade eksisterer
 
-                    Upgrades selectedUpgrade = upgrades.get(upgradeIndex);
-                    int price = selectedUpgrade.getPrice();
-                    int xp = selectedUpgrade.getXP();
+                Upgrades selectedUpgrade = upgrades.get(upgradeIndex);
+                int price = selectedUpgrade.getPrice();
+                int xp = selectedUpgrade.getXP();
 
-                    if (canAfford(price)) {//hvis spiller har råd til upgraden...
-                        subtractMoney(price);//træk penge
-                        addXP(xp);//tilføj xp
-                        butik.removeFromShop(butik, selectedUpgrade, upgradeIndex);
-                    }
+                if (canAfford(price)) {//hvis spiller har råd til upgraden...
+                    subtractMoney(price);//træk penge
+                    addXP(xp);//tilføj xp
+                    butik.removeFromShop(butik, selectedUpgrade, upgradeIndex);
                 }
-            }catch (Exception e){
-                System.out.println(e.getMessage());
-                e.printStackTrace();
             }
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+            e.printStackTrace();
         }
     }
 }

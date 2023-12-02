@@ -8,9 +8,7 @@ import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
 
-public class VillakvarterController extends SharedGUIFunc {
-    private Context context = Game.getContext();
-    
+public class VillakvarterController extends SharedGUIFunc {    
     @FXML
     private Label aviser_label;
     @FXML
@@ -20,7 +18,6 @@ public class VillakvarterController extends SharedGUIFunc {
 
     @FXML
     public void initialize() {
-        player = context.getPlayer();
         feedback_txtField.setText("Here you will get feedback");
         updateTrash();
     }
@@ -30,17 +27,9 @@ public class VillakvarterController extends SharedGUIFunc {
     }
 
     private void updateTrash() {
-        Trash[] trash = context.getCurrent().getTrash();
-        for (Trash t : trash) {
-            switch (t.getName()) {
-                case "aviser":
-                    aviser_label.setText("aviser: " + t.getAmount());
-                    break;
-                case "flasker":
-                    flasker_label.setText("flasker: " + t.getAmount());
-                    break;
-            }
-        }
+        String[] update = getTrashUpdate();
+        flasker_label.setText(update[0]);
+        aviser_label.setText(update[1]);
     }
 
 

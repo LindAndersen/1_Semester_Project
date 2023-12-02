@@ -11,9 +11,6 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
 
 public class GenbrugsstationController extends SharedGUIFunc {
-    private Context context;
-    private Player player;
-
     @FXML
     private Label metalskrot_label, batterier_label, plastik_label;
     @FXML
@@ -23,8 +20,6 @@ public class GenbrugsstationController extends SharedGUIFunc {
 
     @FXML
     public void initialize() {
-        context = Game.getContext();
-        player = context.getPlayer();
         updateTrash();
         updateFeedback("Here you will get feedback");
     }

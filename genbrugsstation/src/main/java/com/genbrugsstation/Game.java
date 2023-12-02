@@ -1,8 +1,6 @@
 package com.genbrugsstation;
 
-import java.util.NoSuchElementException;
 import java.util.Objects;
-import java.util.Scanner;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -12,7 +10,6 @@ import javafx.stage.Stage;
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
@@ -118,11 +115,11 @@ public class Game extends Application {
             World world = (World) worldIn.readObject();
             Context context = (Context) contextIn.readObject();
 
-            Game.setWorld(world);
-            Game.setContext(context);
+            setWorld(world);
+            setContext(context);
 
-            System.out.println(worldIn != null ? "Did not fully load world..." : "");
-            System.out.println(contextIn != null ? "Did not fully load context..." : "");
+            // System.out.println(worldIn != null ? "Did not fully load world..." : "");
+            // System.out.println(contextIn != null ? "Did not fully load context..." : "");
           }
         }
         setRoot("kontor-view");

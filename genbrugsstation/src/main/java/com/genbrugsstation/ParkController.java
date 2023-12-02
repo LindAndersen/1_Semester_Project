@@ -9,8 +9,6 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
 
 public class ParkController extends SharedGUIFunc {
-    private Context context = Game.getContext();
-
     @FXML
     private Label aviser_label;
     @FXML
@@ -20,7 +18,6 @@ public class ParkController extends SharedGUIFunc {
 
     @FXML
     public void initialize() {
-        player = context.getPlayer();
         feedback_txtField.setText("Here you will get feedback");
         updateTrash();
     }
@@ -33,12 +30,13 @@ public class ParkController extends SharedGUIFunc {
 
         Trash[] trash = context.getCurrent().getTrash();
         for (Trash t : trash) {
+            String amountString = Integer.toString(t.getAmount());
             switch (t.getName()) {
                 case "aviser":
-                    aviser_label.setText("aviser: " + t.getAmount());
+                    aviser_label.setText(amountString);
                     break;
                 case "flasker":
-                    flasker_label.setText("flasker: " + t.getAmount());
+                    flasker_label.setText(amountString);
                     break;
             }
         }

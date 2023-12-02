@@ -44,18 +44,13 @@ public class StatusMenuController extends SharedGUIFunc {
     @FXML
     private Button backBtn;
 
-    private Context context = Game.context;
-    private Player player;
-
     @FXML
     public void initialize(){
-        player = context.getPlayer();
         updateLabels();
     }
 
     private void updateLabels(){
         Map<String, Integer> items = player.getInventory().getItems();
-        System.out.println(items);
         xpLabel.setText(Integer.toString(player.getXP()));
         coinLabel.setText(Integer.toString(player.getMoney()));
         lvlLabel.setText(Integer.toString(player.getLvl())+ player.remainingXP() + "/100");

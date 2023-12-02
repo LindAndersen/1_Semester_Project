@@ -8,11 +8,12 @@ class Context implements Serializable {
   private boolean firstTime = true;
   private static Space current;
   private boolean done = false;
-  private static Player player = new Player("Borgmester");
+  private static Player player;
   private int dayCounter = 1;
   //private static final long serialVersionUID = 6529685098267757696L;
   
   Context (Space node) {
+    player  = new Player("Borgmester");
     current = node;
   }
   
@@ -82,7 +83,7 @@ class Context implements Serializable {
   }
 
   public Player getPlayer() {
-    return this.player;
+    return player;
   }
 
   public void makeDone () {
