@@ -6,16 +6,4 @@ class Villakvarter extends Space {
     Villakvarter(String name) {
         super(name);
     }
-
-    public void welcome() {
-        //Make own welcome specific for Rækkehuse
-        super.welcome();
-    }
-
-
-
-    public void showTrash() {
-
-        super.showTrash(super.getTrash());
-    }
 }

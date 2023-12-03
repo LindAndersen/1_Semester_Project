@@ -48,11 +48,10 @@ class Context implements Serializable {
 
       if(loc.getName().equals("Kontor")){
         setCurrent(loc);
-        current.welcome();
       }
     }
     dayCounter++;
-    System.out.println("\nDu er nu på " + dayCounter + ". dag");
+    //System.out.println("\nDu er nu på " + dayCounter + ". dag");
   }
 
   boolean isDayDone(World world){

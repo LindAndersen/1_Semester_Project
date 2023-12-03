@@ -3,7 +3,6 @@ package com.genbrugsstation;
 import java.util.Map;
 
 class Kontor extends Space {
-    String[] commands = {"exit", "go", "help", "status", "save", "load", "reset"};
     private boolean isHandled;
     Kontor(String name) {
         super(name);
@@ -15,16 +14,6 @@ class Kontor extends Space {
                 "Her kan du tjekke din status, inventar, spilletid i dage og de opgraderinger, du har købt til byen.\n" +
                         "Du kan bruge 'status' for at tjekke overstående, og 'help' for at se andre tilgængelige commands i rummet!\n" +
                 "God fornøjelse!");
-    }
-    @Override
-    public void welcome() {
-        //Specify welcome for Kontor
-        super.welcome();
-        makeHandled();
-    }
-
-    public void showTrash() {
-        //No trash here
     }
 
     @Override

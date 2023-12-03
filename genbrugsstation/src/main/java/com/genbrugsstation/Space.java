@@ -3,9 +3,7 @@ package com.genbrugsstation;
 /* Space class for modeling spaces (rooms, caves, ...)
  */ 
 
-import java.util.Set;
-
- abstract class Space extends Node /*implements DefaultSpace*/ {
+class Space extends Node {
   private boolean isHandled;
   private Trash[] trash;
 
@@ -14,31 +12,6 @@ import java.util.Set;
     isHandled = false;
     trash = new Trash[] {new Trash("flasker"), new Trash("aviser")};
   }
-  
-  public void welcome () {
-      System.out.println("\n_______________________________________________________");
-      System.out.println("Du er nu ved "+super.getName());
-  }
-
-  public void exits() {
-    Set<String> exits = super.getEdges().keySet();
-    System.out.println("\nNuværende udgange fører til");
-    for (String exit: exits) {
-      System.out.println(" - "+exit);
-    }
-  }
-  
-  public void goodbye () {
-    //Make some logic to know when u should make room handled, if should be handled invoke toggleHandled() method
-  }
-
-  public void showTrash(Trash[] trash) {
-    System.out.println("\nDu kigger rundt og ser ");
-    for (Trash t : trash) {
-        System.out.printf("- %d %s%n", t.getAmount(), t.getName());
-    }
-  }
-
 
   public Trash[] getTrash(){
     return trash;
@@ -65,15 +38,6 @@ import java.util.Set;
         }
     } throw new TrashNotFoundException(String.format("%s eksisterer ikke i rummet", name));
   }
-
-public boolean isCommandReachable(String name, String[] commands) {
-    for (String elm : commands) {
-        if (elm.equals(name)) {return true;}
-    }
-    return false;
-  }
-
-
 
   public void makeHandled() {
     isHandled = true;

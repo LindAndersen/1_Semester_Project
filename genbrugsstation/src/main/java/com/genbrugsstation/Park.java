@@ -1,27 +1,8 @@
 package com.genbrugsstation;
 
-class Park extends Space {
-//    String[] commands = {"exit", "go", "help", "pickup", "reset"};
-    
+class Park extends Space {  
     Park(String name) {
         super(name);
     }
 
-    public void welcome() {
-        super.welcome();
-    }
-
-//    @Override
-//    public boolean isCommandReachable(String name) {
-//        return super.isCommandReachable(name, commands);
-//    }
-
-//    @Override
-//    public String[] getCommands() {
-//        return commands;
-//    }
-    
-    public void showTrash() {
-        super.showTrash(super.getTrash());
-    }
 }
