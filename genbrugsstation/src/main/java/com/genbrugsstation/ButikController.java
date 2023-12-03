@@ -11,11 +11,12 @@ import javafx.scene.control.Button;
 
 public class ButikController extends SharedGUIFunc {
 
+
     @FXML
     private Button cykelsti, solceller, filter, bus, vinduer, leg, motor, bill, farve, parkering, olie, bold;
 
     @FXML
-    private Label pengetext, xptext, upgrade1, upgrade2, upgrade3, upgrade4, upgrade5, upgrade6;
+    private Label pengetext, xptext, upgrade1, upgrade2, upgrade3, upgrade4, upgrade5, upgrade6, lolatekst;
 
     @FXML
     public void initialize(){
@@ -32,7 +33,7 @@ public class ButikController extends SharedGUIFunc {
                         break;
 
                     case "Cykelsti":
-                        setbuttonopacity(cykelsti,motor);
+                        setButtonDisable(cykelsti,motor);
                         break;
 
                 }
@@ -42,7 +43,7 @@ public class ButikController extends SharedGUIFunc {
                         break;
 
                     case "Solceller":
-                        setbuttonopacity(solceller,bill);
+                        setButtonDisable(solceller,bill);
                         break;
 
                 }
@@ -52,7 +53,7 @@ public class ButikController extends SharedGUIFunc {
                         break;
 
                     case "Filter i parksøen":
-                        setbuttonopacity(filter,farve);
+                        setButtonDisable(filter,farve);
                         break;
 
                 }
@@ -62,7 +63,7 @@ public class ButikController extends SharedGUIFunc {
                         break;
 
                     case "Busstoppested":
-                        setbuttonopacity(bus,parkering);
+                        setButtonDisable(bus,parkering);
                         break;
 
                 }
@@ -72,7 +73,7 @@ public class ButikController extends SharedGUIFunc {
                         break;
 
                     case "Isolerende vinduer":
-                        setbuttonopacity(vinduer,olie);
+                        setButtonDisable(vinduer,olie);
                         break;
 
                 }
@@ -82,7 +83,7 @@ public class ButikController extends SharedGUIFunc {
                         break;
 
                     case "Legeplads":
-                        setbuttonopacity(leg,bold);
+                        setButtonDisable(leg,bold);
                         break;
 
                 }
@@ -91,85 +92,138 @@ public class ButikController extends SharedGUIFunc {
 
     }
 
-    public void setbuttonopacity(Button a, Button b){
-        a.setOpacity(0.5);
-        b.setOpacity(0.5);
+    public void setButtonDisable(Button a, Button b){
+        a.setDisable(true);
+        b.setDisable(true);
     }
+
 
     public void upgradeButtonClick(String a, Button c, Button d){
         int oldMoney = player.getMoney();
+
+        int[] prices = new int[12];
+
+        int[] xp = new int [12];
+
+        String[] names = new String[12];
+
+        for (int i = 1; i <= 12; i++) {
+            prices[i - 1] = Butik.getUpgradePrice(i);
+            names[i - 1] = Butik.getUpgradeName(i);
+            xp[i - 1] = Butik.getUpgradeXp(i);
+        }
+
+        String tillykke = new String("Tillykke du har købt opgraderingen ");
+
+        String[] forklaring = new String[]{
+                "Cykelstier hjælper folk med at komme sikkert og klimavenligt rundt i byen!",
+                "Motorvejen hjælper folk med at komme hurtigt igennem byen, men mindsker gåbarheden og øger støjen og klimaforureningen i byen!",
+                "Billboards hjælper virksomheder med at reklamere, men øger lysforureningen og klimaforureningen i byen!",
+                "Busstoppestedet hjælper folk, især handicappede, med at komme sikkert og klimavenligt rundt i byen!",
+                "Solceller hjælper folk i byen med klimavenligt at genere strøm til deres forbrug!",
+                "Filteret i parksøen hjælper med at rense søen og øger helbreddet for det naturlige dyreliv i byen!",
+                "Isolerende vinduer hjælper folk med at mindske deres varmeudgift og sænker klimaforureningen i byen!",
+                "Legepladsen øger glæden og trivslen af børnefamilier i byen!",
+                "Farven i parksøen ser sejt ud, men forurener naturområdet og er dårligt for det naturlige dyreliv i byen!",
+                "Parkeringshuset hjælper folk med at finde en parkeringsplads, men øger brugen af biler i byen og derfor klimaforureningen!",
+                "Varmeanlægget med oliefyr hjælper folk med billigt at varme boligen op, men er meget dårligt for klimaet og luftkvaliteten i byen!",
+                "Fodboldstadionet hjælper folk med at se mere fodbold, men øger støjen, traffikken og lysforureningen i området!"
+        };
+
+        int upgradeIndex = Integer.parseInt(a) - 1;
 
         player.buy(a, context);
 
         int newMoney = player.getMoney();
         if (oldMoney != newMoney) {
-            setbuttonopacity(c,d);
+            setButtonDisable(c,d);
             pengetext.setText("Du har " + context.getPlayer().getMoney() + " kr.");
             xptext.setText("Du har " + context.getPlayer().getXP() + " xp.");
+
+            String upgradeText = String.format(
+                    "%s%s til byen! %s Den kostede %d kr. og gav %d xp.",
+                    tillykke, names[upgradeIndex], forklaring[upgradeIndex], prices[upgradeIndex], xp[upgradeIndex]
+            );
+
             switch (a) {
                 case "1":
                     Butikdata.setStringupgrade1("Cykelsti");
                     upgrade1.setText(Butikdata.getStringupgrade1());
+                    lolatekst.setText(upgradeText);
                     break;
 
                 case "2":
                     Butikdata.setStringupgrade1("Motorvej");
                     upgrade1.setText(Butikdata.getStringupgrade1());
+                    lolatekst.setText(upgradeText);
                     break;
 
                 case "3":
                     Butikdata.setStringupgrade2("Billboards");
                     System.out.println("Sætter string upgrade til billboard");
                     upgrade2.setText(Butikdata.getStringupgrade2());
+                    lolatekst.setText(upgradeText);
                     break;
 
                 case "4":
                     Butikdata.setStringupgrade4("Busstoppested");
                     upgrade4.setText(Butikdata.getStringupgrade4());
+                    lolatekst.setText(upgradeText);
                     break;
 
                 case "5":
                     Butikdata.setStringupgrade2("Solceller");
                     upgrade2.setText(Butikdata.getStringupgrade2());
+                    lolatekst.setText(upgradeText);
                     break;
 
                 case "6":
                     Butikdata.setStringupgrade3("Filter i parksøen");
                     upgrade3.setText(Butikdata.getStringupgrade3());
+                    lolatekst.setText(upgradeText);
                     break;
 
                 case "7":
                     Butikdata.setStringupgrade5("Isolerende vinduer");
                     upgrade5.setText(Butikdata.getStringupgrade5());
+                    lolatekst.setText(upgradeText);
                     break;
 
                 case "8":
                     Butikdata.setStringupgrade6("Legeplads");
                     upgrade6.setText(Butikdata.getStringupgrade6());
+                    lolatekst.setText(upgradeText);
                     break;
 
                 case "9":
                     Butikdata.setStringupgrade3("Farve i parksøen");
                     upgrade3.setText(Butikdata.getStringupgrade3());
+                    lolatekst.setText(upgradeText);
                     break;
 
                 case "10":
                     Butikdata.setStringupgrade4("Parkeringshus");
                     upgrade4.setText(Butikdata.getStringupgrade4());
+                    lolatekst.setText(upgradeText);
                     break;
 
                 case "11":
                     Butikdata.setStringupgrade5("Oliefyr");
                     upgrade5.setText(Butikdata.getStringupgrade5());
+                    lolatekst.setText(upgradeText);
                     break;
 
                 case "12":
                     Butikdata.setStringupgrade6("Fodboldstadion");
                     upgrade6.setText(Butikdata.getStringupgrade6());
+                    lolatekst.setText(upgradeText);
                     break;
 
             }
+        } else{
+            lolatekst.setText("Du har desværre ikke råd til denne opgradering. :(");
         }
+
         if(player.getBuyCount() == 6){
             try {
                 setRootFromString("game-over-view");
@@ -177,6 +231,8 @@ public class ButikController extends SharedGUIFunc {
                 System.out.println(e.getMessage());
             }
         }
+
+
 
     }
 
@@ -278,4 +334,21 @@ public class ButikController extends SharedGUIFunc {
         upgradeButtonClick("12",bold,leg);
 
     }
+    @FXML
+    protected void onInfoButtonClick(ActionEvent event) throws IOException {
+        System.out.println("menu åbner");
+        try {
+            Game.setRoot("default-menu-view");
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    @FXML
+    protected void onInfoButtonOpgraderingClick(ActionEvent event) throws IOException {
+        lolatekst.setText("Opgraderingerne er delt op i tiers fra 1 til 6. Du kan kun købe 1 opgradering fra hvert tier. " +
+                "Opgraderingerne til venstre giver dobbelt så meget xp som dem til højre, men koster 20 kr. mere. " +
+                "Prisen i tier 1 er 100 kr. for dem til højre og stiger med 20 kr. for hvert tier man går ned for både opgraderingerne til højre og venstre.");
+    }
+
 }

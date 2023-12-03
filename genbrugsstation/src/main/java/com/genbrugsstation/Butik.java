@@ -6,7 +6,7 @@ import java.util.Set;
 
 public class Butik extends Space implements DefaultSpace {
 
-    private HashMap<Integer, Upgrades> upgrades;
+    private static HashMap<Integer, Upgrades> upgrades;
     private String[] commands = {"exit", "go", "help", "buy", "reset"};
     private boolean isHandled;
 
@@ -61,18 +61,18 @@ public class Butik extends Space implements DefaultSpace {
 
     public void initUpgrades(){
 
-        upgrades.put(1, new Upgrades("Cykelsti", 50, 200, 1.5, "1", 2));
-        upgrades.put(2, new Upgrades("Motorvej", 50, 200, 1.5, "2", 1));
-        upgrades.put(3, new Upgrades("Billboard", 50, 200, 1.5, "3", 5));
-        upgrades.put(4, new Upgrades("Skraldespande", 50, 200, 1.5, "4", 10));
-        upgrades.put(5, new Upgrades("Solceller", 50, 200, 1.5, "5", 3));
-        upgrades.put(6, new Upgrades("Filter i parksøen", 50, 200, 1.5, "6", 9));
-        upgrades.put(7, new Upgrades("Isolerende vinduer", 50, 200, 1.5, "7", 11));
-        upgrades.put(8, new Upgrades("Legeplads", 50, 200, 1.5, "8", 12));
-        upgrades.put(9, new Upgrades("Farve i parksøen", 50, 200, 1.5, "9", 6));
-        upgrades.put(10, new Upgrades("Parkeringshus", 50, 200, 1.5, "10", 4));
-        upgrades.put(11, new Upgrades("Varmeanlæg m. oliefyr", 50, 200, 1.5, "11", 7));
-        upgrades.put(12, new Upgrades("Fodboldstadion", 50, 200, 1.5, "12", 8));
+        upgrades.put(1, new Upgrades("Cykelsti", 120, 200, 1.5, "1", 2));
+        upgrades.put(2, new Upgrades("Motorvej", 100, 100, 1.5, "2", 1));
+        upgrades.put(3, new Upgrades("Billboard", 120, 100, 1.5, "3", 5));
+        upgrades.put(4, new Upgrades("Bustoppested", 180, 200, 1.5, "4", 10));
+        upgrades.put(5, new Upgrades("Solceller", 140, 200, 1.5, "5", 3));
+        upgrades.put(6, new Upgrades("Filter i parksøen", 160, 200, 1.5, "6", 9));
+        upgrades.put(7, new Upgrades("Isolerende vinduer", 200, 200, 1.5, "7", 11));
+        upgrades.put(8, new Upgrades("Legeplads", 220, 200, 1.5, "8", 12));
+        upgrades.put(9, new Upgrades("Farve i parksøen", 140, 100, 1.5, "9", 6));
+        upgrades.put(10, new Upgrades("Parkeringshus", 160, 100, 1.5, "10", 4));
+        upgrades.put(11, new Upgrades("Varmeanlæg m. oliefyr", 180, 100, 1.5, "11", 7));
+        upgrades.put(12, new Upgrades("Fodboldstadion", 200, 100, 1.5, "12", 8));
 
     }
 
@@ -85,6 +85,33 @@ public class Butik extends Space implements DefaultSpace {
         // present list of upgrades
         for(Integer e : upgrades.keySet()){
             System.out.printf(" - [%d] %s  pris: %d, XP: %d%n", e, upgrades.get(e).getName(), upgrades.get(e).getPrice(), upgrades.get(e).getXP());            
+        }
+    }
+
+    // Add a method to get the price of an upgrade based on its key
+    public static int getUpgradePrice(int key) {
+        if (upgrades.containsKey(key)) {
+            return upgrades.get(key).getPrice();
+        } else {
+            return -1; // or throw an exception, depending on your error handling strategy
+        }
+    }
+
+    // Add a method to get the xp of an upgrade based on its key
+    public static int getUpgradeXp(int key) {
+        if (upgrades.containsKey(key)) {
+            return upgrades.get(key).getXP();
+        } else {
+            return -1; // or throw an exception, depending on your error handling strategy
+        }
+    }
+
+    // Add a method to get the name of an upgrade based on its key
+    public static String getUpgradeName(int key) {
+        if (upgrades.containsKey(key)) {
+            return upgrades.get(key).getName();
+        } else {
+            return null; // or throw an exception, depending on your error handling strategy
         }
     }
 
