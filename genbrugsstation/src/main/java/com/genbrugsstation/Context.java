@@ -44,7 +44,7 @@ class Context implements Serializable {
         loc.setTrashSpace(loc.getTrash());
       }
 
-      loc.undoHandled();//sætter isHandled i hvert rum til 
+      loc.undoHandled();//sætter isHandled i hvert rum til false
 
       if(loc.getName().equals("Kontor")){
         setCurrent(loc);

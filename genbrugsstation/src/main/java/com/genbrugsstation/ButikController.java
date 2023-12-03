@@ -10,9 +10,6 @@ import javafx.event.ActionEvent;
 import javafx.scene.control.Button;
 
 public class ButikController extends SharedGUIFunc {
-//    private Stage stage;
-//    private Scene scene;
-//    private Parent root;
 
     @FXML
     private Button cykelsti, solceller, filter, bus, vinduer, leg, motor, bill, farve, parkering, olie, bold;
@@ -104,7 +101,7 @@ public class ButikController extends SharedGUIFunc {
 
         player.buy(a, context);
 
-        int newMoney = context.getPlayer().getMoney();
+        int newMoney = player.getMoney();
         if (oldMoney != newMoney) {
             setbuttonopacity(c,d);
             pengetext.setText("Du har " + context.getPlayer().getMoney() + " kr.");
@@ -171,6 +168,13 @@ public class ButikController extends SharedGUIFunc {
                     upgrade6.setText(Butikdata.getStringupgrade6());
                     break;
 
+            }
+        }
+        if(player.getBuyCount() == 6){
+            try {
+                setRootFromString("game-over-view");
+            }catch (IOException e){
+                System.out.println(e.getMessage());
             }
         }
 

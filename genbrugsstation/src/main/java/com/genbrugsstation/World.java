@@ -10,7 +10,7 @@ class World implements Serializable {
   private Space[] locations;
   
   World () {
-    Space kontor = new Kontor("Kontor");
+    kontor = new Kontor("Kontor");
     Space villakvarter = new Villakvarter("Villakvarter");
     Space genbrugsstation = new Genbrugsstation("Genbrugsstation");
     Space park = new Park("Park");
@@ -29,7 +29,7 @@ class World implements Serializable {
       }
     }
     
-    this.kontor = kontor;
+//    this.kontor = kontor;
     this.locations = locations;
   }
   

@@ -9,6 +9,7 @@ class Player implements Serializable {
     private static int lvl;
     private static int money;
     private static Inventory inventory;
+    private static int buyCount;
 
     public Player(String name) {
         this.name = name;
@@ -17,7 +18,11 @@ class Player implements Serializable {
         money = 100;
         inventory = new Inventory();
         resetInventory();
+        buyCount = 0;
+    }
 
+    public int getBuyCount(){
+        return buyCount;
     }
     
     void addToInventory(String name, int amount) {
@@ -165,8 +170,8 @@ class Player implements Serializable {
 
 
     public void buy(String s, Context context) {
-        Butik butik = (Butik) context.getCurrent();//downcaster Space til Butik, så vi har adgang til metoder i Butik
-        HashMap<Integer, Upgrades> upgrades = butik.getUpgrades();//henter upgrades og gemmer i en variabel
+        Butik butik = (Butik) context.getCurrent();
+        HashMap<Integer, Upgrades> upgrades = butik.getUpgrades();
 
         try {
             int upgradeIndex = Integer.parseInt(s);
@@ -181,6 +186,7 @@ class Player implements Serializable {
                     subtractMoney(price);//træk penge
                     addXP(xp);//tilføj xp
                     butik.removeFromShop(butik, selectedUpgrade, upgradeIndex);
+                    buyCount++;
                 }
             }
         }catch (Exception e){

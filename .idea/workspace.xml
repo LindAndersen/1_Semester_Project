@@ -5,23 +5,33 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="59171aac-06d8-4cf6-81e8-81f7527452c0" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/1_Semester_Project.iml" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/genbrugsstation/src/main/java/com/genbrugsstation/GameOverController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/genbrugsstation/src/main/java/com/genbrugsstation/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/genbrugsstation/src/main/java/com/genbrugsstation/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/genbrugsstation/src/main/java/com/genbrugsstation/ButikController.java" beforeDir="false" afterPath="$PROJECT_DIR$/genbrugsstation/src/main/java/com/genbrugsstation/ButikController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/genbrugsstation/src/main/java/com/genbrugsstation/Context.java" beforeDir="false" afterPath="$PROJECT_DIR$/genbrugsstation/src/main/java/com/genbrugsstation/Context.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/genbrugsstation/src/main/java/com/genbrugsstation/MainMenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/genbrugsstation/src/main/java/com/genbrugsstation/MainMenuController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/genbrugsstation/src/main/java/com/genbrugsstation/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/genbrugsstation/src/main/java/com/genbrugsstation/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/genbrugsstation/src/main/java/com/genbrugsstation/World.java" beforeDir="false" afterPath="$PROJECT_DIR$/genbrugsstation/src/main/java/com/genbrugsstation/World.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 0
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 0
+}</component>
   <component name="ProjectId" id="2YwawSndvIISEnlXpmVgCBvmoCJ" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -31,8 +41,14 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "gui__main",
-    "settings.editor.selected.configurable": "preferences.pluginManager"
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -43,7 +59,11 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1701439334078</updated>
+      <workItem from="1701602640771" duration="4821000" />
     </task>
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
   </component>
 </project>
