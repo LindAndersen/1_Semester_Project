@@ -13,7 +13,7 @@
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="675.0" stroke="BLACK" strokeType="INSIDE" width="900.0" />
       <ImageView fitHeight="675.0" fitWidth="900.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../SHOP%20-%20vindue.png" />
+            <Image url="@../../shop-vindue.png" />
          </image>
       </ImageView>
       <Button fx:id="butikTilbageButton" layoutX="673.0" layoutY="96.0" mnemonicParsing="false" onAction="#onButikTilbageClick" opacity="0.0" prefHeight="37.0" prefWidth="79.0" text="Gå tilbage til butik" />
