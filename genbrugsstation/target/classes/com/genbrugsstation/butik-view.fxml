@@ -17,7 +17,7 @@
       </ImageView>
       <ImageView fitHeight="705.0" fitWidth="900.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../SHOP%20-%20LAYER.png" />
+            <Image url="@../../shop.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="74.0" fitWidth="66.0" pickOnBounds="true" preserveRatio="true">
