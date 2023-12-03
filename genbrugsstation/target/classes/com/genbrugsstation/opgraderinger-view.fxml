@@ -37,31 +37,31 @@
          <font>
             <Font name="Rockwell" size="14.0" />
          </font></Label>
-      <Label layoutX="175.0" layoutY="192.0" prefHeight="37.0" prefWidth="139.0" text="Du har 0 xp." fx:id="xptext">
+      <Label layoutX="175.0" layoutY="192.0" prefHeight="37.0" prefWidth="215.0" text="Du har 0 xp." fx:id="xptext">
          <font>
             <Font name="Rockwell" size="20.0" />
          </font></Label>
-      <Label fx:id="upgrade1" layoutX="175.0" layoutY="257.0" prefHeight="17.0" prefWidth="79.0" text="null">
+      <Label fx:id="upgrade1" layoutX="175.0" layoutY="257.0" prefHeight="17.0" prefWidth="139.0" text="null">
          <font>
             <Font name="Rockwell" size="14.0" />
          </font></Label>
-      <Label fx:id="upgrade2" layoutX="175.0" layoutY="274.0" prefHeight="17.0" prefWidth="79.0" text="null">
+      <Label fx:id="upgrade2" layoutX="175.0" layoutY="274.0" prefHeight="17.0" prefWidth="137.0" text="null">
          <font>
             <Font name="Rockwell" size="14.0" />
          </font></Label>
-      <Label fx:id="upgrade3" layoutX="175.0" layoutY="291.0" prefHeight="17.0" prefWidth="79.0" text="null">
+      <Label fx:id="upgrade3" layoutX="175.0" layoutY="291.0" prefHeight="17.0" prefWidth="137.0" text="null">
          <font>
             <Font name="Rockwell" size="14.0" />
          </font></Label>
-      <Label fx:id="upgrade4" layoutX="175.0" layoutY="308.0" prefHeight="17.0" prefWidth="79.0" text="null">
+      <Label fx:id="upgrade4" layoutX="175.0" layoutY="308.0" prefHeight="17.0" prefWidth="137.0" text="null">
          <font>
             <Font name="Rockwell" size="14.0" />
          </font></Label>
-      <Label fx:id="upgrade5" layoutX="175.0" layoutY="325.0" prefHeight="17.0" prefWidth="79.0" text="null">
+      <Label fx:id="upgrade5" layoutX="175.0" layoutY="325.0" prefHeight="17.0" prefWidth="137.0" text="null">
          <font>
             <Font name="Rockwell" size="14.0" />
          </font></Label>
-      <Label fx:id="upgrade6" layoutX="175.0" layoutY="342.0" prefHeight="17.0" prefWidth="79.0" text="null">
+      <Label fx:id="upgrade6" layoutX="175.0" layoutY="342.0" prefHeight="17.0" prefWidth="137.0" text="null">
          <font>
             <Font name="Rockwell" size="14.0" />
          </font></Label>
