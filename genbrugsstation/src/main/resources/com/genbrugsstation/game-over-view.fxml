@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.genbrugsstation.GameOverController">
+   <children>
+      <Label layoutX="286.0" layoutY="39.0" text="game over" />
+      <TextField fx:id="text" editable="false" layoutX="48.0" layoutY="97.0" prefHeight="121.0" prefWidth="491.0" />
+      <Button fx:id="backToGameBtn" layoutX="73.0" layoutY="253.0" mnemonicParsing="false" onAction="#backToGamePressed" text="tilbage til spil" />
+      <Button fx:id="leaveSaveBtn" layoutX="244.0" layoutY="253.0" mnemonicParsing="false" onAction="#leaveSavePressed" text="gem og forlad spil" />
+      <Button fx:id="startNewGameBtn" layoutX="436.0" layoutY="253.0" mnemonicParsing="false" onAction="#newGamePressed" text="nyt spil" />
+   </children>
+</AnchorPane>

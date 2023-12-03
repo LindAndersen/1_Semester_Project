@@ -23,9 +23,6 @@ public class MainMenuController extends SharedGUIFunc {
     private Scene scene;
     private Parent root;
 
-//    @FXML
-//    private ImageView menuImageView;
-//    private Image menuPic = new Image("/menu.png");
     @FXML
     private Button newGameBtn, leaveBtn, loadBtn, btn_savegame;
 

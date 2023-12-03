@@ -26,7 +26,7 @@
             <Image url="@../../græs_layers/SHOP%20-%20GRÆSLEVEL%203.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="imageview_græslvl4" fitHeight="150.0" fitWidth="200.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="imageview_græslvl4" fitHeight="558.0" fitWidth="701.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../græs_layers/SHOP%20-%20GRÆSLEVEL%204.png" />
          </image>
