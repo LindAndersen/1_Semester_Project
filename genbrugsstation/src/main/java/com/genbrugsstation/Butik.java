@@ -59,7 +59,7 @@ public class Butik extends Space implements DefaultSpace {
     public void goodbye(){
     }
 
-    public void initUpgrades(){
+    private void initUpgrades(){
 
         upgrades.put(1, new Upgrades("Cykelsti", 120, 200, 1.5, "1", 2));
         upgrades.put(2, new Upgrades("Motorvej", 100, 100, 1.5, "2", 1));
@@ -76,15 +76,16 @@ public class Butik extends Space implements DefaultSpace {
 
     }
 
+
+
     public void showUpgrades() {
         //formatting output like in CommandHelp
 
         Set<Integer> names = upgrades.keySet();
-
-      
         // present list of upgrades
+
         for(Integer e : upgrades.keySet()){
-            System.out.printf(" - [%d] %s  pris: %d, XP: %d%n", e, upgrades.get(e).getName(), upgrades.get(e).getPrice(), upgrades.get(e).getXP());            
+            System.out.printf(" - [%d] %s  pris: %d, XP: %d%n", e, upgrades.get(e).getName(), upgrades.get(e).getPrice(), upgrades.get(e).getXP());
         }
     }
 
@@ -118,7 +119,6 @@ public class Butik extends Space implements DefaultSpace {
 
 
     void removeUpgrade(int key) {
-
         upgrades.remove(key);
     }
 
