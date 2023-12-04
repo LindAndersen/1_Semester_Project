@@ -15,6 +15,8 @@ public class ParkController extends SharedGUIFunc {
     
     @FXML
     private Text feedback_txtField;
+    @FXML
+    private ImageView imageview_grass0, imageview_grass1, imageview_grass2, imageview_grass3, imageview_grass4, imageview_grass5;
 
     @FXML
     private ImageView imageview_filter, imageview_farve, imageview_legeplads, imageview_stadion;
@@ -24,6 +26,19 @@ public class ParkController extends SharedGUIFunc {
         feedback_txtField.setText("Here you will get feedback");
         updateTrash();
         updateSceneFromUpgrades();
+        updateSceneFromLevel();
+    }
+    private void updateSceneFromLevel() {
+        int lvl = player.getLvl();
+        ImageView[] grass = new ImageView[] {imageview_grass0, imageview_grass1, imageview_grass2, imageview_grass3, imageview_grass4, imageview_grass5};
+
+        for (int i = 0;i<grass.length;i++) {
+            if (lvl == i) {
+                grass[i].setOpacity(1);
+            } else {
+                grass[i].setOpacity(0);
+            }
+        }
     }
 
     private void updateSceneFromUpgrades() {

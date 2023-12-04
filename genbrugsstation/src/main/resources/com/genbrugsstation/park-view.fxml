@@ -11,6 +11,36 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="675.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.genbrugsstation.ParkController">
    <children>
+      <ImageView fx:id="imageview_grass5" fitHeight="675.0" fitWidth="907.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../græs_layers/SHOP%20-%20GRÆSLEVEL%205.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="imageview_grass4" fitHeight="675.0" fitWidth="900.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../græs_layers/SHOP%20-%20GRÆSLEVEL%204.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="imageview_grass3" fitHeight="675.0" fitWidth="900.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../græs_layers/SHOP%20-%20GRÆSLEVEL%203.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="imageview_grass2" fitHeight="675.0" fitWidth="900.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../græs_layers/SHOP%20-%20GRÆSLEVEL%202.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="imageview_grass1" fitHeight="675.0" fitWidth="900.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../græs_layers/SHOP%20-%20GRÆSLEVEL%201.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="imageview_grass0" fitHeight="675.0" fitWidth="900.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../græs_layers/SHOP%20-%20GRÆSLEVEL%200.png" />
+         </image>
+      </ImageView>
       <ImageView fitHeight="675.0" fitWidth="900.0" layoutY="-2.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../park.png" />

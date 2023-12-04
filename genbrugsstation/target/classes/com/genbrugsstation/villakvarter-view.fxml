@@ -11,6 +11,36 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="675.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.genbrugsstation.VillakvarterController">
    <children>
+      <ImageView fx:id="imageview_grass5" fitHeight="675.0" fitWidth="931.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../græs_layers/SHOP%20-%20GRÆSLEVEL%205.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="imageview_grass4" fitHeight="675.0" fitWidth="1006.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../græs_layers/SHOP%20-%20GRÆSLEVEL%204.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="imageview_grass3" fitHeight="675.0" fitWidth="1064.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../græs_layers/SHOP%20-%20GRÆSLEVEL%203.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="imageview_grass2" fitHeight="675.0" fitWidth="979.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../græs_layers/SHOP%20-%20GRÆSLEVEL%202.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="imageview_grass1" fitHeight="732.0" fitWidth="900.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../græs_layers/SHOP%20-%20GRÆSLEVEL%201.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="imageview_grass0" fitHeight="675.0" fitWidth="908.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../græs_layers/SHOP%20-%20GRÆSLEVEL%200.png" />
+         </image>
+      </ImageView>
       <ImageView fitHeight="675.0" fitWidth="900.0" layoutY="-2.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../villakvarter.png" />
@@ -47,17 +77,15 @@
             <Button fx:id="go_centrum" layoutX="756.0" layoutY="507.0" mnemonicParsing="false" onMouseClicked="#go" opacity="0.0" prefHeight="25.0" prefWidth="78.0" text="Centrum" />
             <Button fx:id="go_butik" layoutX="838.0" layoutY="520.0" mnemonicParsing="false" onMouseClicked="#go" opacity="0.0" prefHeight="25.0" prefWidth="69.0" text="Butik" />
             <Button fx:id="go_genbrugsstation" layoutX="761.0" layoutY="602.0" mnemonicParsing="false" onMouseClicked="#go" opacity="0.0" prefHeight="25.0" prefWidth="116.0" text="Genbrugsstation" />
-            <ImageView fitHeight="48.0" fitWidth="78.0" layoutX="93.0" layoutY="57.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../flaske.png" />
-               </image>
-            </ImageView>
-            <Button fx:id="pickup_1_flasker" layoutX="96.0" layoutY="69.0" mnemonicParsing="false" onMouseClicked="#pickup" opacity="0.0" prefHeight="41.0" prefWidth="78.0" text="Button" />
-            <Label fx:id="flasker_label" alignment="CENTER" contentDisplay="CENTER" layoutX="93.0" layoutY="95.0" prefHeight="32.0" prefWidth="84.0" text="Flasker" textFill="WHITE">
-               <font>
-                  <Font name="System Bold" size="20.0" />
-               </font>
-            </Label>
+            <StackPane fx:id="stackPane" layoutX="8.0" layoutY="647.0" prefHeight="36.0" prefWidth="900.0" style="-fx-background-color: black;">
+               <children>
+                  <Text fx:id="feedback_txtField" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-fill: white;" textAlignment="CENTER" wrappingWidth="864.4700317382812">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Text>
+               </children>
+            </StackPane>
          </children>
       </AnchorPane>
       <ImageView fitHeight="73.0" fitWidth="69.0" layoutX="825.0" layoutY="7.0" onMouseClicked="#showInventory" pickOnBounds="true" preserveRatio="true">
@@ -75,15 +103,6 @@
             <Button fx:id="btn_menu" mnemonicParsing="false" onMouseClicked="#showDefaultMenu" opacity="0.0" prefHeight="57.0" prefWidth="69.0" text="Menu" />
          </children>
       </AnchorPane>
-      <StackPane fx:id="stackPane" layoutY="643.0" prefHeight="36.0" prefWidth="900.0" style="-fx-background-color: black;">
-         <children>
-            <Text fx:id="feedback_txtField" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-fill: white;" textAlignment="CENTER" wrappingWidth="864.4700317382812">
-               <font>
-                  <Font size="24.0" />
-               </font>
-            </Text>
-         </children>
-      </StackPane>
       <AnchorPane layoutX="727.0" layoutY="50.0">
          <children>
             <ImageView fitHeight="43.0" fitWidth="45.0" layoutX="16.0" pickOnBounds="true" preserveRatio="true">
@@ -97,6 +116,21 @@
                </font>
             </Label>
             <Button fx:id="pickup_1_aviser" layoutX="11.0" layoutY="3.0" mnemonicParsing="false" onMouseClicked="#pickup" opacity="0.0" prefHeight="36.0" prefWidth="55.0" text="Button" />
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="88.0" layoutY="72.0">
+         <children>
+            <ImageView fitHeight="48.0" fitWidth="78.0" layoutX="3.0" layoutY="-10.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../flaske.png" />
+               </image>
+            </ImageView>
+            <Button fx:id="pickup_1_flasker" mnemonicParsing="false" onMouseClicked="#pickup" opacity="0.0" prefHeight="41.0" prefWidth="78.0" text="Button" />
+            <Label fx:id="flasker_label" alignment="CENTER" contentDisplay="CENTER" layoutX="1.0" layoutY="28.0" prefHeight="32.0" prefWidth="84.0" text="Flasker" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Label>
          </children>
       </AnchorPane>
    </children>
