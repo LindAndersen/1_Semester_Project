@@ -20,7 +20,7 @@ public class ButikController extends SharedGUIFunc {
     private Label pengetext, xptext, upgrade1, upgrade2, upgrade3, upgrade4, upgrade5, upgrade6, lolatekst;
 
     @FXML
-    private ImageView imageview_græslvl1, imageview_græslvl2, imageview_græslvl3, imageview_græslvl4, imageview_græslvl5;
+    private ImageView imageview_græslvl0, imageview_græslvl1, imageview_græslvl2, imageview_græslvl3, imageview_græslvl4, imageview_græslvl5;
 
     @FXML
     public void initialize(){
@@ -102,10 +102,10 @@ public class ButikController extends SharedGUIFunc {
 
     private void updateSceneFromLevel() {
         int lvl = player.getLvl();
-        ImageView[] grass = new ImageView[] {imageview_græslvl1, imageview_græslvl2, imageview_græslvl3, imageview_græslvl4, imageview_græslvl5};
+        ImageView[] grass = new ImageView[] {imageview_græslvl0, imageview_græslvl1, imageview_græslvl2, imageview_græslvl3, imageview_græslvl4, imageview_græslvl5};
 
         for (int i = 0;i<grass.length;i++) {
-            if (lvl == i+1) {
+            if (lvl == i) {
                 grass[i].setOpacity(1);
             } else {
                 grass[i].setOpacity(0);
