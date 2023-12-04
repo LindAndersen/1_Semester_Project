@@ -14,7 +14,7 @@ public class ButikController extends SharedGUIFunc {
 
 
     @FXML
-    private Button cykelsti, solceller, filter, bus, vinduer, leg, motor, bill, farve, parkering, olie, bold;
+    private Button cykelsti, solceller, filter, bus, vinduer, leg, motor, bill, farve, parkering, olie, bold, back;
 
     @FXML
     private Label pengetext, xptext, upgrade1, upgrade2, upgrade3, upgrade4, upgrade5, upgrade6, lolatekst;

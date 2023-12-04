@@ -5,101 +5,99 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="675.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.genbrugsstation.ButikController">
    <children>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="675.0" stroke="BLACK" strokeType="INSIDE" width="900.0" />
       <ImageView fitHeight="675.0" fitWidth="900.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../shop-vindue.png" />
+            <Image url="@../../lolas%20vindue.png" />
          </image>
       </ImageView>
-      <Button fx:id="butikTilbageButton" layoutX="673.0" layoutY="96.0" mnemonicParsing="false" onAction="#onButikTilbageClick" opacity="0.0" prefHeight="37.0" prefWidth="79.0" text="Gå tilbage til butik" />
-      <Button fx:id="cykelsti" layoutX="533.0" layoutY="157.0" mnemonicParsing="false" onAction="#onCykelstiButtonClick" text="Cykelsti" />
-      <Button fx:id="solceller" layoutX="531.0" layoutY="188.0" mnemonicParsing="false" onAction="#onSolcellerButtonClick" text="Solceller" />
-      <Button fx:id="filter" layoutX="511.0" layoutY="217.0" mnemonicParsing="false" onAction="#onFilterButtonClick" text="Filter i parksøen" />
-      <Button fx:id="bus" layoutX="514.0" layoutY="253.0" mnemonicParsing="false" onAction="#onBusButtonClick" text="Busstoppested" />
-      <Button fx:id="vinduer" layoutX="504.0" layoutY="283.0" mnemonicParsing="false" onAction="#onVinduerButtonClick" text="Isolerende vinduer" />
-      <Button fx:id="leg" layoutX="526.0" layoutY="312.0" mnemonicParsing="false" onAction="#onLegButtonClick" text="Legeplads" />
-      <Button fx:id="motor" layoutX="661.0" layoutY="157.0" mnemonicParsing="false" onAction="#onMotorButtonClick" text="Motorvej" />
-      <Button fx:id="bill" layoutX="659.0" layoutY="188.0" mnemonicParsing="false" onAction="#onBillButtonClick" text="Billboards" />
-      <Button fx:id="farve" layoutX="642.0" layoutY="217.0" mnemonicParsing="false" onAction="#onFarveButtonClick" text="Farve i parksøen" />
-      <Button fx:id="parkering" layoutX="648.0" layoutY="253.0" mnemonicParsing="false" onAction="#onParkeringButtonClick" text="Parkeringshus" />
-      <Button fx:id="olie" layoutX="667.0" layoutY="283.0" mnemonicParsing="false" onAction="#onOlieButtonClick" text="Oliefyr" />
-      <Button fx:id="bold" layoutX="643.0" layoutY="312.0" mnemonicParsing="false" onAction="#onBoldButtonClick" text="Fodboldstadion" />
-      <Label fx:id="pengetext" layoutX="175.0" layoutY="148.0" prefHeight="37.0" prefWidth="139.0" text="Du har 0 kr.">
+      <Button fx:id="cykelsti" layoutX="532.0" layoutY="134.0" mnemonicParsing="false" onAction="#onCykelstiButtonClick" text="Cykelsti" />
+      <Button fx:id="solceller" layoutX="532.0" layoutY="170.0" mnemonicParsing="false" onAction="#onSolcellerButtonClick" text="Solceller" />
+      <Button fx:id="filter" layoutX="511.0" layoutY="207.0" mnemonicParsing="false" onAction="#onFilterButtonClick" text="Filter i parksøen" />
+      <Button fx:id="bus" layoutX="514.0" layoutY="242.0" mnemonicParsing="false" onAction="#onBusButtonClick" text="Busstoppested" />
+      <Button fx:id="vinduer" layoutX="504.0" layoutY="275.0" mnemonicParsing="false" onAction="#onVinduerButtonClick" text="Isolerende vinduer" />
+      <Button fx:id="leg" layoutX="526.0" layoutY="307.0" mnemonicParsing="false" onAction="#onLegButtonClick" text="Legeplads" />
+      <Button fx:id="motor" layoutX="661.0" layoutY="134.0" mnemonicParsing="false" onAction="#onMotorButtonClick" text="Motorvej" />
+      <Button fx:id="bill" layoutX="658.0" layoutY="170.0" mnemonicParsing="false" onAction="#onBillButtonClick" text="Billboards" />
+      <Button fx:id="farve" layoutX="643.0" layoutY="207.0" mnemonicParsing="false" onAction="#onFarveButtonClick" text="Farve i parksøen" />
+      <Button fx:id="parkering" layoutX="649.0" layoutY="241.0" mnemonicParsing="false" onAction="#onParkeringButtonClick" text="Parkeringshus" />
+      <Button fx:id="olie" layoutX="668.0" layoutY="275.0" mnemonicParsing="false" onAction="#onOlieButtonClick" text="Oliefyr" />
+      <Button fx:id="bold" layoutX="643.0" layoutY="307.0" mnemonicParsing="false" onAction="#onBoldButtonClick" text="Fodboldstadion" />
+      <Label fx:id="pengetext" layoutX="199.0" layoutY="128.0" prefHeight="37.0" prefWidth="139.0" text="Du har 0 kr.">
          <font>
             <Font name="Rockwell" size="20.0" />
          </font></Label>
-      <Label layoutX="175.0" layoutY="232.0" text="Opgraderinger købt:">
+      <Label layoutX="200.0" layoutY="220.0" text="Opgraderinger købt:">
          <font>
             <Font name="Rockwell" size="14.0" />
          </font></Label>
-      <Label layoutX="175.0" layoutY="192.0" prefHeight="37.0" prefWidth="215.0" text="Du har 0 xp." fx:id="xptext">
+      <Label layoutX="198.0" layoutY="165.0" prefHeight="37.0" prefWidth="215.0" text="Du har 0 xp." fx:id="xptext">
          <font>
             <Font name="Rockwell" size="20.0" />
          </font></Label>
-      <Label fx:id="upgrade1" layoutX="175.0" layoutY="257.0" prefHeight="17.0" prefWidth="139.0" text="null">
+      <Label fx:id="upgrade1" layoutX="199.0" layoutY="239.0" prefHeight="17.0" prefWidth="139.0" text="null">
          <font>
             <Font name="Rockwell" size="14.0" />
          </font></Label>
-      <Label fx:id="upgrade2" layoutX="175.0" layoutY="274.0" prefHeight="17.0" prefWidth="137.0" text="null">
+      <Label fx:id="upgrade2" layoutX="199.0" layoutY="255.0" prefHeight="17.0" prefWidth="137.0" text="null">
          <font>
             <Font name="Rockwell" size="14.0" />
          </font></Label>
-      <Label fx:id="upgrade3" layoutX="175.0" layoutY="291.0" prefHeight="17.0" prefWidth="137.0" text="null">
+      <Label fx:id="upgrade3" layoutX="199.0" layoutY="272.0" prefHeight="17.0" prefWidth="137.0" text="null">
          <font>
             <Font name="Rockwell" size="14.0" />
          </font></Label>
-      <Label fx:id="upgrade4" layoutX="175.0" layoutY="308.0" prefHeight="17.0" prefWidth="137.0" text="null">
+      <Label fx:id="upgrade4" layoutX="200.0" layoutY="288.0" prefHeight="17.0" prefWidth="137.0" text="null">
          <font>
             <Font name="Rockwell" size="14.0" />
          </font></Label>
-      <Label fx:id="upgrade5" layoutX="175.0" layoutY="325.0" prefHeight="17.0" prefWidth="137.0" text="null">
+      <Label fx:id="upgrade5" layoutX="200.0" layoutY="303.0" prefHeight="17.0" prefWidth="137.0" text="null">
          <font>
             <Font name="Rockwell" size="14.0" />
          </font></Label>
-      <Label fx:id="upgrade6" layoutX="175.0" layoutY="342.0" prefHeight="17.0" prefWidth="137.0" text="null">
+      <Label fx:id="upgrade6" layoutX="200.0" layoutY="318.0" prefHeight="17.0" prefWidth="137.0" text="null">
          <font>
             <Font name="Rockwell" size="14.0" />
          </font></Label>
-      <Label fx:id="lolatekst" layoutX="356.0" layoutY="416.0" prefHeight="116.0" prefWidth="383.0" text="Velkommen til butikken borgmester! Hvilke opgraderinger til byen kan jeg interressere dig i?" wrapText="true">
+      <Label fx:id="lolatekst" layoutX="372.0" layoutY="396.0" prefHeight="116.0" prefWidth="383.0" text="Velkommen til butikken borgmester! Hvilke opgraderinger til byen kan jeg interressere dig i?" wrapText="true">
          <font>
             <Font name="Rockwell" size="14.0" />
          </font>
       </Label>
-      <Label layoutX="439.0" layoutY="157.0" text="Tier 1:">
+      <Label layoutX="439.0" layoutY="136.0" text="Tier 1:">
          <font>
             <Font name="Rockwell" size="16.0" />
          </font>
       </Label>
-      <Label layoutX="439.0" layoutY="191.0" text="Tier 2:">
+      <Label layoutX="439.0" layoutY="172.0" text="Tier 2:">
          <font>
             <Font name="Rockwell" size="16.0" />
          </font>
       </Label>
-      <Label layoutX="439.0" layoutY="220.0" text="Tier 3:">
+      <Label layoutX="439.0" layoutY="209.0" text="Tier 3:">
          <font>
             <Font name="Rockwell" size="16.0" />
          </font>
       </Label>
-      <Label layoutX="439.0" layoutY="256.0" text="Tier 4:">
+      <Label layoutX="439.0" layoutY="244.0" text="Tier 4:">
          <font>
             <Font name="Rockwell" size="16.0" />
          </font>
       </Label>
-      <Label layoutX="439.0" layoutY="286.0" text="Tier 5:">
+      <Label layoutX="439.0" layoutY="277.0" text="Tier 5:">
          <font>
             <Font name="Rockwell" size="16.0" />
          </font>
       </Label>
-      <Label layoutX="439.0" layoutY="315.0" text="Tier 6:">
+      <Label layoutX="439.0" layoutY="309.0" text="Tier 6:">
          <font>
             <Font name="Rockwell" size="16.0" />
          </font>
       </Label>
-      <Button fx:id="infobuttonopgradering" layoutX="312.0" layoutY="102.0" mnemonicParsing="false" onAction="#onInfoButtonOpgraderingClick" text="Information" />
+      <Button fx:id="infobuttonopgradering" layoutX="327.0" layoutY="83.0" mnemonicParsing="false" onAction="#onInfoButtonOpgraderingClick" text="Information" />
+      <Button fx:id="back" layoutX="692.0" layoutY="77.0" mnemonicParsing="false" onAction="#onButikTilbageClick" opacity="0.0" prefHeight="37.0" prefWidth="79.0" text="Button" />
    </children>
 </AnchorPane>

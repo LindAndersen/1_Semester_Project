@@ -98,5 +98,6 @@
          </font>
       </Label>
       <Button fx:id="infobuttonopgradering" layoutX="327.0" layoutY="83.0" mnemonicParsing="false" onAction="#onInfoButtonOpgraderingClick" text="Information" />
+      <Button fx:id="back" layoutX="692.0" layoutY="77.0" mnemonicParsing="false" onAction="#onButikTilbageClick" opacity="0.0" prefHeight="37.0" prefWidth="79.0" text="Button" />
    </children>
 </AnchorPane>
