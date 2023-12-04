@@ -12,7 +12,7 @@
             <Image url="@../../kontorpic.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="858.0" fitWidth="1153.0" layoutX="-289.0" layoutY="-365.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="858.0" fitWidth="1153.0" layoutX="-258.0" layoutY="-365.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../sign.png" />
          </image>
@@ -23,12 +23,12 @@
             <Image url="@../../tandhjul.png" />
          </image>
       </ImageView>
-      <Button fx:id="gearMenuBtn" layoutX="22.0" layoutY="26.0" mnemonicParsing="false" onAction="#menuBtnPressed" opacity="0.0" prefHeight="44.0" prefWidth="57.0" text="Menu" />
+      <Button fx:id="gearMenuBtn" layoutX="22.0" layoutY="27.0" mnemonicParsing="false" onAction="#menuBtnPressed" opacity="0.0" prefHeight="44.0" prefWidth="57.0" text="Menu" />
       <Button id="pc" fx:id="pcBtn" layoutX="335.0" layoutY="251.0" mnemonicParsing="false" onAction="#pcBtnPressed" opacity="0.0" prefHeight="58.0" prefWidth="77.0" text="pc" />
-      <Button fx:id="goBtn_centrum" layoutX="681.0" layoutY="327.0" mnemonicParsing="false" onAction="#goBtnPressed" opacity="0.0" prefHeight="25.0" prefWidth="83.0" text="Centrum" />
-      <Button fx:id="goBtn_villakvarter" layoutX="730.0" layoutY="382.0" mnemonicParsing="false" onAction="#goBtnPressed" opacity="0.0" prefHeight="25.0" prefWidth="111.0" text="Villakvarter" />
-      <Button fx:id="goBtn_genbrugsstation" layoutX="681.0" layoutY="432.0" mnemonicParsing="false" onAction="#goBtnPressed" opacity="0.0" prefHeight="25.0" prefWidth="124.0" text="Genbrugsstation" />
-      <Button fx:id="goBtn_park" layoutX="759.0" layoutY="407.0" mnemonicParsing="false" onAction="#goBtnPressed" opacity="0.0" prefHeight="25.0" prefWidth="75.0" text="Park" />
-      <Button fx:id="goBtn_butik" layoutX="762.0" layoutY="340.0" mnemonicParsing="false" onAction="#goBtnPressed" opacity="0.0" prefHeight="25.0" prefWidth="75.0" text="Butik" />
+      <Button fx:id="goBtn_centrum" layoutX="707.0" layoutY="321.0" mnemonicParsing="false" onAction="#goBtnPressed" opacity="0.0" prefHeight="25.0" prefWidth="83.0" text="Centrum" />
+      <Button fx:id="goBtn_villakvarter" layoutX="766.0" layoutY="380.0" mnemonicParsing="false" onAction="#goBtnPressed" opacity="0.0" prefHeight="25.0" prefWidth="111.0" text="Villakvarter" />
+      <Button fx:id="goBtn_genbrugsstation" layoutX="715.0" layoutY="430.0" mnemonicParsing="false" onAction="#goBtnPressed" opacity="0.0" prefHeight="25.0" prefWidth="124.0" text="Genbrugsstation" />
+      <Button fx:id="goBtn_park" layoutX="795.0" layoutY="406.0" mnemonicParsing="false" onAction="#goBtnPressed" opacity="0.0" prefHeight="25.0" prefWidth="75.0" text="Park" />
+      <Button fx:id="goBtn_butik" layoutX="796.0" layoutY="334.0" mnemonicParsing="false" onAction="#goBtnPressed" opacity="0.0" prefHeight="25.0" prefWidth="75.0" text="Butik" />
    </children>
 </AnchorPane>

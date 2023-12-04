@@ -35,29 +35,38 @@
             <Image url="@../../villakvarter_upgrades/Oliefyr.png" />
          </image>
       </ImageView>
-      <AnchorPane layoutX="-425.0" layoutY="-180.0">
+      <AnchorPane layoutX="-8.0" layoutY="-6.0" prefHeight="675.0" prefWidth="979.0">
          <children>
-            <ImageView fitHeight="735.0" fitWidth="1015.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="675.0" fitWidth="900.0" layoutX="8.0" layoutY="-26.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../sign.png" />
                </image>
             </ImageView>
-            <Button fx:id="go_park" layoutX="888.0" layoutY="657.0" mnemonicParsing="false" onMouseClicked="#go" opacity="0.0" prefHeight="25.0" prefWidth="69.0" text="Park" />
-            <Button fx:id="go_kontor" layoutX="830.0" layoutY="618.0" mnemonicParsing="false" onMouseClicked="#go" opacity="0.0" prefHeight="25.0" prefWidth="69.0" text="Kontor" />
-            <Button fx:id="go_centrum" layoutX="826.0" layoutY="589.0" mnemonicParsing="false" onMouseClicked="#go" opacity="0.0" prefHeight="25.0" prefWidth="78.0" text="Centrum" />
-            <Button fx:id="go_butik" layoutX="899.0" layoutY="601.0" mnemonicParsing="false" onMouseClicked="#go" opacity="0.0" prefHeight="25.0" prefWidth="69.0" text="Butik" />
-            <Button fx:id="go_genbrugsstation" layoutX="826.0" layoutY="682.0" mnemonicParsing="false" onMouseClicked="#go" opacity="0.0" prefHeight="25.0" prefWidth="116.0" text="Genbrugsstation" />
-            <ImageView fitHeight="48.0" fitWidth="78.0" layoutX="680.0" layoutY="235.0" pickOnBounds="true" preserveRatio="true">
+            <Button fx:id="go_park" layoutX="838.0" layoutY="576.0" mnemonicParsing="false" onMouseClicked="#go" opacity="0.0" prefHeight="25.0" prefWidth="69.0" text="Park" />
+            <Button fx:id="go_kontor" layoutX="760.0" layoutY="533.0" mnemonicParsing="false" onMouseClicked="#go" opacity="0.0" prefHeight="25.0" prefWidth="69.0" text="Kontor" />
+            <Button fx:id="go_centrum" layoutX="756.0" layoutY="507.0" mnemonicParsing="false" onMouseClicked="#go" opacity="0.0" prefHeight="25.0" prefWidth="78.0" text="Centrum" />
+            <Button fx:id="go_butik" layoutX="838.0" layoutY="520.0" mnemonicParsing="false" onMouseClicked="#go" opacity="0.0" prefHeight="25.0" prefWidth="69.0" text="Butik" />
+            <Button fx:id="go_genbrugsstation" layoutX="761.0" layoutY="602.0" mnemonicParsing="false" onMouseClicked="#go" opacity="0.0" prefHeight="25.0" prefWidth="116.0" text="Genbrugsstation" />
+            <ImageView fitHeight="48.0" fitWidth="78.0" layoutX="93.0" layoutY="57.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../flaske.png" />
                </image>
             </ImageView>
-            <Button fx:id="pickup_1_flasker" layoutX="683.0" layoutY="242.0" mnemonicParsing="false" onMouseClicked="#pickup" opacity="0.0" prefHeight="41.0" prefWidth="78.0" text="Button" />
-            <Label fx:id="flasker_label" alignment="CENTER" contentDisplay="CENTER" layoutX="683.0" layoutY="267.0" prefHeight="32.0" prefWidth="84.0" text="Flasker" textFill="WHITE">
+            <Button fx:id="pickup_1_flasker" layoutX="96.0" layoutY="69.0" mnemonicParsing="false" onMouseClicked="#pickup" opacity="0.0" prefHeight="41.0" prefWidth="78.0" text="Button" />
+            <Label fx:id="flasker_label" alignment="CENTER" contentDisplay="CENTER" layoutX="93.0" layoutY="95.0" prefHeight="32.0" prefWidth="84.0" text="Flasker" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font>
             </Label>
+            <StackPane fx:id="stackPane" layoutX="8.0" layoutY="647.0" prefHeight="36.0" prefWidth="900.0" style="-fx-background-color: black;">
+               <children>
+                  <Text fx:id="feedback_txtField" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-fill: white;" textAlignment="CENTER" wrappingWidth="864.4700317382812">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Text>
+               </children>
+            </StackPane>
          </children>
       </AnchorPane>
       <ImageView fitHeight="73.0" fitWidth="69.0" layoutX="825.0" layoutY="7.0" onMouseClicked="#showInventory" pickOnBounds="true" preserveRatio="true">
@@ -75,15 +84,6 @@
             <Button fx:id="btn_menu" mnemonicParsing="false" onMouseClicked="#showDefaultMenu" opacity="0.0" prefHeight="57.0" prefWidth="69.0" text="Menu" />
          </children>
       </AnchorPane>
-      <StackPane fx:id="stackPane" layoutY="643.0" prefHeight="36.0" prefWidth="900.0" style="-fx-background-color: black;">
-         <children>
-            <Text fx:id="feedback_txtField" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-fill: white;" textAlignment="CENTER" wrappingWidth="864.4700317382812">
-               <font>
-                  <Font size="24.0" />
-               </font>
-            </Text>
-         </children>
-      </StackPane>
       <AnchorPane layoutX="727.0" layoutY="50.0">
          <children>
             <ImageView fitHeight="43.0" fitWidth="45.0" layoutX="16.0" pickOnBounds="true" preserveRatio="true">
