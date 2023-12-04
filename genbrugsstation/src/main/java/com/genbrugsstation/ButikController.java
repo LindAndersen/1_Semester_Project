@@ -22,8 +22,7 @@ public class ButikController extends SharedGUIFunc {
 
     @FXML
     private ImageView imageview_græslvl0, imageview_græslvl1, imageview_græslvl2, imageview_græslvl3, imageview_græslvl4, imageview_græslvl5;
-    private ImageView[] grass;
-
+    
     private static final Map<String, Integer> upgradeIndexMap = new LinkedHashMap<>();
 
     static {
@@ -41,9 +40,12 @@ public class ButikController extends SharedGUIFunc {
         upgradeIndexMap.put("12", 5);
     }
 
+    private ImageView[] grass;
+
     @FXML
     public void initialize(){
         grass = new ImageView[] {imageview_græslvl0, imageview_græslvl1, imageview_græslvl2, imageview_græslvl3, imageview_græslvl4, imageview_græslvl5};
+
         if (pengetext != null && xptext != null) {
             pengetext.setText("Du har " + context.getPlayer().getMoney() + " kr.");
             xptext.setText("Du har " + context.getPlayer().getXP() + " xp.");
@@ -93,7 +95,6 @@ public class ButikController extends SharedGUIFunc {
 
     private void updateSceneFromLevel() {
         int lvl = player.getLvl();
-
         for (int i = 0;i<grass.length;i++) {
             if (lvl == i) {
                 grass[i].setOpacity(1);
