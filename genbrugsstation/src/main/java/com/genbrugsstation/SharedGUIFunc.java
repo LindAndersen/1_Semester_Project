@@ -4,6 +4,7 @@ import java.io.IOException;
 
 import javafx.event.Event;
 import javafx.scene.control.Button;
+import javafx.scene.image.ImageView;
 
 public class SharedGUIFunc {
     static Context context = Game.getContext();

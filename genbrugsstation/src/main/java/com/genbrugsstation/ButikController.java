@@ -2,6 +2,7 @@ package com.genbrugsstation;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 
 import java.io.IOException;
@@ -17,6 +18,9 @@ public class ButikController extends SharedGUIFunc {
 
     @FXML
     private Label pengetext, xptext, upgrade1, upgrade2, upgrade3, upgrade4, upgrade5, upgrade6, lolatekst;
+
+    @FXML
+    private ImageView imageview_græslvl1, imageview_græslvl2, imageview_græslvl3, imageview_græslvl4, imageview_græslvl5;
 
     @FXML
     public void initialize(){
@@ -90,6 +94,23 @@ public class ButikController extends SharedGUIFunc {
             }
         }
 
+        if (imageview_græslvl1 != null) {
+            updateSceneFromLevel();
+        }
+
+    }
+
+    private void updateSceneFromLevel() {
+        int lvl = player.getLvl();
+        ImageView[] grass = new ImageView[] {imageview_græslvl1, imageview_græslvl2, imageview_græslvl3, imageview_græslvl4, imageview_græslvl5};
+
+        for (int i = 0;i<grass.length;i++) {
+            if (lvl == i+1) {
+                grass[i].setOpacity(1);
+            } else {
+                grass[i].setOpacity(0);
+            }
+        }
     }
 
     public void setButtonDisable(Button a, Button b){
