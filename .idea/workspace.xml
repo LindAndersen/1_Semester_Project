@@ -5,14 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="59171aac-06d8-4cf6-81e8-81f7527452c0" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/genbrugsstation/src/main/java/com/genbrugsstation/GameOverController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/genbrugsstation/src/main/java/com/genbrugsstation/ButikController.java" beforeDir="false" afterPath="$PROJECT_DIR$/genbrugsstation/src/main/java/com/genbrugsstation/ButikController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/genbrugsstation/src/main/java/com/genbrugsstation/Context.java" beforeDir="false" afterPath="$PROJECT_DIR$/genbrugsstation/src/main/java/com/genbrugsstation/Context.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/genbrugsstation/src/main/java/com/genbrugsstation/MainMenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/genbrugsstation/src/main/java/com/genbrugsstation/MainMenuController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/genbrugsstation/src/main/java/com/genbrugsstation/Butik.java" beforeDir="false" afterPath="$PROJECT_DIR$/genbrugsstation/src/main/java/com/genbrugsstation/Butik.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/genbrugsstation/src/main/java/com/genbrugsstation/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/genbrugsstation/src/main/java/com/genbrugsstation/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/genbrugsstation/src/main/java/com/genbrugsstation/World.java" beforeDir="false" afterPath="$PROJECT_DIR$/genbrugsstation/src/main/java/com/genbrugsstation/World.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,7 +38,8 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "gui__main",
+    "git-widget-placeholder": "Balance-Patch-1.0",
+    "ignore.virus.scanning.warn.message": "true",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -60,6 +57,7 @@
       <option name="presentableId" value="Default" />
       <updated>1701439334078</updated>
       <workItem from="1701602640771" duration="4821000" />
+      <workItem from="1701693876758" duration="3013000" />
     </task>
     <servers />
   </component>

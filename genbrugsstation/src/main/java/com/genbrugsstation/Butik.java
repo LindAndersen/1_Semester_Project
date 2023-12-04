@@ -61,18 +61,18 @@ public class Butik extends Space implements DefaultSpace {
 
     private void initUpgrades(){
 
-        upgrades.put(1, new Upgrades("Cykelsti", 120, 200, 1.5, "1", 2));
-        upgrades.put(2, new Upgrades("Motorvej", 100, 100, 1.5, "2", 1));
-        upgrades.put(3, new Upgrades("Billboard", 120, 100, 1.5, "3", 5));
-        upgrades.put(4, new Upgrades("Bustoppested", 180, 200, 1.5, "4", 10));
-        upgrades.put(5, new Upgrades("Solceller", 140, 200, 1.5, "5", 3));
-        upgrades.put(6, new Upgrades("Filter i parksøen", 160, 200, 1.5, "6", 9));
-        upgrades.put(7, new Upgrades("Isolerende vinduer", 200, 200, 1.5, "7", 11));
-        upgrades.put(8, new Upgrades("Legeplads", 220, 200, 1.5, "8", 12));
-        upgrades.put(9, new Upgrades("Farve i parksøen", 140, 100, 1.5, "9", 6));
-        upgrades.put(10, new Upgrades("Parkeringshus", 160, 100, 1.5, "10", 4));
-        upgrades.put(11, new Upgrades("Varmeanlæg m. oliefyr", 180, 100, 1.5, "11", 7));
-        upgrades.put(12, new Upgrades("Fodboldstadion", 200, 100, 1.5, "12", 8));
+        upgrades.put(1, new Upgrades("Cykelsti", 120, 60, 1.5, "1", 2));
+        upgrades.put(2, new Upgrades("Motorvej", 100, 0, 1.5, "2", 1));
+        upgrades.put(3, new Upgrades("Billboard", 120, 0, 1.5, "3", 5));
+        upgrades.put(4, new Upgrades("Bustoppested", 180, 60, 1.5, "4", 10));
+        upgrades.put(5, new Upgrades("Solceller", 140, 60, 1.5, "5", 3));
+        upgrades.put(6, new Upgrades("Filter i parksøen", 160, 60, 1.5, "6", 9));
+        upgrades.put(7, new Upgrades("Isolerende vinduer", 200, 60, 1.5, "7", 11));
+        upgrades.put(8, new Upgrades("Legeplads", 220, 60, 1.5, "8", 12));
+        upgrades.put(9, new Upgrades("Farve i parksøen", 140, 0, 1.5, "9", 6));
+        upgrades.put(10, new Upgrades("Parkeringshus", 160, 0, 1.5, "10", 4));
+        upgrades.put(11, new Upgrades("Varmeanlæg m. oliefyr", 180, 0, 1.5, "11", 7));
+        upgrades.put(12, new Upgrades("Fodboldstadion", 200, 0, 1.5, "12", 8));
 
     }
 
