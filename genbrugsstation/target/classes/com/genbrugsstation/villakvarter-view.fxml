@@ -79,6 +79,11 @@
             <Button fx:id="go_genbrugsstation" layoutX="761.0" layoutY="602.0" mnemonicParsing="false" onMouseClicked="#go" opacity="0.0" prefHeight="25.0" prefWidth="116.0" text="Genbrugsstation" />
             <StackPane fx:id="stackPane" layoutX="8.0" layoutY="647.0" prefHeight="36.0" prefWidth="900.0" style="-fx-background-color: black;">
                <children>
+                  <ImageView fitHeight="150.0" fitWidth="900.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../Chatbox%20brun!.png" />
+                     </image>
+                  </ImageView>
                   <Text fx:id="feedback_txtField" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-fill: white;" textAlignment="CENTER" wrappingWidth="864.4700317382812">
                      <font>
                         <Font size="24.0" />

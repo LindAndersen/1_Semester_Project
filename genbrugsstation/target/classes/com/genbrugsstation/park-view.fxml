@@ -91,6 +91,11 @@
       </ImageView>
       <StackPane fx:id="stackPane" layoutY="637.0" prefHeight="41.0" prefWidth="900.0" style="-fx-background-color: black;">
          <children>
+            <ImageView fitHeight="150.0" fitWidth="900.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../Chatbox%20brun!.png" />
+               </image>
+            </ImageView>
             <Text fx:id="feedback_txtField" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-fill: white;" textAlignment="CENTER" wrappingWidth="850.13671875">
                <font>
                   <Font size="24.0" />
