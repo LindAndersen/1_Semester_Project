@@ -8,11 +8,14 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
 
 public class GenbrugsstationController extends SharedGUIFunc {
     @FXML
     private Label metalskrot_label, batterier_label, plastik_label;
+    @FXML
+    private AnchorPane anchorpane_plastik, anchorpane_metalskrot, anchorpane_batterier;
     @FXML
     private Text feedback_txtField;
     @FXML
@@ -20,10 +23,15 @@ public class GenbrugsstationController extends SharedGUIFunc {
     @FXML
     private ImageView imageview_græslvl1, imageview_græslvl2, imageview_græslvl3, imageview_græslvl4, imageview_græslvl5;
 
+    private AnchorPane[] trashGUIelements;
+    private Label[] trashGUIlabels;
+
     @FXML
     public void initialize() {
+        trashGUIelements  = new AnchorPane[]{anchorpane_metalskrot, anchorpane_batterier, anchorpane_plastik};
+        trashGUIlabels = new Label[] {metalskrot_label, batterier_label, plastik_label};
         if (!(imageview_græslvl1 == null)) {updateSceneFromLevel();}
-        updateTrash();
+        if (!(metalskrot_label == null)) {updateTrash();makeTrashVisible(trashGUIelements, trashGUIlabels);}
         updateFeedback("Here you will get feedback");
     }
 
@@ -45,22 +53,11 @@ public class GenbrugsstationController extends SharedGUIFunc {
     }
 
     private void updateTrash() {
-        if (metalskrot_label == null) {return;}
-        Trash[] trash = context.getCurrent().getTrash();
-        for (Trash t : trash) {
-            String amount = Integer.toString(t.getAmount());
-            switch (t.getName()) {
-                case "metalskrot":
-                    metalskrot_label.setText(amount);
-                    break;
-                case "batterier":
-                    batterier_label.setText(amount);
-                    break;
-                case "plastik":
-                    plastik_label.setText(amount);
-                    break;
-            }
-        }
+        String[] update = getTrashUpdate();
+        setTrashVisibility(trashGUIelements, update);
+        metalskrot_label.setText(update[0]);
+        batterier_label.setText(update[1]);
+        plastik_label.setText(update[2]);
     }
 
     @FXML

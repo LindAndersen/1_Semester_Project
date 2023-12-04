@@ -59,7 +59,7 @@
             <Button fx:id="go_centrum" layoutX="1323.0" layoutY="724.0" mnemonicParsing="false" onMouseClicked="#go" opacity="0.0" prefHeight="25.0" prefWidth="78.0" text="Centrum" />
             <Button fx:id="go_butik" layoutX="1398.0" layoutY="737.0" mnemonicParsing="false" onMouseClicked="#go" opacity="0.0" prefHeight="25.0" prefWidth="77.0" text="Butik" />
             <Button fx:id="go_park" layoutX="1388.0" layoutY="786.0" mnemonicParsing="false" onMouseClicked="#go" opacity="0.0" prefHeight="25.0" prefWidth="88.0" text="Park" />
-            <AnchorPane layoutX="921.0" layoutY="569.0">
+            <AnchorPane fx:id="anchorpane_plastik" layoutX="921.0" layoutY="569.0">
                <children>
                   <ImageView fitHeight="65.0" fitWidth="88.0" layoutX="5.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -74,7 +74,7 @@
                   <Button fx:id="pickup_1_plastik" layoutY="3.0" mnemonicParsing="false" onMouseClicked="#pickup" opacity="0.0" prefHeight="39.0" prefWidth="98.0" wrapText="true" />
                </children>
             </AnchorPane>
-            <AnchorPane layoutX="1043.0" layoutY="279.0">
+            <AnchorPane fx:id="anchorpane_metalskrot" layoutX="1043.0" layoutY="279.0">
                <children>
                   <Label fx:id="metalskrot_label" alignment="CENTER" contentDisplay="CENTER" layoutX="2.0" layoutY="59.0" prefHeight="42.0" prefWidth="88.0" text="Metalskrot" wrapText="true">
                      <font>
@@ -101,7 +101,7 @@
             </Text>
          </children>
       </StackPane>
-      <AnchorPane layoutX="575.0" layoutY="273.0">
+      <AnchorPane fx:id="anchorpane_batterier" layoutX="575.0" layoutY="273.0">
          <children>
             <Label fx:id="batterier_label" alignment="CENTER" contentDisplay="CENTER" layoutX="7.0" layoutY="51.0" prefHeight="30.0" prefWidth="69.0" text="Batterier">
                <font>

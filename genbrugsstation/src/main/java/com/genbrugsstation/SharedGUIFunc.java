@@ -4,7 +4,9 @@ import java.io.IOException;
 
 import javafx.event.Event;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
 
 public class SharedGUIFunc {
     static Context context = Game.getContext();
@@ -53,5 +55,24 @@ public class SharedGUIFunc {
         }
 
         return false;
+    }
+
+    public void makeTrashVisible(AnchorPane[] trashGUIelements, Label[] trashGUIlabels) {
+        if (trashGUIelements.length != trashGUIlabels.length){
+            System.out.println("Not equal amounts of trash and labels");
+            return;
+        }
+
+        for (int i = 0; i<trashGUIelements.length;i++) {
+            trashGUIelements[i].setOpacity((trashGUIlabels[i].getText().equals("0") ? 0 : 1));
+        }
+    }
+
+    public void setTrashVisibility(AnchorPane[] trashGUIelements, String[] update) {
+        for (int i = 0;i<trashGUIelements.length;i++) {
+            if (update[i].equals("0")) {
+                trashGUIelements[i].setOpacity(0);
+            }
+        }
     }
 }

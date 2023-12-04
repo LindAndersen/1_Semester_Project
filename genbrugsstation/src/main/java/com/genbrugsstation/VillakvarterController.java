@@ -7,6 +7,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
 
 public class VillakvarterController extends SharedGUIFunc {    
@@ -19,16 +20,23 @@ public class VillakvarterController extends SharedGUIFunc {
 
     @FXML
     private ImageView imageview_grass0, imageview_grass1, imageview_grass2, imageview_grass3, imageview_grass4, imageview_grass5;
-
+    @FXML
+    private AnchorPane anchorpane_aviser, anchorpane_flasker;
     @FXML
     private ImageView imageview_cykelsti, imageview_isolerendevinduer, imageview_motorvej, imageview_oliefyr;
 
+    private AnchorPane[] trashGUIelements;
+    private Label[] trashGUIlabels;
+
     @FXML
     public void initialize() {
+        trashGUIelements = new AnchorPane[] {anchorpane_flasker, anchorpane_aviser};
+        trashGUIlabels = new Label[] {flasker_label, aviser_label};
         feedback_txtField.setText("Here you will get feedback");
         updateTrash();
         updateSceneFromUpgrades();
         updateSceneFromLevel();
+        makeTrashVisible(trashGUIelements, trashGUIlabels);
     }
 
     private void updateSceneFromLevel() {
@@ -64,6 +72,7 @@ public class VillakvarterController extends SharedGUIFunc {
 
     private void updateTrash() {
         String[] update = getTrashUpdate();
+        setTrashVisibility(trashGUIelements, update);
         flasker_label.setText(update[0]);
         aviser_label.setText(update[1]);
     }

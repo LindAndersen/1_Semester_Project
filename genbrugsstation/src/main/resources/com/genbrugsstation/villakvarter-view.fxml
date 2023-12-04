@@ -103,7 +103,7 @@
             <Button fx:id="btn_menu" mnemonicParsing="false" onMouseClicked="#showDefaultMenu" opacity="0.0" prefHeight="57.0" prefWidth="69.0" text="Menu" />
          </children>
       </AnchorPane>
-      <AnchorPane layoutX="727.0" layoutY="50.0">
+      <AnchorPane fx:id="anchorpane_aviser" layoutX="727.0" layoutY="50.0">
          <children>
             <ImageView fitHeight="43.0" fitWidth="45.0" layoutX="16.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -118,7 +118,7 @@
             <Button fx:id="pickup_1_aviser" layoutX="11.0" layoutY="3.0" mnemonicParsing="false" onMouseClicked="#pickup" opacity="0.0" prefHeight="36.0" prefWidth="55.0" text="Button" />
          </children>
       </AnchorPane>
-      <AnchorPane layoutX="88.0" layoutY="72.0">
+      <AnchorPane fx:id="anchorpane_flasker" layoutX="88.0" layoutY="72.0">
          <children>
             <ImageView fitHeight="48.0" fitWidth="78.0" layoutX="3.0" layoutY="-10.0" pickOnBounds="true" preserveRatio="true">
                <image>

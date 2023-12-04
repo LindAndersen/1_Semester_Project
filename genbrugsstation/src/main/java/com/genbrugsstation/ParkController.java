@@ -7,6 +7,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
 
 public class ParkController extends SharedGUIFunc {
@@ -17,16 +18,23 @@ public class ParkController extends SharedGUIFunc {
     private Text feedback_txtField;
     @FXML
     private ImageView imageview_grass0, imageview_grass1, imageview_grass2, imageview_grass3, imageview_grass4, imageview_grass5;
-
+    @FXML
+    private AnchorPane anchorpane_flasker, anchorpane_aviser;
     @FXML
     private ImageView imageview_filter, imageview_farve, imageview_legeplads, imageview_stadion;
 
+    private AnchorPane[] trashGUIelements;
+    private Label[] trashGUIlabels;
+
     @FXML
     public void initialize() {
+        trashGUIelements = new AnchorPane[] {anchorpane_flasker, anchorpane_aviser};
+        trashGUIlabels = new Label[] {flasker_label, aviser_label};
         feedback_txtField.setText("Here you will get feedback");
         updateTrash();
         updateSceneFromUpgrades();
         updateSceneFromLevel();
+        makeTrashVisible(trashGUIelements, trashGUIlabels);
     }
     private void updateSceneFromLevel() {
         int lvl = player.getLvl();
@@ -60,19 +68,10 @@ public class ParkController extends SharedGUIFunc {
     }
 
     private void updateTrash() {
-
-        Trash[] trash = context.getCurrent().getTrash();
-        for (Trash t : trash) {
-            String amountString = Integer.toString(t.getAmount());
-            switch (t.getName()) {
-                case "aviser":
-                    aviser_label.setText(amountString);
-                    break;
-                case "flasker":
-                    flasker_label.setText(amountString);
-                    break;
-            }
-        }
+        String[] update = getTrashUpdate();
+        setTrashVisibility(trashGUIelements, update);
+        flasker_label.setText(update[0]);
+        aviser_label.setText(update[1]);
     }
 
 

@@ -6,6 +6,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
 
 public class CentrumController extends SharedGUIFunc {
@@ -17,12 +18,20 @@ public class CentrumController extends SharedGUIFunc {
     private Text feedback_txtField;
     @FXML
     private ImageView imageview_billboard, imageview_busstoppested, imageview_parkeringshus, imageview_solceller;
+    @FXML
+    private AnchorPane anchorpane_flasker, anchorpane_aviser;
+
+    private AnchorPane[] trashGUIelements;
+    private Label[] trashGUIlabels;
 
     @FXML
     public void initialize() {
+        trashGUIelements = new AnchorPane[] {anchorpane_flasker, anchorpane_aviser};
+        trashGUIlabels = new Label[] {flasker_label, aviser_label};
         feedback_txtField.setText("Here you will get feedback");
         updateSceneFromUpgrades();
         updateTrash();
+        makeTrashVisible(trashGUIelements, trashGUIlabels);
     }
 
     private void updateSceneFromUpgrades() {
@@ -44,18 +53,10 @@ public class CentrumController extends SharedGUIFunc {
     }
 
     private void updateTrash() {
-        Trash[] trash = context.getCurrent().getTrash();
-        for (Trash t : trash) {
-            String amountString = Integer.toString(t.getAmount());
-            switch (t.getName()) {
-                case "aviser":
-                    aviser_label.setText(amountString);
-                    break;
-                case "flasker":
-                    flasker_label.setText(amountString);
-                    break;
-            }
-        }
+        String[] update = getTrashUpdate();
+        setTrashVisibility(trashGUIelements, update);
+        flasker_label.setText(update[0]);
+        aviser_label.setText(update[1]);
     }
 
     @FXML
