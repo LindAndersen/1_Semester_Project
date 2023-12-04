@@ -17,7 +17,7 @@ public class ParkController extends SharedGUIFunc {
     private Text feedback_txtField;
 
     @FXML
-    private ImageView imageview_filter, imageview_farve; 
+    private ImageView imageview_filter, imageview_farve, imageview_legeplads, imageview_stadion;
 
     @FXML
     public void initialize() {
@@ -33,11 +33,11 @@ public class ParkController extends SharedGUIFunc {
             imageview_farve.setOpacity(1);
         }
 
-        // if (isUpgradeBought("Legeplads")) {
-        //     imageview_busstoppested.setOpacity(1);
-        // } else if (isUpgradeBought("Fodboldstadion")) {
-        //     imageview_parkeringshus.setOpacity(1);
-        // }
+        if (isUpgradeBought("Legeplads")) {
+            imageview_legeplads.setOpacity(1);
+         } else if (isUpgradeBought("Stadion")) {
+             imageview_stadion.setOpacity(1);
+        }
     }
 
     private void updateFeedback(String feedback) {

@@ -134,9 +134,9 @@ public class ButikController extends SharedGUIFunc {
             xp[i - 1] = Butik.getUpgradeXp(i);
         }
 
-        String tillykke = new String("Tillykke du har købt opgraderingen ");
+        String tillykke = "Tillykke du har købt opgraderingen ";
 
-        String[] forklaring = new String[]{
+        String[] forklaring = {
                 "Cykelstier hjælper folk med at komme sikkert og klimavenligt rundt i byen!",
                 "Motorvejen hjælper folk med at komme hurtigt igennem byen, men mindsker gåbarheden og øger støjen og klimaforureningen i byen!",
                 "Billboards hjælper virksomheder med at reklamere, men øger lysforureningen og klimaforureningen i byen!",
