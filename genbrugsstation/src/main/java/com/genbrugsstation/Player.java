@@ -13,9 +13,9 @@ class Player implements Serializable {
 
     public Player(String name) {
         this.name = name;
-        xp = 100;
+        xp = 0;
         lvl = 1;
-        money = 100;
+        money = 0;
         inventory = new Inventory();
         resetInventory();
         buyCount = 0;
@@ -73,9 +73,9 @@ class Player implements Serializable {
 
     public int getLvl() {
         //Tjekker hvor meget xps værdi er og sætter lvl value efter det
-        int lvl = 1;
+        int lvl = 0;
 
-        if (xp < 200) {
+        if (99 < xp && xp < 200) {
             lvl = 1;
         } else if (199 < xp && xp < 300) {
             lvl = 2;
@@ -83,7 +83,7 @@ class Player implements Serializable {
             lvl = 3;
         } else if (399 < xp && xp < 500) {
             lvl = 4;
-        } else {
+        } else if (499 < xp){
             lvl = 5; // Alt over 400 xp er level 5
         }
 
@@ -137,7 +137,7 @@ class Player implements Serializable {
     public int[] recycleGreen() {
         int amountOfTrash = getTrashAmount();
         int money = 3 * amountOfTrash;
-        int xp = money;
+        int xp = (int) (0.5 * amountOfTrash);
         emptyInventory();
         addMoney(money);
         addXP(xp);
@@ -162,7 +162,7 @@ class Player implements Serializable {
 
         if (canPickup) {
             context.getPlayer().addToInventory(name, amount);
-            context.getPlayer().addXP(2 * amount);
+            context.getPlayer().addXP((int)(0.5 * amount));
         }
 
         return canPickup;
