@@ -4,7 +4,7 @@ import java.util.Map;
 import java.util.HashMap;
 import java.util.Set;
 
-public class Butik extends Space implements DefaultSpace {
+public class Butik extends Space {
 
     private static HashMap<Integer, Upgrades> upgrades;
     private String[] commands = {"exit", "go", "help", "buy", "reset"};
@@ -19,9 +19,6 @@ public class Butik extends Space implements DefaultSpace {
 
     @Override
     public void welcome() {
-        System.out.println("\n_______________________________________________________");
-        System.out.println("\nButikkens udvalg af opgraderinger:");
-        showUpgrades();
         makeHandled();
     }
 
@@ -54,11 +51,6 @@ public class Butik extends Space implements DefaultSpace {
         return isHandled;
     }
 
-
-    @Override
-    public void goodbye(){
-    }
-
     private void initUpgrades(){
 
         upgrades.put(1, new Upgrades("Cykelsti", 120, 60, 1.5, "1", 2));
@@ -74,19 +66,6 @@ public class Butik extends Space implements DefaultSpace {
         upgrades.put(11, new Upgrades("Varmeanlæg m. oliefyr", 180, 0, 1.5, "11", 7));
         upgrades.put(12, new Upgrades("Fodboldstadion", 200, 0, 1.5, "12", 8));
 
-    }
-
-
-
-    public void showUpgrades() {
-        //formatting output like in CommandHelp
-
-        Set<Integer> names = upgrades.keySet();
-        // present list of upgrades
-
-        for(Integer e : upgrades.keySet()){
-            System.out.printf(" - [%d] %s  pris: %d, XP: %d%n", e, upgrades.get(e).getName(), upgrades.get(e).getPrice(), upgrades.get(e).getXP());
-        }
     }
 
     // Metode til at hente pris baseret på en key
@@ -116,8 +95,6 @@ public class Butik extends Space implements DefaultSpace {
         }
     }
 
-
-
     void removeUpgrade(int key) {
         upgrades.remove(key);
     }
@@ -145,20 +122,5 @@ public class Butik extends Space implements DefaultSpace {
         System.out.println("\nDu har så mange mønter nu: " + player.getMoney());
         System.out.println("Du har så meget xp nu: " + player.getXP() + "\n");
 
-    }
-
-
-    @Override
-    public void showTrash() {
-    }
-
-    @Override
-    public boolean isCommandReachable(String name) {
-        return super.isCommandReachable(name, commands);
-    }
-
-    @Override
-    public String[] getCommands() {
-        return commands;
     }
 }

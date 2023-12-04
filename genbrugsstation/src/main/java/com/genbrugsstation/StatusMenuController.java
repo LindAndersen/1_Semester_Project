@@ -16,31 +16,11 @@ import java.util.Map;
 public class StatusMenuController extends SharedGUIFunc {
 
     @FXML
-    private Label xpLabel;
+    private Label plastikNumber, flaskeNumber, batteriNumber, avisNumber, metalNumber;
     @FXML
-    private Label plastikNumber;
-    @FXML
-    private Label flaskeNumber;
-    @FXML
-    private Label batteriNumber;
-    @FXML
-    private Label avisNumber;
-    @FXML
-    private Label metalNumber;
-
-    @FXML
-    private Label coinLabel;
-
-    @FXML
-    private Label lvlLabel;
-
-    @FXML
-    private Label dayLabel;
-
-    private Stage stage;
+    private Label coinLabel, lvlLabel, dayLabel, xpLabel;
     @FXML
     private ImageView statusMenuImageView;
-
     @FXML
     private Button backBtn;
 

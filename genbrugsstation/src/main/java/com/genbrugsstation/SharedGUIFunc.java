@@ -10,7 +10,7 @@ import javafx.scene.layout.AnchorPane;
 
 public class SharedGUIFunc {
     static Context context = Game.getContext();
-    static Player player = context.getPlayer();
+    static Player player = Game.context.getPlayer();
 
     public String getLocationFromEvent(Event event) {
         String id = ((javafx.scene.Node)event.getSource()).getId();

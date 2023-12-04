@@ -116,11 +116,11 @@ public class Game extends Application {
         FileInputStream contextFile = new FileInputStream(pathToSaves + "\\" + saveName + "\\context.ser");
         try (ObjectInputStream worldIn = new ObjectInputStream(worldFile)) {
           try (ObjectInputStream contextIn = new ObjectInputStream(contextFile)) {
-            World world = (World) worldIn.readObject();
-            Context context = (Context) contextIn.readObject();
+            World loadedWorld = (World) worldIn.readObject();
+            Context loadedContext = (Context) contextIn.readObject();
 
-            setWorld(world);
-            setContext(context);
+            world = loadedWorld;
+            context = loadedContext;
 
             // System.out.println(worldIn != null ? "Did not fully load world..." : "");
             // System.out.println(contextIn != null ? "Did not fully load context..." : "");
@@ -142,16 +142,6 @@ public class Game extends Application {
 
         return saves;
     }
-
-
- 
-  public static void setWorld(World loadedWorld) {
-    world = loadedWorld;
-  }
-
-  public static void setContext(Context loadedContext) {
-    context = loadedContext;
-  }
 
   public static Context getContext() {
     return context;
