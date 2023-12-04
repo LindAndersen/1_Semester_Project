@@ -89,30 +89,30 @@ public class Butik extends Space implements DefaultSpace {
         }
     }
 
-    // Add a method to get the price of an upgrade based on its key
+    // Metode til at hente pris baseret på en key
     public static int getUpgradePrice(int key) {
         if (upgrades.containsKey(key)) {
             return upgrades.get(key).getPrice();
         } else {
-            return -1; // or throw an exception, depending on your error handling strategy
+            return -1;
         }
     }
 
-    // Add a method to get the xp of an upgrade based on its key
+    // Metode til at hente xp baseret på en key
     public static int getUpgradeXp(int key) {
         if (upgrades.containsKey(key)) {
             return upgrades.get(key).getXP();
         } else {
-            return -1; // or throw an exception, depending on your error handling strategy
+            return -1;
         }
     }
 
-    // Add a method to get the name of an upgrade based on its key
+    // Metode til at hente navn baseret på en key
     public static String getUpgradeName(int key) {
         if (upgrades.containsKey(key)) {
             return upgrades.get(key).getName();
         } else {
-            return null; // or throw an exception, depending on your error handling strategy
+            return null;
         }
     }
 

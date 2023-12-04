@@ -36,7 +36,7 @@ public class ButikController extends SharedGUIFunc {
                     case "":
                         break;
 
-                    case "Cykelsti":
+                    case "Cykelsti", "Motorvej":
                         setButtonDisable(cykelsti,motor);
                         break;
 
@@ -46,7 +46,7 @@ public class ButikController extends SharedGUIFunc {
                     case "":
                         break;
 
-                    case "Solceller":
+                    case "Solceller", "Billboards":
                         setButtonDisable(solceller,bill);
                         break;
 
@@ -56,7 +56,7 @@ public class ButikController extends SharedGUIFunc {
                     case "":
                         break;
 
-                    case "Filter i parksøen":
+                    case "Filter i parksøen", "Farve i parksøen":
                         setButtonDisable(filter,farve);
                         break;
 
@@ -66,7 +66,7 @@ public class ButikController extends SharedGUIFunc {
                     case "":
                         break;
 
-                    case "Busstoppested":
+                    case "Busstoppested", "Parkeringshus":
                         setButtonDisable(bus,parkering);
                         break;
 
@@ -76,7 +76,7 @@ public class ButikController extends SharedGUIFunc {
                     case "":
                         break;
 
-                    case "Isolerende vinduer":
+                    case "Isolerende vinduer", "Oliefyr":
                         setButtonDisable(vinduer,olie);
                         break;
 
@@ -86,7 +86,7 @@ public class ButikController extends SharedGUIFunc {
                     case "":
                         break;
 
-                    case "Legeplads":
+                    case "Legeplads", "Fodboldstadion":
                         setButtonDisable(leg,bold);
                         break;
 
@@ -367,9 +367,7 @@ public class ButikController extends SharedGUIFunc {
 
     @FXML
     protected void onInfoButtonOpgraderingClick(ActionEvent event) throws IOException {
-        lolatekst.setText("Opgraderingerne er delt op i tiers fra 1 til 6. Du kan kun købe 1 opgradering fra hvert tier. " +
-                "Opgraderingerne til venstre giver dobbelt så meget xp som dem til højre, men koster 20 kr. mere. " +
-                "Prisen i tier 1 er 100 kr. for dem til højre og stiger med 20 kr. for hvert tier man går ned for både opgraderingerne til højre og venstre.");
+        lolatekst.setText("Opgraderingerne er delt op i tiers fra 1 til 6. Du kan kun købe 1 opgradering fra hvert tier.");
     }
 
 }
