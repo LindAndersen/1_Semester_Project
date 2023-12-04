@@ -21,6 +21,7 @@ public class Butik extends Space implements DefaultSpace {
     public void welcome() {
         System.out.println("\n_______________________________________________________");
         System.out.println("\nButikkens udvalg af opgraderinger:");
+        System.out.println("smt");
         showUpgrades();
         makeHandled();
     }
