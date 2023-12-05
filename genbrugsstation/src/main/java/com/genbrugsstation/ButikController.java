@@ -22,7 +22,8 @@ public class ButikController extends SharedGUIFunc {
 
     @FXML
     private ImageView imageview_græslvl0, imageview_græslvl1, imageview_græslvl2, imageview_græslvl3, imageview_græslvl4, imageview_græslvl5;
-    
+
+    //Laver Linkedhashmap til at konverterer nummeret på opgraderingen til den korresponderende upgrade par
     private static final Map<String, Integer> upgradeIndexMap = new LinkedHashMap<>();
 
     static {
@@ -45,6 +46,8 @@ public class ButikController extends SharedGUIFunc {
     public static Map<String, Integer> getUpgradeIndexMap(){
         return upgradeIndexMap;
     }
+
+    // Initializere gui'en så den gemmer og sætter xp, Penge og købte opgraderingerne når man går ind i scenen fra en anden scene
     @FXML
     public void initialize(){
         grass = new ImageView[] {imageview_græslvl0, imageview_græslvl1, imageview_græslvl2, imageview_græslvl3, imageview_græslvl4, imageview_græslvl5};
@@ -57,6 +60,7 @@ public class ButikController extends SharedGUIFunc {
 
                 updateupgradetext();
 
+                // Køre igennem et for loop for at se om den skal disable nogle buttons
                 for (int i = 0; i < 6; i++) {
                     switch (Butikdata.getStringUpgrade(i)) {
                         case "":
@@ -107,11 +111,13 @@ public class ButikController extends SharedGUIFunc {
         }
     }
 
+    // metode til at disable 2 knapper
     public void setButtonDisable(Button a, Button b){
         a.setDisable(true);
         b.setDisable(true);
     }
 
+    // metode til at updaterer teksten til de købte opgraderinger
     public void updateupgradetext(){
         upgrade1.setText(Butikdata.getStringUpgrade(0));
         upgrade2.setText(Butikdata.getStringUpgrade(1));
@@ -121,7 +127,7 @@ public class ButikController extends SharedGUIFunc {
         upgrade6.setText(Butikdata.getStringUpgrade(5));
     }
 
-
+    // metode til hvad der skal gøres når der trykkkes på en af opgraderinger køb knapperne
     public void upgradeButtonClick(String a, Button c, Button d){
         int oldMoney = player.getMoney();
 
@@ -132,6 +138,7 @@ public class ButikController extends SharedGUIFunc {
         String[] names = new String[12];
         String[] hints = new String[12];
 
+        // for loop til at hente pris, xp, navn og hints på opgraderingerne
         for (int i = 1; i <= 12; i++) {
             prices[i - 1] = Butik.getUpgradePrice(i);
             names[i - 1] = Butik.getUpgradeName(i);
@@ -158,21 +165,30 @@ public class ButikController extends SharedGUIFunc {
 
         int upgradeIndex = Integer.parseInt(a) - 1;
 
+        //køber den valgte opgradering
         player.buy(a, context);
 
         int newMoney = player.getMoney();
+
+        //hvis penge ændre når man prøver at købe en opgradering så gør det her:
         if (oldMoney != newMoney) {
+
+            //disable de relevante knapper og ret xp og penge nummre
             setButtonDisable(c,d);
             pengetext.setText("Du har " + context.getPlayer().getMoney() + " kr.");
             xptext.setText("Du har " + context.getPlayer().getXP() + " xp.");
 
+            //tekst lola skal sige når man køber noget:
             String upgradeText = String.format(
                     "%s%s til byen! %s Den kostede %d kr. og gav %d xp. Om %s: %s",
                     tillykke, names[upgradeIndex], forklaring[upgradeIndex], prices[upgradeIndex], xp[upgradeIndex], names[upgradeIndex], hints[upgradeIndex]
             );
 
+            //sæt teksten i menuen så man kan se den købte opgradering
             Butikdata.setStringUpgrade(upgradeIndexMap.getOrDefault(a, -1), names[upgradeIndex]);
             updateupgradetext();
+
+            //få lola til at sige køb teksten
             lolatekst.setText(upgradeText);
         } else{
             lolatekst.setText("Du har desværre ikke råd til denne opgradering. :(");
