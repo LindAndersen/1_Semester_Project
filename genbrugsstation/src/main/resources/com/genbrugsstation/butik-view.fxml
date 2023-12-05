@@ -5,6 +5,7 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="675.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.genbrugsstation.ButikController">
@@ -54,6 +55,40 @@
             <Image url="@../../sign.png" />
          </image>
       </ImageView>
+      <StackPane layoutX="369.0" layoutY="-33.0" prefHeight="0.0" prefWidth="150.0">
+         <children>
+            <ImageView fx:id="Level_bar0" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../LEVELBAR0.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="Level_bar1" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../LEVELBAR1.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="Level_bar2" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../LEVELBAR2.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="Level_bar3" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../LEVELBAR3.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="Level_bar4" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../LEVELBAR4.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="Level_bar5" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../LEVELBAR5.png" />
+               </image>
+            </ImageView>
+         </children>
+      </StackPane>
       <Button fx:id="OpgraderingerButton" layoutX="307.0" layoutY="322.0" mnemonicParsing="false" onAction="#onOpgraderingerButtonClick" opacity="0.0" prefHeight="95.0" prefWidth="148.0" text="Opgraderinger" />
       <ImageView fitHeight="150.0" fitWidth="900.0" layoutY="635.0" pickOnBounds="true" preserveRatio="true">
          <image>

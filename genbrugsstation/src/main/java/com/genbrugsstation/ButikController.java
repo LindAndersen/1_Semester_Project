@@ -22,6 +22,8 @@ public class ButikController extends SharedGUIFunc {
 
     @FXML
     private ImageView imageview_græslvl0, imageview_græslvl1, imageview_græslvl2, imageview_græslvl3, imageview_græslvl4, imageview_græslvl5;
+    @FXML
+    private ImageView Level_bar0,Level_bar1, Level_bar2, Level_bar3, Level_bar4, Level_bar5;
 
     //Laver Linkedhashmap til at konverterer nummeret på opgraderingen til den korresponderende upgrade par
     private static final Map<String, Integer> upgradeIndexMap = new LinkedHashMap<>();
@@ -43,6 +45,8 @@ public class ButikController extends SharedGUIFunc {
 
     private ImageView[] grass;
 
+    private ImageView[] levelbar;
+
     public static Map<String, Integer> getUpgradeIndexMap(){
         return upgradeIndexMap;
     }
@@ -51,6 +55,7 @@ public class ButikController extends SharedGUIFunc {
     @FXML
     public void initialize(){
         grass = new ImageView[] {imageview_græslvl0, imageview_græslvl1, imageview_græslvl2, imageview_græslvl3, imageview_græslvl4, imageview_græslvl5};
+        levelbar = new ImageView[] {Level_bar0,Level_bar1, Level_bar2, Level_bar3, Level_bar4, Level_bar5};
 
         if (pengetext != null && xptext != null) {
             pengetext.setText("Du har " + context.getPlayer().getMoney() + " kr.");
@@ -105,8 +110,10 @@ public class ButikController extends SharedGUIFunc {
         for (int i = 0;i<grass.length;i++) {
             if (lvl == i) {
                 grass[i].setOpacity(1);
+                levelbar[i].setOpacity(1);
             } else {
                 grass[i].setOpacity(0);
+                levelbar[i].setOpacity(0);   
             }
         }
     }
