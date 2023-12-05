@@ -59,10 +59,9 @@ public class Butik extends Space {
     }
 
     private void initUpgrades(HashMap<Integer, Upgrades> hm){
-
         hm.put(1, new Upgrades("Cykelsti", 120, 60, 1.5, "1", 2));
         hm.put(2, new Upgrades("Motorvej", 100, 0, 1.5, "2", 1));
-        hm.put(3, new Upgrades("Billboard", 120, 0, 1.5, "3", 5));
+        hm.put(3, new Upgrades("Billboards", 120, 0, 1.5, "3", 5));
         hm.put(4, new Upgrades("Bustoppested", 180, 60, 1.5, "4", 10));
         hm.put(5, new Upgrades("Solceller", 140, 60, 1.5, "5", 3));
         hm.put(6, new Upgrades("Filter i parksøen", 160, 60, 1.5, "6", 9));
