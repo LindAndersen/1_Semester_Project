@@ -4,12 +4,10 @@ package com.genbrugsstation;
  */ 
 
  abstract class Space extends Node {
-  private boolean isHandled;
   private Trash[] trash;
 
   Space (String name) {
     super(name);
-    isHandled = false;
     trash = new Trash[] {new Trash("flasker"), new Trash("aviser")};
   }
   
@@ -40,16 +38,5 @@ package com.genbrugsstation;
             }
         }
     } throw new TrashNotFoundException(String.format("%s eksisterer ikke i rummet", name));
-  }
-
-  public void makeHandled() {
-    isHandled = true;
-  }
-  public void undoHandled(){
-    isHandled = false;
-  }
-
-  public boolean getHandled() {
-    return isHandled;
   }
 }

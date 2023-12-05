@@ -1,6 +1,5 @@
 package com.genbrugsstation;
 
-import java.io.IOException;
 import java.util.HashMap;
 
 import javafx.application.Platform;
@@ -30,7 +29,7 @@ public class GameOverController extends SharedGUIFunc {
     }
 
 
-    public String toString(String[] arr){
+    private String arrayToString(String[] arr){
         String s = "";
         for(String st : arr){
             s += st + ", ";
@@ -41,12 +40,11 @@ public class GameOverController extends SharedGUIFunc {
     private void setTextField(){
         Player player = Game.getContext().getPlayer();
         Butik butik;
-        String[] hints = {"hint 1", "hint 2", "hint 3", "hint 4", "hint 5", "hint 6"};
+        String[] hints = new String[6];
 
         if(context.getCurrent() instanceof Butik) {
             System.out.println("current navn: " + context.getCurrent().getName());
             butik = (Butik) context.getCurrent();
-            HashMap<Integer, Upgrades> upgrades = butik.getUpgrades();
             HashMap<Integer, Upgrades> allUpg = butik.getAllUpgrades();
             String[] upg = Butikdata.getUpgrades();
 
@@ -57,7 +55,9 @@ public class GameOverController extends SharedGUIFunc {
                 }
             }
         }
-        
+
+        //spilleren får en evaluering / opsummering efter spillet er slut, og
+        //denne afhænger af spillerens level og hvilke opgraderinger, spilleren har købt
         switch (player.getLvl()){
             case 0:
                 text.setText("buhu u did bad");
@@ -71,7 +71,7 @@ public class GameOverController extends SharedGUIFunc {
                         "opgraderinger og bedre effektive valg, kan du tage i lære og næste gang tage "+
                         "byen i en grønnere retning.\n"+
                         "Bedre held næste gang! \n"+
-                        toString(hints));
+                        arrayToString(hints));
 
                 break;
             case 2:
@@ -82,7 +82,7 @@ public class GameOverController extends SharedGUIFunc {
                         "vej endnu, og mere arbejde at gøre!"+
                         "Men mon ikke næste gang du spiller, at græsset kunne blive lidt grønnere? \n"+
                         "Lær af din nye viden og prøv igen! \n"+
-                        toString(hints));
+                        arrayToString(hints));
                 break;
             case 3:
                 text.setText("Du sluttede på level 3;\n"+
@@ -92,7 +92,7 @@ public class GameOverController extends SharedGUIFunc {
                         "at mere skrald er forsvundet fra gaderne. Men det er ikke slut, borgmester, for "+
                         "der er stadig plads til forbedringer, så du kan nå helt til top!\n"+
                         "Fortsæt med at forsøge, og se om du ikke kan score højere? \n"+
-                        toString(hints));
+                        arrayToString(hints));
                 break;
             case 4:
                 text.setText("Du sluttede på level 4;\n" +
@@ -101,7 +101,7 @@ public class GameOverController extends SharedGUIFunc {
                         "og flere dyr i byen, kan man virkelig fornemme forskellen! Der er stadig "+
                         "mere at gøre for byen, men din indsats har allerede gjort en stor positiv forskel!\n"+
                         "Fortsæt det gode arbejde, og se om du ikke kan ramme toppen fuldstændig? \n"+
-                        toString(hints));
+                        arrayToString(hints));
                 break;
             case 5:
                 text.setText("Du sluttede på level 5;\n"+
@@ -111,13 +111,13 @@ public class GameOverController extends SharedGUIFunc {
                         "har påvirket byen, er det også blevet en standard for global bæredygtighed! "+
                         "Det er en grøn fremtid i vente for denne by! \n"+
                         "Tak for din indsats, og fortsæt det gode arbejde! \n"+
-                        toString(hints));
+                        arrayToString(hints));
                 break;
         }
     }
 
     @FXML
-    protected void backToGamePressed(){
+    private void backToGamePressed(){
         try {
             setRootFromString("opgraderinger-view");
         } catch (Exception e) {
@@ -127,7 +127,7 @@ public class GameOverController extends SharedGUIFunc {
     }
 
     @FXML
-    protected void leaveSavePressed(ActionEvent event){
+    private void leaveSavePressed(ActionEvent event){
         Game.save_game();
         try{
             EventHandler<WindowEvent> closeAll = new EventHandler<WindowEvent>() {

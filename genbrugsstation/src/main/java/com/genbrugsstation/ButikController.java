@@ -4,16 +4,12 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-
 import java.io.IOException;
-import java.util.LinkedHashMap;
+import java.util.HashMap;
 import java.util.Map;
-
-import javafx.event.ActionEvent;
 import javafx.scene.control.Button;
 
 public class ButikController extends SharedGUIFunc {
-
 
     @FXML
     private Button cykelsti, solceller, filter, bus, vinduer, leg, motor, bill, farve, parkering, olie, bold, back;
@@ -25,8 +21,8 @@ public class ButikController extends SharedGUIFunc {
     @FXML
     private ImageView Level_bar0,Level_bar1, Level_bar2, Level_bar3, Level_bar4, Level_bar5;
 
-    //Laver Linkedhashmap til at konverterer nummeret på opgraderingen til den korresponderende upgrade par
-    private static final Map<String, Integer> upgradeIndexMap = new LinkedHashMap<>();
+    //Laver hashmap til at konvertere nummeret på opgraderingen til det tilsvarende upgradepar
+    private static final Map<String, Integer> upgradeIndexMap = new HashMap<>();
 
     static {
         upgradeIndexMap.put("1", 0);
@@ -106,6 +102,7 @@ public class ButikController extends SharedGUIFunc {
     }
 
     private void updateSceneFromLevel() {
+        //ændrer hvilket græslag, der skal vises, baseret på level
         int lvl = player.getLvl();
         for (int i = 0;i<grass.length;i++) {
             if (lvl == i) {
@@ -118,14 +115,16 @@ public class ButikController extends SharedGUIFunc {
         }
     }
 
-    // metode til at disable 2 knapper
-    public void setButtonDisable(Button a, Button b){
+    //metode til at disable 2 knapper - bruges efter køb af en opgradering,
+    //hvor begge opgraderinger ikke længere er tilgængelige i butikken -
+    //knapperne skal da ikke kunne clickes
+    private void setButtonDisable(Button a, Button b){
         a.setDisable(true);
         b.setDisable(true);
     }
 
-    // metode til at updaterer teksten til de købte opgraderinger
-    public void updateupgradetext(){
+    // metode til at updatere teksten til de købte opgraderinger
+    private void updateupgradetext(){
         upgrade1.setText(Butikdata.getStringUpgrade(0));
         upgrade2.setText(Butikdata.getStringUpgrade(1));
         upgrade3.setText(Butikdata.getStringUpgrade(2));
@@ -134,12 +133,11 @@ public class ButikController extends SharedGUIFunc {
         upgrade6.setText(Butikdata.getStringUpgrade(5));
     }
 
-    // metode til hvad der skal gøres når der trykkkes på en af opgraderinger køb knapperne
-    public void upgradeButtonClick(String a, Button c, Button d){
+    // metode til hvad der skal gøres når der trykkkes på en af opgraderingernes køb-knapper
+    private void upgradeButtonClick(String a, Button c, Button d){
         int oldMoney = player.getMoney();
 
         int[] prices = new int[12];
-
         int[] xp = new int [12];
 
         String[] names = new String[12];
@@ -177,15 +175,16 @@ public class ButikController extends SharedGUIFunc {
 
         int newMoney = player.getMoney();
 
-        //hvis penge ændre når man prøver at købe en opgradering så gør det her:
+        //hvis købet "går igennem" - og at der bliver trukket penge fra spillerens konto,
+        //skal følgende gøres ved viewet
         if (oldMoney != newMoney) {
 
-            //disable de relevante knapper og ret xp og penge nummre
+            //disable de relevante knapper, rette xp og penge
             setButtonDisable(c,d);
             pengetext.setText("Du har " + context.getPlayer().getMoney() + " kr.");
             xptext.setText("Du har " + context.getPlayer().getXP() + " xp.");
 
-            //tekst lola skal sige når man køber noget:
+            //tekst npc Lola skal sige, når man køber noget:
             String upgradeText = String.format(
                     "%s%s til byen! %s Den kostede %d kr. og gav %d xp. Om %s: %s",
                     tillykke, names[upgradeIndex], forklaring[upgradeIndex], prices[upgradeIndex], xp[upgradeIndex], names[upgradeIndex], hints[upgradeIndex]
@@ -195,12 +194,13 @@ public class ButikController extends SharedGUIFunc {
             Butikdata.setStringUpgrade(upgradeIndexMap.getOrDefault(a, -1), names[upgradeIndex]);
             updateupgradetext();
 
-            //få lola til at sige køb teksten
+            //npc Lola siger køb-teksten
             lolatekst.setText(upgradeText);
         } else{
             lolatekst.setText("Du har desværre ikke råd til denne opgradering. :(");
         }
 
+        //når spilleren har købt 6 opgraderinger, er spillet slut
         if(player.getBuyCount() == 6){
             try {
                 setRootFromString("game-over-view");
@@ -216,107 +216,107 @@ public class ButikController extends SharedGUIFunc {
     }
 
     @FXML
-    protected void onOpgraderingerButtonClick(){
+    private void onOpgraderingerButtonClick(){
         setRootFromString("opgraderinger-view");
     }
 
     @FXML
-    protected void onButikTilbageClick() {
+    private void onButikTilbageClick() {
         setRootFromString("butik-view");
     }
 
     @FXML
-    protected void onCykelstiButtonClick()  {
+    private void onCykelstiButtonClick()  {
 
         upgradeButtonClick("1",cykelsti,motor);
 
     }
 
     @FXML
-    protected void onSolcellerButtonClick()  {
+    private void onSolcellerButtonClick()  {
 
         upgradeButtonClick("5",solceller,bill);
 
     }
 
     @FXML
-    protected void onFilterButtonClick()  {
+    private void onFilterButtonClick()  {
 
         upgradeButtonClick("6",filter,farve);
 
     }
 
     @FXML
-    protected void onBusButtonClick()  {
+    private void onBusButtonClick()  {
 
         upgradeButtonClick("4",bus,parkering);
 
     }
 
     @FXML
-    protected void onVinduerButtonClick(ActionEvent event) throws IOException  {
+    private void onVinduerButtonClick() throws IOException  {
 
         upgradeButtonClick("7",vinduer,olie);
 
     }
 
     @FXML
-    protected void onLegButtonClick(ActionEvent event) throws IOException  {
+    private void onLegButtonClick() throws IOException  {
 
         upgradeButtonClick("8",leg,bold);
 
     }
 
     @FXML
-    protected void onMotorButtonClick(ActionEvent event) throws IOException  {
+    private void onMotorButtonClick() throws IOException  {
 
         upgradeButtonClick("2",motor,cykelsti);
 
     }
 
     @FXML
-    protected void onBillButtonClick(ActionEvent event) throws IOException  {
+    private void onBillButtonClick() throws IOException  {
 
         upgradeButtonClick("3",bill,solceller);
 
     }
 
     @FXML
-    protected void onFarveButtonClick(ActionEvent event) throws IOException  {
+    private void onFarveButtonClick() throws IOException  {
 
         upgradeButtonClick("9",farve,filter);
 
     }
 
     @FXML
-    protected void onParkeringButtonClick(ActionEvent event) throws IOException  {
+    private void onParkeringButtonClick() throws IOException  {
 
         upgradeButtonClick("10",parkering,bus);
 
     }
 
     @FXML
-    protected void onOlieButtonClick(ActionEvent event) throws IOException  {
+    private void onOlieButtonClick() throws IOException  {
 
         upgradeButtonClick("11",olie,vinduer);
 
     }
 
     @FXML
-    protected void onBoldButtonClick(ActionEvent event) throws IOException  {
+    private void onBoldButtonClick() throws IOException  {
 
         upgradeButtonClick("12",bold,leg);
 
     }
     @FXML
-    protected void onInfoButtonClick() throws IOException {
+    private void onInfoButtonClick() throws IOException {
         System.out.println("menu åbner");
 
         Game.setRoot("default-menu-view");
     }
 
     @FXML
-    protected void onInfoButtonOpgraderingClick(ActionEvent event) throws IOException {
+    private void onInfoButtonOpgraderingClick() throws IOException {
         lolatekst.setText("Opgraderingerne er delt op i tiers fra 1 til 6. Du kan kun købe 1 opgradering fra hvert tier.");
     }
 

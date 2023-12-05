@@ -1,6 +1,6 @@
 package com.genbrugsstation;
 
-public class Butikdata {
+class Butikdata {
     // 1 --> Cykelsti v motorvej
     // 2 --> Solceller v Billboards
     // 3 --> Filter i parksøem vs farve i parksøen

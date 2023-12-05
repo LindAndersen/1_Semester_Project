@@ -35,7 +35,7 @@ public class InventoryController extends SharedGUIFunc {
     }
 
     @FXML
-    public void go_back() throws IOException {
+    private void go_back() throws IOException {
         setRootFromString(Game.prevView);
     }
 }

@@ -41,11 +41,14 @@ public class Game extends Application {
         }
     }
 
+    //hjælpemetode til setRoot
     private static Parent loadFXML(String fxml) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(Objects.requireNonNull(Game.class.getResource(fxml + ".fxml")));
         return fxmlLoader.load();
     }
 
+    //holder styr på lokationen ift. affald, og derefter loader den scene, der gives som
+    //argument i metodekald
     public static void setRoot(String rootNode) {
       prevView = currentView;
       Space[] loc = world.getLocations();
@@ -80,17 +83,17 @@ public class Game extends Application {
     launch();
   }
 
-  public static void newGame() {
+  static void newGame() {
     world = new World();
     context = new Context(world.getEntry());
   }
 
   //Sets save folder name to "test"
   //Writes world and context to a file
-  public static void save_game() {
+  static void save_game() {
     String filename = "test";
       try {
-        //If parent folder "saves" to saves doesnt exist it will be created
+          //If parent folder "saves" to saves doesnt exist it will be created
           boolean didCreateSaves = new File("saves").mkdirs();
           new File("saves\\" + filename).mkdirs();
           System.out.println((didCreateSaves ? "Creating save folder" : ""));
@@ -119,7 +122,7 @@ public class Game extends Application {
   //Checks, via printSaveDir, if save folder and any saves exists first, else return
   //Retrieves saved files (loads) and sets the current world and context to these
   //Changes view to kontor-view.fxml
-  public static void load_game() throws ClassNotFoundException, IOException {
+    static void load_game() throws ClassNotFoundException, IOException {
         File[] saves = printSaveDir();
         if (saves == null) {
           System.out.println("Der er ingen gemte spil :'(");
@@ -141,8 +144,6 @@ public class Game extends Application {
             world = loadedWorld;
             context = loadedContext;
 
-            // System.out.println(worldIn != null ? "Did not fully load world..." : "");
-            // System.out.println(contextIn != null ? "Did not fully load context..." : "");
           }
         }
         setRoot("kontor-view");

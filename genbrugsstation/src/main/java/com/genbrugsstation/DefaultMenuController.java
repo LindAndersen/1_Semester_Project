@@ -8,7 +8,6 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import javafx.scene.Parent;
 import javafx.scene.Node;
 import javafx.stage.Window;
 import javafx.stage.WindowEvent;
@@ -16,19 +15,16 @@ import javafx.stage.WindowEvent;
 
 public class DefaultMenuController extends SharedGUIFunc {
     private Stage stage;
-    private Scene scene;
-    private Parent root;
-    private Scene preScene;
 
     @FXML
     private Button dLeaveBtn, dSaveBtn, dBackBtn, dBackBtn1;
 
-
     public void initialize(){
     }
 
+    //lukker spillet
     @FXML
-    protected void leaveBtnPressed(ActionEvent event){
+    private void leaveBtnPressed(ActionEvent event){
         try{
             EventHandler<WindowEvent> closeAll = new EventHandler<WindowEvent>() {
                 @Override
