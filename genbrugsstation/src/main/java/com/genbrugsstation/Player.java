@@ -14,7 +14,7 @@ class Player implements Serializable {
     public Player(String name) {
         this.name = name;
         xp = 0;
-        lvl = 1;
+        lvl = 0;
         money = 1020;
         inventory = new Inventory();
         resetInventory();
@@ -149,7 +149,7 @@ class Player implements Serializable {
         int amountOfTrash = getTrashAmount();
         emptyInventory();
         int money = 7 * amountOfTrash;
-        int xp = money;
+        int xp = 2 * amountOfTrash;
         addMoney(money);
         addXP(-xp);
         int[] moneyXP = {money, -xp};

@@ -9,9 +9,9 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="675.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.genbrugsstation.ButikController">
    <children>
-      <ImageView fx:id="imageview_græslvl1" fitHeight="675.0" fitWidth="900.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="imageview_græslvl0" fitHeight="675.0" fitWidth="932.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../græs_layers/SHOP-GRÆSLEVEL_1.png" />
+            <Image url="@../../græs_layers/SHOP-GRÆSLEVEL_0.png" />
          </image>
       </ImageView>
       <ImageView fx:id="imageview_græslvl1" fitHeight="687.0" fitWidth="900.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">

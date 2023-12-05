@@ -22,8 +22,7 @@ public class ButikController extends SharedGUIFunc {
 
     @FXML
     private ImageView imageview_græslvl0, imageview_græslvl1, imageview_græslvl2, imageview_græslvl3, imageview_græslvl4, imageview_græslvl5;
-    private ImageView[] grass;
-
+    
     private static final Map<String, Integer> upgradeIndexMap = new LinkedHashMap<>();
 
     static {
@@ -41,9 +40,15 @@ public class ButikController extends SharedGUIFunc {
         upgradeIndexMap.put("12", 5);
     }
 
+    private ImageView[] grass;
+
+    public static Map<String, Integer> getUpgradeIndexMap(){
+        return upgradeIndexMap;
+    }
     @FXML
     public void initialize(){
         grass = new ImageView[] {imageview_græslvl0, imageview_græslvl1, imageview_græslvl2, imageview_græslvl3, imageview_græslvl4, imageview_græslvl5};
+
         if (pengetext != null && xptext != null) {
             pengetext.setText("Du har " + context.getPlayer().getMoney() + " kr.");
             xptext.setText("Du har " + context.getPlayer().getXP() + " xp.");
@@ -93,7 +98,6 @@ public class ButikController extends SharedGUIFunc {
 
     private void updateSceneFromLevel() {
         int lvl = player.getLvl();
-
         for (int i = 0;i<grass.length;i++) {
             if (lvl == i) {
                 grass[i].setOpacity(1);
@@ -170,74 +174,7 @@ public class ButikController extends SharedGUIFunc {
             Butikdata.setStringUpgrade(upgradeIndexMap.getOrDefault(a, -1), names[upgradeIndex]);
             updateupgradetext();
             lolatekst.setText(upgradeText);
-                case "2":
-                    Butikdata.setStringupgrade1("Motorvej");
-                    upgrade1.setText(Butikdata.getStringupgrade1());
-                    lolatekst.setText(upgradeText);
-                    break;
-
-                case "3":
-                    Butikdata.setStringupgrade2("Billboards");
-                    upgrade2.setText(Butikdata.getStringupgrade2());
-                    lolatekst.setText(upgradeText);
-                    break;
-
-                case "4":
-                    Butikdata.setStringupgrade4("Busstoppested");
-                    upgrade4.setText(Butikdata.getStringupgrade4());
-                    lolatekst.setText(upgradeText);
-                    break;
-
-                case "5":
-                    Butikdata.setStringupgrade2("Solceller");
-                    upgrade2.setText(Butikdata.getStringupgrade2());
-                    lolatekst.setText(upgradeText);
-                    break;
-
-                case "6":
-                    Butikdata.setStringupgrade3("Filter i parksøen");
-                    upgrade3.setText(Butikdata.getStringupgrade3());
-                    lolatekst.setText(upgradeText);
-                    break;
-
-                case "7":
-                    Butikdata.setStringupgrade5("Isolerende vinduer");
-                    upgrade5.setText(Butikdata.getStringupgrade5());
-                    lolatekst.setText(upgradeText);
-                    break;
-
-                case "8":
-                    Butikdata.setStringupgrade6("Legeplads");
-                    upgrade6.setText(Butikdata.getStringupgrade6());
-                    lolatekst.setText(upgradeText);
-                    break;
-
-                case "9":
-                    Butikdata.setStringupgrade3("Farve i parksøen");
-                    upgrade3.setText(Butikdata.getStringupgrade3());
-                    lolatekst.setText(upgradeText);
-                    break;
-
-                case "10":
-                    Butikdata.setStringupgrade4("Parkeringshus");
-                    upgrade4.setText(Butikdata.getStringupgrade4());
-                    lolatekst.setText(upgradeText);
-                    break;
-
-                case "11":
-                    Butikdata.setStringupgrade5("Oliefyr");
-                    upgrade5.setText(Butikdata.getStringupgrade5());
-                    lolatekst.setText(upgradeText);
-                    break;
-
-                case "12":
-                    Butikdata.setStringupgrade6("Fodboldstadion");
-                    upgrade6.setText(Butikdata.getStringupgrade6());
-                    lolatekst.setText(upgradeText);
-                    break;
-
-            }
-         else{
+        } else{
             lolatekst.setText("Du har desværre ikke råd til denne opgradering. :(");
         }
 

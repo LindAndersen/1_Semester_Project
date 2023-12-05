@@ -31,19 +31,17 @@ public class StatusMenuController extends SharedGUIFunc {
 
     private void updateLabels(){
         Map<String, Integer> items = Game.getContext().getPlayer().getInventory().getItems();
+        Player player = Game.getContext().getPlayer();
         xpLabel.setText(Integer.toString(player.getXP()));
         coinLabel.setText(Integer.toString(player.getMoney()));
-        //lvlLabel.setText(Integer.toString(player.getLvl())+ player.remainingXP() + "/100");
         lvlLabel.setText(Integer.toString(player.getLvl()));
         dayLabel.setText(Integer.toString(context.getDay()));
 
-//        if(!(items.isEmpty())) {
-            flaskeNumber.setText(items.get("flasker").toString());
-            batteriNumber.setText(items.get("batterier").toString());
-            metalNumber.setText(items.get("metalskrot").toString());
-            plastikNumber.setText(items.get("plastik").toString());
-            avisNumber.setText(items.get("aviser").toString());
-//        }
+        flaskeNumber.setText(items.get("flasker").toString());
+        batteriNumber.setText(items.get("batterier").toString());
+        metalNumber.setText(items.get("metalskrot").toString());
+        plastikNumber.setText(items.get("plastik").toString());
+        avisNumber.setText(items.get("aviser").toString());
     }
 
     @FXML
