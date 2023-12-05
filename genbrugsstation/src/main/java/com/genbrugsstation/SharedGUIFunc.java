@@ -15,6 +15,7 @@ public class SharedGUIFunc {
     static Context context = Game.getContext();
     static Player player = Game.context.getPlayer();
 
+    //From event getId(), all go buttons that change view have id "go_%location%", so take the location and add "-view", to get name of proper .fxml file
     public String getLocationFromEvent(Event event) {
         String id = ((javafx.scene.Node)event.getSource()).getId();
         String location = id.split("_")[1] + "-view";
@@ -30,6 +31,8 @@ public class SharedGUIFunc {
         Game.setRoot(root);
     }
 
+    //pickup buttons Id is "pickup_1_%type of trash%", so elm[2] represents type of trash
+    //player.pickup returns true if pickup was succesfull and feedback is updated
     public static String pickup(Event event) throws TrashNotFoundException {
         String cmd = ((Button)event.getSource()).getId().replace("_", " ");
         String[] elm = cmd.split(" ");
@@ -38,6 +41,7 @@ public class SharedGUIFunc {
         return (didPickup ? "Du har samlet 1 " + elm[2] + " op | " + player.getInventory().getItems().get(elm[2]) + " totalt" : "Ikke mere at samle op");
     }
 
+    //Returns a String of amount of present trash in the order its stored in the room (Space)
     public String[] getTrashUpdate() {
         Trash[] trash = context.getCurrent().getTrash();
         String[] update = new String[trash.length];
@@ -60,6 +64,7 @@ public class SharedGUIFunc {
         return false;
     }
 
+    //Makes trash label opacity 1 if trashAmount != 0, otherwise opa=0
     public void makeTrashVisible(AnchorPane[] trashGUIelements, Label[] trashGUIlabels) {
         if (trashGUIelements.length != trashGUIlabels.length){
             System.out.println("Not equal amounts of trash and labels");
@@ -71,6 +76,7 @@ public class SharedGUIFunc {
         }
     }
 
+    //Makes trash label opacity 1 if trashAmount != 0, otherwise opa=0
     public void setTrashVisibility(AnchorPane[] trashGUIelements, String[] update) {
         for (int i = 0;i<trashGUIelements.length;i++) {
             if (update[i].equals("0")) {
@@ -79,6 +85,7 @@ public class SharedGUIFunc {
         }
     }
 
+    //updates feedback and here feedback style can be set
     public void updateFeedback(String feedback, Text feedback_txtField) {
         feedback_txtField.setText(feedback);
         feedback_txtField.setFill(Color.rgb(84,47,19));

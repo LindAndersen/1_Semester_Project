@@ -76,6 +76,7 @@ public class Game extends Application {
 
   public static void main (String[] args) {
     newGame();
+    //launch runs start()
     launch();
   }
 
@@ -84,12 +85,16 @@ public class Game extends Application {
     context = new Context(world.getEntry());
   }
 
+  //Sets save folder name to "test"
+  //Writes world and context to a file
   public static void save_game() {
     String filename = "test";
       try {
+        //If parent folder "saves" to saves doesnt exist it will be created
           boolean didCreateSaves = new File("saves").mkdirs();
           new File("saves\\" + filename).mkdirs();
           System.out.println((didCreateSaves ? "Creating save folder" : ""));
+          //System.getProperty() gets local path
           String pathToSaves = System.getProperty("user.dir") + "\\saves";
           System.out.printf("Will be stored at: %n%s%n", pathToSaves);
           FileOutputStream worldFile = new FileOutputStream(pathToSaves + "\\" + filename + "\\world.ser");
@@ -111,6 +116,9 @@ public class Game extends Application {
       }
   }
 
+  //Checks, via printSaveDir, if save folder and any saves exists first, else return
+  //Retrieves saved files (loads) and sets the current world and context to these
+  //Changes view to kontor-view.fxml
   public static void load_game() throws ClassNotFoundException, IOException {
         File[] saves = printSaveDir();
         if (saves == null) {
@@ -140,6 +148,7 @@ public class Game extends Application {
         setRoot("kontor-view");
       }
 
+  //Returns list of folders inside save dir or null if no saves are present
     private static File[] printSaveDir() {
       File[] saves = null;
         try {

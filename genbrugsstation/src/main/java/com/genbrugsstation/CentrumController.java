@@ -24,6 +24,12 @@ public class CentrumController extends SharedGUIFunc {
     private AnchorPane[] trashGUIelements;
     private Label[] trashGUIlabels;
 
+    // trashGUIelements -> contains all anchorpanes, which contains all elements (imageview, button, label) of trash
+    // trashGUIlabels -> the label for all trash is very the amount is present
+    // SharedGUIFunc.updateFeedBack() takes the feedback String and the Text element to update
+    // updateSceneFromUpgrades() handles the opacity of upgrade views to make sure bought upgrades are visible
+    // updateTrash() updates the Text field of via trashGUIelements
+    // makeTrashVisible() makes trash visible again upon reentry into the Space
     @FXML
     public void initialize() {
         trashGUIelements = new AnchorPane[] {anchorpane_flasker, anchorpane_aviser};
@@ -34,6 +40,7 @@ public class CentrumController extends SharedGUIFunc {
         makeTrashVisible(trashGUIelements, trashGUIlabels);
     }
 
+    // updateSceneFromUpgrades() handles the opacity of upgrade views to make sure bought upgrades are visible
     private void updateSceneFromUpgrades() {
         if (isUpgradeBought("Billboards")) {
             imageview_billboard.setOpacity(1);

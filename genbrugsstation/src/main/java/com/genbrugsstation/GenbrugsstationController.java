@@ -27,6 +27,10 @@ public class GenbrugsstationController extends SharedGUIFunc {
     private Label[] trashGUIlabels;
 
 
+    //This controller is used by both genbrugsstation-view and genbrugsstationRecycle-view
+    //For this reason checks are implemented in initialize() to check if grass and trash exists, if they do update them
+    //Feedback Text object is present in both .fxml files, so we can update without checks
+
     @FXML
     public void initialize() {
         trashGUIelements  = new AnchorPane[]{anchorpane_metalskrot, anchorpane_batterier, anchorpane_plastik};
@@ -36,6 +40,7 @@ public class GenbrugsstationController extends SharedGUIFunc {
         updateFeedback("Here you will get feedback", feedback_txtField);
     }
 
+    //Loops over all grass ImageViews to set only one of them corresponding with lvl to opacity=1, rest will be set to opacity=0
     private void updateSceneFromLevel() {
         int lvl = player.getLvl();
         ImageView[] grass = new ImageView[] {imageview_græslvl0, imageview_græslvl1, imageview_græslvl2, imageview_græslvl3, imageview_græslvl4, imageview_græslvl5};
