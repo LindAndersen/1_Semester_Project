@@ -42,6 +42,9 @@ public class ButikController extends SharedGUIFunc {
 
     private ImageView[] grass;
 
+    public static Map<String, Integer> getUpgradeIndexMap(){
+        return upgradeIndexMap;
+    }
     @FXML
     public void initialize(){
         grass = new ImageView[] {imageview_græslvl0, imageview_græslvl1, imageview_græslvl2, imageview_græslvl3, imageview_græslvl4, imageview_græslvl5};

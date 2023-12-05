@@ -9,7 +9,7 @@ public class Butik extends Space {
     private static HashMap<Integer, Upgrades> upgrades;
     private String[] commands = {"exit", "go", "help", "buy", "reset"};
     private boolean isHandled;
-    private final HashMap<Integer, Upgrades> allUpgrades;
+    private HashMap<Integer, Upgrades> allUpgrades;
 
     public Butik(String name) {
         super(name);

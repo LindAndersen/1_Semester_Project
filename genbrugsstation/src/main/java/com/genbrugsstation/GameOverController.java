@@ -39,7 +39,7 @@ public class GameOverController extends SharedGUIFunc {
     }
 
     private void setTextField(){
-        Player player = context.getPlayer();
+        Player player = Game.getContext().getPlayer();
         Butik butik;
         String[] hints = {"hint 1", "hint 2", "hint 3", "hint 4", "hint 5", "hint 6"};
 
@@ -50,20 +50,18 @@ public class GameOverController extends SharedGUIFunc {
             HashMap<Integer, Upgrades> allUpg = butik.getAllUpgrades();
             String[] upg = Butikdata.getUpgrades();
 
-            if(allUpg.isEmpty()){
-                System.out.println("all upgrade er tom");
+            for(int i = 1; i < allUpg.size()+1; i++){
+                int j = ButikController.getUpgradeIndexMap().get(String.valueOf(i));
+                if((upg[j].toLowerCase().trim()).equals(allUpg.get(i).getName().toLowerCase().trim())){
+                    hints[j] = allUpg.get(i).getHint();
+                }
             }
-            if(upgrades.isEmpty()){
-                System.out.println("upgrade er tom");
-            }
-//            for(int i = 0; i < upg.length; i++){
-//                if((upg[i].toLowerCase().trim()).equals(allUpg.get(i).getName().toLowerCase().trim())){
-//                    hints[i] = allUpg.get(i).getHint();
-//                }
-//            }
         }
-
+        
         switch (player.getLvl()){
+            case 0:
+                text.setText("buhu u did bad");
+                break;
             case 1:
                 text.setText("Du sluttede på level 1;\n" +
                         "Uha, det var ikke så godt borgmester… Trods den stærke indsats og dit "+
