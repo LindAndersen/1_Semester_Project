@@ -61,7 +61,7 @@ public class VillakvarterController extends SharedGUIFunc {
 
         if (isUpgradeBought("Isolerende vinduer")) {
             imageview_isolerendevinduer.setOpacity(1);
-        } else if (isUpgradeBought("Oliefyr")) {
+        } else if (isUpgradeBought("Varmeanlæg m. oliefyr")) {
             imageview_oliefyr.setOpacity(1);
         }
     }

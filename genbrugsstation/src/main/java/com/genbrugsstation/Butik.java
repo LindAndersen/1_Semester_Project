@@ -55,7 +55,7 @@ public class Butik extends Space {
 
         upgrades.put(1, new Upgrades("Cykelsti", 120, 60, 1.5, "1", 2));
         upgrades.put(2, new Upgrades("Motorvej", 100, 0, 1.5, "2", 1));
-        upgrades.put(3, new Upgrades("Billboard", 120, 0, 1.5, "3", 5));
+        upgrades.put(3, new Upgrades("Billboards", 120, 0, 1.5, "3", 5));
         upgrades.put(4, new Upgrades("Bustoppested", 180, 60, 1.5, "4", 10));
         upgrades.put(5, new Upgrades("Solceller", 140, 60, 1.5, "5", 3));
         upgrades.put(6, new Upgrades("Filter i parksøen", 160, 60, 1.5, "6", 9));
