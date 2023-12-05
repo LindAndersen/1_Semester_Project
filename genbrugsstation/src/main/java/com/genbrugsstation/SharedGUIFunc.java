@@ -19,7 +19,7 @@ public class SharedGUIFunc {
         return location;
     }
 
-    public void setRootFromEvent(Event event) {
+    public void setRootFromEvent(Event event) throws IOException{
         String location = getLocationFromEvent(event);
         Game.setRoot(location);
     }

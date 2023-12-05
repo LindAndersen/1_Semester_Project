@@ -47,7 +47,7 @@ public class KontorController extends SharedGUIFunc {
 
 
     @FXML
-    protected void goBtnPressed(ActionEvent e) {
+    protected void goBtnPressed(ActionEvent e) throws IOException {
         setRootFromEvent(e);
     }
 

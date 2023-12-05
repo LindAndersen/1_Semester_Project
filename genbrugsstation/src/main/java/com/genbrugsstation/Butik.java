@@ -9,11 +9,14 @@ public class Butik extends Space {
     private static HashMap<Integer, Upgrades> upgrades;
     private String[] commands = {"exit", "go", "help", "buy", "reset"};
     private boolean isHandled;
+    private final HashMap<Integer, Upgrades> allUpgrades;
 
     public Butik(String name) {
         super(name);
+        allUpgrades = new HashMap<Integer, Upgrades>();
         upgrades = new HashMap<Integer, Upgrades>();
-        initUpgrades();
+        initUpgrades(allUpgrades);
+        initUpgrades(upgrades);
         this.isHandled = super.getHandled();
     }
 
@@ -29,6 +32,10 @@ public class Butik extends Space {
                 "Du må træffe de rigtige beslutninger, når du skal investere i opgraderingerne, for de er vigtige for din bys bæredygtighed!\n" +
                 "Du kan altid tjekke byens status og din udvikling som borgmester i kontoret." +
                 "Du kan bruge 'buy' for at købe, og 'help' for at se andre tilgængelige commands i rummet!");
+    }
+
+    public HashMap<Integer, Upgrades> getAllUpgrades() {
+        return allUpgrades;
     }
 
     public HashMap<Integer, Upgrades> getUpgrades(){
@@ -51,20 +58,20 @@ public class Butik extends Space {
         return isHandled;
     }
 
-    private void initUpgrades(){
+    private void initUpgrades(HashMap<Integer, Upgrades> hm){
 
-        upgrades.put(1, new Upgrades("Cykelsti", 120, 60, 1.5, "1", 2));
-        upgrades.put(2, new Upgrades("Motorvej", 100, 0, 1.5, "2", 1));
-        upgrades.put(3, new Upgrades("Billboard", 120, 0, 1.5, "3", 5));
-        upgrades.put(4, new Upgrades("Bustoppested", 180, 60, 1.5, "4", 10));
-        upgrades.put(5, new Upgrades("Solceller", 140, 60, 1.5, "5", 3));
-        upgrades.put(6, new Upgrades("Filter i parksøen", 160, 60, 1.5, "6", 9));
-        upgrades.put(7, new Upgrades("Isolerende vinduer", 200, 60, 1.5, "7", 11));
-        upgrades.put(8, new Upgrades("Legeplads", 220, 60, 1.5, "8", 12));
-        upgrades.put(9, new Upgrades("Farve i parksøen", 140, 0, 1.5, "9", 6));
-        upgrades.put(10, new Upgrades("Parkeringshus", 160, 0, 1.5, "10", 4));
-        upgrades.put(11, new Upgrades("Varmeanlæg m. oliefyr", 180, 0, 1.5, "11", 7));
-        upgrades.put(12, new Upgrades("Fodboldstadion", 200, 0, 1.5, "12", 8));
+        hm.put(1, new Upgrades("Cykelsti", 120, 60, 1.5, "1", 2));
+        hm.put(2, new Upgrades("Motorvej", 100, 0, 1.5, "2", 1));
+        hm.put(3, new Upgrades("Billboard", 120, 0, 1.5, "3", 5));
+        hm.put(4, new Upgrades("Bustoppested", 180, 60, 1.5, "4", 10));
+        hm.put(5, new Upgrades("Solceller", 140, 60, 1.5, "5", 3));
+        hm.put(6, new Upgrades("Filter i parksøen", 160, 60, 1.5, "6", 9));
+        hm.put(7, new Upgrades("Isolerende vinduer", 200, 60, 1.5, "7", 11));
+        hm.put(8, new Upgrades("Legeplads", 220, 60, 1.5, "8", 12));
+        hm.put(9, new Upgrades("Farve i parksøen", 140, 0, 1.5, "9", 6));
+        hm.put(10, new Upgrades("Parkeringshus", 160, 0, 1.5, "10", 4));
+        hm.put(11, new Upgrades("Varmeanlæg m. oliefyr", 180, 0, 1.5, "11", 7));
+        hm.put(12, new Upgrades("Fodboldstadion", 200, 0, 1.5, "12", 8));
 
     }
 
@@ -90,6 +97,14 @@ public class Butik extends Space {
     public static String getUpgradeName(int key) {
         if (upgrades.containsKey(key)) {
             return upgrades.get(key).getName();
+        } else {
+            return null;
+        }
+    }
+
+    public static String getHints(int key){
+        if (upgrades.containsKey(key)) {
+            return upgrades.get(key).getHint();
         } else {
             return null;
         }

@@ -11,10 +11,10 @@
    <children>
       <ImageView fitHeight="675.0" fitWidth="900.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../game_over.png" />
+            <Image url="@../../game_over.jpg" />
          </image>
       </ImageView>
-      <TextArea fx:id="text" blendMode="MULTIPLY" layoutX="93.0" layoutY="195.0" prefHeight="209.0" prefWidth="713.0" text="hello" wrapText="true">
+      <TextArea fx:id="text" editable="false" blendMode="MULTIPLY" layoutX="93.0" layoutY="195.0" prefHeight="209.0" prefWidth="713.0" text="hello" wrapText="true">
          <font>
             <Font name="Courier New Bold" size="15.0" />
          </font></TextArea>

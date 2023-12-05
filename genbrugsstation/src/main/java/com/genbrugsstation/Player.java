@@ -15,7 +15,7 @@ class Player implements Serializable {
         this.name = name;
         xp = 0;
         lvl = 1;
-        money = 0;
+        money = 1020;
         inventory = new Inventory();
         resetInventory();
         buyCount = 0;

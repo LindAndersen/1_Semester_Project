@@ -1,6 +1,7 @@
 package com.genbrugsstation;
 
 import java.io.IOException;
+import java.util.HashMap;
 
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
@@ -28,8 +29,40 @@ public class GameOverController extends SharedGUIFunc {
         setTextField();
     }
 
+
+    public String toString(String[] arr){
+        String s = "";
+        for(String st : arr){
+            s += st + ", ";
+        }
+        return s;
+    }
+
     private void setTextField(){
         Player player = context.getPlayer();
+        Butik butik;
+        String[] hints = {"hint 1", "hint 2", "hint 3", "hint 4", "hint 5", "hint 6"};
+
+        if(context.getCurrent() instanceof Butik) {
+            System.out.println("current navn: " + context.getCurrent().getName());
+            butik = (Butik) context.getCurrent();
+            HashMap<Integer, Upgrades> upgrades = butik.getUpgrades();
+            HashMap<Integer, Upgrades> allUpg = butik.getAllUpgrades();
+            String[] upg = Butikdata.getUpgrades();
+
+            if(allUpg.isEmpty()){
+                System.out.println("all upgrade er tom");
+            }
+            if(upgrades.isEmpty()){
+                System.out.println("upgrade er tom");
+            }
+//            for(int i = 0; i < upg.length; i++){
+//                if((upg[i].toLowerCase().trim()).equals(allUpg.get(i).getName().toLowerCase().trim())){
+//                    hints[i] = allUpg.get(i).getHint();
+//                }
+//            }
+        }
+
         switch (player.getLvl()){
             case 1:
                 text.setText("Du sluttede på level 1;\n" +
@@ -39,7 +72,9 @@ public class GameOverController extends SharedGUIFunc {
                         "af en kærlig hånd. Men tvivl dog ikke, for du har potentiale! Med bedre "+
                         "opgraderinger og bedre effektive valg, kan du tage i lære og næste gang tage "+
                         "byen i en grønnere retning.\n"+
-                        "Bedre held næste gang!");
+                        "Bedre held næste gang! \n"+
+                        toString(hints));
+
                 break;
             case 2:
                 text.setText("Du sluttede på level 2;\n"+
@@ -48,7 +83,8 @@ public class GameOverController extends SharedGUIFunc {
                         "Byens bæredygtighed har udviklet sig en smule siden begyndelsen, men der er stadig lang "+
                         "vej endnu, og mere arbejde at gøre!"+
                         "Men mon ikke næste gang du spiller, at græsset kunne blive lidt grønnere? \n"+
-                        "Lær af din nye viden og prøv igen!");
+                        "Lær af din nye viden og prøv igen! \n"+
+                        toString(hints));
                 break;
             case 3:
                 text.setText("Du sluttede på level 3;\n"+
@@ -57,7 +93,8 @@ public class GameOverController extends SharedGUIFunc {
                         "og opgraderinger kan anes på byen, og byen er også blevet pænere i takt med, "+
                         "at mere skrald er forsvundet fra gaderne. Men det er ikke slut, borgmester, for "+
                         "der er stadig plads til forbedringer, så du kan nå helt til top!\n"+
-                        "Fortsæt med at forsøge, og se om du ikke kan score højere?");
+                        "Fortsæt med at forsøge, og se om du ikke kan score højere? \n"+
+                        toString(hints));
                 break;
             case 4:
                 text.setText("Du sluttede på level 4;\n" +
@@ -65,7 +102,8 @@ public class GameOverController extends SharedGUIFunc {
                         "Byen ser frem til en mere bæredygtig fremtid, og med grønnere græs "+
                         "og flere dyr i byen, kan man virkelig fornemme forskellen! Der er stadig "+
                         "mere at gøre for byen, men din indsats har allerede gjort en stor positiv forskel!\n"+
-                        "Fortsæt det gode arbejde, og se om du ikke kan ramme toppen fuldstændig?");
+                        "Fortsæt det gode arbejde, og se om du ikke kan ramme toppen fuldstændig? \n"+
+                        toString(hints));
                 break;
             case 5:
                 text.setText("Du sluttede på level 5;\n"+
@@ -74,7 +112,8 @@ public class GameOverController extends SharedGUIFunc {
                         "beboerne er dig evigt taknemmelige. Ikke nok med at dine bæredygtige valg "+
                         "har påvirket byen, er det også blevet en standard for global bæredygtighed! "+
                         "Det er en grøn fremtid i vente for denne by! \n"+
-                        "Tak for din indsats, og fortsæt det gode arbejde!");
+                        "Tak for din indsats, og fortsæt det gode arbejde! \n"+
+                        toString(hints));
                 break;
         }
     }

@@ -126,11 +126,13 @@ public class ButikController extends SharedGUIFunc {
         int[] xp = new int [12];
 
         String[] names = new String[12];
+        String[] hints = new String[12];
 
         for (int i = 1; i <= 12; i++) {
             prices[i - 1] = Butik.getUpgradePrice(i);
             names[i - 1] = Butik.getUpgradeName(i);
             xp[i - 1] = Butik.getUpgradeXp(i);
+            hints[i-1] = Butik.getHints(i);
         }
 
         String tillykke = "Tillykke du har købt opgraderingen ";
@@ -161,8 +163,8 @@ public class ButikController extends SharedGUIFunc {
             xptext.setText("Du har " + context.getPlayer().getXP() + " xp.");
 
             String upgradeText = String.format(
-                    "%s%s til byen! %s Den kostede %d kr. og gav %d xp.",
-                    tillykke, names[upgradeIndex], forklaring[upgradeIndex], prices[upgradeIndex], xp[upgradeIndex]
+                    "%s%s til byen! %s Den kostede %d kr. og gav %d xp. Om %s: %s",
+                    tillykke, names[upgradeIndex], forklaring[upgradeIndex], prices[upgradeIndex], xp[upgradeIndex], names[upgradeIndex], hints[upgradeIndex]
             );
 
             switch (a) {
@@ -180,7 +182,6 @@ public class ButikController extends SharedGUIFunc {
 
                 case "3":
                     Butikdata.setStringupgrade2("Billboards");
-                    System.out.println("Sætter string upgrade til billboard");
                     upgrade2.setText(Butikdata.getStringupgrade2());
                     lolatekst.setText(upgradeText);
                     break;
@@ -251,23 +252,20 @@ public class ButikController extends SharedGUIFunc {
                 System.out.println(e.getMessage());
             }
         }
-
-
-
     }
 
     @FXML
-    private void go(MouseEvent event) throws IOException {
+    private void go(MouseEvent event) throws IOException{
         setRootFromEvent(event);
     }
 
     @FXML
-    protected void onOpgraderingerButtonClick() throws IOException{
+    protected void onOpgraderingerButtonClick(){
         setRootFromString("opgraderinger-view");
     }
 
     @FXML
-    protected void onButikTilbageClick() throws IOException  {
+    protected void onButikTilbageClick() {
         setRootFromString("butik-view");
     }
 
@@ -355,7 +353,7 @@ public class ButikController extends SharedGUIFunc {
 
     }
     @FXML
-    protected void onInfoButtonClick() /*throws IOException*/ {
+    protected void onInfoButtonClick() throws IOException {
         System.out.println("menu åbner");
 
         Game.setRoot("default-menu-view");
