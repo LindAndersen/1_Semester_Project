@@ -11,7 +11,7 @@
    <children>
       <ImageView fx:id="imageview_græslvl1" fitHeight="675.0" fitWidth="900.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../græs_layers/SHOP%20-%20GRÆSLEVEL%200.png" />
+            <Image url="@../../græs_layers/SHOP-GRÆSLEVEL_1.png" />
          </image>
       </ImageView>
       <ImageView fx:id="imageview_græslvl1" fitHeight="687.0" fitWidth="900.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">

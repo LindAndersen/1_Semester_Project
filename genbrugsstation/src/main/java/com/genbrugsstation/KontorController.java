@@ -33,7 +33,7 @@ public class KontorController extends SharedGUIFunc {
 
     @FXML
     protected void sleepBtnPressed(){
-        updateFeedback("Du ligger dig til at sove, men vågner fordi du kan høre folk smide med skrald", feedback_txtField);
+        updateFeedback("Du lægger dig til at sove, men vågner fordi du kan høre folk smide med skrald", feedback_txtField);
         context.resetDay(world);
         //System.out.println("du sover nu");
 

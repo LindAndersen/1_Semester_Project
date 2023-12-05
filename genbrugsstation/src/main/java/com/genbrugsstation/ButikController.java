@@ -247,7 +247,7 @@ public class ButikController extends SharedGUIFunc {
         if(player.getBuyCount() == 6){
             try {
                 setRootFromString("game-over-view");
-            }catch (IOException e){
+            }catch (Exception e){
                 System.out.println(e.getMessage());
             }
         }
