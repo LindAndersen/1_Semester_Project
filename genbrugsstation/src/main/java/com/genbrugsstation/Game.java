@@ -20,15 +20,15 @@ import java.io.ObjectOutputStream;
  */
 
 public class Game extends Application {
-  private static Scene scene;
-  static World    world;
-  static Context  context;
   static String prevView = null;
   static String currentView;
+  static Scene scene;
+  static DomainMain domain;
   
     @Override
     public void start(Stage stage) {
         try {
+            domain = new DomainMain();
             currentView = "main-menu-view";
             scene = new Scene(loadFXML(currentView));
             Stagestore.stage = stage;
@@ -48,13 +48,13 @@ public class Game extends Application {
 
     public static void setRoot(String rootNode) {
       prevView = currentView;
-      Space[] loc = world.getLocations();
+      Space[] loc = domain.world.getLocations();
       String title = rootNode.split("-")[0];
       for(Space s : loc) {
         if ((s.getName().toLowerCase()).equals(title.trim().toLowerCase())) {
-          context.setCurrent(s);
+          domain.context.setCurrent(s);
           if((s.getName().trim().toLowerCase()).equals("butik") && (title.trim().toLowerCase().equals("opgraderinger"))){
-            context.setCurrent(s);
+            domain.context.setCurrent(s);
           }
           currentView = rootNode;
         }
@@ -75,94 +75,8 @@ public class Game extends Application {
     }
 
   public static void main (String[] args) {
-    newGame();
+    domain.newGame();
     //launch runs start()
     launch();
-  }
-
-  public static void newGame() {
-    world = new World();
-    context = new Context(world.getEntry());
-  }
-
-  //Sets save folder name to "test"
-  //Writes world and context to a file
-  public static void save_game() {
-    String filename = "test";
-      try {
-        //If parent folder "saves" to saves doesnt exist it will be created
-          boolean didCreateSaves = new File("saves").mkdirs();
-          new File("saves\\" + filename).mkdirs();
-          System.out.println((didCreateSaves ? "Creating save folder" : ""));
-          //System.getProperty() gets local path
-          String pathToSaves = System.getProperty("user.dir") + "\\saves";
-          System.out.printf("Will be stored at: %n%s%n", pathToSaves);
-          FileOutputStream worldFile = new FileOutputStream(pathToSaves + "\\" + filename + "\\world.ser");
-          FileOutputStream contextFile = new FileOutputStream(pathToSaves + "\\" + filename + "\\context.ser");
-          ObjectOutputStream worldOut = new ObjectOutputStream(worldFile);
-          ObjectOutputStream contextOut = new ObjectOutputStream(contextFile);
-
-          worldOut.writeObject(world);
-          contextOut.writeObject(context);
-          worldOut.close();
-          contextOut.close();
-          worldFile.close();
-          contextFile.close();
-
-          System.out.printf("Completed save with name: %s%n", filename);
-
-      } catch (IOException e) {
-          e.printStackTrace();
-      }
-  }
-
-  //Checks, via printSaveDir, if save folder and any saves exists first, else return
-  //Retrieves saved files (loads) and sets the current world and context to these
-  //Changes view to kontor-view.fxml
-  public static void load_game() throws ClassNotFoundException, IOException {
-        File[] saves = printSaveDir();
-        if (saves == null) {
-          System.out.println("Der er ingen gemte spil :'(");
-          return; 
-        }
-
-        String saveName = "test";
-
-        String pathToSaves = System.getProperty("user.dir") + "\\saves";
-        FileInputStream worldFile = new FileInputStream(pathToSaves + "\\" + saveName + "\\world.ser");
-        FileInputStream contextFile = new FileInputStream(pathToSaves + "\\" + saveName + "\\context.ser");
-        try (ObjectInputStream worldIn = new ObjectInputStream(worldFile)) {
-          try (ObjectInputStream contextIn = new ObjectInputStream(contextFile)) {
-            World loadedWorld = (World) worldIn.readObject();
-            Context loadedContext = (Context) contextIn.readObject();
-
-            //assertThat(context == loadedContext).isFalse()
-
-            world = loadedWorld;
-            context = loadedContext;
-
-            // System.out.println(worldIn != null ? "Did not fully load world..." : "");
-            // System.out.println(contextIn != null ? "Did not fully load context..." : "");
-          }
-        }
-        setRoot("kontor-view");
-      }
-
-  //Returns list of folders inside save dir or null if no saves are present
-    private static File[] printSaveDir() {
-      File[] saves = null;
-        try {
-            File saveDir = new File("saves");
-            saves = saveDir.listFiles();
-        } catch (NullPointerException e) {
-            System.out.println("Creating save folder");
-            new File("saves").mkdirs();
-        }
-
-        return saves;
-    }
-
-  public static Context getContext() {
-    return context;
   }
 }

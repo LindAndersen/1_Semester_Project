@@ -20,8 +20,6 @@ import javafx.stage.WindowEvent;
 
 public class MainMenuController extends SharedGUIFunc {
     private Stage stage;
-    private Scene scene;
-    private Parent root;
 
     @FXML
     private Button newGameBtn, leaveBtn, loadBtn, btn_savegame;
@@ -32,7 +30,7 @@ public class MainMenuController extends SharedGUIFunc {
 
     @FXML
     protected void newGameBtnPressed() throws IOException{
-        Game.newGame();
+        domain.newGame();
         setRootFromString("kontor-view");
     }
 
