@@ -108,6 +108,5 @@
             <Image url="@../../inventory.png" />
          </image>
       </ImageView>
-      <AnchorPane prefHeight="200.0" prefWidth="200.0" />
    </children>
 </AnchorPane>

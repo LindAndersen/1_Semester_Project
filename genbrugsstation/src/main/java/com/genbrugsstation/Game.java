@@ -119,6 +119,8 @@ public class Game extends Application {
             World loadedWorld = (World) worldIn.readObject();
             Context loadedContext = (Context) contextIn.readObject();
 
+            //assertThat(context == loadedContext).isFalse()
+
             world = loadedWorld;
             context = loadedContext;
 
@@ -127,7 +129,6 @@ public class Game extends Application {
           }
         }
         setRoot("kontor-view");
-        return;
       }
 
     private static File[] printSaveDir() {

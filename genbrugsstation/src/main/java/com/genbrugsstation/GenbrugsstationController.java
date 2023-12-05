@@ -32,7 +32,7 @@ public class GenbrugsstationController extends SharedGUIFunc {
         trashGUIlabels = new Label[] {metalskrot_label, batterier_label, plastik_label};
         if (!(imageview_græslvl1 == null)) {updateSceneFromLevel();}
         if (!(metalskrot_label == null)) {updateTrash();makeTrashVisible(trashGUIelements, trashGUIlabels);}
-        updateFeedback("Here you will get feedback");
+        updateFeedback("Here you will get feedback", feedback_txtField);
     }
 
     private void updateSceneFromLevel() {
@@ -46,10 +46,6 @@ public class GenbrugsstationController extends SharedGUIFunc {
                 grass[i].setOpacity(0);
             }
         }
-    }
-
-    private void updateFeedback(String feedback) {
-        feedback_txtField.setText(feedback);
     }
 
     private void updateTrash() {
@@ -79,7 +75,7 @@ public class GenbrugsstationController extends SharedGUIFunc {
             moneyXP = player.recycleGreen();
         }
 
-        updateFeedback("Du fik: " + moneyXP[0] + " penge og " + moneyXP[1] + " XP");
+        updateFeedback("Du fik: " + moneyXP[0] + " penge og " + moneyXP[1] + " XP", feedback_txtField);
         moneyXP = null;
 
 
@@ -94,7 +90,7 @@ public class GenbrugsstationController extends SharedGUIFunc {
     private void pickup(MouseEvent event) throws TrashNotFoundException {
         String feedback = SharedGUIFunc.pickup(event);
         updateTrash();
-        updateFeedback(feedback);
+        updateFeedback(feedback, feedback_txtField);
     }
 
     @FXML

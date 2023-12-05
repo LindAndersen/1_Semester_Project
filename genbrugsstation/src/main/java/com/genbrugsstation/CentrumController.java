@@ -28,7 +28,7 @@ public class CentrumController extends SharedGUIFunc {
     public void initialize() {
         trashGUIelements = new AnchorPane[] {anchorpane_flasker, anchorpane_aviser};
         trashGUIlabels = new Label[] {flasker_label, aviser_label};
-        feedback_txtField.setText("Here you will get feedback");
+        updateFeedback("Here you will get feedback", feedback_txtField);
         updateSceneFromUpgrades();
         updateTrash();
         makeTrashVisible(trashGUIelements, trashGUIlabels);
@@ -48,10 +48,6 @@ public class CentrumController extends SharedGUIFunc {
         }
     }
 
-    private void updateFeedback(String feedback) {
-        feedback_txtField.setText(feedback);
-    }
-
     private void updateTrash() {
         String[] update = getTrashUpdate();
         setTrashVisibility(trashGUIelements, update);
@@ -69,7 +65,7 @@ public class CentrumController extends SharedGUIFunc {
     private void pickup(MouseEvent event) throws TrashNotFoundException {
         String feedback = SharedGUIFunc.pickup(event);
         updateTrash();
-        updateFeedback(feedback);
+        updateFeedback(feedback, feedback_txtField);
     }
 
     @FXML

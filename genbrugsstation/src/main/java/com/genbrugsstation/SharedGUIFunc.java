@@ -7,6 +7,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.text.Text;
 
 public class SharedGUIFunc {
     static Context context = Game.getContext();
@@ -74,5 +75,10 @@ public class SharedGUIFunc {
                 trashGUIelements[i].setOpacity(0);
             }
         }
+    }
+
+    public void updateFeedback(String feedback, Text feedback_txtField) {
+        feedback_txtField.setText(feedback);
+        feedback_txtField.setStyle("-fx-text-fill: green;");
     }
 }
