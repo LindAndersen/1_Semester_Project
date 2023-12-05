@@ -6,6 +6,8 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 
 import java.io.IOException;
+import java.util.LinkedHashMap;
+import java.util.Map;
 
 import javafx.event.ActionEvent;
 import javafx.scene.control.Button;
@@ -20,77 +22,65 @@ public class ButikController extends SharedGUIFunc {
 
     @FXML
     private ImageView imageview_græslvl0, imageview_græslvl1, imageview_græslvl2, imageview_græslvl3, imageview_græslvl4, imageview_græslvl5;
-
     private ImageView[] grass;
+
+    private static final Map<String, Integer> upgradeIndexMap = new LinkedHashMap<>();
+
+    static {
+        upgradeIndexMap.put("1", 0);
+        upgradeIndexMap.put("2", 0);
+        upgradeIndexMap.put("3", 1);
+        upgradeIndexMap.put("4", 3);
+        upgradeIndexMap.put("5", 1);
+        upgradeIndexMap.put("6", 2);
+        upgradeIndexMap.put("7", 4);
+        upgradeIndexMap.put("8", 5);
+        upgradeIndexMap.put("9", 2);
+        upgradeIndexMap.put("10", 3);
+        upgradeIndexMap.put("11", 4);
+        upgradeIndexMap.put("12", 5);
+    }
 
     @FXML
     public void initialize(){
         grass = new ImageView[] {imageview_græslvl0, imageview_græslvl1, imageview_græslvl2, imageview_græslvl3, imageview_græslvl4, imageview_græslvl5};
-        if (pengetext != null & xptext != null) {
+        if (pengetext != null && xptext != null) {
             pengetext.setText("Du har " + context.getPlayer().getMoney() + " kr.");
             xptext.setText("Du har " + context.getPlayer().getXP() + " xp.");
 
-            if (upgrade1 != null & upgrade2 != null & upgrade3 != null & upgrade4 != null & upgrade5 != null & upgrade6 != null){
+            if (upgrade1 != null && upgrade2 != null && upgrade3 != null && upgrade4 != null && upgrade5 != null && upgrade6 != null){
 
-                upgrade1.setText(Butikdata.getStringupgrade1());
-                switch (Butikdata.getStringupgrade1()) {
-                    case "":
-                        break;
+                updateupgradetext();
 
-                    case "Cykelsti", "Motorvej":
-                        setButtonDisable(cykelsti,motor);
-                        break;
+                for (int i = 0; i < 6; i++) {
+                    switch (Butikdata.getStringUpgrade(i)) {
+                        case "":
+                            break;
 
-                }
-                upgrade2.setText(Butikdata.getStringupgrade2());
-                switch (Butikdata.getStringupgrade2()) {
-                    case "":
-                        break;
+                        case "Cykelsti", "Motorvej":
+                            setButtonDisable(cykelsti, motor);
+                            break;
 
-                    case "Solceller", "Billboards":
-                        setButtonDisable(solceller,bill);
-                        break;
+                        case "Solceller", "Billboards":
+                            setButtonDisable(solceller, bill);
+                            break;
 
-                }
-                upgrade3.setText(Butikdata.getStringupgrade3());
-                switch (Butikdata.getStringupgrade3()) {
-                    case "":
-                        break;
+                        case "Filter i parksøen", "Farve i parksøen":
+                            setButtonDisable(filter, farve);
+                            break;
 
-                    case "Filter i parksøen", "Farve i parksøen":
-                        setButtonDisable(filter,farve);
-                        break;
+                        case "Busstoppested", "Parkeringshus":
+                            setButtonDisable(bus, parkering);
+                            break;
 
-                }
-                upgrade4.setText(Butikdata.getStringupgrade4());
-                switch (Butikdata.getStringupgrade4()) {
-                    case "":
-                        break;
+                        case "Isolerende vinduer", "Varmeanlæg m. oliefyr":
+                            setButtonDisable(vinduer, olie);
+                            break;
 
-                    case "Busstoppested", "Parkeringshus":
-                        setButtonDisable(bus,parkering);
-                        break;
-
-                }
-                upgrade5.setText(Butikdata.getStringupgrade5());
-                switch (Butikdata.getStringupgrade5()) {
-                    case "":
-                        break;
-
-                    case "Isolerende vinduer", "Oliefyr":
-                        setButtonDisable(vinduer,olie);
-                        break;
-
-                }
-                upgrade6.setText(Butikdata.getStringupgrade6());
-                switch (Butikdata.getStringupgrade6()) {
-                    case "":
-                        break;
-
-                    case "Legeplads", "Fodboldstadion":
-                        setButtonDisable(leg,bold);
-                        break;
-
+                        case "Legeplads", "Fodboldstadion":
+                            setButtonDisable(leg, bold);
+                            break;
+                    }
                 }
             }
         }
@@ -103,6 +93,7 @@ public class ButikController extends SharedGUIFunc {
 
     private void updateSceneFromLevel() {
         int lvl = player.getLvl();
+
         for (int i = 0;i<grass.length;i++) {
             if (lvl == i) {
                 grass[i].setOpacity(1);
@@ -115,6 +106,15 @@ public class ButikController extends SharedGUIFunc {
     public void setButtonDisable(Button a, Button b){
         a.setDisable(true);
         b.setDisable(true);
+    }
+
+    public void updateupgradetext(){
+        upgrade1.setText(Butikdata.getStringUpgrade(0));
+        upgrade2.setText(Butikdata.getStringUpgrade(1));
+        upgrade3.setText(Butikdata.getStringUpgrade(2));
+        upgrade4.setText(Butikdata.getStringUpgrade(3));
+        upgrade5.setText(Butikdata.getStringUpgrade(4));
+        upgrade6.setText(Butikdata.getStringUpgrade(5));
     }
 
 
@@ -167,13 +167,9 @@ public class ButikController extends SharedGUIFunc {
                     tillykke, names[upgradeIndex], forklaring[upgradeIndex], prices[upgradeIndex], xp[upgradeIndex], names[upgradeIndex], hints[upgradeIndex]
             );
 
-            switch (a) {
-                case "1":
-                    Butikdata.setStringupgrade1("Cykelsti");
-                    upgrade1.setText(Butikdata.getStringupgrade1());
-                    lolatekst.setText(upgradeText);
-                    break;
-
+            Butikdata.setStringUpgrade(upgradeIndexMap.getOrDefault(a, -1), names[upgradeIndex]);
+            updateupgradetext();
+            lolatekst.setText(upgradeText);
                 case "2":
                     Butikdata.setStringupgrade1("Motorvej");
                     upgrade1.setText(Butikdata.getStringupgrade1());
@@ -241,7 +237,7 @@ public class ButikController extends SharedGUIFunc {
                     break;
 
             }
-        } else{
+         else{
             lolatekst.setText("Du har desværre ikke råd til denne opgradering. :(");
         }
 

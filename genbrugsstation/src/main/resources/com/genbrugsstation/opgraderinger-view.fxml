@@ -38,27 +38,27 @@
          <font>
             <Font name="Rockwell" size="20.0" />
          </font></Label>
-      <Label fx:id="upgrade1" layoutX="199.0" layoutY="239.0" prefHeight="17.0" prefWidth="139.0" text="null">
+      <Label fx:id="upgrade1" layoutX="199.0" layoutY="239.0" prefHeight="17.0" prefWidth="170.0" text="null">
          <font>
             <Font name="Rockwell" size="14.0" />
          </font></Label>
-      <Label fx:id="upgrade2" layoutX="199.0" layoutY="255.0" prefHeight="17.0" prefWidth="137.0" text="null">
+      <Label fx:id="upgrade2" layoutX="199.0" layoutY="255.0" prefHeight="17.0" prefWidth="170.0" text="null">
          <font>
             <Font name="Rockwell" size="14.0" />
          </font></Label>
-      <Label fx:id="upgrade3" layoutX="199.0" layoutY="272.0" prefHeight="17.0" prefWidth="137.0" text="null">
+      <Label fx:id="upgrade3" layoutX="199.0" layoutY="272.0" prefHeight="17.0" prefWidth="170.0" text="null">
          <font>
             <Font name="Rockwell" size="14.0" />
          </font></Label>
-      <Label fx:id="upgrade4" layoutX="200.0" layoutY="288.0" prefHeight="17.0" prefWidth="137.0" text="null">
+      <Label fx:id="upgrade4" layoutX="200.0" layoutY="288.0" prefHeight="17.0" prefWidth="170.0" text="null">
          <font>
             <Font name="Rockwell" size="14.0" />
          </font></Label>
-      <Label fx:id="upgrade5" layoutX="200.0" layoutY="303.0" prefHeight="17.0" prefWidth="137.0" text="null">
+      <Label fx:id="upgrade5" layoutX="200.0" layoutY="303.0" prefHeight="17.0" prefWidth="170.0" text="null">
          <font>
             <Font name="Rockwell" size="14.0" />
          </font></Label>
-      <Label fx:id="upgrade6" layoutX="200.0" layoutY="318.0" prefHeight="17.0" prefWidth="137.0" text="null">
+      <Label fx:id="upgrade6" layoutX="200.0" layoutY="318.0" prefHeight="17.0" prefWidth="170.0" text="null">
          <font>
             <Font name="Rockwell" size="14.0" />
          </font></Label>
