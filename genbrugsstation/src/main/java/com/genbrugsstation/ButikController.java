@@ -78,7 +78,7 @@ public class ButikController extends SharedGUIFunc {
                             setButtonDisable(filter, farve);
                             break;
 
-                        case "Bustoppested", "Parkeringshus":
+                        case "Busstoppested", "Parkeringshus":
                             setButtonDisable(bus, parkering);
                             break;
 
