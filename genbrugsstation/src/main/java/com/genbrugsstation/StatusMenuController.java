@@ -16,31 +16,11 @@ import java.util.Map;
 public class StatusMenuController extends SharedGUIFunc {
 
     @FXML
-    private Label xpLabel;
+    private Label plastikNumber, flaskeNumber, batteriNumber, avisNumber, metalNumber;
     @FXML
-    private Label plastikNumber;
-    @FXML
-    private Label flaskeNumber;
-    @FXML
-    private Label batteriNumber;
-    @FXML
-    private Label avisNumber;
-    @FXML
-    private Label metalNumber;
-
-    @FXML
-    private Label coinLabel;
-
-    @FXML
-    private Label lvlLabel;
-
-    @FXML
-    private Label dayLabel;
-
-    private Stage stage;
+    private Label coinLabel, lvlLabel, dayLabel, xpLabel;
     @FXML
     private ImageView statusMenuImageView;
-
     @FXML
     private Button backBtn;
 
@@ -50,7 +30,7 @@ public class StatusMenuController extends SharedGUIFunc {
     }
 
     private void updateLabels(){
-        Map<String, Integer> items = player.getInventory().getItems();
+        Map<String, Integer> items = Game.getContext().getPlayer().getInventory().getItems();
         xpLabel.setText(Integer.toString(player.getXP()));
         coinLabel.setText(Integer.toString(player.getMoney()));
         //lvlLabel.setText(Integer.toString(player.getLvl())+ player.remainingXP() + "/100");

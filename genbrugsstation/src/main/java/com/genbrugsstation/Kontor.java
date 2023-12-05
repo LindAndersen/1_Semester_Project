@@ -1,9 +1,7 @@
 package com.genbrugsstation;
 
-import java.util.Map;
 
 class Kontor extends Space {
-    String[] commands = {"exit", "go", "help", "status", "save", "load", "reset"};
     private boolean isHandled;
     Kontor(String name) {
         super(name);
@@ -18,13 +16,7 @@ class Kontor extends Space {
     }
     @Override
     public void welcome() {
-        //Specify welcome for Kontor
-        super.welcome();
         makeHandled();
-    }
-
-    public void showTrash() {
-        //No trash here
     }
 
     @Override
@@ -41,14 +33,4 @@ class Kontor extends Space {
     public boolean getHandled(){
         return isHandled;
     }
-
-//    @Override
-//    public boolean isCommandReachable(String name) {
-//        return super.isCommandReachable(name, commands);
-//    }
-
-//    @Override
-//    public String[] getCommands() {
-//        return commands;
-//    }
 }

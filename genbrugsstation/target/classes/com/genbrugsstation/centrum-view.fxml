@@ -37,6 +37,11 @@
       </ImageView>
       <StackPane fx:id="stackPane" layoutY="637.0" prefHeight="39.0" prefWidth="900.0" style="-fx-background-color: black;">
          <children>
+            <ImageView fitHeight="42.0" fitWidth="900.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../Chatbox%20brun!.png" />
+               </image>
+            </ImageView>
             <Text fx:id="feedback_txtField" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-fill: white;" textAlignment="CENTER" wrappingWidth="873.4700627326965">
                <font>
                   <Font size="24.0" />
@@ -103,6 +108,5 @@
             <Image url="@../../inventory.png" />
          </image>
       </ImageView>
-      <AnchorPane prefHeight="200.0" prefWidth="200.0" />
    </children>
 </AnchorPane>

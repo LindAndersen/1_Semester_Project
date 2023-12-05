@@ -33,10 +33,4 @@ class Inventory implements Serializable {
     public Map<String, Integer> getItems() {
         return items;
     }
-
-    @Override
-    public String toString() {
-
-        return "Not implemented";
-    }
 }

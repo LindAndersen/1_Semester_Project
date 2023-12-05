@@ -11,7 +11,12 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="675.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.genbrugsstation.GenbrugsstationController">
    <children>
-      <ImageView fx:id="imageview_græslvl1" fitHeight="675.0" fitWidth="900.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="imageview_græslvl0" fitHeight="675.0" fitWidth="900.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../græs_layers/SHOP%20-%20GRÆSLEVEL%200.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="imageview_græslvl1" fitHeight="675.0" fitWidth="900.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../græs_layers/SHOP-GRÆSLEVEL_1.png" />
          </image>
@@ -94,6 +99,11 @@
       </AnchorPane>
       <StackPane fx:id="stackPane" layoutX="1.0" layoutY="632.0" prefHeight="42.0" prefWidth="900.0" style="-fx-background-color: black;">
          <children>
+            <ImageView fitHeight="42.0" fitWidth="900.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../Chatbox%20brun!.png" />
+               </image>
+            </ImageView>
             <Text fx:id="feedback_txtField" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-fill: white;" textAlignment="CENTER" wrappingWidth="884.5811767578125">
                <font>
                   <Font size="24.0" />

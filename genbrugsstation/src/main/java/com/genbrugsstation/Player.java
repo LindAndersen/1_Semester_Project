@@ -27,7 +27,7 @@ class Player implements Serializable {
     
     void addToInventory(String name, int amount) {
         //calls an add-method in Inventory class
-        System.out.printf("Du har tilføjet %d %s til din inventar%n", amount, name);
+        //System.out.printf("Du har tilføjet %d %s til din inventar%n", amount, name);
         inventory.addItem(name, amount);
     }
 
@@ -62,7 +62,7 @@ class Player implements Serializable {
         if (money >= price) {
             return true;
         } else {
-            System.out.println("Du har desværre ikke råd :(");
+            //System.out.println("Du har desværre ikke råd :(");
             return false;
         }
     }

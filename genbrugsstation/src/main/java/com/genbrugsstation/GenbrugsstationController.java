@@ -21,7 +21,7 @@ public class GenbrugsstationController extends SharedGUIFunc {
     @FXML
     private ImageView go_back;
     @FXML
-    private ImageView imageview_græslvl1, imageview_græslvl2, imageview_græslvl3, imageview_græslvl4, imageview_græslvl5;
+    private ImageView imageview_græslvl0, imageview_græslvl1, imageview_græslvl2, imageview_græslvl3, imageview_græslvl4, imageview_græslvl5;
 
     private AnchorPane[] trashGUIelements;
     private Label[] trashGUIlabels;
@@ -32,24 +32,20 @@ public class GenbrugsstationController extends SharedGUIFunc {
         trashGUIlabels = new Label[] {metalskrot_label, batterier_label, plastik_label};
         if (!(imageview_græslvl1 == null)) {updateSceneFromLevel();}
         if (!(metalskrot_label == null)) {updateTrash();makeTrashVisible(trashGUIelements, trashGUIlabels);}
-        updateFeedback("Here you will get feedback");
+        updateFeedback("Here you will get feedback", feedback_txtField);
     }
 
     private void updateSceneFromLevel() {
         int lvl = player.getLvl();
-        ImageView[] grass = new ImageView[] {imageview_græslvl1, imageview_græslvl2, imageview_græslvl3, imageview_græslvl4, imageview_græslvl5};
+        ImageView[] grass = new ImageView[] {imageview_græslvl0, imageview_græslvl1, imageview_græslvl2, imageview_græslvl3, imageview_græslvl4, imageview_græslvl5};
 
         for (int i = 0;i<grass.length;i++) {
-            if (lvl == i+1) {
+            if (lvl == i) {
                 grass[i].setOpacity(1);
             } else {
                 grass[i].setOpacity(0);
             }
         }
-    }
-
-    private void updateFeedback(String feedback) {
-        feedback_txtField.setText(feedback);
     }
 
     private void updateTrash() {
@@ -79,7 +75,7 @@ public class GenbrugsstationController extends SharedGUIFunc {
             moneyXP = player.recycleGreen();
         }
 
-        updateFeedback("Du fik: " + moneyXP[0] + " penge og " + moneyXP[1] + " XP");
+        updateFeedback("Du fik: " + moneyXP[0] + " penge og " + moneyXP[1] + " XP", feedback_txtField);
         moneyXP = null;
 
 
@@ -94,7 +90,7 @@ public class GenbrugsstationController extends SharedGUIFunc {
     private void pickup(MouseEvent event) throws TrashNotFoundException {
         String feedback = SharedGUIFunc.pickup(event);
         updateTrash();
-        updateFeedback(feedback);
+        updateFeedback(feedback, feedback_txtField);
     }
 
     @FXML
