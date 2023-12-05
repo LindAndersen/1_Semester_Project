@@ -74,7 +74,7 @@ public class Butik extends Space {
                 "flere turister til byen, men flere turister betyder mere skrald og beskidte gader. Det har også " +
                 "en negativ bekostning på klimaet, for billboards bruger en del strøm. Times Square bruger så " +
                 "meget strøm hver eneste dag, at det svarer til at kunne oplyse 1.6 millioner af lyspærer.", 5));
-        hm.put(4, new Upgrades("Bustoppested", 180, 60, 1.5, "Offentlig transport betyder " +
+        hm.put(4, new Upgrades("Busstoppested", 180, 60, 1.5, "Offentlig transport betyder " +
                 "at færre tager deres bil, hvilket hjælper med at reducere den negative miljøbelastning per indbygger. " +
                 "FNs verdensmål for bæredygtige byer har et delmål, som handler om sikre, let tilgængelige og " +
                 "bæredygtige oftenlige transport systemer. Det har du lige skabt for din by! Det hjælper også " +
