@@ -149,7 +149,7 @@ class Player implements Serializable {
         int amountOfTrash = getTrashAmount();
         emptyInventory();
         int money = 7 * amountOfTrash;
-        int xp = money;
+        int xp = 2 * amountOfTrash;
         addMoney(money);
         addXP(-xp);
         int[] moneyXP = {money, -xp};
