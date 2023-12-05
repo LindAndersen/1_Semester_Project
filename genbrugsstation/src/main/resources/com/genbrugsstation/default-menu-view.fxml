@@ -5,15 +5,16 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="198.0" prefWidth="314.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.genbrugsstation.MainMenuController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="628.0" prefWidth="895.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.genbrugsstation.DefaultMenuController">
    <children>
-      <ImageView fx:id="menuImageView" fitHeight="273.0" fitWidth="313.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="menuImageView" fitHeight="703.0" fitWidth="913.0" layoutX="-5.0" layoutY="-8.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../default-menu.png" />
+            <Image url="@../../default_menu.png" />
          </image>
       </ImageView>
-      <Button fx:id="newGameBtn" layoutX="124.0" layoutY="108.0" mnemonicParsing="false" onAction="#newGameBtnPressed" text="Nyt spil" />
-      <Button fx:id="leaveBtn" layoutX="117.0" layoutY="148.0" mnemonicParsing="false" onAction="#leaveBtnPressed" text="Forlad spil" />
-      <Button fx:id="btn_savegame" layoutX="14.0" layoutY="121.0" mnemonicParsing="false" onMouseClicked="#saveGame" text="Gem spil" />
+      <Button fx:id="dSaveBtn" layoutX="262.0" layoutY="105.0" mnemonicParsing="false" onAction="#saveGame" onMouseClicked="#saveGame" opacity="0.0" prefHeight="75.0" prefWidth="386.0" text="Gem spil" />
+      <Button fx:id="dLeaveBtn" layoutX="261.0" layoutY="269.0" mnemonicParsing="false" onAction="#leaveBtnPressed" opacity="0.0" prefHeight="80.0" prefWidth="387.0" text="Forlad spil" />
+      <Button fx:id="dBackBtn" layoutX="77.0" layoutY="61.0" mnemonicParsing="false" onAction="#backBtn" opacity="0.0" prefHeight="57.0" prefWidth="71.0" text="tilbage" />
+      <Button fx:id="dBackBtn1" layoutX="262.0" layoutY="438.0" mnemonicParsing="false" onAction="#backBtn" opacity="0.0" prefHeight="89.0" prefWidth="401.0" text="Button" />
    </children>
 </AnchorPane>

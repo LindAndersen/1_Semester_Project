@@ -12,27 +12,27 @@
    <children>
       <ImageView fx:id="imageview_græslvl1" fitHeight="687.0" fitWidth="900.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../græs_layers/SHOP%20-%20GRÆSLEVEL%201.png" />
+            <Image url="@../../græs_layers/SHOP-GRÆSLEVEL_1.png" />
          </image>
       </ImageView>
       <ImageView fx:id="imageview_græslvl2" fitHeight="675.0" fitWidth="1066.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../græs_layers/SHOP%20-%20GRÆSLEVEL%202.png" />
+            <Image url="@../../græs_layers/SHOP-GRÆSLEVEL_2.png" />
          </image>
       </ImageView>
       <ImageView fx:id="imageview_græslvl3" fitHeight="689.0" fitWidth="900.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../græs_layers/SHOP%20-%20GRÆSLEVEL%203.png" />
+            <Image url="@../../græs_layers/SHOP-GRÆSLEVEL_3.png" />
          </image>
       </ImageView>
       <ImageView fx:id="imageview_græslvl4" fitHeight="675.0" fitWidth="940.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../græs_layers/SHOP%20-%20GRÆSLEVEL%204.png" />
+            <Image url="@../../græs_layers/SHOP-GRÆSLEVEL_4.png" />
          </image>
       </ImageView>
       <ImageView fx:id="imageview_græslvl5" fitHeight="707.0" fitWidth="900.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../græs_layers/SHOP%20-%20GRÆSLEVEL%205.png" />
+            <Image url="@../../græs_layers/SHOP-GRÆSLEVEL_5.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="705.0" fitWidth="900.0" pickOnBounds="true" preserveRatio="true">

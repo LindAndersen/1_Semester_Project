@@ -13,32 +13,32 @@
    <children>
       <ImageView fx:id="imageview_grass5" fitHeight="675.0" fitWidth="931.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../græs_layers/SHOP%20-%20GRÆSLEVEL%205.png" />
+            <Image url="@../../græs_layers/SHOP-GRÆSLEVEL_5.png" />
          </image>
       </ImageView>
       <ImageView fx:id="imageview_grass4" fitHeight="675.0" fitWidth="1006.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../græs_layers/SHOP%20-%20GRÆSLEVEL%204.png" />
+            <Image url="@../../græs_layers/SHOP-GRÆSLEVEL_4.png" />
          </image>
       </ImageView>
       <ImageView fx:id="imageview_grass3" fitHeight="675.0" fitWidth="1064.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../græs_layers/SHOP%20-%20GRÆSLEVEL%203.png" />
+            <Image url="@../../græs_layers/SHOP-GRÆSLEVEL_3.png" />
          </image>
       </ImageView>
       <ImageView fx:id="imageview_grass2" fitHeight="675.0" fitWidth="979.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../græs_layers/SHOP%20-%20GRÆSLEVEL%202.png" />
+            <Image url="@../../græs_layers/SHOP-GRÆSLEVEL_2.png" />
          </image>
       </ImageView>
       <ImageView fx:id="imageview_grass1" fitHeight="732.0" fitWidth="900.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../græs_layers/SHOP%20-%20GRÆSLEVEL%201.png" />
+            <Image url="@../../græs_layers/SHOP-GRÆSLEVEL_1.png" />
          </image>
       </ImageView>
       <ImageView fx:id="imageview_grass0" fitHeight="675.0" fitWidth="908.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../græs_layers/SHOP%20-%20GRÆSLEVEL%200.png" />
+            <Image url="@../../græs_layers/SHOP-GRÆSLEVEL_0.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="675.0" fitWidth="900.0" layoutY="-2.0" pickOnBounds="true" preserveRatio="true">

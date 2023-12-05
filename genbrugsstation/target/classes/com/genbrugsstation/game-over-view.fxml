@@ -1,15 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextArea?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.genbrugsstation.GameOverController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="675.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.genbrugsstation.GameOverController">
    <children>
-      <Label layoutX="257.0" layoutY="37.0" text="game over" />
-      <Button fx:id="backToGameBtn" layoutX="241.0" layoutY="263.0" mnemonicParsing="false" onAction="#backToGamePressed" text="tilbage til spil" />
-      <Button fx:id="leaveSaveBtn" layoutX="229.0" layoutY="297.0" mnemonicParsing="false" onAction="#leaveSavePressed" text="gem og forlad spil" />
-      <TextArea fx:id="text" layoutX="19.0" layoutY="93.0" prefHeight="131.0" prefWidth="557.0" wrapText="true" />
+      <ImageView fitHeight="675.0" fitWidth="900.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../game_over.png" />
+         </image>
+      </ImageView>
+      <TextArea fx:id="text" blendMode="MULTIPLY" layoutX="93.0" layoutY="195.0" prefHeight="209.0" prefWidth="713.0" text="hello" wrapText="true">
+         <font>
+            <Font name="Courier New Bold" size="15.0" />
+         </font></TextArea>
+      <Button fx:id="backToGameBtn" layoutX="240.0" layoutY="436.0" mnemonicParsing="false" onAction="#backToGamePressed" opacity="0.0" prefHeight="91.0" prefWidth="414.0" text="tilbage til spil" />
+      <Button fx:id="leaveSaveBtn" layoutX="99.0" layoutY="550.0" mnemonicParsing="false" onAction="#leaveSavePressed" opacity="0.0" prefHeight="83.0" prefWidth="696.0" text="gem og forlad spil" />
    </children>
 </AnchorPane>

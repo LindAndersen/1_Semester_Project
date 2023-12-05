@@ -52,11 +52,7 @@ public class KontorController extends SharedGUIFunc {
     @FXML
     protected void menuBtnPressed(){
         System.out.println("menu åbner");
-        try {
-            Game.setRoot("default-menu-view");
-        } catch (IOException e) {
-            System.out.println(e.getMessage());
-        }
+        Game.setRoot("default-menu-view");
     }
 
     @FXML
@@ -66,11 +62,6 @@ public class KontorController extends SharedGUIFunc {
 
     @FXML
     protected void pcBtnPressed(){
-        try {
-            Game.setRoot("status-menu-view");
-        } catch (IOException e) {
-            System.out.println(e.getMessage());
-            e.printStackTrace();
-        }
+        Game.setRoot("status-menu-view");
     }
 }

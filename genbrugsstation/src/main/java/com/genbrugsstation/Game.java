@@ -27,13 +27,18 @@ public class Game extends Application {
   static String currentView;
   
     @Override
-    public void start(Stage stage) throws IOException {
-        currentView = "main-menu-view";
-        scene = new Scene(loadFXML(currentView));
-        Stagestore.stage = stage;
-        stage.setTitle("Main menu");
-        stage.setScene(scene);
-        stage.show();
+    public void start(Stage stage) {
+        try {
+            currentView = "main-menu-view";
+            scene = new Scene(loadFXML(currentView));
+            Stagestore.stage = stage;
+            stage.setTitle("Main menu");
+            stage.setScene(scene);
+            stage.show();
+        }catch(Exception e){
+            System.out.println(e.getMessage());
+            e.printStackTrace();
+        }
     }
 
     private static Parent loadFXML(String fxml) throws IOException {
@@ -41,7 +46,7 @@ public class Game extends Application {
         return fxmlLoader.load();
     }
 
-    public static void setRoot(String rootNode) throws IOException {
+    public static void setRoot(String rootNode) {
       prevView = currentView;
       Space[] loc = world.getLocations();
       String title = rootNode.split("-")[0];
@@ -52,16 +57,20 @@ public class Game extends Application {
             context.setCurrent(s);
           }
           currentView = rootNode;
-          //System.out.println("sætter current til "+ context.getCurrent().getName());
         }
       }
-      
-      scene = new Scene(loadFXML(rootNode));
-      Stagestore.stage.setScene(scene);
-      System.out.println(title);
-      Stagestore.stage.setTitle(title);
-      Stagestore.stage.centerOnScreen();
-      Stagestore.stage.show();
+
+      try {
+          scene = new Scene(loadFXML(rootNode));
+          Stagestore.stage.setScene(scene);
+          System.out.println(title);
+          Stagestore.stage.setTitle(title);
+          Stagestore.stage.centerOnScreen();
+          Stagestore.stage.show();
+      }catch (IOException e){
+          System.out.println(e.getMessage());
+          e.printStackTrace();
+      }
 
     }
 

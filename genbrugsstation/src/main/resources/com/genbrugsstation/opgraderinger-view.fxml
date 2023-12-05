@@ -11,7 +11,7 @@
    <children>
       <ImageView fitHeight="675.0" fitWidth="900.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../lolas%20vindue.png" />
+            <Image url="@../../lolas_vindue.png" />
          </image>
       </ImageView>
       <Button fx:id="cykelsti" layoutX="462.0" layoutY="133.0" mnemonicParsing="false" onAction="#onCykelstiButtonClick" text="Cykelsti" />
