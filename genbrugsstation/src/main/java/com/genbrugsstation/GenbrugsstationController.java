@@ -26,6 +26,7 @@ public class GenbrugsstationController extends SharedGUIFunc {
     private AnchorPane[] trashGUIelements;
     private Label[] trashGUIlabels;
 
+
     @FXML
     public void initialize() {
         trashGUIelements  = new AnchorPane[]{anchorpane_metalskrot, anchorpane_batterier, anchorpane_plastik};

@@ -20,7 +20,6 @@ public class ButikController extends SharedGUIFunc {
 
     @FXML
     private ImageView imageview_græslvl0, imageview_græslvl1, imageview_græslvl2, imageview_græslvl3, imageview_græslvl4, imageview_græslvl5;
-
     private ImageView[] grass;
 
     @FXML
@@ -103,6 +102,7 @@ public class ButikController extends SharedGUIFunc {
 
     private void updateSceneFromLevel() {
         int lvl = player.getLvl();
+
         for (int i = 0;i<grass.length;i++) {
             if (lvl == i) {
                 grass[i].setOpacity(1);
