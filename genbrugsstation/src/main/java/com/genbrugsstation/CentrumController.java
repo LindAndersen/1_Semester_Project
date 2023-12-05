@@ -20,18 +20,35 @@ public class CentrumController extends SharedGUIFunc {
     private ImageView imageview_billboard, imageview_busstoppested, imageview_parkeringshus, imageview_solceller;
     @FXML
     private AnchorPane anchorpane_flasker, anchorpane_aviser;
+    @FXML
+    private ImageView Level_bar0, Level_bar1, Level_bar2, Level_bar3, Level_bar4, Level_bar5;
 
     private AnchorPane[] trashGUIelements;
     private Label[] trashGUIlabels;
+    private ImageView[] levelbar;
+
 
     @FXML
     public void initialize() {
+        levelbar = new ImageView[]{Level_bar0, Level_bar1, Level_bar2, Level_bar3, Level_bar4, Level_bar5};
+
         trashGUIelements = new AnchorPane[] {anchorpane_flasker, anchorpane_aviser};
         trashGUIlabels = new Label[] {flasker_label, aviser_label};
         updateFeedback("Here you will get feedback", feedback_txtField);
         updateSceneFromUpgrades();
+        updateSceneFromLevel();
         updateTrash();
         makeTrashVisible(trashGUIelements, trashGUIlabels);
+    }
+    private void updateSceneFromLevel() {
+        int lvl = player.getLvl();
+        for (int i = 0;i<levelbar.length;i++) {
+            if (lvl == i) {
+                levelbar[i].setOpacity(1);
+            } else {
+                levelbar[i].setOpacity(0);
+            }
+        }
     }
 
     private void updateSceneFromUpgrades() {

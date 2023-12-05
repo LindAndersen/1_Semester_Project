@@ -24,12 +24,18 @@ public class VillakvarterController extends SharedGUIFunc {
     private AnchorPane anchorpane_aviser, anchorpane_flasker;
     @FXML
     private ImageView imageview_cykelsti, imageview_isolerendevinduer, imageview_motorvej, imageview_oliefyr;
+    @FXML
+    private ImageView Level_bar0, Level_bar1, Level_bar2, Level_bar3, Level_bar4, Level_bar5;
 
     private AnchorPane[] trashGUIelements;
     private Label[] trashGUIlabels;
+    private ImageView[] grass;
+    private ImageView[] levelbar;
 
     @FXML
     public void initialize() {
+        grass = new ImageView[] {imageview_grass0, imageview_grass1, imageview_grass2, imageview_grass3, imageview_grass4, imageview_grass5};
+        levelbar = new ImageView[]{Level_bar0, Level_bar1, Level_bar2, Level_bar3, Level_bar4, Level_bar5};
         trashGUIelements = new AnchorPane[] {anchorpane_flasker, anchorpane_aviser};
         trashGUIlabels = new Label[] {flasker_label, aviser_label};
         updateFeedback("Here you will get feedback", feedback_txtField);
@@ -41,13 +47,13 @@ public class VillakvarterController extends SharedGUIFunc {
 
     private void updateSceneFromLevel() {
         int lvl = player.getLvl();
-        ImageView[] grass = new ImageView[] {imageview_grass0, imageview_grass1, imageview_grass2, imageview_grass3, imageview_grass4, imageview_grass5};
-
         for (int i = 0;i<grass.length;i++) {
             if (lvl == i) {
                 grass[i].setOpacity(1);
+                levelbar[i].setOpacity(1);
             } else {
                 grass[i].setOpacity(0);
+                levelbar[i].setOpacity(0);
             }
         }
     }

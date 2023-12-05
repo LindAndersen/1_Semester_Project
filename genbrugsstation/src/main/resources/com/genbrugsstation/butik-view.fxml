@@ -55,7 +55,7 @@
             <Image url="@../../sign.png" />
          </image>
       </ImageView>
-      <StackPane layoutX="374.0" layoutY="-25.0" prefHeight="0.0" prefWidth="150.0">
+      <StackPane layoutX="369.0" layoutY="-33.0" prefHeight="0.0" prefWidth="150.0">
          <children>
             <ImageView fx:id="Level_bar0" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                <image>

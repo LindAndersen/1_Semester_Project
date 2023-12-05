@@ -51,6 +51,40 @@
             <Image url="@../../tandhjul.png" />
          </image>
       </ImageView>
+      <StackPane layoutX="369.0" layoutY="-33.0" prefHeight="0.0" prefWidth="150.0">
+         <children>
+            <ImageView fx:id="Level_bar0" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../LEVELBAR0.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="Level_bar1" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../LEVELBAR1.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="Level_bar2" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../LEVELBAR2.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="Level_bar3" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../LEVELBAR3.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="Level_bar4" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../LEVELBAR4.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="Level_bar5" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../LEVELBAR5.png" />
+               </image>
+            </ImageView>
+         </children>
+      </StackPane>
       <AnchorPane layoutX="-574.0" layoutY="-226.0">
          <children>
             <ImageView fitHeight="675.0" fitWidth="900.0" layoutX="574.0" layoutY="184.0" pickOnBounds="true" preserveRatio="true">

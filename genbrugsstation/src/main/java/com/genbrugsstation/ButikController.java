@@ -22,7 +22,6 @@ public class ButikController extends SharedGUIFunc {
 
     @FXML
     private ImageView imageview_græslvl0, imageview_græslvl1, imageview_græslvl2, imageview_græslvl3, imageview_græslvl4, imageview_græslvl5;
-    //ImageView; Level bars oppe i hjørnet
     @FXML
     private ImageView Level_bar0,Level_bar1, Level_bar2, Level_bar3, Level_bar4, Level_bar5;
 
@@ -46,7 +45,6 @@ public class ButikController extends SharedGUIFunc {
 
     private ImageView[] grass;
 
-    //array for level bars
     private ImageView[] levelbar;
 
     public static Map<String, Integer> getUpgradeIndexMap(){
@@ -115,7 +113,7 @@ public class ButikController extends SharedGUIFunc {
                 levelbar[i].setOpacity(1);
             } else {
                 grass[i].setOpacity(0);
-                levelbar[i].setOpacity(0);
+                levelbar[i].setOpacity(0);   
             }
         }
     }
