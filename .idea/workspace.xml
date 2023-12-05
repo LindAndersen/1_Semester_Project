@@ -5,47 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="abb656be-fdce-4243-8329-5728872c33d6" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/genbrugsstation/src/main/java/com/genbrugsstation/ButikController.java" beforeDir="false" afterPath="$PROJECT_DIR$/genbrugsstation/src/main/java/com/genbrugsstation/ButikController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/genbrugsstation/src/main/java/com/genbrugsstation/GenbrugsstationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/genbrugsstation/src/main/java/com/genbrugsstation/GenbrugsstationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/genbrugsstation/src/main/resources/com/genbrugsstation/butik-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/genbrugsstation/src/main/resources/com/genbrugsstation/butik-view.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/genbrugsstation/src/main/resources/com/genbrugsstation/genbrugsstation-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/genbrugsstation/src/main/resources/com/genbrugsstation/genbrugsstation-view.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/genbrugsstation/target/classes/com/genbrugsstation/Butik.class" beforeDir="false" afterPath="$PROJECT_DIR$/genbrugsstation/target/classes/com/genbrugsstation/Butik.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/genbrugsstation/target/classes/com/genbrugsstation/ButikController.class" beforeDir="false" afterPath="$PROJECT_DIR$/genbrugsstation/target/classes/com/genbrugsstation/ButikController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/genbrugsstation/target/classes/com/genbrugsstation/Butikdata.class" beforeDir="false" afterPath="$PROJECT_DIR$/genbrugsstation/target/classes/com/genbrugsstation/Butikdata.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/genbrugsstation/target/classes/com/genbrugsstation/Centrum.class" beforeDir="false" afterPath="$PROJECT_DIR$/genbrugsstation/target/classes/com/genbrugsstation/Centrum.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/genbrugsstation/target/classes/com/genbrugsstation/CentrumController.class" beforeDir="false" afterPath="$PROJECT_DIR$/genbrugsstation/target/classes/com/genbrugsstation/CentrumController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/genbrugsstation/target/classes/com/genbrugsstation/Context.class" beforeDir="false" afterPath="$PROJECT_DIR$/genbrugsstation/target/classes/com/genbrugsstation/Context.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/genbrugsstation/target/classes/com/genbrugsstation/DefaultSpace.class" beforeDir="false" afterPath="$PROJECT_DIR$/genbrugsstation/target/classes/com/genbrugsstation/DefaultSpace.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/genbrugsstation/target/classes/com/genbrugsstation/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/genbrugsstation/target/classes/com/genbrugsstation/Game.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/genbrugsstation/target/classes/com/genbrugsstation/GameOverController$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/genbrugsstation/target/classes/com/genbrugsstation/GameOverController$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/genbrugsstation/target/classes/com/genbrugsstation/GameOverController.class" beforeDir="false" afterPath="$PROJECT_DIR$/genbrugsstation/target/classes/com/genbrugsstation/GameOverController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/genbrugsstation/target/classes/com/genbrugsstation/Genbrugsstation.class" beforeDir="false" afterPath="$PROJECT_DIR$/genbrugsstation/target/classes/com/genbrugsstation/Genbrugsstation.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/genbrugsstation/target/classes/com/genbrugsstation/GenbrugsstationController.class" beforeDir="false" afterPath="$PROJECT_DIR$/genbrugsstation/target/classes/com/genbrugsstation/GenbrugsstationController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/genbrugsstation/target/classes/com/genbrugsstation/InsufficientTrashException.class" beforeDir="false" afterPath="$PROJECT_DIR$/genbrugsstation/target/classes/com/genbrugsstation/InsufficientTrashException.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/genbrugsstation/target/classes/com/genbrugsstation/Inventory.class" beforeDir="false" afterPath="$PROJECT_DIR$/genbrugsstation/target/classes/com/genbrugsstation/Inventory.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/genbrugsstation/target/classes/com/genbrugsstation/InventoryController.class" beforeDir="false" afterPath="$PROJECT_DIR$/genbrugsstation/target/classes/com/genbrugsstation/InventoryController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/genbrugsstation/target/classes/com/genbrugsstation/Kontor.class" beforeDir="false" afterPath="$PROJECT_DIR$/genbrugsstation/target/classes/com/genbrugsstation/Kontor.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/genbrugsstation/target/classes/com/genbrugsstation/KontorController.class" beforeDir="false" afterPath="$PROJECT_DIR$/genbrugsstation/target/classes/com/genbrugsstation/KontorController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/genbrugsstation/target/classes/com/genbrugsstation/MainMenuController$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/genbrugsstation/target/classes/com/genbrugsstation/MainMenuController$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/genbrugsstation/target/classes/com/genbrugsstation/MainMenuController.class" beforeDir="false" afterPath="$PROJECT_DIR$/genbrugsstation/target/classes/com/genbrugsstation/MainMenuController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/genbrugsstation/target/classes/com/genbrugsstation/Node.class" beforeDir="false" afterPath="$PROJECT_DIR$/genbrugsstation/target/classes/com/genbrugsstation/Node.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/genbrugsstation/target/classes/com/genbrugsstation/Park.class" beforeDir="false" afterPath="$PROJECT_DIR$/genbrugsstation/target/classes/com/genbrugsstation/Park.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/genbrugsstation/target/classes/com/genbrugsstation/ParkController.class" beforeDir="false" afterPath="$PROJECT_DIR$/genbrugsstation/target/classes/com/genbrugsstation/ParkController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/genbrugsstation/target/classes/com/genbrugsstation/Player.class" beforeDir="false" afterPath="$PROJECT_DIR$/genbrugsstation/target/classes/com/genbrugsstation/Player.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/genbrugsstation/target/classes/com/genbrugsstation/SharedGUIFunc.class" beforeDir="false" afterPath="$PROJECT_DIR$/genbrugsstation/target/classes/com/genbrugsstation/SharedGUIFunc.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/genbrugsstation/target/classes/com/genbrugsstation/Space.class" beforeDir="false" afterPath="$PROJECT_DIR$/genbrugsstation/target/classes/com/genbrugsstation/Space.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/genbrugsstation/target/classes/com/genbrugsstation/Stagestore.class" beforeDir="false" afterPath="$PROJECT_DIR$/genbrugsstation/target/classes/com/genbrugsstation/Stagestore.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/genbrugsstation/target/classes/com/genbrugsstation/StatusMenuController.class" beforeDir="false" afterPath="$PROJECT_DIR$/genbrugsstation/target/classes/com/genbrugsstation/StatusMenuController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/genbrugsstation/target/classes/com/genbrugsstation/Trash.class" beforeDir="false" afterPath="$PROJECT_DIR$/genbrugsstation/target/classes/com/genbrugsstation/Trash.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/genbrugsstation/target/classes/com/genbrugsstation/TrashNotFoundException.class" beforeDir="false" afterPath="$PROJECT_DIR$/genbrugsstation/target/classes/com/genbrugsstation/TrashNotFoundException.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/genbrugsstation/target/classes/com/genbrugsstation/Upgrades.class" beforeDir="false" afterPath="$PROJECT_DIR$/genbrugsstation/target/classes/com/genbrugsstation/Upgrades.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/genbrugsstation/target/classes/com/genbrugsstation/Villakvarter.class" beforeDir="false" afterPath="$PROJECT_DIR$/genbrugsstation/target/classes/com/genbrugsstation/Villakvarter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/genbrugsstation/target/classes/com/genbrugsstation/VillakvarterController.class" beforeDir="false" afterPath="$PROJECT_DIR$/genbrugsstation/target/classes/com/genbrugsstation/VillakvarterController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/genbrugsstation/target/classes/com/genbrugsstation/World.class" beforeDir="false" afterPath="$PROJECT_DIR$/genbrugsstation/target/classes/com/genbrugsstation/World.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/genbrugsstation/target/classes/com/genbrugsstation/butik-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/genbrugsstation/target/classes/com/genbrugsstation/butik-view.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/genbrugsstation/target/classes/com/genbrugsstation/genbrugsstation-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/genbrugsstation/target/classes/com/genbrugsstation/genbrugsstation-view.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/genbrugsstation/target/classes/module-info.class" beforeDir="false" afterPath="$PROJECT_DIR$/genbrugsstation/target/classes/module-info.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/genbrugsstation/src/main/java/com/genbrugsstation/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/genbrugsstation/src/main/java/com/genbrugsstation/Player.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,41 +32,26 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;Polished&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/kamma/OneDrive/Desktop/javafx-sdk-21.0.1&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.project.maven.importing&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "gui__main",
+    "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "C:/Users/kamma/OneDrive/Desktop/javafx-sdk-21.0.1",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "project.structure.last.edited": "Libraries",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "reference.settings.project.maven.importing",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
-  <component name="RunManager">
-    <configuration default="true" type="JetRunConfigurationType">
-      <module name="1_Semester_Project" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
-      <module name="1_Semester_Project" />
-      <option name="filePath" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-  </component>
+}]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -117,6 +63,7 @@
       <workItem from="1701680945395" duration="199000" />
       <workItem from="1701691776160" duration="1414000" />
       <workItem from="1701696424621" duration="3657000" />
+      <workItem from="1701774219670" duration="87000" />
     </task>
     <servers />
   </component>
