@@ -2,6 +2,7 @@ package com.genbrugsstation;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import java.io.IOException;
@@ -14,8 +15,10 @@ public class ButikController extends SharedGUIFunc {
     @FXML
     private Button cykelsti, solceller, filter, bus, vinduer, leg, motor, bill, farve, parkering, olie, bold, back;
     @FXML
-    private Label pengetext, xptext, upgrade1, upgrade2, upgrade3, upgrade4, upgrade5, upgrade6, lolatekst;
+    private Label velkomst, pengetext, xptext, upgrade1, upgrade2, upgrade3, upgrade4, upgrade5, upgrade6;
 
+    @FXML
+    private TextArea lolatekst;
     @FXML
     private ImageView imageview_græslvl0, imageview_græslvl1, imageview_græslvl2, imageview_græslvl3, imageview_græslvl4, imageview_græslvl5;
     @FXML
@@ -58,7 +61,6 @@ public class ButikController extends SharedGUIFunc {
             xptext.setText("Du har " + context.getPlayer().getXP() + " xp.");
 
             if (upgrade1 != null && upgrade2 != null && upgrade3 != null && upgrade4 != null && upgrade5 != null && upgrade6 != null){
-
                 updateupgradetext();
 
                 // Køre igennem et for loop for at se om den skal disable nogle buttons
@@ -195,8 +197,10 @@ public class ButikController extends SharedGUIFunc {
             updateupgradetext();
 
             //npc Lola siger køb-teksten
+            velkomst.setText("");
             lolatekst.setText(upgradeText);
         } else{
+            velkomst.setText("");
             lolatekst.setText("Du har desværre ikke råd til denne opgradering. :(");
         }
 
@@ -317,6 +321,7 @@ public class ButikController extends SharedGUIFunc {
 
     @FXML
     private void onInfoButtonOpgraderingClick() throws IOException {
+        velkomst.setText("");
         lolatekst.setText("Opgraderingerne er delt op i tiers fra 1 til 6. Du kan kun købe 1 opgradering fra hvert tier.");
     }
 
