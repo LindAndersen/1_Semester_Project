@@ -102,15 +102,20 @@ public class Game extends Application {
           System.out.printf("Will be stored at: %n%s%n", pathToSaves);
           FileOutputStream worldFile = new FileOutputStream(pathToSaves + "\\" + filename + "\\world.ser");
           FileOutputStream contextFile = new FileOutputStream(pathToSaves + "\\" + filename + "\\context.ser");
+          FileOutputStream butikdataFile = new FileOutputStream(pathToSaves + "\\" + filename + "\\butikdata.ser");
           ObjectOutputStream worldOut = new ObjectOutputStream(worldFile);
           ObjectOutputStream contextOut = new ObjectOutputStream(contextFile);
+          ObjectOutputStream butikdataOut = new ObjectOutputStream(butikdataFile);
 
-          worldOut.writeObject(world);
+          worldOut.writeObject(world);  
           contextOut.writeObject(context);
+          butikdataOut.writeObject(Butikdata.getUpgrades());
           worldOut.close();
           contextOut.close();
+          butikdataOut.close();
           worldFile.close();
           contextFile.close();
+          butikdataFile.close();
 
           System.out.printf("Completed save with name: %s%n", filename);
 
@@ -134,16 +139,20 @@ public class Game extends Application {
         String pathToSaves = System.getProperty("user.dir") + "\\saves";
         FileInputStream worldFile = new FileInputStream(pathToSaves + "\\" + saveName + "\\world.ser");
         FileInputStream contextFile = new FileInputStream(pathToSaves + "\\" + saveName + "\\context.ser");
+        FileInputStream butikdataFile = new FileInputStream(pathToSaves + "\\" + saveName + "\\butikdata.ser");
         try (ObjectInputStream worldIn = new ObjectInputStream(worldFile)) {
           try (ObjectInputStream contextIn = new ObjectInputStream(contextFile)) {
-            World loadedWorld = (World) worldIn.readObject();
-            Context loadedContext = (Context) contextIn.readObject();
+            try (ObjectInputStream butikdataIn = new ObjectInputStream(butikdataFile)) {
+              World loadedWorld = (World) worldIn.readObject();
+              Context loadedContext = (Context) contextIn.readObject();
+              String[] loadedButikdata = (String[]) butikdataIn.readObject();
 
-            //assertThat(context == loadedContext).isFalse()
+              //assertThat(context == loadedContext).isFalse()
 
-            world = loadedWorld;
-            context = loadedContext;
-
+              world = loadedWorld;
+              context = loadedContext;
+              Butikdata.setUpgrades(loadedButikdata);
+            }
           }
         }
         setRoot("kontor-view");

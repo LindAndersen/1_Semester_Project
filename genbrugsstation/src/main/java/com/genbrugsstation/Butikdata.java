@@ -18,6 +18,10 @@ class Butikdata {
         return upgrades;
     }
 
+    public static void setUpgrades(String[] upgrades) {
+        Butikdata.upgrades = upgrades;
+    }
+
     public static String getStringUpgrade(int index) {
         return upgrades[index];
     }

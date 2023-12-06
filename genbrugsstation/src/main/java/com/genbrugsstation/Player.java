@@ -5,11 +5,11 @@ import java.util.HashMap;
 
 class Player implements Serializable {
     private String name;
-    private static int xp;
-    private static int lvl;
-    private static int money;
-    private static Inventory inventory;
-    private static int buyCount;
+    private int xp;
+    private int lvl;
+    private int money;
+    private Inventory inventory;
+    private int buyCount;
 
     Player(String name) {
         this.name = name;
@@ -34,7 +34,7 @@ class Player implements Serializable {
     //adds XP
     private void addXP(int amount) {
         xp += amount;
-        lvl = getLvl();
+        updateLevel();
     }
 
     //adds money
@@ -70,10 +70,7 @@ class Player implements Serializable {
         return xp;
     }
 
-    public int getLvl() {
-        //Tjekker hvor meget xps værdi er og sætter lvl value efter det
-        int lvl = 0;
-
+    private void updateLevel() {
         if (99 < xp && xp < 200) {
             lvl = 1;
         } else if (199 < xp && xp < 300) {
@@ -85,7 +82,9 @@ class Player implements Serializable {
         } else if (499 < xp){
             lvl = 5; // Alt over 400 xp er level 5
         }
+    }
 
+    public int getLvl() {
         return lvl;
     }
 

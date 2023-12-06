@@ -8,7 +8,7 @@ class Context implements Serializable {
   private boolean firstTime = true;
   private static Space current;
   private boolean done = false;
-  private static Player player;
+  private Player player;
   private int dayCounter = 1;
 
   Context (Space node) {
