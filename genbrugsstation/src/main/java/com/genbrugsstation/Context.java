@@ -12,8 +12,8 @@ class Context implements Serializable {
 
   Context (Space node) {
     player  = new Player("Borgmester");
-    current = node;
     dayCounter = 1;
+    current = node;
   }
   
   public Space getCurrent() {
