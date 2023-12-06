@@ -11,7 +11,7 @@ class Player implements Serializable {
     private static Inventory inventory;
     private static int buyCount;
 
-    public Player(String name) {
+    Player(String name) {
         this.name = name;
         xp = 0;
         lvl = 0;
@@ -21,44 +21,38 @@ class Player implements Serializable {
         buyCount = 0;
     }
 
+    //buyCount holder styr på antal købte opgraderinger
     public int getBuyCount(){
         return buyCount;
     }
     
-    void addToInventory(String name, int amount) {
-        //calls an add-method in Inventory class
-        //System.out.printf("Du har tilføjet %d %s til din inventar%n", amount, name);
-        inventory.addItem(name, amount);
-    }
 
     public Inventory getInventory() {
         return inventory;
     }
 
-    //Setters and getters
-
     //adds XP
-    public void addXP(int amount) {
+    private void addXP(int amount) {
         xp += amount;
         lvl = getLvl();
     }
 
     //adds money
-    public void addMoney(int amount) {
+    private void addMoney(int amount) {
         if (amount > 0) {
             money += amount;
         }
     }
 
     //subtracts money. call canAfford() to check
-    public void subtractMoney(int amount) {
+    private void subtractMoney(int amount) {
         if (canAfford(amount)) {
             money -= amount;
         }
     }
 
     //returns true if player can afford buying an item with given price
-    public boolean canAfford(int price) {
+    private boolean canAfford(int price) {
         if (money >= price) {
             return true;
         } else {
@@ -67,6 +61,11 @@ class Player implements Serializable {
         }
     }
 
+    private void addToInventory(String name, int amount) {
+        //calls an add-method in Inventory class
+        //System.out.printf("Du har tilføjet %d %s til din inventar%n", amount, name);
+        inventory.addItem(name, amount);
+    }
     public int getXP() {
         return xp;
     }
@@ -90,7 +89,7 @@ class Player implements Serializable {
         return lvl;
     }
 
-    public int remainingXP() {
+    public int getRemainingXP() {
         int remaining = 0;
         switch (getLvl()) {
             case 1:
@@ -116,11 +115,13 @@ class Player implements Serializable {
         return money;
     }
 
-    public void emptyInventory() {
+    private void emptyInventory() {
         inventory = new Inventory();
         resetInventory();
     }
 
+    //nulstiller inventaret, da der ellers kommer fejl i inventar- og status-menu-view.
+    //de kan ikke vise en mængde på noget, der ikke eksisterer
     private void resetInventory(){
         inventory.addItem("flasker", 0);
         inventory.addItem("plastik", 0);
@@ -134,7 +135,7 @@ class Player implements Serializable {
 
     }
 
-    public int[] recycleGreen() {
+    int[] recycleGreen() {
         int amountOfTrash = getTrashAmount();
         int money = 3 * amountOfTrash;
         int xp = (int) (0.5 * amountOfTrash);
@@ -145,7 +146,7 @@ class Player implements Serializable {
         return moneyXP;
     }
 
-    public int[] recycleBad() {
+    int[] recycleBad() {
         int amountOfTrash = getTrashAmount();
         emptyInventory();
         int money = 7 * amountOfTrash;
@@ -156,7 +157,7 @@ class Player implements Serializable {
         return moneyXP;
     }
 
-    public boolean pickup(String name, int amount, Trash[] trash) throws TrashNotFoundException {
+    boolean pickup(String name, int amount, Trash[] trash) throws TrashNotFoundException {
         Context context = Game.getContext();
         boolean canPickup = context.getCurrent().subtractTrash(name, amount, trash);
 
@@ -169,7 +170,7 @@ class Player implements Serializable {
     }
 
 
-    public void buy(String s, Context context) {
+    void buy(String s, Context context) {
         Butik butik = (Butik) context.getCurrent();
         HashMap<Integer, Upgrades> upgrades = butik.getUpgrades();
 

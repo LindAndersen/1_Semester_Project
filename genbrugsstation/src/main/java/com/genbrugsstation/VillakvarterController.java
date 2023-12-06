@@ -3,14 +3,13 @@ package com.genbrugsstation;
 import java.io.IOException;
 
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
 
-public class VillakvarterController extends SharedGUIFunc {    
+public class VillakvarterController extends SharedGUIFunc {
     @FXML
     private Label aviser_label;
     @FXML
@@ -45,6 +44,7 @@ public class VillakvarterController extends SharedGUIFunc {
         makeTrashVisible(trashGUIelements, trashGUIlabels);
     }
 
+    //afgør hvilket græs-lag der skal vises, baseret på spillerens level
     private void updateSceneFromLevel() {
         int lvl = player.getLvl();
         for (int i = 0;i<grass.length;i++) {
@@ -58,6 +58,7 @@ public class VillakvarterController extends SharedGUIFunc {
         }
     }
 
+    //afgør hvordan scenen ser ud, baseret på de købte opgraderinger
     private void updateSceneFromUpgrades() {
         if (isUpgradeBought("Cykelsti")) {
             imageview_cykelsti.setOpacity(1);

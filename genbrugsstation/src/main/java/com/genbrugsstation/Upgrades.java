@@ -2,7 +2,7 @@ package com.genbrugsstation;
 
 import java.io.Serializable;
 
-public class Upgrades implements Serializable {
+class Upgrades implements Serializable {
     private String name;
     private int xp;
     private int price;
@@ -11,7 +11,7 @@ public class Upgrades implements Serializable {
     private int relatedUpgradeIndex;
 
 
-    public Upgrades(String name, int price, int xp, double modifier, String hint, int relatedUpgradeIndex){
+    Upgrades(String name, int price, int xp, double modifier, String hint, int relatedUpgradeIndex){
         this.name = name;
         this.price = price;
         this.xp = xp;

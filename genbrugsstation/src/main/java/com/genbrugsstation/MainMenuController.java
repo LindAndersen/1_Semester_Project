@@ -6,13 +6,9 @@ import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import javafx.scene.Parent;
 import javafx.scene.Node;
 import javafx.stage.Window;
 import javafx.stage.WindowEvent;
@@ -20,8 +16,6 @@ import javafx.stage.WindowEvent;
 
 public class MainMenuController extends SharedGUIFunc {
     private Stage stage;
-    private Scene scene;
-    private Parent root;
 
     @FXML
     private Button newGameBtn, leaveBtn, loadBtn, btn_savegame;
@@ -31,13 +25,14 @@ public class MainMenuController extends SharedGUIFunc {
     }
 
     @FXML
-    protected void newGameBtnPressed() throws IOException{
+    private void newGameBtnPressed() throws IOException{
         Game.newGame();
         setRootFromString("kontor-view");
     }
 
+    //lukker spillet ved tryk på "forlad"-knappen
     @FXML
-    protected void leaveBtnPressed(ActionEvent event){
+    private void leaveBtnPressed(ActionEvent event){
         try{
             EventHandler<WindowEvent> closeAll = new EventHandler<WindowEvent>() {
                 @Override

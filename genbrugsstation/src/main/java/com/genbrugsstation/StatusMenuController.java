@@ -5,15 +5,13 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
-import javafx.scene.Scene;
-import javafx.stage.Stage;
-import javafx.scene.Node;
-
 import java.io.IOException;
 import java.util.Map;
 
 
 public class StatusMenuController extends SharedGUIFunc {
+
+    //statusmenuen giver overblik over xp, level, mønter, dag og inventar
 
     @FXML
     private Label plastikNumber, flaskeNumber, batteriNumber, avisNumber, metalNumber;
@@ -45,7 +43,7 @@ public class StatusMenuController extends SharedGUIFunc {
     }
 
     @FXML
-    protected void backBtnPressed(ActionEvent event) throws IOException{
+    private void backBtnPressed(ActionEvent event) throws IOException{
         setRootFromString("kontor-view");
     }
 }

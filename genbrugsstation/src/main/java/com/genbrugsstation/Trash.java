@@ -7,7 +7,6 @@ class Trash implements Serializable {
     private String name;
     private double modifier = 1;
     private int amount;
-    //private static final long serialVersionUID = 6529685098267757693L;
 
     Trash(String name) {
         this.name = name;
@@ -32,7 +31,7 @@ class Trash implements Serializable {
 
     //Instead of printing not enough trash, we throw custom made exception "InsufficientTrashException"
     //This exception is caught in Space
-    public void subtractTrash(int amount) throws InsufficientTrashException {
+    void subtractTrash(int amount) throws InsufficientTrashException {
         if (this.amount < amount) { 
             throw new InsufficientTrashException("Du kan ikke samle så meget skrald op af denne type");
         }

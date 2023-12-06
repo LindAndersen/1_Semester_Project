@@ -5,7 +5,6 @@ import java.io.IOException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
 
@@ -14,9 +13,7 @@ import javafx.scene.text.Text;
 public class KontorController extends SharedGUIFunc {
 
     @FXML
-    private ImageView kontorImageView;
-    @FXML
-    private ImageView gearMenuImageView;
+    private ImageView kontorImageView, gearMenuImageView;
 
     @FXML
     private Button gearMenuBtn, pcBtn, sleepBtn;
@@ -32,27 +29,26 @@ public class KontorController extends SharedGUIFunc {
     }
 
     @FXML
-    protected void sleepBtnPressed(){
+    private void sleepBtnPressed(){
         updateFeedback("Du lægger dig til at sove og vågner klar til en ny dag", feedback_txtField);
         context.resetDay(world);
-        //System.out.println("du sover nu");
 
     }
 
     @FXML
-    protected void menuBtnPressed() {
-        System.out.println("menu åbner");
+    private void menuBtnPressed() {
         Game.setRoot("default-menu-view");
     }
 
 
     @FXML
-    protected void goBtnPressed(ActionEvent e) throws IOException {
+    private void goBtnPressed(ActionEvent e) throws IOException {
         setRootFromEvent(e);
     }
 
+    //åbner en statusmenu med oversigt over xp, level, penge og inventar
     @FXML
-    protected void pcBtnPressed() {
+    private void pcBtnPressed() {
         Game.setRoot("status-menu-view");
     }
 

@@ -3,9 +3,9 @@ package com.genbrugsstation;
 import java.io.IOException;
 
 import javafx.event.Event;
+import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
@@ -33,7 +33,7 @@ public class SharedGUIFunc {
 
     //pickup buttons Id is "pickup_1_%type of trash%", so elm[2] represents type of trash
     //player.pickup returns true if pickup was succesfull and feedback is updated
-    public static String pickup(Event event) throws TrashNotFoundException {
+    static String pickup(Event event) throws TrashNotFoundException {
         String cmd = ((Button)event.getSource()).getId().replace("_", " ");
         String[] elm = cmd.split(" ");
 
@@ -48,24 +48,23 @@ public class SharedGUIFunc {
         for (int i = 0; i<trash.length;i++) {
             update[i] = Integer.toString(trash[i].getAmount());
         }
-
         return update;
     }
 
-    public void showInventory() throws IOException {
+    @FXML
+    void showInventory() throws IOException {
         setRootFromString("inventory-view");
     }
 
-    public boolean isUpgradeBought(String name) {
+    boolean isUpgradeBought(String name) {
         for(String u : Butikdata.getUpgrades()) {
             if (u.equals(name)) {return true;}
         }
-
         return false;
     }
 
-    //Makes trash label opacity 1 if trashAmount != 0, otherwise opa=0
-    public void makeTrashVisible(AnchorPane[] trashGUIelements, Label[] trashGUIlabels) {
+    //Makes trash label opacity 1 if trashAmount != 0, otherwise opacity=0
+    void makeTrashVisible(AnchorPane[] trashGUIelements, Label[] trashGUIlabels) {
         if (trashGUIelements.length != trashGUIlabels.length){
             System.out.println("Not equal amounts of trash and labels");
             return;
@@ -76,7 +75,7 @@ public class SharedGUIFunc {
         }
     }
 
-    //Makes trash label opacity 1 if trashAmount != 0, otherwise opa=0
+    //Makes trash label opacity 1 if trashAmount != 0, otherwise opacity=0
     public void setTrashVisibility(AnchorPane[] trashGUIelements, String[] update) {
         for (int i = 0;i<trashGUIelements.length;i++) {
             if (update[i].equals("0")) {
@@ -86,7 +85,7 @@ public class SharedGUIFunc {
     }
 
     //updates feedback and here feedback style can be set
-    public void updateFeedback(String feedback, Text feedback_txtField) {
+    void updateFeedback(String feedback, Text feedback_txtField) {
         feedback_txtField.setText(feedback);
         feedback_txtField.setFill(Color.rgb(84,47,19));
         feedback_txtField.setFont(Font.font("Rockwell", 24));

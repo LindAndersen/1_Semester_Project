@@ -127,7 +127,7 @@
          <children>
             <ImageView fitHeight="150.0" fitWidth="900.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../Chatbox%20brun!.png" />
+                  <Image url="@../../chatbox_brun.png" />
                </image>
             </ImageView>
             <Text fx:id="feedback_txtField" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-fill: white;" textAlignment="CENTER" wrappingWidth="850.13671875">

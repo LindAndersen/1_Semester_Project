@@ -3,7 +3,6 @@ package com.genbrugsstation;
 import java.io.IOException;
 
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -44,6 +43,7 @@ public class ParkController extends SharedGUIFunc {
         makeTrashVisible(trashGUIelements, trashGUIlabels);
     }
 
+    //afgør hvilken level-bar der skal vises, baseret på spillerens level
     private void updateSceneFromLevel() {
         int lvl = player.getLvl();
         for (int i = 0;i<grass.length;i++) {
@@ -56,6 +56,9 @@ public class ParkController extends SharedGUIFunc {
             }
         }
     }
+
+
+    //afgør hvilken level-bar der skal vises, baseret på spillerens level
     private void updateSceneFromUpgrades() {
         if (isUpgradeBought("Filter i parksøen")) {
             imageview_filter.setOpacity(1);

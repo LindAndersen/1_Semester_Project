@@ -37,7 +37,6 @@ public class CentrumController extends SharedGUIFunc {
     @FXML
     public void initialize() {
         levelbar = new ImageView[]{Level_bar0, Level_bar1, Level_bar2, Level_bar3, Level_bar4, Level_bar5};
-
         trashGUIelements = new AnchorPane[] {anchorpane_flasker, anchorpane_aviser};
         trashGUIlabels = new Label[] {flasker_label, aviser_label};
         updateFeedback("Here you will get feedback", feedback_txtField);
@@ -46,6 +45,8 @@ public class CentrumController extends SharedGUIFunc {
         updateTrash();
         makeTrashVisible(trashGUIelements, trashGUIlabels);
     }
+
+    //afgør hvilken level-bar der skal vises, baseret på spillerens level
     private void updateSceneFromLevel() {
         int lvl = player.getLvl();
         for (int i = 0;i<levelbar.length;i++) {

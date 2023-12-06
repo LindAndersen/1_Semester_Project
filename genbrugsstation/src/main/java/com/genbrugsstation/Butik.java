@@ -1,31 +1,25 @@
 package com.genbrugsstation;
 
-import java.util.Map;
 import java.util.HashMap;
-import java.util.Set;
 
-public class Butik extends Space {
+class Butik extends Space {
 
     private static HashMap<Integer, Upgrades> upgrades;
-    private String[] commands = {"exit", "go", "help", "buy", "reset"};
-    private boolean isHandled;
     private HashMap<Integer, Upgrades> allUpgrades;
 
-    public Butik(String name) {
+     Butik(String name) {
         super(name);
         allUpgrades = new HashMap<Integer, Upgrades>();
         upgrades = new HashMap<Integer, Upgrades>();
         initUpgrades(allUpgrades);
         initUpgrades(upgrades);
-        this.isHandled = super.getHandled();
-    }
+     }
 
     @Override
     public void welcome() {
-        makeHandled();
     }
 
-    public void firstDayWelcome() {
+    private void firstDayWelcome() {
         System.out.println("\n_______________________________________________________");
         System.out.println("\n" + "Velkommen til shoppen! Butikkens udvalg er vist foroven.\n" +
                 "Her kan du få brugt mønter, som du får, når du genanvender skrald fra genbrugsstationen!\n" +
@@ -40,22 +34,6 @@ public class Butik extends Space {
 
     public HashMap<Integer, Upgrades> getUpgrades(){
         return upgrades;
-    }
-
-      @Override
-    public void makeHandled(){
-        isHandled = true;
-    }
-
-    @Override
-    public void undoHandled(){
-        isHandled = false;
-    }
-
-
-    @Override
-    public boolean getHandled(){
-        return isHandled;
     }
 
     private void initUpgrades(HashMap<Integer, Upgrades> hm){
@@ -154,6 +132,7 @@ public class Butik extends Space {
         }
     }
 
+    //henter et hint tilhørende en opgradering fra en key
     public static String getHints(int key){
         if (upgrades.containsKey(key)) {
             return upgrades.get(key).getHint();
@@ -162,16 +141,15 @@ public class Butik extends Space {
         }
     }
 
-    void removeUpgrade(int key) {
+    private void removeUpgrade(int key) {
         upgrades.remove(key);
     }
 
 
-    public void removeFromShop(Butik butik, Upgrades selectedUpgrade, int upgradeIndex){
-        //Determine the second upgrade to remove based on the selected upgrade.
+    void removeFromShop(Butik butik, Upgrades selectedUpgrade, int upgradeIndex){
+        //bestem den anden opgradering der skal fjernes, baseret på den valgte opgradering
         Player player = Game.getContext().getPlayer();
         int secondUpgradeToRemove = selectedUpgrade.getRelatedUpgradeIndex();
-//      printHint(butik, upgradeIndex);
 
         System.out.println("Du har købt upgraderingen " + selectedUpgrade.getName());
 
@@ -179,7 +157,7 @@ public class Butik extends Space {
 
         if (upgrades.containsKey(secondUpgradeToRemove)) {
             Upgrades relatedUpgrade = upgrades.get(secondUpgradeToRemove);
-            butik.removeUpgrade(secondUpgradeToRemove); // Remove the related second upgrade.
+            butik.removeUpgrade(secondUpgradeToRemove); // fjern den anden opgradering
             System.out.println("Du har også fjernet " + relatedUpgrade.getName() + " fra butikken.");
 
         } else {

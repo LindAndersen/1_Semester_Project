@@ -2,10 +2,8 @@ package com.genbrugsstation;
 
 
 class Kontor extends Space {
-    private boolean isHandled;
     Kontor(String name) {
         super(name);
-        isHandled = false;
     }
 
     void firstDayWelcome() {
@@ -16,21 +14,6 @@ class Kontor extends Space {
     }
     @Override
     public void welcome() {
-        makeHandled();
-    }
 
-    @Override
-    public void makeHandled(){
-        isHandled = true;
-    }
-
-    @Override
-    public void undoHandled(){
-        isHandled = false;
-    }
-
-    @Override
-    public boolean getHandled(){
-        return isHandled;
     }
 }
