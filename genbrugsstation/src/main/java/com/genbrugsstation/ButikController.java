@@ -22,7 +22,7 @@ public class ButikController extends SharedGUIFunc {
     private ImageView Level_bar0,Level_bar1, Level_bar2, Level_bar3, Level_bar4, Level_bar5;
 
     //Laver hashmap til at konvertere nummeret på opgraderingen til det tilsvarende upgradepar
-    private static final Map<String, Integer> upgradeIndexMap = new HashMap<>();
+    private static final HashMap<String, Integer> upgradeIndexMap = new HashMap<>();
 
     static {
         upgradeIndexMap.put("1", 0);
