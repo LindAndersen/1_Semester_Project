@@ -28,8 +28,19 @@ public class KontorController extends SharedGUIFunc {
 
     public void initialize(){
         world = Game.world;
+        updateWelcomeFromDay();
     }
 
+    @FXML
+    //Giver hints på dag 1
+    private void updateWelcomeFromDay() {
+        int day = context.getDay();
+        if (day == 1) {
+            HintDisplay.setOpacity(1);
+        } else {
+            HintDisplay.setOpacity(0);
+        }
+    }
     @FXML
     private void sleepBtnPressed(){
         updateFeedback("Du lægger dig til at sove og vågner klar til en ny dag", feedback_txtField);
