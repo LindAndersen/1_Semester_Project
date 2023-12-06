@@ -51,7 +51,7 @@
             <Image url="@../../tandhjul.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="HintDisplay" fitHeight="634.0" fitWidth="837.0" layoutX="-127.0" layoutY="141.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="HintDisplayGenbrug" fitHeight="634.0" fitWidth="837.0" layoutX="-127.0" layoutY="141.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../GenbrugsstationHINT.png" />
          </image>
@@ -95,7 +95,7 @@
             </ImageView>
          </children>
       </StackPane>
-      <AnchorPane layoutX="-574.0" layoutY="-226.0">
+      <AnchorPane layoutX="-579.0" layoutY="-206.0">
          <children>
             <ImageView fitHeight="675.0" fitWidth="900.0" layoutX="574.0" layoutY="184.0" pickOnBounds="true" preserveRatio="true">
                <image>

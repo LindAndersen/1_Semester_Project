@@ -26,5 +26,6 @@
       </ImageView>
       <Button fx:id="btn_recycle_1" layoutX="520.0" layoutY="195.0" mnemonicParsing="false" onMouseClicked="#recycle" opacity="0.0" prefHeight="111.0" prefWidth="165.0" text="Button" />
       <Button fx:id="btn_recycle_2" layoutX="266.0" layoutY="178.0" mnemonicParsing="false" onMouseClicked="#recycle" opacity="0.0" prefHeight="128.0" prefWidth="165.0" text="Button" />
+      <ImageView fx:id="HintDisplayGenbrug" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
    </children>
 </AnchorPane>
