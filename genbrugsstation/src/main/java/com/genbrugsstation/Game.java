@@ -10,7 +10,6 @@ import javafx.stage.Stage;
 
 public class Game extends Application {
   private Scene scene;
-  static DomainMain domain;
   
     @Override
     public void start(Stage stage) {
@@ -18,9 +17,14 @@ public class Game extends Application {
       SharedGUIFunc.setRootFromString("main-menu-view");
     }
 
-  public static void main (String[] args) {
-    domain = new DomainMain();
+  private static void newGame() {
+    DomainMain domain = new DomainMain();
     domain.newGame();
+    new SharedGUIFunc(domain);
+  }
+
+  public static void main (String[] args) {
+    newGame(); //Initializes a new DomainMain "domain" and runs domain.newGame()
     launch(); //launch runs start()
   }
 }

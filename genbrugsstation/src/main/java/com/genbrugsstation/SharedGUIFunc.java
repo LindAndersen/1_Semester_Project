@@ -18,11 +18,22 @@ import javafx.scene.text.Text;
 public class SharedGUIFunc {
     static String prevView = null;
     static String currentView = null;
-    static DomainMain domain = Game.domain;
+    static DomainMain domain = null;
     static Scene scene;
-    static Context context = domain.context;
-    World world = domain.world;
-    static Player player = context.getPlayer();
+    static Context context;
+    static World world;
+    static Player player;
+
+    SharedGUIFunc() {
+
+    }
+
+    SharedGUIFunc(DomainMain domain) {
+        SharedGUIFunc.domain = domain;
+        context = domain.getContext();
+        world = domain.world;
+        player = context.getPlayer();
+    }
 
 
     private static Parent loadFXML(String fxml) throws IOException {
@@ -34,13 +45,17 @@ public class SharedGUIFunc {
       prevView = currentView;
       Space[] loc = domain.world.getLocations();
       String title = rootNode.split("-")[0];
+      System.out.println("This is title from event: " + title.trim().toLowerCase());
       for(Space s : loc) {
+        System.out.println("Space[i]: " + s.getName().toLowerCase());
         if ((s.getName().toLowerCase()).equals(title.trim().toLowerCase())) {
-          domain.context.setCurrent(s);
+          domain.getContext().setCurrent(s);
           if((s.getName().trim().toLowerCase()).equals("butik") && (title.trim().toLowerCase().equals("opgraderinger"))){
-            domain.context.setCurrent(s);
+            domain.getContext().setCurrent(s);
           }
+          System.out.println("Setting root to: " + domain.getContext().getCurrent().getName());
           currentView = rootNode;
+          break;
         }
       }
 

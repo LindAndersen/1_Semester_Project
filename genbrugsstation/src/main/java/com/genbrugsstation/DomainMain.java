@@ -8,8 +8,8 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 
 public class DomainMain {
-  World    world;
-  Context  context;
+  static World    world;
+  static Context  context;
 
   DomainMain() {
     world = new World();

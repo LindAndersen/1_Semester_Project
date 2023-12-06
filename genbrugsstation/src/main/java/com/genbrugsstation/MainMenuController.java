@@ -70,6 +70,7 @@ public class MainMenuController extends SharedGUIFunc {
             // TODO Auto-generated catch block
             System.out.println("fuck me");
         }
+        setRootFromString("kontor-view");
     }
 
 }

@@ -14,6 +14,10 @@ public class Butikdata {
             " ", " ", " "
     };
 
+    Butikdata(String[] upgrades) {
+        Butikdata.upgrades = upgrades;
+    }
+
     public static String[] getUpgrades() {
         return upgrades;
     }
