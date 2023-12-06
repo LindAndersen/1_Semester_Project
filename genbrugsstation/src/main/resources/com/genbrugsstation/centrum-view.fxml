@@ -81,11 +81,6 @@
                   <Font size="24.0" />
                </font>
             </Text>
-            <Text fx:id="HintDisplay" fill="#322013" strokeType="OUTSIDE" strokeWidth="0.0" text="Velkommen til byens centrum, her er lidt beskidt for tiden, så kan du ikke give en hjælpende hånd og samle lidt skrald op." textAlignment="CENTER">
-               <font>
-                  <Font size="15.0" />
-               </font>
-            </Text>
          </children>
       </StackPane>
       <AnchorPane layoutX="-104.0" layoutY="-107.0">
