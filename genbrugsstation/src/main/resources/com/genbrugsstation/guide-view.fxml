@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane prefHeight="675.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.genbrugsstation.GuideController">
+   <children>
+      <Button fx:id="gearmenubtn" layoutX="460.0" layoutY="456.0" mnemonicParsing="false" onAction="#menubtnpressed" prefHeight="48.0" prefWidth="80.0" text="Button" />
+   </children>
+</AnchorPane>
