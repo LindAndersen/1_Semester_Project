@@ -29,10 +29,10 @@ public class Game extends Application {
     @Override
     public void start(Stage stage) {
         try {
-            currentView = "main-menu-view";
+            currentView = "guide-view";
             scene = new Scene(loadFXML(currentView));
             Stagestore.stage = stage;
-            stage.setTitle("Main menu");
+            stage.setTitle("Guide");
             stage.setScene(scene);
             stage.show();
         }catch(Exception e){

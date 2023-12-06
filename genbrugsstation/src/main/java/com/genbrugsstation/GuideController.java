@@ -3,12 +3,17 @@ package com.genbrugsstation;
 import javafx.application.Application;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
 public class GuideController extends SharedGUIFunc {
     private Stage stage;
 
-    private Button klikher, gearmenubtn;
+    @FXML
+    private Button gearmenubtn;
+
+    @FXML
+    private ImageView GuideMenu;
 
     public void initialize (){
 
@@ -16,7 +21,7 @@ public class GuideController extends SharedGUIFunc {
 
     @FXML
     private void menubtnpressed(){
-        Game.setRoot("default-menu-view");
+        Game.setRoot("main-menu-view");
     }
 
 
