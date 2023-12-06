@@ -81,11 +81,6 @@
                   <Font size="24.0" />
                </font>
             </Text>
-            <Text fx:id="HintDisplay" fill="#322013" strokeType="OUTSIDE" strokeWidth="0.0" text="Velkommen til byens centrum, her er lidt beskidt for tiden, så kan du ikke give en hjælpende hånd og samle lidt skrald op." textAlignment="CENTER">
-               <font>
-                  <Font size="15.0" />
-               </font>
-            </Text>
          </children>
       </StackPane>
       <AnchorPane layoutX="-104.0" layoutY="-107.0">
@@ -130,6 +125,11 @@
                   </Label>
                </children>
             </AnchorPane>
+            <ImageView fx:id="HintDisplay" fitHeight="200.0" fitWidth="204.0" layoutX="107.0" layoutY="535.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../inventory.png" />
+               </image>
+            </ImageView>
          </children>
       </AnchorPane>
       <AnchorPane layoutX="10.0" layoutY="7.0">

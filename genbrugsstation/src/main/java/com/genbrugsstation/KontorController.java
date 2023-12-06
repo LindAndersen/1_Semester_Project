@@ -11,6 +11,8 @@ import javafx.scene.text.Text;
 
 
 public class KontorController extends SharedGUIFunc {
+    @FXML
+    private ImageView HintDisplay;
 
     @FXML
     private ImageView kontorImageView, gearMenuImageView;
@@ -34,6 +36,7 @@ public class KontorController extends SharedGUIFunc {
         context.resetDay(world);
 
     }
+    //Giver hints på dag 1
 
     @FXML
     private void menuBtnPressed() {

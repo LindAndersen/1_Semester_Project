@@ -125,6 +125,11 @@
                   </Label>
                </children>
             </AnchorPane>
+            <ImageView fx:id="HintDisplay" fitHeight="200.0" fitWidth="204.0" layoutX="107.0" layoutY="535.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../inventory.png" />
+               </image>
+            </ImageView>
          </children>
       </AnchorPane>
       <AnchorPane layoutX="10.0" layoutY="7.0">

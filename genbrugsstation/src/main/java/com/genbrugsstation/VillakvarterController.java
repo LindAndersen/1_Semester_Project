@@ -11,6 +11,8 @@ import javafx.scene.text.Text;
 
 public class VillakvarterController extends SharedGUIFunc {
     @FXML
+    private ImageView HintDisplay;
+    @FXML
     private Label aviser_label;
     @FXML
     private Label flasker_label;
@@ -42,6 +44,7 @@ public class VillakvarterController extends SharedGUIFunc {
         updateSceneFromUpgrades();
         updateSceneFromLevel();
         makeTrashVisible(trashGUIelements, trashGUIlabels);
+
     }
 
     //afgør hvilket græs-lag der skal vises, baseret på spillerens level
@@ -57,6 +60,7 @@ public class VillakvarterController extends SharedGUIFunc {
             }
         }
     }
+    //Giver hints på dag 1
 
     //afgør hvordan scenen ser ud, baseret på de købte opgraderinger
     private void updateSceneFromUpgrades() {

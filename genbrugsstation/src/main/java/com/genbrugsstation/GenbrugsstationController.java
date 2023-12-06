@@ -12,6 +12,8 @@ import javafx.scene.text.Text;
 
 public class GenbrugsstationController extends SharedGUIFunc {
     @FXML
+    private ImageView HintDisplay;
+    @FXML
     private Label metalskrot_label, batterier_label, plastik_label;
     @FXML
     private AnchorPane anchorpane_plastik, anchorpane_metalskrot, anchorpane_batterier;
@@ -30,6 +32,8 @@ public class GenbrugsstationController extends SharedGUIFunc {
     private ImageView[] grass;
     private ImageView[] levelbar;
 
+
+
     //This controller is used by both genbrugsstation-view and genbrugsstationRecycle-view
     //For this reason checks are implemented in initialize() to check if grass and trash exists, if they do update them
     //Feedback Text object is present in both .fxml files, so we can update without checks
@@ -44,6 +48,7 @@ public class GenbrugsstationController extends SharedGUIFunc {
         if (!(imageview_græslvl1 == null)) {updateSceneFromLevel();}
         if (!(metalskrot_label == null)) {updateTrash();makeTrashVisible(trashGUIelements, trashGUIlabels);}
         updateFeedback("Here you will get feedback", feedback_txtField);
+
     }
 
     //Loops over all grass ImageViews to set only one of them corresponding with lvl to opacity=1, rest will be set to opacity=0

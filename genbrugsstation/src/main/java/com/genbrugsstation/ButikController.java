@@ -10,7 +10,8 @@ import java.util.Map;
 import javafx.scene.control.Button;
 
 public class ButikController extends SharedGUIFunc {
-
+    @FXML
+    private ImageView HintDisplay;
     @FXML
     private Button cykelsti, solceller, filter, bus, vinduer, leg, motor, bill, farve, parkering, olie, bold, back;
     @FXML

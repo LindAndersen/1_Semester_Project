@@ -11,6 +11,9 @@ import javafx.scene.text.Text;
 
 public class ParkController extends SharedGUIFunc {
     @FXML
+    private ImageView HintDisplay;
+
+    @FXML
     private Label aviser_label, flasker_label;
     
     @FXML
@@ -41,6 +44,7 @@ public class ParkController extends SharedGUIFunc {
         updateSceneFromUpgrades();
         updateSceneFromLevel();
         makeTrashVisible(trashGUIelements, trashGUIlabels);
+
     }
 
     //afgør hvilken level-bar der skal vises, baseret på spillerens level
@@ -56,6 +60,7 @@ public class ParkController extends SharedGUIFunc {
             }
         }
     }
+    //Giver hints på dag 1
 
 
     //afgør hvilken level-bar der skal vises, baseret på spillerens level
