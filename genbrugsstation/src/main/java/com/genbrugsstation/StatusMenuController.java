@@ -28,8 +28,7 @@ public class StatusMenuController extends SharedGUIFunc {
     }
 
     private void updateLabels(){
-        Map<String, Integer> items = Game.getContext().getPlayer().getInventory().getItems();
-        Player player = Game.getContext().getPlayer();
+        Map<String, Integer> items = player.getInventory().getItems();
         xpLabel.setText(Integer.toString(player.getXP()));
         coinLabel.setText(Integer.toString(player.getMoney()));
         lvlLabel.setText(Integer.toString(player.getLvl()));
