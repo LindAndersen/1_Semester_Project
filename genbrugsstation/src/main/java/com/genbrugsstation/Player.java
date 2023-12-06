@@ -25,6 +25,10 @@ class Player implements Serializable {
     public int getBuyCount(){
         return buyCount;
     }
+
+    public String getName() {
+        return name;
+    }
     
 
     public Inventory getInventory() {

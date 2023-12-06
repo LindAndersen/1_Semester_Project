@@ -110,6 +110,9 @@ public class Game extends Application {
           worldOut.writeObject(world);  
           contextOut.writeObject(context);
           butikdataOut.writeObject(Butikdata.getUpgrades());
+
+          contextOut.flush();
+          
           worldOut.close();
           contextOut.close();
           butikdataOut.close();
@@ -141,19 +144,25 @@ public class Game extends Application {
         FileInputStream contextFile = new FileInputStream(pathToSaves + "\\" + saveName + "\\context.ser");
         FileInputStream butikdataFile = new FileInputStream(pathToSaves + "\\" + saveName + "\\butikdata.ser");
         try (ObjectInputStream worldIn = new ObjectInputStream(worldFile)) {
-          try (ObjectInputStream contextIn = new ObjectInputStream(contextFile)) {
-            try (ObjectInputStream butikdataIn = new ObjectInputStream(butikdataFile)) {
-              World loadedWorld = (World) worldIn.readObject();
-              Context loadedContext = (Context) contextIn.readObject();
-              String[] loadedButikdata = (String[]) butikdataIn.readObject();
+          World loadedWorld = (World) worldIn.readObject();
+          world = loadedWorld;
+        }
+        try (ObjectInputStream contextIn = new ObjectInputStream(contextFile)) {
+          Context loadedContext = (Context) contextIn.readObject();
+          context = loadedContext;
 
-              //assertThat(context == loadedContext).isFalse()
+          // Access the Player and Inventory objects
+          Player player = context.getPlayer();
+          Inventory inventory = player.getInventory();
 
-              world = loadedWorld;
-              context = loadedContext;
-              Butikdata.setUpgrades(loadedButikdata);
-            }
-          }
+          // Print some information from the deserialized objects
+          System.out.println("Player Name: " + player.getName());
+          System.out.println("Player XP: " + player.getXP());
+          System.out.println("Inventory Items: " + inventory.getItems());
+        }
+        try (ObjectInputStream butikdataIn = new ObjectInputStream(butikdataFile)) {
+          String[] loadedButikdata = (String[]) butikdataIn.readObject();
+          Butikdata.setUpgrades(loadedButikdata);
         }
         setRoot("kontor-view");
       }

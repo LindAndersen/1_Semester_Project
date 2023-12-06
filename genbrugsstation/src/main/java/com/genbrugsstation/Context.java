@@ -7,13 +7,13 @@ import java.io.Serializable;
 class Context implements Serializable {
   private boolean firstTime = true;
   private static Space current;
-  private boolean done = false;
   private Player player;
-  private int dayCounter = 1;
+  private int dayCounter;
 
   Context (Space node) {
     player  = new Player("Borgmester");
     current = node;
+    dayCounter = 1;
   }
   
   public Space getCurrent() {
