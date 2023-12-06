@@ -26,6 +26,8 @@ public class CentrumController extends SharedGUIFunc {
     private AnchorPane[] trashGUIelements;
     private Label[] trashGUIlabels;
     private ImageView[] levelbar;
+    @FXML
+    private Text HintDisplay;
 
 
     // trashGUIelements -> contains all anchorpanes, which contains all elements (imageview, button, label) of trash
@@ -57,7 +59,15 @@ public class CentrumController extends SharedGUIFunc {
             }
         }
     }
-
+    //Giver hints på dag 1
+    private void updateWelcomeFromDay() {
+        int day = context.getDay();
+            if (day == 2) {
+                HintDisplay.setOpacity(1);
+            } else {
+                HintDisplay.setOpacity(0);
+            }
+    }
     // updateSceneFromUpgrades() handles the opacity of upgrade views to make sure bought upgrades are visible
     private void updateSceneFromUpgrades() {
         if (isUpgradeBought("Billboards")) {

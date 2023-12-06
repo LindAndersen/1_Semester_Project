@@ -5,19 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="82bd734e-6f6d-4fd3-8347-3a9c457dc41f" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/genbrugsstation/src/main/java/com/genbrugsstation/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/genbrugsstation/src/main/java/com/genbrugsstation/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/genbrugsstation/src/main/java/com/genbrugsstation/GuideController.java" beforeDir="false" afterPath="$PROJECT_DIR$/genbrugsstation/src/main/java/com/genbrugsstation/GuideController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/genbrugsstation/src/main/resources/com/genbrugsstation/guide-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/genbrugsstation/src/main/resources/com/genbrugsstation/guide-view.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/genbrugsstation/target/classes/com/genbrugsstation/Node.class" beforeDir="false" afterPath="$PROJECT_DIR$/genbrugsstation/target/classes/com/genbrugsstation/Node.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/genbrugsstation/target/classes/com/genbrugsstation/SharedGUIFunc.class" beforeDir="false" afterPath="$PROJECT_DIR$/genbrugsstation/target/classes/com/genbrugsstation/SharedGUIFunc.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/genbrugsstation/target/classes/com/genbrugsstation/Space.class" beforeDir="false" afterPath="$PROJECT_DIR$/genbrugsstation/target/classes/com/genbrugsstation/Space.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/genbrugsstation/src/main/java/com/genbrugsstation/CentrumController.java" beforeDir="false" afterPath="$PROJECT_DIR$/genbrugsstation/src/main/java/com/genbrugsstation/CentrumController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/genbrugsstation/src/main/resources/com/genbrugsstation/centrum-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/genbrugsstation/src/main/resources/com/genbrugsstation/centrum-view.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/genbrugsstation/target/classes/com/genbrugsstation/centrum-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/genbrugsstation/target/classes/com/genbrugsstation/centrum-view.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/genbrugsstation/target/classes/com/genbrugsstation/genbrugsstation-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/genbrugsstation/target/classes/com/genbrugsstation/genbrugsstation-view.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/genbrugsstation/target/classes/com/genbrugsstation/kontor-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/genbrugsstation/target/classes/com/genbrugsstation/kontor-view.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/genbrugsstation/target/classes/com/genbrugsstation/park-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/genbrugsstation/target/classes/com/genbrugsstation/park-view.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/genbrugsstation/target/classes/com/genbrugsstation/villakvarter-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/genbrugsstation/target/classes/com/genbrugsstation/villakvarter-view.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,7 +58,7 @@
       <option name="presentableId" value="Default" />
       <updated>1701858315346</updated>
       <workItem from="1701858319982" duration="1165000" />
-      <workItem from="1701859717604" duration="470000" />
+      <workItem from="1701859724946" duration="1846000" />
     </task>
     <servers />
   </component>
