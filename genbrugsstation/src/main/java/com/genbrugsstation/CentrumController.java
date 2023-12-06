@@ -65,7 +65,7 @@ public class CentrumController extends SharedGUIFunc {
     @FXML
     private void go(MouseEvent event) throws IOException {
         String location = getLocationFromEvent(event);
-        Game.setRoot(location);
+        setRoot(location);
     }
 
     @FXML

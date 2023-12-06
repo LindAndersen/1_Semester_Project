@@ -169,7 +169,6 @@ public class Butik extends Space {
 
     public void removeFromShop(Butik butik, Upgrades selectedUpgrade, int upgradeIndex){
         //Determine the second upgrade to remove based on the selected upgrade.
-        Player player = Game.getContext().getPlayer();
         int secondUpgradeToRemove = selectedUpgrade.getRelatedUpgradeIndex();
 //      printHint(butik, upgradeIndex);
 
@@ -185,9 +184,5 @@ public class Butik extends Space {
         } else {
             System.out.println("Error: Related upgrade not found.");
         }
-
-        System.out.println("\nDu har så mange mønter nu: " + player.getMoney());
-        System.out.println("Du har så meget xp nu: " + player.getXP() + "\n");
-
     }
 }

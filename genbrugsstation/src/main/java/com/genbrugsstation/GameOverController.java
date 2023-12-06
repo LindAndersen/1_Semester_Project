@@ -39,7 +39,7 @@ public class GameOverController extends SharedGUIFunc {
     }
 
     private void setTextField(){
-        Player player = Game.getContext().getPlayer();
+        Player player = context.getPlayer();
         Butik butik;
         String[] hints = {"hint 1", "hint 2", "hint 3", "hint 4", "hint 5", "hint 6"};
 
@@ -128,7 +128,7 @@ public class GameOverController extends SharedGUIFunc {
 
     @FXML
     protected void leaveSavePressed(ActionEvent event){
-        Game.save_game();
+        domain.save_game();
         try{
             EventHandler<WindowEvent> closeAll = new EventHandler<WindowEvent>() {
                 @Override

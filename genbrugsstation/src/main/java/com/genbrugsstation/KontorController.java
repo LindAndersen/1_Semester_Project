@@ -25,10 +25,7 @@ public class KontorController extends SharedGUIFunc {
     @FXML
     private Text feedback_txtField;
 
-    private static World world;
-
     public void initialize(){
-        world = Game.world;
     }
 
     @FXML
@@ -42,7 +39,7 @@ public class KontorController extends SharedGUIFunc {
     @FXML
     protected void menuBtnPressed() {
         System.out.println("menu åbner");
-        Game.setRoot("default-menu-view");
+        setRoot("default-menu-view");
     }
 
 
@@ -53,7 +50,7 @@ public class KontorController extends SharedGUIFunc {
 
     @FXML
     protected void pcBtnPressed() {
-        Game.setRoot("status-menu-view");
+        setRoot("status-menu-view");
     }
 
 }

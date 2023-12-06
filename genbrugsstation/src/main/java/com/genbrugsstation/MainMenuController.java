@@ -58,12 +58,18 @@ public class MainMenuController extends SharedGUIFunc {
 
     @FXML
     private void saveGame() {
-        Game.save_game();
+        domain.save_game();
     }
 
     @FXML
-    private void loadGame() throws ClassNotFoundException, IOException {
-        Game.load_game();
+    private void loadGame() throws IOException {
+        System.out.println("Fuck me first");
+        try {
+            domain.load_game();
+        } catch (Exception e) {
+            // TODO Auto-generated catch block
+            System.out.println("fuck me");
+        }
     }
 
 }

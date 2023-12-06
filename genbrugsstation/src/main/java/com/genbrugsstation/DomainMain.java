@@ -16,7 +16,6 @@ public class DomainMain {
     context = new Context(world.getEntry());
   }
 
-
   public void newGame() {
     world = new World();
     context = new Context(world.getEntry());

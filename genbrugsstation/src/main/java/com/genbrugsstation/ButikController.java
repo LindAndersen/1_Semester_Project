@@ -305,7 +305,7 @@ public class ButikController extends SharedGUIFunc {
     protected void onInfoButtonClick() throws IOException {
         System.out.println("menu åbner");
 
-        Game.setRoot("default-menu-view");
+        setRoot("default-menu-view");
     }
 
     @FXML

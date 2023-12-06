@@ -11,7 +11,7 @@ public class InventoryController extends SharedGUIFunc {
     private Text text_plastik, text_flasker, text_batterier, text_aviser, text_metalskrot;
 
     public void initialize() {
-        Map<String, Integer> items = Game.getContext().getPlayer().getInventory().getItems();
+        Map<String, Integer> items = player.getInventory().getItems();
         for (String t : items.keySet()) {
             String trashAmount = Integer.toString(items.get(t));
             switch (t) {
@@ -36,6 +36,6 @@ public class InventoryController extends SharedGUIFunc {
 
     @FXML
     public void go_back() throws IOException {
-        setRootFromString(Game.prevView);
+        setRootFromString(prevView);
     }
 }

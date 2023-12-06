@@ -1,8 +1,12 @@
 package com.genbrugsstation;
 
 import java.io.IOException;
+import java.util.Objects;
 
 import javafx.event.Event;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
@@ -12,8 +16,48 @@ import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 
 public class SharedGUIFunc {
-    static Context context = Game.getContext();
-    static Player player = Game.context.getPlayer();
+    static String prevView = null;
+    static String currentView = null;
+    static DomainMain domain = Game.domain;
+    static Scene scene;
+    static Context context = domain.context;
+    World world = domain.world;
+    static Player player = context.getPlayer();
+
+
+    private static Parent loadFXML(String fxml) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(Objects.requireNonNull(Game.class.getResource(fxml + ".fxml")));
+        return fxmlLoader.load();
+    }
+
+    public static void setRoot(String rootNode) {
+      prevView = currentView;
+      Space[] loc = domain.world.getLocations();
+      String title = rootNode.split("-")[0];
+      for(Space s : loc) {
+        if ((s.getName().toLowerCase()).equals(title.trim().toLowerCase())) {
+          domain.context.setCurrent(s);
+          if((s.getName().trim().toLowerCase()).equals("butik") && (title.trim().toLowerCase().equals("opgraderinger"))){
+            domain.context.setCurrent(s);
+          }
+          currentView = rootNode;
+        }
+      }
+
+      try {
+          scene = new Scene(loadFXML(rootNode));
+          Stagestore.stage.setScene(scene);
+          System.out.println(title);
+          Stagestore.stage.setTitle(title);
+          Stagestore.stage.centerOnScreen();
+          Stagestore.stage.show();
+      }catch (IOException e){
+          System.out.println(e.getMessage());
+          e.printStackTrace();
+      }
+
+    }
+
 
     //From event getId(), all go buttons that change view have id "go_%location%", so take the location and add "-view", to get name of proper .fxml file
     public String getLocationFromEvent(Event event) {
@@ -24,11 +68,11 @@ public class SharedGUIFunc {
 
     public void setRootFromEvent(Event event) throws IOException{
         String location = getLocationFromEvent(event);
-        Game.setRoot(location);
+        setRoot(location);
     }
 
-    public void setRootFromString(String root) {
-        Game.setRoot(root);
+    public static void setRootFromString(String root) {
+        setRoot(root);
     }
 
     //pickup buttons Id is "pickup_1_%type of trash%", so elm[2] represents type of trash
@@ -37,7 +81,7 @@ public class SharedGUIFunc {
         String cmd = ((Button)event.getSource()).getId().replace("_", " ");
         String[] elm = cmd.split(" ");
 
-        boolean didPickup = player.pickup(elm[2], 1, context.getCurrent().getTrash());
+        boolean didPickup = player.pickup(elm[2], 1, context.getCurrent().getTrash(), context);
         return (didPickup ? "Du har samlet 1 " + elm[2] + " op | " + player.getInventory().getItems().get(elm[2]) + " totalt" : "Ikke mere at samle op");
     }
 

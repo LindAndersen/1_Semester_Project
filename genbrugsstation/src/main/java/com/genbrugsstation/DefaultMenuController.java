@@ -51,12 +51,12 @@ public class DefaultMenuController extends SharedGUIFunc {
 
     @FXML
     private void saveGame() {
-        Game.save_game();
+        domain.save_game();
     }
     @FXML
     private void backBtn(){
         try {
-            Game.setRoot(Game.prevView);
+            setRoot(prevView);
         }catch(Exception e){
             System.out.println(e.getMessage());
         }

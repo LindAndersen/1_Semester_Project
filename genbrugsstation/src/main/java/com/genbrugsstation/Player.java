@@ -156,8 +156,7 @@ class Player implements Serializable {
         return moneyXP;
     }
 
-    public boolean pickup(String name, int amount, Trash[] trash) throws TrashNotFoundException {
-        Context context = Game.getContext();
+    public boolean pickup(String name, int amount, Trash[] trash, Context context) throws TrashNotFoundException {
         boolean canPickup = context.getCurrent().subtractTrash(name, amount, trash);
 
         if (canPickup) {
