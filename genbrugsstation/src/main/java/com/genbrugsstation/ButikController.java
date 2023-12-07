@@ -271,69 +271,69 @@ public class ButikController extends SharedGUIFunc {
     }
 
     @FXML
-    private void onVinduerButtonClick() throws IOException  {
+    private void onVinduerButtonClick() {
 
         upgradeButtonClick("7",vinduer,olie);
 
     }
 
     @FXML
-    private void onLegButtonClick() throws IOException  {
+    private void onLegButtonClick() {
 
         upgradeButtonClick("8",leg,bold);
 
     }
 
     @FXML
-    private void onMotorButtonClick() throws IOException  {
+    private void onMotorButtonClick() {
 
         upgradeButtonClick("2",motor,cykelsti);
 
     }
 
     @FXML
-    private void onBillButtonClick() throws IOException  {
+    private void onBillButtonClick() {
 
         upgradeButtonClick("3",bill,solceller);
 
     }
 
     @FXML
-    private void onFarveButtonClick() throws IOException  {
+    private void onFarveButtonClick() {
 
         upgradeButtonClick("9",farve,filter);
 
     }
 
     @FXML
-    private void onParkeringButtonClick() throws IOException  {
+    private void onParkeringButtonClick() {
 
         upgradeButtonClick("10",parkering,bus);
 
     }
 
     @FXML
-    private void onOlieButtonClick() throws IOException  {
+    private void onOlieButtonClick() {
 
         upgradeButtonClick("11",olie,vinduer);
 
     }
 
     @FXML
-    private void onBoldButtonClick() throws IOException  {
+    private void onBoldButtonClick() {
 
         upgradeButtonClick("12",bold,leg);
 
     }
     @FXML
-    private void onInfoButtonClick() throws IOException {
+    private void onInfoButtonClick() {
         System.out.println("menu åbner");
 
         Game.setRoot("default-menu-view");
     }
 
     @FXML
-    private void onInfoButtonOpgraderingClick() throws IOException {
+    private void onInfoButtonOpgraderingClick() {
         velkomst.setText("");
         lolatekst.setText("Opgraderingerne er delt op i tiers fra 1 til 6. Du kan kun købe 1 opgradering fra hvert tier.");
     }
