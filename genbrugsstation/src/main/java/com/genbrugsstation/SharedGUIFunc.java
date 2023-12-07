@@ -13,8 +13,15 @@ import javafx.scene.text.Text;
 
 public class SharedGUIFunc {
     static Context context = Game.getContext();
-    static Player player = context.getPlayer();
+    static Player player = (context != null ? context.getPlayer() : null);
 
+    static Context getContext() {
+        return context;
+    }
+
+    Player getPlayer() {
+        return player;
+    }
     //From event getId(), all go buttons that change view have id "go_%location%", so take the location and add "-view", to get name of proper .fxml file
     public String getLocationFromEvent(Event event) {
         String id = ((javafx.scene.Node)event.getSource()).getId();

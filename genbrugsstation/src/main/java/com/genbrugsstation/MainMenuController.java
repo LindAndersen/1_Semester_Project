@@ -55,7 +55,7 @@ public class MainMenuController extends SharedGUIFunc {
 
     @FXML
     private void saveGame() {
-        Game.save_game();
+        Game.save_game(context);
     }
 
     @FXML

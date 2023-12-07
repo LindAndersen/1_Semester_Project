@@ -30,8 +30,8 @@ public class KontorController extends SharedGUIFunc {
 
     @FXML
     private void sleepBtnPressed(){
-        updateFeedback("Du lægger dig til at sove og vågner klar til en ny dag", feedback_txtField);
         context.resetDay(world);
+        updateFeedback(String.format("Du lægger dig til at sove og vågner klar til dag nr. %d", context.getDay()), feedback_txtField);
 
     }
 

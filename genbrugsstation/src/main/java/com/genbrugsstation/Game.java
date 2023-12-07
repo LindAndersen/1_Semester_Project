@@ -90,7 +90,14 @@ public class Game extends Application {
 
   //Sets save folder name to "test"
   //Writes world and context to a file
-  static void save_game() {
+  static void save_game(Context contextFromShared) {
+    // System.out.println("Context from shared: " + contextFromShared.getDay());
+    // System.out.println("Player item amount from shared: " + contextFromShared.getPlayer().getTrashAmount());
+    // System.out.println("Context from game: " + context.getDay());
+    // System.out.println("Player item amount from game: " + context.getPlayer().getTrashAmount());
+
+    context = SharedGUIFunc.getContext();
+
     String filename = "test";
       try {
           //If parent folder "saves" to saves doesnt exist it will be created
@@ -149,7 +156,8 @@ public class Game extends Application {
         }
         try (ObjectInputStream contextIn = new ObjectInputStream(contextFile)) {
           Context loadedContext = (Context) contextIn.readObject();
-          context = loadedContext;
+          SharedGUIFunc.context = loadedContext;
+          SharedGUIFunc.player = loadedContext.getPlayer();
 
           // Access the Player and Inventory objects
           Player player = context.getPlayer();

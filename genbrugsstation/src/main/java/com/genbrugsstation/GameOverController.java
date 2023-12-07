@@ -128,7 +128,7 @@ public class GameOverController extends SharedGUIFunc {
 
     @FXML
     private void leaveSavePressed(ActionEvent event){
-        Game.save_game();
+        Game.save_game(context);
         try{
             EventHandler<WindowEvent> closeAll = new EventHandler<WindowEvent>() {
                 @Override

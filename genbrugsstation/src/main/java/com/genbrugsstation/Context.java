@@ -4,7 +4,7 @@ package com.genbrugsstation;
  */
 import java.io.Serializable;
 
-class Context implements Serializable {
+public class Context implements Serializable {
   private boolean firstTime = true;
   private static Space current;
   private Player player;
@@ -52,7 +52,7 @@ class Context implements Serializable {
     }
 
   public int getDay() {
-    return this.dayCounter;
+    return dayCounter;
   }
 
   public Player getPlayer() {
