@@ -12,7 +12,7 @@ import javafx.scene.text.Text;
 
 public class KontorController extends SharedGUIFunc {
     @FXML
-    private ImageView HintDisplay;
+    private ImageView HintDisplayKontor;
 
     @FXML
     private ImageView kontorImageView, gearMenuImageView;
@@ -36,9 +36,9 @@ public class KontorController extends SharedGUIFunc {
     private void updateWelcomeFromDay() {
         int day = context.getDay();
         if (day == 1) {
-            HintDisplay.setOpacity(1);
+            HintDisplayKontor.setOpacity(1);
         } else {
-            HintDisplay.setOpacity(0);
+            HintDisplayKontor.setOpacity(0);
         }
     }
     @FXML
