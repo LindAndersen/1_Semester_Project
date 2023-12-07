@@ -13,14 +13,6 @@ class Trash implements Serializable {
         setTrash();
     }
 
-    Trash(String name, int i) {
-        this.name = name;
-        //Default modifier is 1, the thought is to say amount * modifier to change the actual amount of trash
-        //Indirectly through the modifier
-        this.modifier = i;
-        setTrash();
-    }
-
     public String getName() {
         return name;
     }

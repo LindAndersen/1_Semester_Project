@@ -49,7 +49,7 @@ public class Game extends Application {
 
     //holder styr på lokationen ift. affald, og derefter loader den scene, der gives som
     //argument i metodekald
-    public static void setRoot(String rootNode) {
+    static void setRoot(String rootNode) {
       prevView = currentView;
       Space[] loc = world.getLocations();
       String title = rootNode.split("-")[0];

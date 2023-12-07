@@ -2,7 +2,7 @@ package com.genbrugsstation;
 
 class Genbrugsstation extends Space {
 
-    Trash[] trash;
+    private Trash[] trash;
  
     Genbrugsstation(String name) {
         super(name);

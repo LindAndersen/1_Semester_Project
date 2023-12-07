@@ -38,12 +38,12 @@ public class GameOverController extends SharedGUIFunc {
     }
 
     private void setTextField(){
-        Player player = Game.getContext().getPlayer();
+        Player player = context.getPlayer();
         Butik butik;
         String[] hints = new String[6];
 
         if(context.getCurrent() instanceof Butik) {
-            System.out.println("current navn: " + context.getCurrent().getName());
+//            System.out.println("current navn: " + context.getCurrent().getName());
             butik = (Butik) context.getCurrent();
             HashMap<Integer, Upgrades> allUpg = butik.getAllUpgrades();
             String[] upg = Butikdata.getUpgrades();
@@ -60,7 +60,7 @@ public class GameOverController extends SharedGUIFunc {
         //denne afhænger af spillerens level og hvilke opgraderinger, spilleren har købt
         switch (player.getLvl()){
             case 0:
-                text.setText("buhu u did bad");
+                text.setText("Buhu you did bad :(");
                 break;
             case 1:
                 text.setText("Du sluttede på level 1;\n" +

@@ -14,11 +14,11 @@ class Inventory implements Serializable {
 
     private Map<String, Integer> items;
 
-    public Inventory(){
+    Inventory(){
         items = new HashMap<>();
     }
 
-    public void addItem(String name, int amount) {
+    void addItem(String name, int amount) {
 
         items.put(name, getItemAmount(name) + amount);
     }

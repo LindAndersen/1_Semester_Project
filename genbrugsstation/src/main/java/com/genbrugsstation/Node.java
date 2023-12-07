@@ -19,16 +19,10 @@ class Node implements Serializable {
   public String getName () {
     return name;
   }
-  public Map<String, Node> getEdges(){
-    return edges;
-  }
-  
+
   void addEdge (String name, Node node) {
     edges.put(name, node);
   }
   
-  private Node followEdge (String direction) {
-    return edges.get(direction);
-  }
 }
 

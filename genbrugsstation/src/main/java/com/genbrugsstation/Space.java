@@ -26,7 +26,7 @@ package com.genbrugsstation;
 
 
   //SubtractTrash subtracts trash from room. Catches InsufficientTrashException 
-  public boolean subtractTrash(String name, int amount, Trash[] trash) throws TrashNotFoundException {
+  boolean subtractTrash(String name, int amount, Trash[] trash) throws TrashNotFoundException {
     for (Trash t : trash) {
         if (t.getName().equals(name)) {
             try {

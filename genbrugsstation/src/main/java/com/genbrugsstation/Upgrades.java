@@ -36,10 +36,6 @@ class Upgrades implements Serializable {
         return xp;
     }
 
-    public double getModifier(){
-        return modifier;
-    }
-
     public int getRelatedUpgradeIndex() {
         return relatedUpgradeIndex;
     }

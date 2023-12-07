@@ -60,7 +60,6 @@ class Player implements Serializable {
         if (money >= price) {
             return true;
         } else {
-            //System.out.println("Du har desværre ikke råd :(");
             return false;
         }
     }
@@ -84,11 +83,12 @@ class Player implements Serializable {
         } else if (399 < xp && xp < 500) {
             lvl = 4;
         } else if (499 < xp){
-            lvl = 5; // Alt over 400 xp er level 5
+            lvl = 5; // Alt over 499 xp er level 5
         }
     }
 
     public int getLvl() {
+        updateLevel();
         return lvl;
     }
 

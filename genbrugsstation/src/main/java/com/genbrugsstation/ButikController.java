@@ -146,11 +146,14 @@ public class ButikController extends SharedGUIFunc {
         String[] hints = new String[12];
 
         // for loop til at hente pris, xp, navn og hints på opgraderingerne
-        for (int i = 1; i <= 12; i++) {
-            prices[i - 1] = Butik.getUpgradePrice(i);
-            names[i - 1] = Butik.getUpgradeName(i);
-            xp[i - 1] = Butik.getUpgradeXp(i);
-            hints[i-1] = Butik.getHints(i);
+        if(context.getCurrent() instanceof Butik){
+            Butik butik = (Butik) context.getCurrent();
+            for (int i = 1; i <= 12; i++) {
+                prices[i - 1] = butik.getUpgradePrice(i);
+                names[i - 1] = butik.getUpgradeName(i);
+                xp[i - 1] = butik.getUpgradeXp(i);
+                hints[i-1] = butik.getHints(i);
+            }
         }
 
         String tillykke = "Tillykke du har købt opgraderingen ";
@@ -188,7 +191,7 @@ public class ButikController extends SharedGUIFunc {
 
             //tekst npc Lola skal sige, når man køber noget:
             String upgradeText = String.format(
-                    "%s%s til byen! %s Den kostede %d kr. og gav %d xp. Om %s: %s",
+                    "%s%s til byen! %s Den kostede %d kr. og gav %d xp. Om %s:\n%s",
                     tillykke, names[upgradeIndex], forklaring[upgradeIndex], prices[upgradeIndex], xp[upgradeIndex], names[upgradeIndex], hints[upgradeIndex]
             );
 
