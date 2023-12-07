@@ -91,11 +91,6 @@ public class Game extends Application {
   //Sets save folder name to "test"
   //Writes world and context to a file
   static void save_game(Context contextFromShared) {
-    // System.out.println("Context from shared: " + contextFromShared.getDay());
-    // System.out.println("Player item amount from shared: " + contextFromShared.getPlayer().getTrashAmount());
-    // System.out.println("Context from game: " + context.getDay());
-    // System.out.println("Player item amount from game: " + context.getPlayer().getTrashAmount());
-
     context = SharedGUIFunc.getContext();
 
     String filename = "test";
@@ -117,8 +112,6 @@ public class Game extends Application {
           worldOut.writeObject(world);  
           contextOut.writeObject(context);
           butikdataOut.writeObject(Butikdata.getUpgrades());
-
-          contextOut.flush();
           
           worldOut.close();
           contextOut.close();
@@ -158,15 +151,6 @@ public class Game extends Application {
           Context loadedContext = (Context) contextIn.readObject();
           SharedGUIFunc.context = loadedContext;
           SharedGUIFunc.player = loadedContext.getPlayer();
-
-          // Access the Player and Inventory objects
-          Player player = context.getPlayer();
-          Inventory inventory = player.getInventory();
-
-          // Print some information from the deserialized objects
-          System.out.println("Player Name: " + player.getName());
-          System.out.println("Player XP: " + player.getXP());
-          System.out.println("Inventory Items: " + inventory.getItems());
         }
         try (ObjectInputStream butikdataIn = new ObjectInputStream(butikdataFile)) {
           String[] loadedButikdata = (String[]) butikdataIn.readObject();
