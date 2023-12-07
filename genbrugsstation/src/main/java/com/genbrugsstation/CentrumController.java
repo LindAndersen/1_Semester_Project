@@ -47,7 +47,6 @@ public class CentrumController extends SharedGUIFunc {
         updateSceneFromLevel();
         updateTrash();
         makeTrashVisible(trashGUIelements, trashGUIlabels);
-        updateWelcomeFromDay();
     }
 
     //afgør hvilken level-bar der skal vises, baseret på spillerens level
@@ -60,15 +59,6 @@ public class CentrumController extends SharedGUIFunc {
                 levelbar[i].setOpacity(0);
             }
         }
-    }
-    //Giver hints på dag 1
-    private void updateWelcomeFromDay() {
-        int day = context.getDay();
-            if (day == 1) {
-                HintDisplay.setOpacity(1);
-            } else {
-                HintDisplay.setOpacity(0);
-            }
     }
     // updateSceneFromUpgrades() handles the opacity of upgrade views to make sure bought upgrades are visible
     private void updateSceneFromUpgrades() {

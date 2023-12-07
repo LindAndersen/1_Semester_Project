@@ -5,7 +5,6 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
 <AnchorPane prefHeight="675.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.genbrugsstation.GuideController">
    <children>
       <ImageView fx:id="GuideMenu" fitHeight="675.0" fitWidth="900.0" pickOnBounds="true" preserveRatio="true">
@@ -13,6 +12,6 @@
             <Image url="@../../Guidemenu.png" />
          </image>
       </ImageView>
-      <Button fx:id="gearmenubtn" layoutX="63.0" layoutY="607.0" mnemonicParsing="false" onAction="#menubtnpressed" opacity="0.0" prefHeight="48.0" prefWidth="772.0" text="Button" />
+      <Button fx:id="gearmenubtn" layoutX="20.0" layoutY="18.0" mnemonicParsing="false" onAction="#menubtnpressed" opacity="0.0" prefHeight="637.0" prefWidth="861.0" text="Button" />
    </children>
 </AnchorPane>

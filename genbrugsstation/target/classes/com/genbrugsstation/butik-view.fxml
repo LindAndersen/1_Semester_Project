@@ -60,6 +60,11 @@
             <Image url="@../../sign.png" />
          </image>
       </ImageView>
+      <ImageView fitHeight="387.0" fitWidth="377.0" layoutX="255.0" layoutY="149.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../Talkbubble.gif" />
+         </image>
+      </ImageView>
       <StackPane layoutX="369.0" layoutY="-33.0" prefHeight="0.0" prefWidth="150.0">
          <children>
             <ImageView fx:id="Level_bar0" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
