@@ -43,6 +43,7 @@ public class VillakvarterController extends SharedGUIFunc {
         updateTrash();
         updateSceneFromUpgrades();
         updateSceneFromLevel();
+        updateWelcomeFromDay();
         makeTrashVisible(trashGUIelements, trashGUIlabels);
 
     }
@@ -61,6 +62,14 @@ public class VillakvarterController extends SharedGUIFunc {
         }
     }
     //Giver hints på dag 1
+    private void updateWelcomeFromDay() {
+        int day = context.getDay();
+        if (day == 1) {
+            HintDisplay.setOpacity(1);
+        } else {
+            HintDisplay.setOpacity(0);
+        }
+    }
 
     //afgør hvordan scenen ser ud, baseret på de købte opgraderinger
     private void updateSceneFromUpgrades() {

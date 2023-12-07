@@ -101,6 +101,11 @@
       </StackPane>
       <AnchorPane layoutX="-8.0" layoutY="-6.0" prefHeight="675.0" prefWidth="979.0">
          <children>
+            <ImageView fx:id="HintDisplay" fitHeight="647.0" fitWidth="798.0" layoutX="-120.0" layoutY="187.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../GenerelHint.png" />
+               </image>
+            </ImageView>
             <ImageView fitHeight="675.0" fitWidth="900.0" layoutX="8.0" layoutY="-26.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../sign.png" />

@@ -32,7 +32,7 @@
       </ImageView>
       <ImageView fx:id="HintDisplay" fitHeight="534.0" fitWidth="621.0" layoutX="-90.0" layoutY="270.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../GenbrugsstationHINT.png" />
+            <Image url="@../../GenerelHint.png" />
          </image>
       </ImageView>
       <ImageView fx:id="imageview_solceller" fitHeight="675.0" fitWidth="900.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
