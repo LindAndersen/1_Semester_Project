@@ -5,16 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="82bd734e-6f6d-4fd3-8347-3a9c457dc41f" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/genbrugsstation/src/main/java/com/genbrugsstation/GenbrugsstationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/genbrugsstation/src/main/java/com/genbrugsstation/GenbrugsstationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/genbrugsstation/src/main/resources/com/genbrugsstation/genbrugsstation-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/genbrugsstation/src/main/resources/com/genbrugsstation/genbrugsstation-view.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/genbrugsstation/src/main/resources/com/genbrugsstation/genbrugsstationRecycle-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/genbrugsstation/src/main/resources/com/genbrugsstation/genbrugsstationRecycle-view.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/genbrugsstation/target/classes/com/genbrugsstation/genbrugsstationRecycle-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/genbrugsstation/target/classes/com/genbrugsstation/genbrugsstationRecycle-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/genbrugsstation/src/main/java/com/genbrugsstation/ButikController.java" beforeDir="false" afterPath="$PROJECT_DIR$/genbrugsstation/src/main/java/com/genbrugsstation/ButikController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/genbrugsstation/src/main/resources/com/genbrugsstation/butik-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/genbrugsstation/src/main/resources/com/genbrugsstation/butik-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/genbrugsstation/src/main/resources/com/genbrugsstation/opgraderinger-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/genbrugsstation/src/main/resources/com/genbrugsstation/opgraderinger-view.fxml" afterDir="false" />
     </list>
-    <list id="cb355906-82e5-49de-861f-e7863a03d2b9" name="Changes by Baumann" comment="">
-      <change beforePath="$PROJECT_DIR$/genbrugsstation/src/main/java/com/genbrugsstation/GenbrugsstationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/genbrugsstation/src/main/java/com/genbrugsstation/GenbrugsstationController.java" afterDir="false" />
-    </list>
+    <list id="cb355906-82e5-49de-861f-e7863a03d2b9" name="Changes by Baumann" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -31,17 +27,6 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="LineStatusTrackerManager">
-    <file path="$PROJECT_DIR$/genbrugsstation/src/main/java/com/genbrugsstation/GenbrugsstationController.java">
-      <ranges>
-        <range start1="13" end1="13" start2="13" end2="14" changelist="82bd734e-6f6d-4fd3-8347-3a9c457dc41f" />
-        <range start1="14" end1="15" start2="15" end2="16" changelist="82bd734e-6f6d-4fd3-8347-3a9c457dc41f" />
-        <range start1="44" end1="44" start2="45" end2="46" changelist="cb355906-82e5-49de-861f-e7863a03d2b9" />
-        <range start1="50" end1="50" start2="52" end2="55" changelist="82bd734e-6f6d-4fd3-8347-3a9c457dc41f" />
-        <range start1="66" end1="67" start2="71" end2="79" changelist="82bd734e-6f6d-4fd3-8347-3a9c457dc41f" />
-      </ranges>
-    </file>
-  </component>
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="CurrentFile" />
   </component>
@@ -54,21 +39,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "codeWithMe.voiceChat.enabledByDefault": "false",
-    "git-widget-placeholder": "Guide",
-    "ignore.virus.scanning.warn.message": "true",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;Guide&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">

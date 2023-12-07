@@ -11,7 +11,7 @@ import javafx.scene.control.Button;
 
 public class ButikController extends SharedGUIFunc {
     @FXML
-    private ImageView HintDisplay;
+    private ImageView HintDisplayButik;
     @FXML
     private Button cykelsti, solceller, filter, bus, vinduer, leg, motor, bill, farve, parkering, olie, bold, back;
     @FXML
@@ -51,6 +51,7 @@ public class ButikController extends SharedGUIFunc {
     // Initializere gui'en så den gemmer og sætter xp, Penge og købte opgraderingerne når man går ind i scenen fra en anden scene
     @FXML
     public void initialize(){
+        updateWelcomeFromDay();
         grass = new ImageView[] {imageview_græslvl0, imageview_græslvl1, imageview_græslvl2, imageview_græslvl3, imageview_græslvl4, imageview_græslvl5};
         levelbar = new ImageView[] {Level_bar0,Level_bar1, Level_bar2, Level_bar3, Level_bar4, Level_bar5};
 
@@ -116,6 +117,14 @@ public class ButikController extends SharedGUIFunc {
         }
     }
 
+    private void updateWelcomeFromDay() {
+        int day = context.getDay();
+        if (day == 1) {
+            HintDisplayButik.setOpacity(1);
+        } else {
+            HintDisplayButik.setOpacity(0);
+        }
+    }
     //metode til at disable 2 knapper - bruges efter køb af en opgradering,
     //hvor begge opgraderinger ikke længere er tilgængelige i butikken -
     //knapperne skal da ikke kunne clickes
