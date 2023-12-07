@@ -51,6 +51,16 @@
             <Image url="@../../tandhjul.png" />
          </image>
       </ImageView>
+      <ImageView fx:id="HintDisplayGenbrug" fitHeight="634.0" fitWidth="837.0" layoutX="-127.0" layoutY="141.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../GenbrugsstationHINT.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="talkbubble" fitHeight="666.0" fitWidth="403.0" layoutX="200.0" layoutY="-30.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../Talkbubble.gif" />
+         </image>
+      </ImageView>
       <StackPane layoutX="369.0" layoutY="-33.0" prefHeight="0.0" prefWidth="150.0">
          <children>
             <ImageView fx:id="Level_bar0" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
@@ -85,7 +95,7 @@
             </ImageView>
          </children>
       </StackPane>
-      <AnchorPane layoutX="-574.0" layoutY="-226.0">
+      <AnchorPane layoutX="-579.0" layoutY="-206.0">
          <children>
             <ImageView fitHeight="675.0" fitWidth="900.0" layoutX="574.0" layoutY="184.0" pickOnBounds="true" preserveRatio="true">
                <image>

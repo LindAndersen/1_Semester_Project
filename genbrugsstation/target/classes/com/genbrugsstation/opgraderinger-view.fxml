@@ -161,5 +161,6 @@
          </font>
       </Label>
       <TextArea fx:id="lolatekst" blendMode="MULTIPLY" editable="false" layoutX="372.0" layoutY="387.0" prefHeight="132.0" prefWidth="383.0" visible="true" wrapText="true" />
+      <ImageView fx:id="HintDisplayButik" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
    </children>
 </AnchorPane>

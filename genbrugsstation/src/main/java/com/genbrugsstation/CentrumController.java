@@ -27,6 +27,9 @@ public class CentrumController extends SharedGUIFunc {
     private Label[] trashGUIlabels;
     private ImageView[] levelbar;
 
+    @FXML
+    private ImageView HintDisplay;
+
 
     // trashGUIelements -> contains all anchorpanes, which contains all elements (imageview, button, label) of trash
     // trashGUIlabels -> the label for all trash is very the amount is present
@@ -44,6 +47,7 @@ public class CentrumController extends SharedGUIFunc {
         updateSceneFromLevel();
         updateTrash();
         makeTrashVisible(trashGUIelements, trashGUIlabels);
+        updateWelcomeFromDay();
     }
 
     //afgør hvilken level-bar der skal vises, baseret på spillerens level
@@ -57,7 +61,15 @@ public class CentrumController extends SharedGUIFunc {
             }
         }
     }
-
+    //Giver hints på dag 1
+    private void updateWelcomeFromDay() {
+        int day = context.getDay();
+            if (day == 1) {
+                HintDisplay.setOpacity(1);
+            } else {
+                HintDisplay.setOpacity(0);
+            }
+    }
     // updateSceneFromUpgrades() handles the opacity of upgrade views to make sure bought upgrades are visible
     private void updateSceneFromUpgrades() {
         if (isUpgradeBought("Billboards")) {

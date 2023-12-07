@@ -11,6 +11,8 @@ import javafx.scene.text.Text;
 
 
 public class KontorController extends SharedGUIFunc {
+    @FXML
+    private ImageView HintDisplayKontor;
 
     @FXML
     private ImageView kontorImageView, gearMenuImageView;
@@ -26,14 +28,26 @@ public class KontorController extends SharedGUIFunc {
 
     public void initialize(){
         world = Game.world;
+        updateWelcomeFromDay();
     }
 
+    @FXML
+    //Giver hints på dag 1
+    private void updateWelcomeFromDay() {
+        int day = context.getDay();
+        if (day == 1) {
+            HintDisplayKontor.setOpacity(1);
+        } else {
+            HintDisplayKontor.setOpacity(0);
+        }
+    }
     @FXML
     private void sleepBtnPressed(){
         context.resetDay(world);
         updateFeedback(String.format("Du lægger dig til at sove og vågner klar til dag nr. %d", context.getDay()), feedback_txtField);
 
     }
+    //Giver hints på dag 1
 
     @FXML
     private void menuBtnPressed() {

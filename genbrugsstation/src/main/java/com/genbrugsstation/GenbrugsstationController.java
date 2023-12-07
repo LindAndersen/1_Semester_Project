@@ -11,6 +11,9 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
 
 public class GenbrugsstationController extends SharedGUIFunc {
+
+    @FXML
+    public ImageView HintDisplayGenbrug;
     @FXML
     private Label metalskrot_label, batterier_label, plastik_label;
     @FXML
@@ -30,6 +33,8 @@ public class GenbrugsstationController extends SharedGUIFunc {
     private ImageView[] grass;
     private ImageView[] levelbar;
 
+
+
     //This controller is used by both genbrugsstation-view and genbrugsstationRecycle-view
     //For this reason checks are implemented in initialize() to check if grass and trash exists, if they do update them
     //Feedback Text object is present in both .fxml files, so we can update without checks
@@ -39,11 +44,16 @@ public class GenbrugsstationController extends SharedGUIFunc {
         grass = new ImageView[] {imageview_græslvl0, imageview_græslvl1, imageview_græslvl2, imageview_græslvl3, imageview_græslvl4, imageview_græslvl5};
         levelbar = new ImageView[] {Level_bar0,Level_bar1, Level_bar2, Level_bar3, Level_bar4, Level_bar5};
 
+
         trashGUIelements  = new AnchorPane[]{anchorpane_metalskrot, anchorpane_batterier, anchorpane_plastik};
         trashGUIlabels = new Label[] {metalskrot_label, batterier_label, plastik_label};
         if (!(imageview_græslvl1 == null)) {updateSceneFromLevel();}
         if (!(metalskrot_label == null)) {updateTrash();makeTrashVisible(trashGUIelements, trashGUIlabels);}
         updateFeedback("Here you will get feedback", feedback_txtField);
+        updateWelcomeFromDay();
+
+
+
     }
 
     //Loops over all grass ImageViews to set only one of them corresponding with lvl to opacity=1, rest will be set to opacity=0
@@ -59,7 +69,14 @@ public class GenbrugsstationController extends SharedGUIFunc {
             }
         }
     }
-
+    private void updateWelcomeFromDay() {
+        int day = context.getDay();
+        if (day == 1) {
+            HintDisplayGenbrug.setOpacity(1);
+        } else {
+            HintDisplayGenbrug.setOpacity(0);
+        }
+    }
     private void updateTrash() {
         String[] update = getTrashUpdate();
         setTrashVisibility(trashGUIelements, update);

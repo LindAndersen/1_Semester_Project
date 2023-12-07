@@ -50,6 +50,11 @@
             <Image url="@../../tandhjul.png" />
          </image>
       </ImageView>
+      <ImageView fx:id="HintDisplayButik" fitHeight="757.0" fitWidth="858.0" layoutX="-135.0" layoutY="140.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../ButikHINT.png" />
+         </image>
+      </ImageView>
       <ImageView fitHeight="675.0" fitWidth="900.0" layoutX="-7.0" layoutY="-44.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../sign.png" />
