@@ -164,8 +164,8 @@ class Player implements Serializable {
         boolean canPickup = Game.getContext().getCurrent().subtractTrash(name, amount, trash);
 
         if (canPickup) {
-            addToInventory(name, amount);
-            addXP((int)(0.5 * amount));
+            this.addToInventory(name, amount);
+            this.addXP((int)(0.5 * amount));
         }
 
         return canPickup;
