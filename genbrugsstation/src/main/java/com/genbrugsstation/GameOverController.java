@@ -61,7 +61,13 @@ public class GameOverController extends SharedGUIFunc {
         //denne afhænger af spillerens level og hvilke opgraderinger, spilleren har købt
         switch (player.getLvl()){
             case 0:
-                text.setText("Buhu you did bad :(");
+                text.setText("Du sluttede på level 0;\n\n" +
+                        "Suk... Det var slet ikke godt borgmester! "+
+                        "Du ramte desværre ikke plet med dine valg, og derfor har byens bæredygtighed ikke udviklet sig siden start!"+
+                        "Beboerne er skuffede, og håber på en grønnere dagsorden fremover! Men lad det ikke slå pusten af dig!"+
+                        "Nu har du lidt kendskab til opgraderingerne, og næste gang kan du måske gøre brug af bedre valg for byen! "+
+                        "Prøv igen, og bedre held med at udvikle byens bæredygtighed!\n\n"+
+                        arrayToString(hints));
                 break;
             case 1:
                 text.setText("Du sluttede på level 1;\n\n" +
